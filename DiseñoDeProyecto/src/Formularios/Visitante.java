@@ -1,13 +1,10 @@
 package Formularios;
+
 import java.awt.Color;
-import java.awt.Font; 
+import java.awt.Font;
 import AppPackage.AnimationClass;
- 
 import com.placeholder.PlaceHolder;
 import javax.swing.JOptionPane;
-import org.jdesktop.swingx.prompt.PromptSupport;
-
-
 
 public class Visitante extends javax.swing.JFrame {
 
@@ -24,16 +21,15 @@ public class Visitante extends javax.swing.JFrame {
         holder = new PlaceHolder(txtUsuario, "USUARIO O E-MAIL");
         holder = new PlaceHolder(txtContraseña, "CONTRASEÑA");
         this.lbOjo2.setVisible(false);
-        
+
         /*prueba*/
 //        PromptSupport.setPrompt("Escriba aqui", txtUsuario);
 //        PromptSupport.setPrompt("Contraseña", txtContraseña);
-        
         Font fuente = new Font("Arial Narrow", 3, 19);
         txtUsuario.setFont(fuente);
-        txtUsuario.setForeground(new java .awt.Color(26,99,66));
+        txtUsuario.setForeground(new java.awt.Color(26, 99, 66));
         txtContraseña.setFont(fuente);
-        txtContraseña.setForeground(new java.awt.Color(26,99,66));
+        txtContraseña.setForeground(new java.awt.Color(26, 99, 66));
     }
 
     @SuppressWarnings("unchecked")
@@ -42,13 +38,11 @@ public class Visitante extends javax.swing.JFrame {
 
         jpOpcion = new javax.swing.JPanel();
         btnEmpresa = new javax.swing.JButton();
-        btnAyuda = new javax.swing.JButton();
-        lbLista = new javax.swing.JLabel();
         btnAdolescente = new javax.swing.JButton();
         btnAdulto = new javax.swing.JButton();
-        lbRegistrarse = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
+        btnLista = new javax.swing.JButton();
+        btnAyuda = new javax.swing.JButton();
         jpVista = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         txtBuscar = new javax.swing.JTextField();
@@ -79,7 +73,7 @@ public class Visitante extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpOpcion.setBackground(new java.awt.Color(0, 0, 51));
-        jpOpcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(132, 206, 255), 2));
+        jpOpcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(132, 206, 255), 4));
         jpOpcion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnEmpresa.setBackground(new java.awt.Color(247, 211, 3));
@@ -96,41 +90,6 @@ public class Visitante extends javax.swing.JFrame {
         btnEmpresa.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnEmpresa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jpOpcion.add(btnEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-85, 150, 100, 90));
-
-        btnAyuda.setForeground(new java.awt.Color(251, 120, 32));
-        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ayuda_24.png"))); // NOI18N
-        btnAyuda.setBorder(null);
-        btnAyuda.setContentAreaFilled(false);
-        btnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAyuda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAyuda.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnAyuda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAyudaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAyudaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAyudaMouseExited(evt);
-            }
-        });
-        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAyudaActionPerformed(evt);
-            }
-        });
-        jpOpcion.add(btnAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 40, -1));
-
-        lbLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lista.png"))); // NOI18N
-        lbLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbLista.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbListaMouseClicked(evt);
-            }
-        });
-        jpOpcion.add(lbLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 50));
 
         btnAdolescente.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         btnAdolescente.setForeground(new java.awt.Color(255, 153, 0));
@@ -161,47 +120,66 @@ public class Visitante extends javax.swing.JFrame {
         btnAdulto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jpOpcion.add(btnAdulto, new org.netbeans.lib.awtextra.AbsoluteConstraints(-85, 250, 100, 90));
 
-        lbRegistrarse.setFont(new java.awt.Font("Arial Narrow", 1, 26)); // NOI18N
-        lbRegistrarse.setForeground(new java.awt.Color(132, 206, 255));
-        lbRegistrarse.setText("REGISTRARSE");
-        jpOpcion.add(lbRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 160, 30));
-
         jSeparator3.setForeground(new java.awt.Color(132, 206, 255));
-        jpOpcion.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 260, 20));
+        jpOpcion.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 220, 20));
 
-        jPanel2.setBackground(new java.awt.Color(132, 206, 255));
+        btnLista.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnLista.setForeground(new java.awt.Color(255, 255, 255));
+        btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_32_.png"))); // NOI18N
+        btnLista.setText("REGISTRAR");
+        btnLista.setBorder(null);
+        btnLista.setContentAreaFilled(false);
+        btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLista.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLista.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_32_.png"))); // NOI18N
+        btnLista.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_64_.png"))); // NOI18N
+        btnLista.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnLista.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnLista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnListaMouseClicked(evt);
+            }
+        });
+        btnLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaActionPerformed(evt);
+            }
+        });
+        jpOpcion.add(btnLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 190, 90));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 260, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        btnAyuda.setForeground(new java.awt.Color(251, 120, 32));
+        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ayuda_24.png"))); // NOI18N
+        btnAyuda.setBorder(null);
+        btnAyuda.setContentAreaFilled(false);
+        btnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAyuda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAyuda.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnAyuda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAyudaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAyudaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAyudaMouseExited(evt);
+            }
+        });
+        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAyudaActionPerformed(evt);
+            }
+        });
+        jpOpcion.add(btnAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 40, -1));
 
-        jpOpcion.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 260, 40));
-
-        getContentPane().add(jpOpcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 260, 530));
+        getContentPane().add(jpOpcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 230, 530));
 
         jpVista.setBackground(new java.awt.Color(0, 0, 51));
         jpVista.setForeground(new java.awt.Color(26, 99, 66));
         jpVista.setToolTipText("");
-
-        javax.swing.GroupLayout jpVistaLayout = new javax.swing.GroupLayout(jpVista);
-        jpVista.setLayout(jpVistaLayout);
-        jpVistaLayout.setHorizontalGroup(
-            jpVistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
-        );
-        jpVistaLayout.setVerticalGroup(
-            jpVistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jpVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 610, 530));
+        jpVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jpVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 640, 530));
 
         jPanel1.setBackground(new java.awt.Color(93, 0, 93));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -343,26 +321,6 @@ public class Visitante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAyudaActionPerformed
 
-    private void lbListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbListaMouseClicked
-        //---------------------->
-        AnimationClass empresa = new AnimationClass();
-        empresa.jButtonXRight(-85, 15, 10, 5, btnEmpresa);
-        AnimationClass adulto = new AnimationClass();
-        adulto.jButtonXRight(-85, 15, 20, 5, btnAdulto);
-        AnimationClass adolescente = new AnimationClass();
-        adolescente.jButtonXRight(-85, 15, 25, 5, btnAdolescente);
-
-        //<---------
-        AnimationClass empressa = new AnimationClass();
-        empressa.jButtonXLeft(15, -85, 25, 5, btnEmpresa);
-        AnimationClass adultoo = new AnimationClass();
-        adultoo.jButtonXLeft(15, -85, 20, 5, btnAdulto);
-        AnimationClass adolescentee = new AnimationClass();
-        adolescentee.jButtonXLeft(15, -85, 10, 5, btnAdolescente);
-
-
-    }//GEN-LAST:event_lbListaMouseClicked
-
     private void btnAyudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAyudaMouseEntered
 
     }//GEN-LAST:event_btnAyudaMouseEntered
@@ -398,15 +356,15 @@ public class Visitante extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAyudaMouseClicked
 
     private void lbOjo1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbOjo1MousePressed
-       lbOjo2.setVisible(true);
-       lbOjo1.setVisible(false);
-       txtContraseña.setEchoChar((char)0);
+        lbOjo2.setVisible(true);
+        lbOjo1.setVisible(false);
+        txtContraseña.setEchoChar((char) 0);
     }//GEN-LAST:event_lbOjo1MousePressed
 
     private void lbOjo2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbOjo2MousePressed
-       lbOjo1.setVisible(true);
-       lbOjo2.setVisible(false);
-       txtContraseña.setEchoChar('*');
+        lbOjo1.setVisible(true);
+        lbOjo2.setVisible(false);
+        txtContraseña.setEchoChar('*');
     }//GEN-LAST:event_lbOjo2MousePressed
 
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
@@ -423,6 +381,30 @@ public class Visitante extends javax.swing.JFrame {
 //           
 //       }
     }//GEN-LAST:event_txtContraseñaKeyTyped
+
+    private void btnListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnListaMouseClicked
+        //---------------------->
+        AnimationClass empresa = new AnimationClass();
+        empresa.jButtonXRight(-85, 70, 10, 5, btnEmpresa);
+        AnimationClass adulto = new AnimationClass();
+        adulto.jButtonXRight(-85, 70, 20, 5, btnAdulto);
+        AnimationClass adolescente = new AnimationClass();
+        adolescente.jButtonXRight(-85, 70, 25, 5, btnAdolescente);
+
+        //<---------
+        AnimationClass empressa = new AnimationClass();
+        empressa.jButtonXLeft(70, -85, 25, 5, btnEmpresa);
+        AnimationClass adultoo = new AnimationClass();
+        adultoo.jButtonXLeft(70, -85, 20, 5, btnAdulto);
+        AnimationClass adolescentee = new AnimationClass();
+        adolescentee.jButtonXLeft(70, -85, 10, 5, btnAdolescente);
+
+
+    }//GEN-LAST:event_btnListaMouseClicked
+
+    private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnListaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -466,6 +448,7 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEmpresa;
     private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnLista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -473,7 +456,6 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -484,11 +466,9 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JPanel jpOpcion;
     private javax.swing.JPanel jpVista;
-    private javax.swing.JLabel lbLista;
     private javax.swing.JLabel lbMinimizar;
     private javax.swing.JLabel lbOjo1;
     private javax.swing.JLabel lbOjo2;
-    private javax.swing.JLabel lbRegistrarse;
     private javax.swing.JPanel pnlSesion;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JPasswordField txtContraseña;
