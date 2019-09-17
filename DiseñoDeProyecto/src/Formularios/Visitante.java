@@ -1,4 +1,4 @@
-package FormularioVisitante;
+package Formularios;
 import java.awt.Color;
 import java.awt.Font; 
 import AppPackage.AnimationClass;
