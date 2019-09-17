@@ -17,7 +17,7 @@ public class conexionbd {
             con = DriverManager.getConnection(url, user, contraseña);
             System.out.println("conectado");
         } catch (Exception e) {
-            System.out.println("" + e);;
+            System.out.println("" + e); 
         }
 
         return con;

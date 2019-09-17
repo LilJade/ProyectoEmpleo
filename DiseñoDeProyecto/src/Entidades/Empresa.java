@@ -16,7 +16,7 @@ public class Empresa {
     byte imPerfil;
 
     public int getIdEmpresa() {
-        return idEmpresa;
+        return idEmpresa;//ella note ama
     }
 
     public void setIdEmpresa(int idEmpresa) {
