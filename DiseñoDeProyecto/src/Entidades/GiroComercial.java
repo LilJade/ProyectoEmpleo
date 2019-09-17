@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Entidades;
-
+//Comment
 /**freddy hago esto  hace sety get a esta clase 
  *
  * @author josue
