@@ -2,6 +2,7 @@ package Formularios;
 import java.awt.Color;
 import java.awt.Font; 
 import AppPackage.AnimationClass;
+ 
 import com.placeholder.PlaceHolder;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.prompt.PromptSupport;
