@@ -5,7 +5,7 @@
  */
 package Entidades;
 
-/**
+/**freddy set y get porfavor
  *
  * @author josue
  */

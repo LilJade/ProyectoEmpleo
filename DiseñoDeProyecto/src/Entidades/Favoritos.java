@@ -5,7 +5,7 @@
  */
 package Entidades;
 
-/** mi modo hace esto tambien marvin
+/** alexis porfavor hace esto 
  *
  * @author josue
  */

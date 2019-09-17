@@ -5,7 +5,7 @@
  */
 package Entidades;
 
-/**
+/**freddy hago esto  hace sety get a esta clase 
  *
  * @author josue
  */

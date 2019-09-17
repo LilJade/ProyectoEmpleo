@@ -5,7 +5,7 @@
  */
 package Entidades;
 
-/**
+/**esta es la ultima clase de entidades set y get que hara freddy
  *
  * @author josue
  */
