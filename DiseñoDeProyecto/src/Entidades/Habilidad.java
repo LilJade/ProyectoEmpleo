@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Entidades;
 
 /**freddy set y get porfavor
@@ -10,5 +6,38 @@ package Entidades;
  * @author josue
  */
 public class Habilidad {
+    
+ int idHabilidad, idTrabajador;
+ String habilidad;
+
+    public int getIdHabilidad() {
+        return idHabilidad;
+    }
+
+    public void setIdHabilidad(int idHabilidad) {
+        this.idHabilidad = idHabilidad;
+    }
+
+    public int getIdTrabajador() {
+        return idTrabajador;
+    }
+
+    public void setIdTrabajador(int idTrabajador) {
+        this.idTrabajador = idTrabajador;
+    }
+
+    public String getHabilidad() {
+        return habilidad;
+    }
+
+    public void setHabilidad(String habilidad) {
+        this.habilidad = habilidad;
+    }
+ 
+ 
+    
+    
+    
+    
     
 }

@@ -8,16 +8,16 @@ package Entidades;
  */
 public class Trabajador {
     
-  int id, edad;
+  int idTrabajador, edad;
   String nombres, apellidos, sexo, direccion, celular, telefonoFijo, dui, nit, correo, pass, descripcion;
   byte imgPerfil;
 
-    public int getId() {
-        return id;
+    public int getIdTrabajador() {
+        return idTrabajador;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdTrabajador(int idTrabajador) {
+        this.idTrabajador = idTrabajador;
     }
 
     public int getEdad() {
@@ -123,11 +123,7 @@ public class Trabajador {
     public void setImgPerfil(byte imgPerfil) {
         this.imgPerfil = imgPerfil;
     }
-    
-    
-    
-    
-    
-    
-    
+  
+  
+ 
 }
