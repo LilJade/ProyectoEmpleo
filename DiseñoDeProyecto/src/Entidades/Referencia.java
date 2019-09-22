@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Entidades;
 
-/**
- * esta es la ultima clase de entidades set y get que hara freddy
- *
- * @author josue
- */
 public class Referencia {
 
     int idreferencia;
+    String nombrereferente, apellidorefrente, empresareferente, cargoReferente, telefonoReferente, correoReferente;
 
     public int getIdreferencia() {
         return idreferencia;
@@ -69,6 +60,5 @@ public class Referencia {
     public void setCorreoReferente(String correoReferente) {
         this.correoReferente = correoReferente;
     }
-    String nombrereferente, apellidorefrente, empresareferente, cargoReferente, telefonoReferente, correoReferente;
 
 }

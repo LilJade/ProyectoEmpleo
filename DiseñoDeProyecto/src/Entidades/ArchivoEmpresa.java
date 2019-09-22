@@ -5,7 +5,7 @@ package Entidades;
 public class ArchivoEmpresa {
   int  idimagen ;
   byte archivo;
-int  idEmpresa;
+  int  idEmpresa;
 
     public int getIdimagen() {
         return idimagen;

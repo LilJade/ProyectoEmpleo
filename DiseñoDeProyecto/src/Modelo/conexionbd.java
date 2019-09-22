@@ -10,14 +10,14 @@ public class conexionbd {
 
     public Connection getconexion() {
         try {
-            String url = "jdbc:mysql://localhost:3306/nombre_basededatos";
+            String url = "jdbc:mysql://localhost:3306/ProyectoEmpleo";
             String user = "";
             String contraseña = "";
 
             con = DriverManager.getConnection(url, user, contraseña);
-            System.out.println("conectado");
+            //System.out.println("conectado");
         } catch (Exception e) {
-            System.out.println("" + e); 
+            System.out.println("Error en clase Conexion: " + e.getMessage()); 
         }
 
         return con;

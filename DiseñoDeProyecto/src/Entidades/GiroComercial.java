@@ -1,10 +1,5 @@
-
 package Entidades;
-//Comment
-/**freddy hago esto  hace sety get a esta clase 
- *
- * @author josue
- */
+
 public class GiroComercial {
     
  int idGiroComercial;

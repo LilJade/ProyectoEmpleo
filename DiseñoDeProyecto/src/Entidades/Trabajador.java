@@ -1,11 +1,5 @@
-
 package Entidades;
 
-//Coment
-/**
- *
- * @author Josue
- */
 public class Trabajador {
     
   int idTrabajador, edad;
@@ -123,7 +117,5 @@ public class Trabajador {
     public void setImgPerfil(byte imgPerfil) {
         this.imgPerfil = imgPerfil;
     }
-  
-  
- 
+
 }

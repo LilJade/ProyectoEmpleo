@@ -1,10 +1,5 @@
- 
-package Entidades;
+ package Entidades;
 
-/**
- *
- * @author josue
- */
 public class Empresa {
     int idEmpresa,idGiroComercial;
     String nombre, acronimo,descripcion, departamento,direccion,telefono,correo,

@@ -1,10 +1,5 @@
-
 package Entidades;
 
-/**freddy set y get porfavor
- *
- * @author josue
- */
 public class Habilidad {
     
  int idHabilidad, idTrabajador;
@@ -33,11 +28,5 @@ public class Habilidad {
     public void setHabilidad(String habilidad) {
         this.habilidad = habilidad;
     }
- 
- 
-    
-    
-    
-    
-    
+
 }
