@@ -3,6 +3,10 @@ package Formularios;
 import java.awt.Color;
 import java.awt.Font;
 import AppPackage.AnimationClass;
+import Consultas.ConsultasEmpresa;
+import Consultas.ConsultasTrabajador;
+import Entidades.Empresa;
+import Entidades.Trabajador;
 import com.placeholder.PlaceHolder;
 import javax.swing.JOptionPane;
 
@@ -31,6 +35,12 @@ public class Visitante extends javax.swing.JFrame {
         txtContraseña.setFont(fuente);
         txtContraseña.setForeground(new java.awt.Color(26, 99, 66));
     }
+    //instancia y creacion de objetos clases correspondientes  
+    ConsultasEmpresa Empresa = new ConsultasEmpresa();//paquete consultas
+    ConsultasTrabajador Trabajador = new ConsultasTrabajador();
+    Empresa EntidadEmpresa = new Empresa();
+    Trabajador EntidadTrabajador = new Trabajador();
+    frmEmpresa Abrir = new frmEmpresa();
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -66,8 +76,9 @@ public class Visitante extends javax.swing.JFrame {
         btnEntrar = new javax.swing.JButton();
         lbOjo1 = new javax.swing.JLabel();
         lbOjo2 = new javax.swing.JLabel();
+        rtnEmpresa = new javax.swing.JRadioButton();
+        rtnTrabajador = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -291,6 +302,11 @@ public class Visitante extends javax.swing.JFrame {
         btnEntrar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         btnEntrar.setForeground(new java.awt.Color(153, 153, 153));
         btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
         pnlSesion.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 220, 60));
 
         lbOjo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ojo_16.png"))); // NOI18N
@@ -309,17 +325,16 @@ public class Visitante extends javax.swing.JFrame {
         });
         pnlSesion.add(lbOjo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
 
+        rtnEmpresa.setText("Empresa");
+        pnlSesion.add(rtnEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+
+        rtnTrabajador.setText("Trabajador");
+        pnlSesion.add(rtnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+
         getContentPane().add(pnlSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 290, 520));
 
         jPanel4.setBackground(new java.awt.Color(93, 0, 93));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jComboBox1.setBackground(new java.awt.Color(153, 255, 255));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(102, 102, 102));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "Empresa ", "Trabajador", " " }));
-        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 130, 40));
-
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 520, 290, 70));
 
         pack();
@@ -414,6 +429,27 @@ public class Visitante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnListaActionPerformed
 
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+
+        if (rtnEmpresa.isSelected()) {
+            EntidadEmpresa.setCorreo(txtUsuario.getText());
+            EntidadEmpresa.setContraseña(txtContraseña.getText());
+            Empresa.ValidarEmpresa(EntidadEmpresa);
+            Abrir.setVisible(true);
+            this.dispose();
+            JOptionPane.showMessageDialog(null, "Bienvenido"+txtUsuario);
+
+        } else if (rtnTrabajador.isSelected()) {
+            EntidadTrabajador.setCorreo(txtUsuario.getText());
+            EntidadTrabajador.setPass(txtContraseña.getText());
+            Trabajador.ValidarTrabajador(EntidadTrabajador);
+      JOptionPane.showMessageDialog(null, "Bienvenido"+txtUsuario);
+        } else {
+            JOptionPane.showMessageDialog(null, "Porfavor Registrate o Selcciona como deseas entrar");
+        }
+
+    }//GEN-LAST:event_btnEntrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -457,7 +493,6 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JButton btnEmpresa;
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnLista;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -479,6 +514,8 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JLabel lbOjo1;
     private javax.swing.JLabel lbOjo2;
     private javax.swing.JPanel pnlSesion;
+    private javax.swing.JRadioButton rtnEmpresa;
+    private javax.swing.JRadioButton rtnTrabajador;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtUsuario;

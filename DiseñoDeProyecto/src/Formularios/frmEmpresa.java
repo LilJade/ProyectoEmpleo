@@ -16,6 +16,7 @@ public class frmEmpresa extends javax.swing.JFrame {
      */
     public frmEmpresa() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
