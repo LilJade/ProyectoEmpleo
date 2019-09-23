@@ -90,7 +90,7 @@ public class frmEmpresas extends javax.swing.JFrame {
                 txtUbicacionActionPerformed(evt);
             }
         });
-        getContentPane().add(txtUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 240, 40));
+        getContentPane().add(txtUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 220, 40));
         getContentPane().add(txtContraseñaE, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 220, 40));
         getContentPane().add(txtCorreoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 230, 40));
 
@@ -115,26 +115,37 @@ public class frmEmpresas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRegistrarE, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 690, 330, 50));
-        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 220, 40));
-        getContentPane().add(txtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 580, 230, 40));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 230, 40));
+
+        txtCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCategoriaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 580, 220, 40));
 
         btnActivaA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/feliz_24.png"))); // NOI18N
         btnActivaA.setBorder(null);
         btnActivaA.setContentAreaFilled(false);
         btnActivaA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnActivaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 30, 30));
+        getContentPane().add(btnActivaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 30, 30));
 
         btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AAyuda_24.png"))); // NOI18N
         btnAyuda.setBorder(null);
         btnAyuda.setContentAreaFilled(false);
         btnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 30, 30));
+        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAyudaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 30, 30));
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salir_24.png"))); // NOI18N
         btnCancelar.setBorder(null);
         btnCancelar.setContentAreaFilled(false);
         btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 30, 30));
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 30, 30));
 
         btnCambiarPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/empresa_128.png"))); // NOI18N
         btnCambiarPerfil.setBorder(null);
@@ -159,6 +170,14 @@ public class frmEmpresas extends javax.swing.JFrame {
     private void btnRegistrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarEActionPerformed
+
+    private void txtCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCategoriaActionPerformed
+
+    private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAyudaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

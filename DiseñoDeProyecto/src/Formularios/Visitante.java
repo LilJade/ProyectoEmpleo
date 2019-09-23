@@ -67,6 +67,7 @@ public class Visitante extends javax.swing.JFrame {
         lbOjo1 = new javax.swing.JLabel();
         lbOjo2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -213,7 +214,7 @@ public class Visitante extends javax.swing.JFrame {
 
         jSeparator4.setBackground(new java.awt.Color(255, 153, 0));
         jSeparator4.setForeground(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 320, 20));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 320, 20));
 
         lbMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/minimizar_24.png"))); // NOI18N
         lbMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -288,9 +289,9 @@ public class Visitante extends javax.swing.JFrame {
 
         btnEntrar.setBackground(new java.awt.Color(93, 0, 93));
         btnEntrar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnEntrar.setForeground(new java.awt.Color(248, 248, 244));
-        btnEntrar.setText("REGISTRARSE");
-        pnlSesion.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 220, 60));
+        btnEntrar.setForeground(new java.awt.Color(153, 153, 153));
+        btnEntrar.setText("Entrar");
+        pnlSesion.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 220, 60));
 
         lbOjo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ojo_16.png"))); // NOI18N
         lbOjo1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -312,6 +313,13 @@ public class Visitante extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(93, 0, 93));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jComboBox1.setBackground(new java.awt.Color(153, 255, 255));
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(102, 102, 102));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "Empresa ", "Trabajador", " " }));
+        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 130, 40));
+
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 520, 290, 70));
 
         pack();
@@ -449,6 +457,7 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JButton btnEmpresa;
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnLista;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
