@@ -435,15 +435,13 @@ public class Visitante extends javax.swing.JFrame {
             EntidadEmpresa.setCorreo(txtUsuario.getText());
             EntidadEmpresa.setContraseña(txtContraseña.getText());
             Empresa.ValidarEmpresa(EntidadEmpresa);
-            Abrir.setVisible(true);
-            this.dispose();
-            JOptionPane.showMessageDialog(null, "Bienvenido"+txtUsuario);
+          
 
         } else if (rtnTrabajador.isSelected()) {
             EntidadTrabajador.setCorreo(txtUsuario.getText());
             EntidadTrabajador.setPass(txtContraseña.getText());
             Trabajador.ValidarTrabajador(EntidadTrabajador);
-      JOptionPane.showMessageDialog(null, "Bienvenido"+txtUsuario);
+    
         } else {
             JOptionPane.showMessageDialog(null, "Porfavor Registrate o Selcciona como deseas entrar");
         }

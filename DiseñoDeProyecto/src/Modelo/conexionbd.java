@@ -11,8 +11,8 @@ public class conexionbd {
     public Connection getconexion() {
         try {
             String url = "jdbc:mysql://localhost:3306/ProyectoEmpleo";
-            String user = "";
-            String contraseña = "";
+            String user = "root";
+            String contraseña = "Compac1234";
 
             con = DriverManager.getConnection(url, user, contraseña);
            System.out.println("conectado");
