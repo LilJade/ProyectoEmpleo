@@ -443,7 +443,7 @@ public class Visitante extends javax.swing.JFrame {
             Trabajador.ValidarTrabajador(EntidadTrabajador);
     
         } else {
-            JOptionPane.showMessageDialog(null, "Porfavor Registrate o Selcciona como deseas entrar");
+            JOptionPane.showMessageDialog(null, "Porfavor selecciona como deseas entrar");
         }
 
     }//GEN-LAST:event_btnEntrarActionPerformed
