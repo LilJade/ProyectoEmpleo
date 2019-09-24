@@ -8,6 +8,7 @@ import Consultas.ConsultasTrabajador;
 import Entidades.Empresa;
 import Entidades.Trabajador;
 import com.placeholder.PlaceHolder;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 public class Visitante extends javax.swing.JFrame {
@@ -15,8 +16,11 @@ public class Visitante extends javax.swing.JFrame {
     PlaceHolder holder;
 
     public Visitante() {
-
+        
         initComponents();
+        setLocationRelativeTo(null);
+        btnEntrar.setEnabled(false);
+        
         this.setLocationRelativeTo(null);
         this.setTitle("Modulo Visitabte");
         btnAyuda.setToolTipText("Ayuda");
@@ -35,6 +39,25 @@ public class Visitante extends javax.swing.JFrame {
         txtContraseña.setFont(fuente);
         txtContraseña.setForeground(new java.awt.Color(26, 99, 66));
     }
+    public void Validaciones(){
+        if(txtUsuario.getText().isEmpty()){
+            lblUsuario2.setText("Campo Requerido");
+        }else{
+            lblUsuario2.setText("");
+        }
+        if(txtContraseña.getText().isEmpty()){
+            lblContraseña2.setText("Campo Requerido");
+        }else{
+            lblContraseña2.setText("");
+        }
+        if(txtUsuario.getText().isEmpty() || txtContraseña.getText().isEmpty()){
+            btnEntrar.setEnabled(false);
+        }else{
+            btnEntrar.setEnabled(true);
+        }
+            
+    }   
+    
     //instancia y creacion de objetos clases correspondientes  
     ConsultasEmpresa Empresa = new ConsultasEmpresa();//paquete consultas
     ConsultasTrabajador Trabajador = new ConsultasTrabajador();
@@ -78,6 +101,10 @@ public class Visitante extends javax.swing.JFrame {
         lbOjo2 = new javax.swing.JLabel();
         rtnEmpresa = new javax.swing.JRadioButton();
         rtnTrabajador = new javax.swing.JRadioButton();
+        lblUsuario2 = new javax.swing.JLabel();
+        lblContraseña = new javax.swing.JLabel();
+        lblContraseña2 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -191,7 +218,7 @@ public class Visitante extends javax.swing.JFrame {
         jpVista.setForeground(new java.awt.Color(26, 99, 66));
         jpVista.setToolTipText("");
         jpVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jpVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 640, 530));
+        getContentPane().add(jpVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 650, 550));
 
         jPanel1.setBackground(new java.awt.Color(93, 0, 93));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -259,7 +286,7 @@ public class Visitante extends javax.swing.JFrame {
         pnlSesion.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 230, 10));
 
         jSeparator2.setBackground(new java.awt.Color(26, 99, 66));
-        pnlSesion.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 230, 10));
+        pnlSesion.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 230, 10));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario_24.png"))); // NOI18N
         pnlSesion.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 30, 30));
@@ -273,6 +300,9 @@ public class Visitante extends javax.swing.JFrame {
         txtContraseña.setBorder(null);
         txtContraseña.setDisabledTextColor(new java.awt.Color(26, 99, 66));
         txtContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtContraseñaKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtContraseñaKeyTyped(evt);
             }
@@ -285,6 +315,9 @@ public class Visitante extends javax.swing.JFrame {
         txtUsuario.setBorder(null);
         txtUsuario.setDisabledTextColor(new java.awt.Color(26, 99, 66));
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyTyped(evt);
             }
@@ -330,6 +363,18 @@ public class Visitante extends javax.swing.JFrame {
 
         rtnTrabajador.setText("Trabajador");
         pnlSesion.add(rtnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+
+        lblUsuario2.setForeground(new java.awt.Color(255, 0, 51));
+        pnlSesion.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 210, 20));
+
+        lblContraseña.setForeground(new java.awt.Color(255, 0, 0));
+        pnlSesion.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 200, 20));
+
+        lblContraseña2.setForeground(new java.awt.Color(255, 0, 51));
+        pnlSesion.add(lblContraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 230, 20));
+
+        lblUsuario.setForeground(new java.awt.Color(255, 0, 0));
+        pnlSesion.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 230, 20));
 
         getContentPane().add(pnlSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 290, 520));
 
@@ -390,21 +435,6 @@ public class Visitante extends javax.swing.JFrame {
         txtContraseña.setEchoChar('*');
     }//GEN-LAST:event_lbOjo2MousePressed
 
-    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
-//lbUsuario.setVisible(false);
-//if(txtUsuario.getText().isEmpty()){
-//    lbUsuario.setVisible(true);
-//}
-    }//GEN-LAST:event_txtUsuarioKeyTyped
-
-    private void txtContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyTyped
-//       lbContraseña.setVisible(false);
-//       if(txtContraseña.getText().isEmpty()){
-//           lbContraseña.setVisible(true);
-//           
-//       }
-    }//GEN-LAST:event_txtContraseñaKeyTyped
-
     private void btnListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnListaMouseClicked
         //---------------------->
         AnimationClass empresa = new AnimationClass();
@@ -447,6 +477,34 @@ public class Visitante extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+        if(txtUsuario.getText().length()>=150){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            lblUsuario.setText("Limite permitido de caracteres 150");
+        }else{
+            lblUsuario.setText("");
+        }
+    }//GEN-LAST:event_txtUsuarioKeyTyped
+
+    private void txtContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyTyped
+        if(txtContraseña.getText().length()>=50){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            lblContraseña.setText("Limite permitido de caracteres 50");
+        }else{
+            lblContraseña.setText("");
+        }
+    }//GEN-LAST:event_txtContraseñaKeyTyped
+
+    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
+      Validaciones();
+    }//GEN-LAST:event_txtUsuarioKeyReleased
+
+    private void txtContraseñaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyReleased
+        Validaciones();
+    }//GEN-LAST:event_txtContraseñaKeyReleased
 
     /**
      * @param args the command line arguments
@@ -511,6 +569,10 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JLabel lbMinimizar;
     private javax.swing.JLabel lbOjo1;
     private javax.swing.JLabel lbOjo2;
+    private javax.swing.JLabel lblContraseña;
+    private javax.swing.JLabel lblContraseña2;
+    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lblUsuario2;
     private javax.swing.JPanel pnlSesion;
     private javax.swing.JRadioButton rtnEmpresa;
     private javax.swing.JRadioButton rtnTrabajador;
