@@ -18,15 +18,14 @@ public class Visitante extends javax.swing.JFrame {
     public Visitante() {
         
         initComponents();
-        setLocationRelativeTo(null);
         btnEntrar.setEnabled(false);
         
         this.setLocationRelativeTo(null);
-        this.setTitle("Modulo Visitabte");
+        this.setTitle("Work Search Engine v0.1");
         btnAyuda.setToolTipText("Ayuda");
         btnCancelar.setToolTipText("Cerrar");
         lbMinimizar.setToolTipText("Minimizar");
-        holder = new PlaceHolder(txtUsuario, "USUARIO O E-MAIL");
+        holder = new PlaceHolder(txtUsuario, "CORREO ELECTRONICO");
         holder = new PlaceHolder(txtContraseña, "CONTRASEÑA");
         this.lbOjo2.setVisible(false);
 
@@ -40,17 +39,22 @@ public class Visitante extends javax.swing.JFrame {
         txtContraseña.setForeground(new java.awt.Color(26, 99, 66));
     }
     public void Validaciones(){
-        if(txtUsuario.getText().isEmpty()){
+        if(txtUsuario.getText().isEmpty() || txtUsuario.getText().equals("CORREO ELECTRONICO")){
             lblUsuario2.setText("Campo Requerido");
         }else{
             lblUsuario2.setText("");
         }
-        if(txtContraseña.getText().isEmpty()){
+        
+        
+        if(txtContraseña.getText().isEmpty() || txtContraseña.getText().equals("CONTRASEÑA")){
             lblContraseña2.setText("Campo Requerido");
         }else{
             lblContraseña2.setText("");
         }
-        if(txtUsuario.getText().isEmpty() || txtContraseña.getText().isEmpty()){
+        
+        
+        if(txtUsuario.getText().isEmpty() || txtContraseña.getText().isEmpty()
+           && !txtUsuario.getText().equals("CORREO ELECTRONICO") && !txtContraseña.getText().equals("CONTRASEÑA")){
             btnEntrar.setEnabled(false);
         }else{
             btnEntrar.setEnabled(true);
@@ -69,13 +73,13 @@ public class Visitante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        rdgEntidad = new javax.swing.ButtonGroup();
         jpOpcion = new javax.swing.JPanel();
         btnEmpresa = new javax.swing.JButton();
         btnAdolescente = new javax.swing.JButton();
         btnAdulto = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         btnLista = new javax.swing.JButton();
-        btnAyuda = new javax.swing.JButton();
         jpVista = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         txtBuscar = new javax.swing.JTextField();
@@ -83,6 +87,7 @@ public class Visitante extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         lbMinimizar = new javax.swing.JLabel();
+        btnAyuda = new javax.swing.JButton();
         pnlSesion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -184,33 +189,7 @@ public class Visitante extends javax.swing.JFrame {
                 btnListaActionPerformed(evt);
             }
         });
-        jpOpcion.add(btnLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 190, 90));
-
-        btnAyuda.setForeground(new java.awt.Color(251, 120, 32));
-        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ayuda_24.png"))); // NOI18N
-        btnAyuda.setBorder(null);
-        btnAyuda.setContentAreaFilled(false);
-        btnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAyuda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAyuda.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnAyuda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAyudaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAyudaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAyudaMouseExited(evt);
-            }
-        });
-        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAyudaActionPerformed(evt);
-            }
-        });
-        jpOpcion.add(btnAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 40, -1));
+        jpOpcion.add(btnLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 90));
 
         getContentPane().add(jpOpcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 230, 530));
 
@@ -218,7 +197,7 @@ public class Visitante extends javax.swing.JFrame {
         jpVista.setForeground(new java.awt.Color(26, 99, 66));
         jpVista.setToolTipText("");
         jpVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jpVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 650, 550));
+        getContentPane().add(jpVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 650, 530));
 
         jPanel1.setBackground(new java.awt.Color(93, 0, 93));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -262,6 +241,32 @@ public class Visitante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lbMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 0, 30, 40));
+
+        btnAyuda.setForeground(new java.awt.Color(251, 120, 32));
+        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ayuda_24.png"))); // NOI18N
+        btnAyuda.setBorder(null);
+        btnAyuda.setContentAreaFilled(false);
+        btnAyuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAyuda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAyuda.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnAyuda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAyuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAyudaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAyudaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAyudaMouseExited(evt);
+            }
+        });
+        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAyudaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 60));
 
@@ -358,9 +363,11 @@ public class Visitante extends javax.swing.JFrame {
         });
         pnlSesion.add(lbOjo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
 
+        rdgEntidad.add(rtnEmpresa);
         rtnEmpresa.setText("Empresa");
         pnlSesion.add(rtnEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
+        rdgEntidad.add(rtnTrabajador);
         rtnTrabajador.setText("Trabajador");
         pnlSesion.add(rtnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
@@ -461,19 +468,22 @@ public class Visitante extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
-        if (rtnEmpresa.isSelected()) {
-            EntidadEmpresa.setCorreo(txtUsuario.getText());
-            EntidadEmpresa.setContraseña(txtContraseña.getText());
-            Empresa.ValidarEmpresa(EntidadEmpresa);
+        if(!txtUsuario.getText().equals("CORREO ELECTRONICO") || !txtUsuario.getText().isEmpty()){
+            if (rtnEmpresa.isSelected()) {
+                EntidadEmpresa.setCorreo(txtUsuario.getText());
+                EntidadEmpresa.setContraseña(txtContraseña.getText());
+                Empresa.ValidarEmpresa(EntidadEmpresa);
           
-
-        } else if (rtnTrabajador.isSelected()) {
-            EntidadTrabajador.setCorreo(txtUsuario.getText());
-            EntidadTrabajador.setPass(txtContraseña.getText());
-            Trabajador.ValidarTrabajador(EntidadTrabajador);
+            } else if (rtnTrabajador.isSelected()) {
+                EntidadTrabajador.setCorreo(txtUsuario.getText());
+                EntidadTrabajador.setPass(txtContraseña.getText());
+                Trabajador.ValidarTrabajador(EntidadTrabajador);
     
+            } else {
+                JOptionPane.showMessageDialog(null, "Porfavor selecciona como deseas entrar");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Porfavor selecciona como deseas entrar");
+                JOptionPane.showMessageDialog(null, "Asegurate de rellenar los campos necesarios!");        
         }
 
     }//GEN-LAST:event_btnEntrarActionPerformed
@@ -574,6 +584,7 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblUsuario2;
     private javax.swing.JPanel pnlSesion;
+    private javax.swing.ButtonGroup rdgEntidad;
     private javax.swing.JRadioButton rtnEmpresa;
     private javax.swing.JRadioButton rtnTrabajador;
     private javax.swing.JTextField txtBuscar;
