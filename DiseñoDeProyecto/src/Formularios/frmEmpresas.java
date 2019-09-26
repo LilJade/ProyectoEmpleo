@@ -60,7 +60,7 @@ public class frmEmpresas extends javax.swing.JFrame {
         txtUbicacion = new javax.swing.JTextField();
         txtContraseñaE = new javax.swing.JTextField();
         txtCorreoE = new javax.swing.JTextField();
-        cmbDepartamento = new javax.swing.JComboBox<>();
+        cmbDepartamento = new javax.swing.JComboBox<String>();
         btnRegistrarE = new javax.swing.JButton();
         txtTelefono = new javax.swing.JTextField();
         txtCategoria = new javax.swing.JTextField();
@@ -68,9 +68,9 @@ public class frmEmpresas extends javax.swing.JFrame {
         btnAyuda = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnCambiarPerfil = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(202, 219, 236));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -94,7 +94,7 @@ public class frmEmpresas extends javax.swing.JFrame {
         getContentPane().add(txtContraseñaE, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 220, 40));
         getContentPane().add(txtCorreoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 230, 40));
 
-        cmbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbDepartamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbDepartamentoActionPerformed(evt);
@@ -153,7 +153,7 @@ public class frmEmpresas extends javax.swing.JFrame {
         btnCambiarPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(btnCambiarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 150, 150));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 250, 40));
 
         pack();

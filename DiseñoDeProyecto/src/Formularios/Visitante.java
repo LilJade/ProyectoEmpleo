@@ -37,7 +37,7 @@ public class Visitante extends javax.swing.JFrame {
         txtUsuario.setForeground(new java.awt.Color(26, 99, 66));
         txtContraseña.setFont(fuente);
         txtContraseña.setForeground(new java.awt.Color(26, 99, 66));
-    }
+    }//validacion
     public void Validaciones(){
         if(txtUsuario.getText().isEmpty() || txtUsuario.getText().equals("CORREO ELECTRONICO")){
             lblUsuario2.setText("Campo Requerido");
@@ -507,11 +507,11 @@ public class Visitante extends javax.swing.JFrame {
             lblContraseña.setText("");
         }
     }//GEN-LAST:event_txtContraseñaKeyTyped
-
+//validacio
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
       Validaciones();
     }//GEN-LAST:event_txtUsuarioKeyReleased
-
+//validacion
     private void txtContraseñaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyReleased
         Validaciones();
     }//GEN-LAST:event_txtContraseñaKeyReleased
