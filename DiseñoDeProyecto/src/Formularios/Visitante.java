@@ -82,12 +82,12 @@ public class Visitante extends javax.swing.JFrame {
         btnLista = new javax.swing.JButton();
         jpVista = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        txtBuscar = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         lbMinimizar = new javax.swing.JLabel();
         btnAyuda = new javax.swing.JButton();
+        txtBuscar = new javax.swing.JTextField();
         pnlSesion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -202,13 +202,6 @@ public class Visitante extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(93, 0, 93));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtBuscar.setBackground(new java.awt.Color(93, 0, 93));
-        txtBuscar.setEditable(false);
-        txtBuscar.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
-        txtBuscar.setForeground(new java.awt.Color(255, 153, 0));
-        txtBuscar.setBorder(null);
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 300, 30));
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lupa_24.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, 30));
 
@@ -231,7 +224,7 @@ public class Visitante extends javax.swing.JFrame {
 
         jSeparator4.setBackground(new java.awt.Color(255, 153, 0));
         jSeparator4.setForeground(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 320, 20));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 320, 10));
 
         lbMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/minimizar_24.png"))); // NOI18N
         lbMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -267,6 +260,12 @@ public class Visitante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, -1));
+
+        txtBuscar.setBackground(new java.awt.Color(93, 0, 93));
+        txtBuscar.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        txtBuscar.setForeground(new java.awt.Color(255, 153, 0));
+        txtBuscar.setBorder(null);
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 300, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 60));
 
@@ -364,10 +363,14 @@ public class Visitante extends javax.swing.JFrame {
         pnlSesion.add(lbOjo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
 
         rdgEntidad.add(rtnEmpresa);
+        rtnEmpresa.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        rtnEmpresa.setForeground(new java.awt.Color(26, 99, 66));
         rtnEmpresa.setText("Empresa");
         pnlSesion.add(rtnEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         rdgEntidad.add(rtnTrabajador);
+        rtnTrabajador.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        rtnTrabajador.setForeground(new java.awt.Color(26, 99, 66));
         rtnTrabajador.setText("Trabajador");
         pnlSesion.add(rtnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
