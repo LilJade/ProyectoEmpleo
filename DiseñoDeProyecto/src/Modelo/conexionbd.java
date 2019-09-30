@@ -15,7 +15,7 @@ public class conexionbd {
             String contraseña = "";
 
             con = DriverManager.getConnection(url, user, contraseña);
-           System.out.println("conectado");
+           //System.out.println("conectado");
         } catch (Exception e) {
             System.out.println("Error en clase Conexion: " + e.getMessage()); 
         }

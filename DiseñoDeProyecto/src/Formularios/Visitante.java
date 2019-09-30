@@ -12,9 +12,16 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 public class Visitante extends javax.swing.JFrame {
-
+    
+    //instancia y creacion de objetos clases correspondientes  
+    ConsultasEmpresa cEmpresa = new ConsultasEmpresa();
+    ConsultasTrabajador cTrabajador = new ConsultasTrabajador();
+    Empresa eEmpresa = new Empresa();
+    Trabajador eTrabajador = new Trabajador();
+    frmEmpresa formEmpresa = new frmEmpresa();
+    
     PlaceHolder holder;
-
+    
     public Visitante() {
         
         initComponents();
@@ -37,37 +44,7 @@ public class Visitante extends javax.swing.JFrame {
         txtUsuario.setForeground(new java.awt.Color(26, 99, 66));
         txtContraseña.setFont(fuente);
         txtContraseña.setForeground(new java.awt.Color(26, 99, 66));
-    }//validacion
-    public void Validaciones(){
-        if(txtUsuario.getText().isEmpty() || txtUsuario.getText().equals("CORREO ELECTRONICO")){
-            lblUsuario2.setText("Campo Requerido");
-        }else{
-            lblUsuario2.setText("");
-        }
-        
-        
-        if(txtContraseña.getText().isEmpty() || txtContraseña.getText().equals("CONTRASEÑA")){
-            lblContraseña2.setText("Campo Requerido");
-        }else{
-            lblContraseña2.setText("");
-        }
-        
-        
-        if(txtUsuario.getText().isEmpty() || txtContraseña.getText().isEmpty()
-           && !txtUsuario.getText().equals("CORREO ELECTRONICO") && !txtContraseña.getText().equals("CONTRASEÑA")){
-            btnEntrar.setEnabled(false);
-        }else{
-            btnEntrar.setEnabled(true);
-        }
-            
-    }   
-    
-    //instancia y creacion de objetos clases correspondientes  
-    ConsultasEmpresa Empresa = new ConsultasEmpresa();//paquete consultas
-    ConsultasTrabajador Trabajador = new ConsultasTrabajador();
-    Empresa EntidadEmpresa = new Empresa();
-    Trabajador EntidadTrabajador = new Trabajador();
-    frmEmpresa Abrir = new frmEmpresa();
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -81,7 +58,7 @@ public class Visitante extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         btnLista = new javax.swing.JButton();
         jpVista = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        jpnlTitular = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
@@ -99,7 +76,6 @@ public class Visitante extends javax.swing.JFrame {
         txtContraseña = new javax.swing.JPasswordField();
         txtUsuario = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         btnEntrar = new javax.swing.JButton();
         lbOjo1 = new javax.swing.JLabel();
@@ -110,7 +86,8 @@ public class Visitante extends javax.swing.JFrame {
         lblContraseña = new javax.swing.JLabel();
         lblContraseña2 = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jSeparator8 = new javax.swing.JSeparator();
+        jpnlAcercaDe = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -199,11 +176,11 @@ public class Visitante extends javax.swing.JFrame {
         jpVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jpVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 650, 530));
 
-        jPanel1.setBackground(new java.awt.Color(93, 0, 93));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jpnlTitular.setBackground(new java.awt.Color(93, 0, 93));
+        jpnlTitular.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lupa_24.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, 30));
+        jpnlTitular.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, 30));
 
         btnCancelar.setBackground(new java.awt.Color(93, 0, 93));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar_24.png"))); // NOI18N
@@ -220,11 +197,11 @@ public class Visitante extends javax.swing.JFrame {
                 btnCancelarMouseExited(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 50, 40));
+        jpnlTitular.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 50, 40));
 
         jSeparator4.setBackground(new java.awt.Color(255, 153, 0));
         jSeparator4.setForeground(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 320, 10));
+        jpnlTitular.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 320, 10));
 
         lbMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/minimizar_24.png"))); // NOI18N
         lbMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -233,7 +210,7 @@ public class Visitante extends javax.swing.JFrame {
                 lbMinimizarMouseClicked(evt);
             }
         });
-        jPanel1.add(lbMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 0, 30, 40));
+        jpnlTitular.add(lbMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 0, 30, 40));
 
         btnAyuda.setForeground(new java.awt.Color(251, 120, 32));
         btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ayuda_24.png"))); // NOI18N
@@ -259,15 +236,15 @@ public class Visitante extends javax.swing.JFrame {
                 btnAyudaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, -1));
+        jpnlTitular.add(btnAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, -1));
 
         txtBuscar.setBackground(new java.awt.Color(93, 0, 93));
         txtBuscar.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         txtBuscar.setForeground(new java.awt.Color(255, 153, 0));
         txtBuscar.setBorder(null);
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 300, 30));
+        jpnlTitular.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 320, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 60));
+        getContentPane().add(jpnlTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 60));
 
         pnlSesion.setBackground(new java.awt.Color(248, 248, 244));
         pnlSesion.setDoubleBuffered(false);
@@ -276,27 +253,27 @@ public class Visitante extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(26, 99, 66));
         jLabel1.setText("USUARIO:");
-        pnlSesion.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        pnlSesion.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(26, 99, 66));
         jLabel2.setText("CONTRASEÑA:");
-        pnlSesion.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+        pnlSesion.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuarioNEW_128.png"))); // NOI18N
         pnlSesion.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 130, 140));
 
         jSeparator1.setBackground(new java.awt.Color(26, 99, 66));
-        pnlSesion.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 230, 10));
+        pnlSesion.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 230, 10));
 
         jSeparator2.setBackground(new java.awt.Color(26, 99, 66));
-        pnlSesion.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 230, 10));
+        pnlSesion.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 230, 10));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario_24.png"))); // NOI18N
-        pnlSesion.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 30, 30));
+        pnlSesion.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 30, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bloquear_24.png"))); // NOI18N
-        pnlSesion.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 30, 30));
+        pnlSesion.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 30, 30));
 
         txtContraseña.setBackground(new java.awt.Color(248, 248, 244));
         txtContraseña.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
@@ -311,7 +288,7 @@ public class Visitante extends javax.swing.JFrame {
                 txtContraseñaKeyTyped(evt);
             }
         });
-        pnlSesion.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 190, 30));
+        pnlSesion.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 190, 30));
 
         txtUsuario.setBackground(new java.awt.Color(248, 248, 244));
         txtUsuario.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
@@ -326,14 +303,11 @@ public class Visitante extends javax.swing.JFrame {
                 txtUsuarioKeyTyped(evt);
             }
         });
-        pnlSesion.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 200, 30));
+        pnlSesion.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 200, 30));
         pnlSesion.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 150, 60, 30));
 
-        jSeparator6.setBackground(new java.awt.Color(26, 99, 66));
-        pnlSesion.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 80, 10));
-
         jSeparator7.setBackground(new java.awt.Color(26, 99, 66));
-        pnlSesion.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 70, 10));
+        pnlSesion.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 70, 10));
 
         btnEntrar.setBackground(new java.awt.Color(93, 0, 93));
         btnEntrar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -344,7 +318,7 @@ public class Visitante extends javax.swing.JFrame {
                 btnEntrarActionPerformed(evt);
             }
         });
-        pnlSesion.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 220, 60));
+        pnlSesion.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 220, 60));
 
         lbOjo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ojo_16.png"))); // NOI18N
         lbOjo1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -352,7 +326,7 @@ public class Visitante extends javax.swing.JFrame {
                 lbOjo1MousePressed(evt);
             }
         });
-        pnlSesion.add(lbOjo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 20, 20));
+        pnlSesion.add(lbOjo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 20, 20));
 
         lbOjo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ojo.tachado_16.png"))); // NOI18N
         lbOjo2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -360,37 +334,40 @@ public class Visitante extends javax.swing.JFrame {
                 lbOjo2MousePressed(evt);
             }
         });
-        pnlSesion.add(lbOjo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
+        pnlSesion.add(lbOjo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, -1, -1));
 
         rdgEntidad.add(rtnEmpresa);
         rtnEmpresa.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         rtnEmpresa.setForeground(new java.awt.Color(26, 99, 66));
         rtnEmpresa.setText("Empresa");
-        pnlSesion.add(rtnEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        pnlSesion.add(rtnEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         rdgEntidad.add(rtnTrabajador);
         rtnTrabajador.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         rtnTrabajador.setForeground(new java.awt.Color(26, 99, 66));
         rtnTrabajador.setText("Trabajador");
-        pnlSesion.add(rtnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+        pnlSesion.add(rtnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
 
         lblUsuario2.setForeground(new java.awt.Color(255, 0, 51));
-        pnlSesion.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 210, 20));
+        pnlSesion.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 210, 20));
 
         lblContraseña.setForeground(new java.awt.Color(255, 0, 0));
-        pnlSesion.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 200, 20));
+        pnlSesion.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 200, 20));
 
         lblContraseña2.setForeground(new java.awt.Color(255, 0, 51));
-        pnlSesion.add(lblContraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 230, 20));
+        pnlSesion.add(lblContraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 230, 20));
 
         lblUsuario.setForeground(new java.awt.Color(255, 0, 0));
-        pnlSesion.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 230, 20));
+        pnlSesion.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 230, 20));
 
-        getContentPane().add(pnlSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 290, 520));
+        jSeparator8.setBackground(new java.awt.Color(26, 99, 66));
+        pnlSesion.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 70, 10));
 
-        jPanel4.setBackground(new java.awt.Color(93, 0, 93));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 520, 290, 70));
+        getContentPane().add(pnlSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, -20, 290, 530));
+
+        jpnlAcercaDe.setBackground(new java.awt.Color(93, 0, 93));
+        jpnlAcercaDe.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jpnlAcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 510, 290, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -453,7 +430,6 @@ public class Visitante extends javax.swing.JFrame {
         adulto.jButtonXRight(-85, 70, 20, 5, btnAdulto);
         AnimationClass adolescente = new AnimationClass();
         adolescente.jButtonXRight(-85, 70, 25, 5, btnAdolescente);
-
         //<---------
         AnimationClass empressa = new AnimationClass();
         empressa.jButtonXLeft(70, -85, 25, 5, btnEmpresa);
@@ -461,8 +437,6 @@ public class Visitante extends javax.swing.JFrame {
         adultoo.jButtonXLeft(70, -85, 20, 5, btnAdulto);
         AnimationClass adolescentee = new AnimationClass();
         adolescentee.jButtonXLeft(70, -85, 10, 5, btnAdolescente);
-
-
     }//GEN-LAST:event_btnListaMouseClicked
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
@@ -473,14 +447,14 @@ public class Visitante extends javax.swing.JFrame {
 
         if(!txtUsuario.getText().equals("CORREO ELECTRONICO") || !txtUsuario.getText().isEmpty()){
             if (rtnEmpresa.isSelected()) {
-                EntidadEmpresa.setCorreo(txtUsuario.getText());
-                EntidadEmpresa.setContraseña(txtContraseña.getText());
-                Empresa.ValidarEmpresa(EntidadEmpresa);
+                eEmpresa.setCorreo(txtUsuario.getText());
+                eEmpresa.setContraseña(txtContraseña.getText());
+                cEmpresa.ValidarEmpresa(eEmpresa);
           
             } else if (rtnTrabajador.isSelected()) {
-                EntidadTrabajador.setCorreo(txtUsuario.getText());
-                EntidadTrabajador.setPass(txtContraseña.getText());
-                Trabajador.ValidarTrabajador(EntidadTrabajador);
+                eTrabajador.setCorreo(txtUsuario.getText());
+                eTrabajador.setPass(txtContraseña.getText());
+                cTrabajador.ValidarTrabajador(eTrabajador);
     
             } else {
                 JOptionPane.showMessageDialog(null, "Porfavor selecciona como deseas entrar");
@@ -510,13 +484,39 @@ public class Visitante extends javax.swing.JFrame {
             lblContraseña.setText("");
         }
     }//GEN-LAST:event_txtContraseñaKeyTyped
-//validacio
+        
+        //validacion Login
+    public void ValidacionLogin(){
+       if(!txtUsuario.getText().equals("") && !txtContraseña.getText().equals("") &&
+          !txtUsuario.getText().equals("CORREO ELECTRONICO") && !txtContraseña.getText().equals("CONTRASEÑA")){
+           btnEntrar.setEnabled(true);
+       } else {
+           btnEntrar.setEnabled(false);
+       }
+    }
+
+        //validacion txtUsuario
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
-      Validaciones();
+
+        if(txtUsuario.getText().equals("") || txtUsuario.getText().equals("CORREO ELECTRONICO")){
+            lblUsuario2.setText("Campo Requerido");
+        } else {
+            lblUsuario2.setText("");
+        }
+        
+        ValidacionLogin();
     }//GEN-LAST:event_txtUsuarioKeyReleased
-//validacion
+
+        //validacion txtContraseña
     private void txtContraseñaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyReleased
-        Validaciones();
+
+        if(txtContraseña.getText().equals("") || txtContraseña.getText().equals("CONTRASEÑA")){
+            lblContraseña2.setText("Campo Requerido");
+        } else {
+            lblContraseña.setText("");
+        }
+        
+        ValidacionLogin();
     }//GEN-LAST:event_txtContraseñaKeyReleased
 
     /**
@@ -568,17 +568,17 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JPanel jpOpcion;
     private javax.swing.JPanel jpVista;
+    private javax.swing.JPanel jpnlAcercaDe;
+    private javax.swing.JPanel jpnlTitular;
     private javax.swing.JLabel lbMinimizar;
     private javax.swing.JLabel lbOjo1;
     private javax.swing.JLabel lbOjo2;
