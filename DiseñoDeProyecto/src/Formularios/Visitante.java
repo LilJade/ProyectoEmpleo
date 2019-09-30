@@ -7,6 +7,7 @@ import Consultas.ConsultasEmpresa;
 import Consultas.ConsultasTrabajador;
 import Entidades.Empresa;
 import Entidades.Trabajador;
+import Utilidades.EstiloTabla;
 import com.placeholder.PlaceHolder;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
@@ -44,6 +45,11 @@ public class Visitante extends javax.swing.JFrame {
         txtUsuario.setForeground(new java.awt.Color(26, 99, 66));
         txtContraseña.setFont(fuente);
         txtContraseña.setForeground(new java.awt.Color(26, 99, 66));
+        
+        jtblMostrarEmpresas.getColumnModel().getColumn(0).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));
+        jtblMostrarEmpresas.getColumnModel().getColumn(1).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));
+        jtblMostrarEmpresas.getColumnModel().getColumn(2).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));
+        jtblMostrarEmpresas.getColumnModel().getColumn(3).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));        
     }
 
     @SuppressWarnings("unchecked")
@@ -58,6 +64,8 @@ public class Visitante extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         btnLista = new javax.swing.JButton();
         jpVista = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtblMostrarEmpresas = new javax.swing.JTable();
         jpnlTitular = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
@@ -174,6 +182,22 @@ public class Visitante extends javax.swing.JFrame {
         jpVista.setForeground(new java.awt.Color(26, 99, 66));
         jpVista.setToolTipText("");
         jpVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jtblMostrarEmpresas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jtblMostrarEmpresas);
+
+        jpVista.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 640, 530));
+
         getContentPane().add(jpVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 650, 530));
 
         jpnlTitular.setBackground(new java.awt.Color(93, 0, 93));
@@ -513,7 +537,7 @@ public class Visitante extends javax.swing.JFrame {
         if(txtContraseña.getText().equals("") || txtContraseña.getText().equals("CONTRASEÑA")){
             lblContraseña2.setText("Campo Requerido");
         } else {
-            lblContraseña.setText("");
+            lblContraseña2.setText("");
         }
         
         ValidacionLogin();
@@ -568,6 +592,7 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -579,6 +604,7 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JPanel jpVista;
     private javax.swing.JPanel jpnlAcercaDe;
     private javax.swing.JPanel jpnlTitular;
+    private javax.swing.JTable jtblMostrarEmpresas;
     private javax.swing.JLabel lbMinimizar;
     private javax.swing.JLabel lbOjo1;
     private javax.swing.JLabel lbOjo2;
