@@ -13,21 +13,21 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 public class Visitante extends javax.swing.JFrame {
-    
+
     //instancia y creacion de objetos clases correspondientes  
     ConsultasEmpresa cEmpresa = new ConsultasEmpresa();
     ConsultasTrabajador cTrabajador = new ConsultasTrabajador();
     Empresa eEmpresa = new Empresa();
     Trabajador eTrabajador = new Trabajador();
     frmEmpresa formEmpresa = new frmEmpresa();
-    
+
     PlaceHolder holder;
-    
+
     public Visitante() {
-        
+
         initComponents();
         btnEntrar.setEnabled(false);
-        
+
         this.setLocationRelativeTo(null);
         this.setTitle("Work Search Engine v0.1");
         btnAyuda.setToolTipText("Ayuda");
@@ -45,11 +45,11 @@ public class Visitante extends javax.swing.JFrame {
         txtUsuario.setForeground(new java.awt.Color(26, 99, 66));
         txtContraseña.setFont(fuente);
         txtContraseña.setForeground(new java.awt.Color(26, 99, 66));
-        
+
         jtblMostrarEmpresas.getColumnModel().getColumn(0).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));
         jtblMostrarEmpresas.getColumnModel().getColumn(1).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));
         jtblMostrarEmpresas.getColumnModel().getColumn(2).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));
-        jtblMostrarEmpresas.getColumnModel().getColumn(3).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));        
+        jtblMostrarEmpresas.getColumnModel().getColumn(3).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));
     }
 
     @SuppressWarnings("unchecked")
@@ -147,6 +147,11 @@ public class Visitante extends javax.swing.JFrame {
         btnAdulto.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/empleado_64.png"))); // NOI18N
         btnAdulto.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnAdulto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAdulto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdultoActionPerformed(evt);
+            }
+        });
         jpOpcion.add(btnAdulto, new org.netbeans.lib.awtextra.AbsoluteConstraints(-85, 250, 100, 90));
 
         jSeparator3.setForeground(new java.awt.Color(132, 206, 255));
@@ -481,79 +486,86 @@ public class Visitante extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
-        if(!txtUsuario.getText().equals("CORREO ELECTRONICO") || !txtUsuario.getText().isEmpty()){
+        if (!txtUsuario.getText().equals("CORREO ELECTRONICO") || !txtUsuario.getText().isEmpty()) {
             if (rtnEmpresa.isSelected()) {
                 eEmpresa.setCorreo(txtUsuario.getText());
                 eEmpresa.setContraseña(txtContraseña.getText());
                 cEmpresa.ValidarEmpresa(eEmpresa);
-          
+
             } else if (rtnTrabajador.isSelected()) {
                 eTrabajador.setCorreo(txtUsuario.getText());
                 eTrabajador.setPass(txtContraseña.getText());
                 cTrabajador.ValidarTrabajador(eTrabajador);
-    
+
             } else {
                 JOptionPane.showMessageDialog(null, "Porfavor selecciona como deseas entrar");
             }
         } else {
-                JOptionPane.showMessageDialog(null, "Asegurate de rellenar los campos necesarios!");        
+            JOptionPane.showMessageDialog(null, "Asegurate de rellenar los campos necesarios!");
         }
 
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
-        if(txtUsuario.getText().length()>=150){
+        if (txtUsuario.getText().length() >= 150) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
             lblUsuario.setText("Limite permitido de caracteres 150");
-        }else{
+        } else {
             lblUsuario.setText("");
         }
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
     private void txtContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyTyped
-        if(txtContraseña.getText().length()>=50){
+        if (txtContraseña.getText().length() >= 50) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
             lblContraseña.setText("Limite permitido de caracteres 50");
-        }else{
+        } else {
             lblContraseña.setText("");
         }
     }//GEN-LAST:event_txtContraseñaKeyTyped
-        
-        //validacion Login
-    public void ValidacionLogin(){
-       if(!txtUsuario.getText().equals("") && !txtContraseña.getText().equals("") &&
-          !txtUsuario.getText().equals("CORREO ELECTRONICO") && !txtContraseña.getText().equals("CONTRASEÑA")){
-           btnEntrar.setEnabled(true);
-       } else {
-           btnEntrar.setEnabled(false);
-       }
+
+    //validacion Login
+    public void ValidacionLogin() {
+        if (!txtUsuario.getText().equals("") && !txtContraseña.getText().equals("")
+                && !txtUsuario.getText().equals("CORREO ELECTRONICO") && !txtContraseña.getText().equals("CONTRASEÑA")) {
+            btnEntrar.setEnabled(true);
+        } else {
+            btnEntrar.setEnabled(false);
+        }
     }
 
-        //validacion txtUsuario
+    //validacion txtUsuario
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
 
-        if(txtUsuario.getText().equals("") || txtUsuario.getText().equals("CORREO ELECTRONICO")){
+        if (txtUsuario.getText().equals("") || txtUsuario.getText().equals("CORREO ELECTRONICO")) {
             lblUsuario2.setText("Campo Requerido");
         } else {
             lblUsuario2.setText("");
         }
-        
+
         ValidacionLogin();
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
-        //validacion txtContraseña
+    //validacion txtContraseña
     private void txtContraseñaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyReleased
 
-        if(txtContraseña.getText().equals("") || txtContraseña.getText().equals("CONTRASEÑA")){
+        if (txtContraseña.getText().equals("") || txtContraseña.getText().equals("CONTRASEÑA")) {
             lblContraseña2.setText("Campo Requerido");
         } else {
             lblContraseña2.setText("");
         }
-        
+
         ValidacionLogin();
     }//GEN-LAST:event_txtContraseñaKeyReleased
+
+    private void btnAdultoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdultoActionPerformed
+
+         frmRegistro_Visitante V = new frmRegistro_Visitante ();
+        V.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAdultoActionPerformed
 
     /**
      * @param args the command line arguments

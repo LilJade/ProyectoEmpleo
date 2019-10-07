@@ -29,4 +29,31 @@ public class ConsultasTrabajador {
 
         }
     }
+    
+      public void insertar(Trabajador i) {
+        try {
+            CallableStatement st = con.prepareCall(" call SP_I_Trabajador(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+            st.setString("nombresT", i.getNombres());
+            st.setString("apellidosT", i.getApellidos());
+            st.setInt("edadT", i.getEdad());
+            st.setString("sexoT", i.getSexo());
+            st.setString("direccionT", i.getDireccion());
+            st.setString("celularT", i.getCelular());
+            st.setString("telefonoFijoT", i.getTelefonoFijo());
+            st.setString("duiT", i.getDui());
+            st.setString("nitT", i.getNit());
+            st.setString("correoT", i.getCorreo());
+            st.setString("passT", i.getPass());
+            
+            st.setBytes("imgPerfilT", i.getImgPerfil());
+            st.setString("descripcionT", i.getDescripcion());
+            st.execute();
+            
+            JOptionPane.showMessageDialog(null, "Registrado con Exito");
+
+        } catch (Exception ex) {
+           System.out.println("Error de insercion: " + ex.getMessage());
+        }
+    }
 }

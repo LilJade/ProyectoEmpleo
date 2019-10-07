@@ -4,7 +4,7 @@ public class Trabajador {
     
   int idTrabajador, edad;
   String nombres, apellidos, sexo, direccion, celular, telefonoFijo, dui, nit, correo, pass, descripcion;
-  byte imgPerfil;
+  byte[] imgPerfil;
 
     public int getIdTrabajador() {
         return idTrabajador;
@@ -110,12 +110,14 @@ public class Trabajador {
         this.descripcion = descripcion;
     }
 
-    public byte getImgPerfil() {
+    public byte[] getImgPerfil() {
         return imgPerfil;
     }
 
-    public void setImgPerfil(byte imgPerfil) {
+    public void setImgPerfil(byte[] imgPerfil) {
         this.imgPerfil = imgPerfil;
     }
+
+   
 
 }
