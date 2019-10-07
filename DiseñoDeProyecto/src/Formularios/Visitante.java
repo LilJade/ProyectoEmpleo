@@ -76,7 +76,6 @@ public class Visitante extends javax.swing.JFrame {
         pnlSesion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
@@ -85,7 +84,6 @@ public class Visitante extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        btnEntrar = new javax.swing.JButton();
         lbOjo1 = new javax.swing.JLabel();
         lbOjo2 = new javax.swing.JLabel();
         rtnEmpresa = new javax.swing.JRadioButton();
@@ -95,7 +93,9 @@ public class Visitante extends javax.swing.JFrame {
         lblContraseña2 = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
+        btnEditarFoto = new javax.swing.JButton();
         jpnlAcercaDe = new javax.swing.JPanel();
+        btnEntrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -221,7 +221,7 @@ public class Visitante extends javax.swing.JFrame {
                 btnCancelarMouseExited(evt);
             }
         });
-        jpnlTitular.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 10, 30, 30));
+        jpnlTitular.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 10, 30, 30));
 
         jSeparator4.setBackground(new java.awt.Color(255, 153, 0));
         jSeparator4.setForeground(new java.awt.Color(255, 153, 0));
@@ -234,7 +234,7 @@ public class Visitante extends javax.swing.JFrame {
                 lbMinimizarMouseClicked(evt);
             }
         });
-        jpnlTitular.add(lbMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 10, 30, 30));
+        jpnlTitular.add(lbMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, 30, 30));
 
         btnAyuda.setForeground(new java.awt.Color(251, 120, 32));
         btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ayuda_24.png"))); // NOI18N
@@ -268,7 +268,7 @@ public class Visitante extends javax.swing.JFrame {
         txtBuscar.setBorder(null);
         jpnlTitular.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 320, 30));
 
-        getContentPane().add(jpnlTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 60));
+        getContentPane().add(jpnlTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 60));
 
         pnlSesion.setBackground(new java.awt.Color(248, 248, 244));
         pnlSesion.setDoubleBuffered(false);
@@ -283,9 +283,6 @@ public class Visitante extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(26, 99, 66));
         jLabel2.setText("CONTRASEÑA:");
         pnlSesion.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/añadirfoto_128.png"))); // NOI18N
-        pnlSesion.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 130, 140));
 
         jSeparator1.setBackground(new java.awt.Color(26, 99, 66));
         pnlSesion.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 230, 10));
@@ -331,18 +328,7 @@ public class Visitante extends javax.swing.JFrame {
         pnlSesion.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 150, 60, 30));
 
         jSeparator7.setBackground(new java.awt.Color(26, 99, 66));
-        pnlSesion.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 100, 10));
-
-        btnEntrar.setBackground(new java.awt.Color(93, 0, 93));
-        btnEntrar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnEntrar.setForeground(new java.awt.Color(153, 153, 153));
-        btnEntrar.setText("Entrar");
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarActionPerformed(evt);
-            }
-        });
-        pnlSesion.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 220, 60));
+        pnlSesion.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 120, 10));
 
         lbOjo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ojo_16.png"))); // NOI18N
         lbOjo1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -385,13 +371,39 @@ public class Visitante extends javax.swing.JFrame {
         pnlSesion.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 230, 20));
 
         jSeparator8.setBackground(new java.awt.Color(26, 99, 66));
-        pnlSesion.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 80, 10));
+        pnlSesion.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 140, 10));
 
-        getContentPane().add(pnlSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, -20, 290, 530));
+        btnEditarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario_64.png"))); // NOI18N
+        btnEditarFoto.setBorder(null);
+        btnEditarFoto.setContentAreaFilled(false);
+        btnEditarFoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditarFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEditarFoto.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario_64.png"))); // NOI18N
+        btnEditarFoto.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuarioNEW_128.png"))); // NOI18N
+        btnEditarFoto.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEditarFoto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pnlSesion.add(btnEditarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, 130));
+
+        getContentPane().add(pnlSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, -20, 320, 530));
 
         jpnlAcercaDe.setBackground(new java.awt.Color(93, 0, 93));
         jpnlAcercaDe.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jpnlAcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 510, 290, 80));
+
+        btnEntrar.setBackground(new java.awt.Color(93, 0, 93));
+        btnEntrar.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar.setText("Entrar");
+        btnEntrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(38, 153, 102), 3));
+        btnEntrar.setContentAreaFilled(false);
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
+        jpnlAcercaDe.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 220, 60));
+
+        getContentPane().add(jpnlAcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 510, 320, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -583,12 +595,12 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JButton btnAdulto;
     private javax.swing.JButton btnAyuda;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEditarFoto;
     private javax.swing.JButton btnEmpresa;
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnLista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
