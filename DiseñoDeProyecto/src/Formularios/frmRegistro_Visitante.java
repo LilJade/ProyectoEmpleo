@@ -8,20 +8,18 @@ package Formularios;
 import Consultas.ConsultasTrabajador;
 import Entidades.Trabajador;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import org.jdesktop.swingx.prompt.PromptSupport;
 
 /**
  *
@@ -35,6 +33,23 @@ public class frmRegistro_Visitante extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(new Color(0, 0, 51));
+        //sms flotante  y texto fantasma 
+        PromptSupport.setPrompt("Correo electronico",txtCorreo);
+        PromptSupport.setPrompt("Ingrese su nombre",txtNombre);
+        PromptSupport.setPrompt("Ingrese su contraseña", jpsContraseña);
+        //fuente de letra de txtFantasma 
+        Font fuente = new Font("Decker", 3, 15);
+          txtCorreo.setFont(fuente);
+        txtCorreo.setForeground(new java.awt.Color(65, 138, 168));
+        
+        txtNombre.setFont(fuente);
+        txtNombre.setForeground(new java.awt.Color(65,138,168));
+        
+         jpsContraseña.setFont(fuente);
+        jpsContraseña.setForeground(new java.awt.Color(65,138,168));
+        
+        
+        
 
     }
 
@@ -94,6 +109,7 @@ public class frmRegistro_Visitante extends javax.swing.JFrame {
         btnRegistrar.setText("REGISTRAR");
         btnRegistrar.setBorder(null);
         btnRegistrar.setContentAreaFilled(false);
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnRegistrar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnRegistrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -115,6 +131,7 @@ public class frmRegistro_Visitante extends javax.swing.JFrame {
         btnCargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar_foto.png"))); // NOI18N
         btnCargar.setBorder(null);
         btnCargar.setContentAreaFilled(false);
+        btnCargar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCargar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCargarMouseClicked(evt);
