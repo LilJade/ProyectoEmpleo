@@ -4,7 +4,15 @@ public class Empresa {
     int idEmpresa,idGiroComercial;
     String nombre, acronimo,descripcion, departamento,direccion,telefono,correo,
             contraseña;
-    byte imPerfil;
+    byte [] imPerfil;
+
+    public byte[] getImPerfil() {
+        return imPerfil;
+    }
+
+    public void setImPerfil(byte[] imPerfil) {
+        this.imPerfil = imPerfil;
+    }
 
     public int getIdEmpresa() {
         return idEmpresa; 
@@ -85,14 +93,6 @@ public class Empresa {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-
-    public byte getImPerfil() {
-        return imPerfil;
-    }
-
-    public void setImPerfil(byte imPerfil) {
-        this.imPerfil = imPerfil;
-    }
-    
+   
     
 }

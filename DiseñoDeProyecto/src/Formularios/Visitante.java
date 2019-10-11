@@ -118,6 +118,11 @@ public class Visitante extends javax.swing.JFrame {
         btnEmpresa.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/empresa_64.png"))); // NOI18N
         btnEmpresa.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnEmpresa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEmpresaMouseClicked(evt);
+            }
+        });
         jpOpcion.add(btnEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-85, 150, 100, 90));
 
         btnAdolescente.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
@@ -566,6 +571,13 @@ public class Visitante extends javax.swing.JFrame {
         V.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAdultoActionPerformed
+
+    private void btnEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmpresaMouseClicked
+frmEmpresa V = new frmEmpresa();
+        V.setVisible(true);
+        this.dispose(); 
+
+    }//GEN-LAST:event_btnEmpresaMouseClicked
 
     /**
      * @param args the command line arguments

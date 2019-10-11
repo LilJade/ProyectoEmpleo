@@ -1,7 +1,17 @@
 package Formularios;
 
+import Consultas.ConsultasEmpresa;
+import Entidades.Empresa;
 import org.jdesktop.swingx.prompt.PromptSupport;
 import java.awt.Font;
+import java.awt.Image;
+import java.io.File;
+import java.nio.file.Files;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class frmEmpresa extends javax.swing.JFrame {
 
@@ -11,8 +21,7 @@ public class frmEmpresa extends javax.swing.JFrame {
 
         //sms flotantel
         PromptSupport.setPrompt("Giro Comercial", txtGiroComercial);
-        PromptSupport.setPrompt("Departamento", txtDepartamento);
-        PromptSupport.setPrompt("Id Empresa", txtIdEmpresa);
+        PromptSupport.setPrompt("Departamento",txtDepartamento);
         PromptSupport.setPrompt("Nombre Empresa", txtNombreE);
         PromptSupport.setPrompt("Acronimo Empresa", txtAcronimoE);
         PromptSupport.setPrompt("Descrpcion de la Empresa", txtDescripcion);
@@ -20,7 +29,6 @@ public class frmEmpresa extends javax.swing.JFrame {
         PromptSupport.setPrompt("Correo de la Empresa", txtCorreoE);
         PromptSupport.setPrompt("Contraseña", txtContraseñaE);
         PromptSupport.setPrompt("Telefono  de la Empresa", txtTelefono);
-        PromptSupport.setPrompt("Perfil de la Empresa", txtPerfil);
         btnActivaA.setToolTipText("Activar");
         btnAyuda.setToolTipText("Ayuda");
         btnCancelar.setToolTipText("Cerrar");
@@ -43,18 +51,14 @@ public class frmEmpresa extends javax.swing.JFrame {
         txtContraseñaE.setForeground(new java.awt.Color(65, 138, 168));
         txtTelefono.setFont(fuente);
         txtTelefono.setForeground(new java.awt.Color(65, 138, 168));
-        txtPerfil.setFont(fuente);
-        txtPerfil.setForeground(new java.awt.Color(65, 138, 168));
         btnRegistrarE.setFont(fuente);
         btnRegistrarE.setForeground(new java.awt.Color(65, 138, 168));
-        txtIdEmpresa.setFont(fuente);
-        txtIdEmpresa.setForeground(new java.awt.Color(65, 138, 168));
         txtDepartamento.setFont(fuente);
         txtDepartamento.setForeground(new java.awt.Color(65, 138, 168));
         txtGiroComercial.setFont(fuente);
         txtGiroComercial.setForeground(new java.awt.Color(65, 138, 168));
-
-    }
+        
+         }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -70,14 +74,13 @@ public class frmEmpresa extends javax.swing.JFrame {
         txtCorreoE = new javax.swing.JTextField();
         btnRegistrarE = new javax.swing.JButton();
         txtTelefono = new javax.swing.JTextField();
-        txtPerfil = new javax.swing.JTextField();
         btnActivaA = new javax.swing.JButton();
         btnAyuda = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnCambiarPerfil = new javax.swing.JButton();
-        txtIdEmpresa = new javax.swing.JTextField();
         txtDepartamento = new javax.swing.JTextField();
         txtGiroComercial = new javax.swing.JTextField();
+        txturl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(202, 219, 236));
@@ -119,13 +122,6 @@ public class frmEmpresa extends javax.swing.JFrame {
         getContentPane().add(btnRegistrarE, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 730, 330, 50));
         getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 240, 35));
 
-        txtPerfil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPerfilActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 240, 35));
-
         btnActivaA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/feliz_24.png"))); // NOI18N
         btnActivaA.setBorder(null);
         btnActivaA.setContentAreaFilled(false);
@@ -147,6 +143,11 @@ public class frmEmpresa extends javax.swing.JFrame {
         btnCancelar.setBorder(null);
         btnCancelar.setContentAreaFilled(false);
         btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 30, 30));
 
         btnCambiarPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/añadirfoto_64.png"))); // NOI18N
@@ -155,29 +156,79 @@ public class frmEmpresa extends javax.swing.JFrame {
         btnCambiarPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCambiarPerfil.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/añadirfoto_64.png"))); // NOI18N
         btnCambiarPerfil.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/añadirfoto_128.png"))); // NOI18N
+        btnCambiarPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambiarPerfilActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCambiarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 140, 140));
-        getContentPane().add(txtIdEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 240, 35));
         getContentPane().add(txtDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 240, 35));
-        getContentPane().add(txtGiroComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 240, 35));
+        getContentPane().add(txtGiroComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 240, 35));
+        getContentPane().add(txturl, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 70, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    File file;
+     
     private void txtUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUbicacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUbicacionActionPerformed
 
     private void btnRegistrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrarEActionPerformed
+  
+        ConsultasEmpresa empresa = new ConsultasEmpresa();
+        Empresa entidadEmpresa = new Empresa();
 
-    private void txtPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPerfilActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPerfilActionPerformed
+        try {
+
+            entidadEmpresa.setNombre(txtNombreE.getText());
+            entidadEmpresa.setAcronimo(txtAcronimoE.getText());
+            entidadEmpresa.setDescripcion(txtDescripcion.getText());
+
+            entidadEmpresa.setDepartamento(txtDepartamento.getText());
+            entidadEmpresa.setDireccion(txtUbicacion.getText());
+            entidadEmpresa.setTelefono(txtTelefono.getText());
+            entidadEmpresa.setCorreo(txtCorreoE.getText());
+            entidadEmpresa.setContraseña(txtContraseñaE.getText());
+           byte[] sq = Files.readAllBytes(file.toPath());
+           entidadEmpresa.setImPerfil(sq);
+            String Girocomercial = String.valueOf(txtGiroComercial.getText());
+            int numEntero = Integer.parseInt(Girocomercial);
+            entidadEmpresa.setIdGiroComercial(numEntero);
+            empresa.insertar(entidadEmpresa);
+        } catch (Exception ex) {
+            Logger.getLogger(frmEmpresa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btnRegistrarEActionPerformed
 
     private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAyudaActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+       Visitante V = new Visitante();
+        V.setVisible(true);
+        this.dispose();
+     
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCambiarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarPerfilActionPerformed
+ FileNameExtensionFilter filtro = new FileNameExtensionFilter("formatos de Archivos JPEG(*.JPG;*.JPEG)", "jpg", "png", "jpeg");
+        JFileChooser archivo = new JFileChooser();
+        archivo.addChoosableFileFilter(filtro);
+        archivo.setDialogTitle("abrir Archivo");
+        int ventana = archivo.showOpenDialog(null);
+        if (ventana == JFileChooser.APPROVE_OPTION) {
+            file = archivo.getSelectedFile();
+            txturl.setText(String.valueOf(file));
+            Image foto = getToolkit().getImage(txturl.getText());
+            foto = foto.getScaledInstance(btnCambiarPerfil.getWidth(), btnCambiarPerfil.getHeight(), Image.SCALE_DEFAULT);
+
+            btnCambiarPerfil.setIcon(new ImageIcon(foto));
+
+        }          // TODO add your handling code here:
+    }//GEN-LAST:event_btnCambiarPerfilActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -228,10 +279,9 @@ public class frmEmpresa extends javax.swing.JFrame {
     private javax.swing.JTextField txtDepartamento;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtGiroComercial;
-    private javax.swing.JTextField txtIdEmpresa;
     private javax.swing.JTextField txtNombreE;
-    private javax.swing.JTextField txtPerfil;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtUbicacion;
+    private javax.swing.JLabel txturl;
     // End of variables declaration//GEN-END:variables
 }
