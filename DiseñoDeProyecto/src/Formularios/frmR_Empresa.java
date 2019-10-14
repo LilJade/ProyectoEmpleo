@@ -13,15 +13,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class frmEmpresa extends javax.swing.JFrame {
+public class frmR_Empresa extends javax.swing.JFrame {
 
-    public frmEmpresa() {
+    public frmR_Empresa() {
         initComponents();
         this.setLocationRelativeTo(null);
 
         //sms flotantel
         PromptSupport.setPrompt("Giro Comercial", txtGiroComercial);
-        PromptSupport.setPrompt("Departamento",txtDepartamento);
+        PromptSupport.setPrompt("Departamento", txtDepartamento);
         PromptSupport.setPrompt("Nombre Empresa", txtNombreE);
         PromptSupport.setPrompt("Acronimo Empresa", txtAcronimoE);
         PromptSupport.setPrompt("Descrpcion de la Empresa", txtDescripcion);
@@ -57,14 +57,13 @@ public class frmEmpresa extends javax.swing.JFrame {
         txtDepartamento.setForeground(new java.awt.Color(65, 138, 168));
         txtGiroComercial.setFont(fuente);
         txtGiroComercial.setForeground(new java.awt.Color(65, 138, 168));
-        
-         }
+
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         txtNombreE = new javax.swing.JTextField();
         txtAcronimoE = new javax.swing.JTextField();
@@ -81,19 +80,16 @@ public class frmEmpresa extends javax.swing.JFrame {
         txtDepartamento = new javax.swing.JTextField();
         txtGiroComercial = new javax.swing.JTextField();
         txturl = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(202, 219, 236));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSeparator1.setBackground(new java.awt.Color(99, 130, 191));
-        jSeparator1.setForeground(new java.awt.Color(73, 210, 149));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 240, 15));
-
         jSeparator2.setBackground(new java.awt.Color(99, 130, 191));
         jSeparator2.setForeground(new java.awt.Color(73, 210, 149));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 230, 10));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 180, 20));
         getContentPane().add(txtNombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 240, 35));
         getContentPane().add(txtAcronimoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 240, 35));
         getContentPane().add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 490, 90));
@@ -166,38 +162,45 @@ public class frmEmpresa extends javax.swing.JFrame {
         getContentPane().add(txtGiroComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 240, 35));
         getContentPane().add(txturl, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 70, 20));
 
+        jSeparator3.setBackground(new java.awt.Color(99, 130, 191));
+        jSeparator3.setForeground(new java.awt.Color(73, 210, 149));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 180, 10));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
     File file;
-     
+
+
     private void txtUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUbicacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUbicacionActionPerformed
 
     private void btnRegistrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEActionPerformed
-  
-        ConsultasEmpresa empresa = new ConsultasEmpresa();
-        Empresa entidadEmpresa = new Empresa();
-
+        ConsultasEmpresa cEmp = new ConsultasEmpresa();
+        Empresa eEmp = new Empresa();
         try {
 
-            entidadEmpresa.setNombre(txtNombreE.getText());
-            entidadEmpresa.setAcronimo(txtAcronimoE.getText());
-            entidadEmpresa.setDescripcion(txtDescripcion.getText());
+            eEmp.setNombre(txtNombreE.getText());
+            eEmp.setAcronimo(txtAcronimoE.getText());
+            eEmp.setDescripcion(txtDescripcion.getText());
 
-            entidadEmpresa.setDepartamento(txtDepartamento.getText());
-            entidadEmpresa.setDireccion(txtUbicacion.getText());
-            entidadEmpresa.setTelefono(txtTelefono.getText());
-            entidadEmpresa.setCorreo(txtCorreoE.getText());
-            entidadEmpresa.setContraseña(txtContraseñaE.getText());
-           byte[] sq = Files.readAllBytes(file.toPath());
-           entidadEmpresa.setImPerfil(sq);
+            eEmp.setDepartamento(txtDepartamento.getText());
+            eEmp.setDireccion(txtUbicacion.getText());
+            eEmp.setTelefono(txtTelefono.getText());
+            eEmp.setCorreo(txtCorreoE.getText());
+            eEmp.setContraseña(txtContraseñaE.getText());
+            
+            byte[] sq = Files.readAllBytes(file.toPath());
+            eEmp.setImPerfil(sq);
+            
             String Girocomercial = String.valueOf(txtGiroComercial.getText());
             int numEntero = Integer.parseInt(Girocomercial);
-            entidadEmpresa.setIdGiroComercial(numEntero);
-            empresa.insertar(entidadEmpresa);
+            eEmp.setIdGiroComercial(numEntero);
+
+            cEmp.insertar(eEmp);
         } catch (Exception ex) {
-            Logger.getLogger(frmEmpresa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(frmR_Empresa.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnRegistrarEActionPerformed
@@ -207,17 +210,17 @@ public class frmEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAyudaActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-       Visitante V = new Visitante();
+        frmVisitante V = new frmVisitante();
         V.setVisible(true);
         this.dispose();
-     
+
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCambiarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarPerfilActionPerformed
- FileNameExtensionFilter filtro = new FileNameExtensionFilter("formatos de Archivos JPEG(*.JPG;*.JPEG)", "jpg", "png", "jpeg");
         JFileChooser archivo = new JFileChooser();
-        archivo.addChoosableFileFilter(filtro);
-        archivo.setDialogTitle("abrir Archivo");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imagenes", "jpg", "png", "jpeg");
+        archivo.setFileFilter(filtro);
+        archivo.setDialogTitle("Elegir Imagen de Perfil");
         int ventana = archivo.showOpenDialog(null);
         if (ventana == JFileChooser.APPROVE_OPTION) {
             file = archivo.getSelectedFile();
@@ -244,23 +247,21 @@ public class frmEmpresa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmR_Empresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmR_Empresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmR_Empresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmR_Empresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmEmpresa().setVisible(true);
+                new frmR_Empresa().setVisible(true);
             }
         });
     }
@@ -271,8 +272,8 @@ public class frmEmpresa extends javax.swing.JFrame {
     private javax.swing.JButton btnCambiarPerfil;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnRegistrarE;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField txtAcronimoE;
     private javax.swing.JTextField txtContraseñaE;
     private javax.swing.JTextField txtCorreoE;

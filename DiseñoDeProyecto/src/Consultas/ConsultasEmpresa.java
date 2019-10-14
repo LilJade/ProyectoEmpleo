@@ -1,14 +1,14 @@
 package Consultas;
 import Modelo.conexionbd;
 import Entidades.Empresa;
-import Formularios.frmEmpresa;
+import Formularios.frmR_Empresa;
 import java.awt.HeadlessException;
 import java.sql.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
 public class ConsultasEmpresa {
-  frmEmpresa abrir=new frmEmpresa();  
+  frmR_Empresa abrir=new frmR_Empresa();  
     private Connection con = new conexionbd().getconexion();
     
     public void ValidarEmpresa(Empresa E){

@@ -2,8 +2,8 @@ package Entidades;
 
 public class Trabajador {
     
-  int idTrabajador, edad;
-  String nombres, apellidos, sexo, direccion, celular, telefonoFijo, dui, nit, correo, pass, descripcion;
+  int idTrabajador, edad, estilo;
+  String nombres, apellidos, descripcion, sexo, direccion, celular, telefonoFijo, dui, nit, correo, pass;
   byte[] imgPerfil;
 
     public int getIdTrabajador() {
@@ -22,6 +22,14 @@ public class Trabajador {
         this.edad = edad;
     }
 
+    public int getEstilo() {
+        return estilo;
+    }
+
+    public void setEstilo(int estilo) {
+        this.estilo = estilo;
+    }
+
     public String getNombres() {
         return nombres;
     }
@@ -36,6 +44,14 @@ public class Trabajador {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getSexo() {
@@ -102,14 +118,6 @@ public class Trabajador {
         this.pass = pass;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public byte[] getImgPerfil() {
         return imgPerfil;
     }
@@ -117,7 +125,5 @@ public class Trabajador {
     public void setImgPerfil(byte[] imgPerfil) {
         this.imgPerfil = imgPerfil;
     }
-
-   
-
+    
 }

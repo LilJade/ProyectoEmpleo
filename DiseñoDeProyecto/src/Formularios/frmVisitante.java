@@ -12,18 +12,18 @@ import com.placeholder.PlaceHolder;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
-public class Visitante extends javax.swing.JFrame {
+public class frmVisitante extends javax.swing.JFrame {
 
     //instancia y creacion de objetos clases correspondientes  
     ConsultasEmpresa cEmpresa = new ConsultasEmpresa();
     ConsultasTrabajador cTrabajador = new ConsultasTrabajador();
     Empresa eEmpresa = new Empresa();
     Trabajador eTrabajador = new Trabajador();
-    frmEmpresa formEmpresa = new frmEmpresa();
+    frmR_Empresa formEmpresa = new frmR_Empresa();
 
     PlaceHolder holder;
 
-    public Visitante() {
+    public frmVisitante() {
 
         initComponents();
         btnEntrar.setEnabled(false);
@@ -367,7 +367,7 @@ public class Visitante extends javax.swing.JFrame {
         rtnTrabajador.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         rtnTrabajador.setForeground(new java.awt.Color(26, 99, 66));
         rtnTrabajador.setText("Trabajador");
-        pnlSesion.add(rtnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+        pnlSesion.add(rtnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
         lblUsuario2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblUsuario2.setForeground(new java.awt.Color(255, 0, 51));
@@ -385,16 +385,16 @@ public class Visitante extends javax.swing.JFrame {
 
         jSeparator8.setBackground(new java.awt.Color(26, 99, 66));
         jSeparator8.setForeground(new java.awt.Color(26, 99, 66));
-        pnlSesion.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 110, 10));
+        pnlSesion.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 90, 10));
 
         btnEditarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuarioNEW_128.png"))); // NOI18N
         btnEditarFoto.setBorder(null);
         btnEditarFoto.setContentAreaFilled(false);
-        btnEditarFoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditarFoto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEditarFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEditarFoto.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnEditarFoto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        pnlSesion.add(btnEditarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, 130));
+        pnlSesion.add(btnEditarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 140, 130));
 
         getContentPane().add(pnlSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, -20, 320, 530));
 
@@ -451,7 +451,7 @@ public class Visitante extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarMouseClicked
 
     private void lbMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMinimizarMouseClicked
-        this.setState(Visitante.ICONIFIED);
+        this.setState(frmVisitante.ICONIFIED);
     }//GEN-LAST:event_lbMinimizarMouseClicked
 
     private void btnAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAyudaMouseClicked
@@ -473,18 +473,18 @@ public class Visitante extends javax.swing.JFrame {
     private void btnListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnListaMouseClicked
         //---------------------->
         AnimationClass empresa = new AnimationClass();
-        empresa.jButtonXRight(-85, 70, 10, 5, btnEmpresa);
+        empresa.jButtonXRight(-85, 70, 20, 5, btnEmpresa);
         AnimationClass adulto = new AnimationClass();
         adulto.jButtonXRight(-85, 70, 20, 5, btnAdulto);
         AnimationClass adolescente = new AnimationClass();
-        adolescente.jButtonXRight(-85, 70, 25, 5, btnAdolescente);
+        adolescente.jButtonXRight(-85, 70, 20, 5, btnAdolescente);
         //<---------
         AnimationClass empressa = new AnimationClass();
-        empressa.jButtonXLeft(70, -85, 25, 5, btnEmpresa);
+        empressa.jButtonXLeft(70, -85, 20, 5, btnEmpresa);
         AnimationClass adultoo = new AnimationClass();
         adultoo.jButtonXLeft(70, -85, 20, 5, btnAdulto);
         AnimationClass adolescentee = new AnimationClass();
-        adolescentee.jButtonXLeft(70, -85, 10, 5, btnAdolescente);
+        adolescentee.jButtonXLeft(70, -85, 20, 5, btnAdolescente);
     }//GEN-LAST:event_btnListaMouseClicked
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
@@ -493,7 +493,7 @@ public class Visitante extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
-        if (!txtUsuario.getText().equals("CORREO ELECTRONICO") || !txtUsuario.getText().isEmpty()) {
+        //if (!txtUsuario.getText().equals("CORREO ELECTRONICO") || !txtUsuario.getText().isEmpty()) {
             if (rtnEmpresa.isSelected()) {
                 eEmpresa.setCorreo(txtUsuario.getText());
                 eEmpresa.setContraseña(txtContraseña.getText());
@@ -505,11 +505,11 @@ public class Visitante extends javax.swing.JFrame {
                 cTrabajador.ValidarTrabajador(eTrabajador);
 
             } else {
-                JOptionPane.showMessageDialog(null, "Porfavor selecciona como deseas entrar");
+                JOptionPane.showMessageDialog(null, "Por favor elige entre ingresar como Empresa o como Trabajador.");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Asegurate de rellenar los campos necesarios!");
-        }
+        //} else {
+            //JOptionPane.showMessageDialog(null, "Asegurate de rellenar los campos necesarios!");
+        //}
 
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -569,13 +569,13 @@ public class Visitante extends javax.swing.JFrame {
 
     private void btnAdultoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdultoActionPerformed
 
-         frmRegistro_Visitante V = new frmRegistro_Visitante ();
+         frmR_Trabajador V = new frmR_Trabajador ();
         V.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAdultoActionPerformed
 
     private void btnEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmpresaMouseClicked
-frmEmpresa V = new frmEmpresa();
+frmR_Empresa V = new frmR_Empresa();
         V.setVisible(true);
         this.dispose(); 
 
@@ -598,20 +598,21 @@ frmEmpresa V = new frmEmpresa();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Visitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Visitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Visitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Visitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Visitante().setVisible(true);
+                new frmVisitante().setVisible(true);
             }
         });
     }

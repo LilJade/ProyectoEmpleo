@@ -1,6 +1,8 @@
 package Consultas;
 import Modelo.conexionbd;
 import Entidades.Trabajador;
+import Formularios.frmP_Trabajador;
+import Formularios.frmVisitante;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -21,6 +23,16 @@ public class ConsultasTrabajador {
             
             if(rs.next()){
                 Resultado = 1;
+                
+                if(Resultado == 1){
+                    frmP_Trabajador frmPTr = new frmP_Trabajador();
+                    frmVisitante frmV = new frmVisitante();
+                    
+                    frmPTr.lblSaludo.setText("Bienvenido " + rs.getString("nombres"));
+                    frmPTr.setVisible(true);
+                    frmV.hide();
+                    frmV.setVisible(false);
+                }
             } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta!", "Mensaje del Sistema", 2);
             }
@@ -30,24 +42,25 @@ public class ConsultasTrabajador {
         }
     }
     
-      public void insertar(Trabajador i) {
+      public void insertar(Trabajador t) {
         try {
-            CallableStatement st = con.prepareCall(" call SP_I_Trabajador(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            CallableStatement st = con.prepareCall("call SP_I_Trabajador(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-            st.setString("nombresT", i.getNombres());
-            st.setString("apellidosT", i.getApellidos());
-            st.setInt("edadT", i.getEdad());
-            st.setString("sexoT", i.getSexo());
-            st.setString("direccionT", i.getDireccion());
-            st.setString("celularT", i.getCelular());
-            st.setString("telefonoFijoT", i.getTelefonoFijo());
-            st.setString("duiT", i.getDui());
-            st.setString("nitT", i.getNit());
-            st.setString("correoT", i.getCorreo());
-            st.setString("passT", i.getPass());
-            
-            st.setBytes("imgPerfilT", i.getImgPerfil());
-            st.setString("descripcionT", i.getDescripcion());
+            st.setString("nombresT", t.getNombres());
+            st.setString("apellidosT", t.getApellidos());
+            st.setString("descripcionT", t.getDescripcion());
+            st.setInt("edadT", t.getEdad());
+            st.setString("sexoT", t.getSexo());
+            st.setString("direccionT", t.getDireccion());
+            st.setString("celularT", t.getCelular());
+            st.setString("telefonoFijoT", t.getTelefonoFijo());
+            st.setString("duiT", t.getDui());
+            st.setString("nitT", t.getNit());
+            st.setString("correoT", t.getCorreo());
+            st.setString("passT", t.getPass());
+            st.setBytes("imgPerfilT", t.getImgPerfil());
+            st.setInt("estiloT", t.getEstilo());
+
             st.execute();
             
             JOptionPane.showMessageDialog(null, "Registrado con Exito");
