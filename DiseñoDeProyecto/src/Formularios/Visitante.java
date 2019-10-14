@@ -338,7 +338,8 @@ public class Visitante extends javax.swing.JFrame {
         pnlSesion.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 150, 60, 30));
 
         jSeparator7.setBackground(new java.awt.Color(26, 99, 66));
-        pnlSesion.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 120, 10));
+        jSeparator7.setForeground(new java.awt.Color(26, 99, 66));
+        pnlSesion.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 90, 10));
 
         lbOjo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ojo_16.png"))); // NOI18N
         lbOjo1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -368,11 +369,13 @@ public class Visitante extends javax.swing.JFrame {
         rtnTrabajador.setText("Trabajador");
         pnlSesion.add(rtnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
 
+        lblUsuario2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblUsuario2.setForeground(new java.awt.Color(255, 0, 51));
-        pnlSesion.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 210, 20));
+        pnlSesion.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 240, 20));
 
+        lblContraseña.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblContraseña.setForeground(new java.awt.Color(255, 0, 0));
-        pnlSesion.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 200, 20));
+        pnlSesion.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 260, 20));
 
         lblContraseña2.setForeground(new java.awt.Color(255, 0, 51));
         pnlSesion.add(lblContraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 230, 20));
@@ -381,15 +384,14 @@ public class Visitante extends javax.swing.JFrame {
         pnlSesion.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 230, 20));
 
         jSeparator8.setBackground(new java.awt.Color(26, 99, 66));
-        pnlSesion.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 140, 10));
+        jSeparator8.setForeground(new java.awt.Color(26, 99, 66));
+        pnlSesion.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 110, 10));
 
-        btnEditarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario_64.png"))); // NOI18N
+        btnEditarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuarioNEW_128.png"))); // NOI18N
         btnEditarFoto.setBorder(null);
         btnEditarFoto.setContentAreaFilled(false);
         btnEditarFoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEditarFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnEditarFoto.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario_64.png"))); // NOI18N
-        btnEditarFoto.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuarioNEW_128.png"))); // NOI18N
         btnEditarFoto.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnEditarFoto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         pnlSesion.add(btnEditarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, 130));
