@@ -41,6 +41,11 @@ public class frmP_Empresa extends javax.swing.JFrame {
         jPanelSliderEmpresa = new diu.swe.habib.JPanelSlider.JPanelSlider();
         jp_busqueda = new javax.swing.JPanel();
         jp_notificaciones = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         inicio = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         lb_fotoEmpresa = new javax.swing.JLabel();
@@ -154,24 +159,78 @@ public class frmP_Empresa extends javax.swing.JFrame {
         jp_busqueda.setLayout(jp_busquedaLayout);
         jp_busquedaLayout.setHorizontalGroup(
             jp_busquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3061, Short.MAX_VALUE)
+            .addGap(0, 3092, Short.MAX_VALUE)
         );
         jp_busquedaLayout.setVerticalGroup(
             jp_busquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3023, Short.MAX_VALUE)
+            .addGap(0, 3065, Short.MAX_VALUE)
         );
 
         jPanelSliderEmpresa.add(jp_busqueda, "card3");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Aspirantes", "Empleo"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1083, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(260, Short.MAX_VALUE))
+        );
+
+        jButton2.setText("Eliminar");
+
+        jButton6.setText("Examinar");
 
         javax.swing.GroupLayout jp_notificacionesLayout = new javax.swing.GroupLayout(jp_notificaciones);
         jp_notificaciones.setLayout(jp_notificacionesLayout);
         jp_notificacionesLayout.setHorizontalGroup(
             jp_notificacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3061, Short.MAX_VALUE)
+            .addGroup(jp_notificacionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jp_notificacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_notificacionesLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_notificacionesLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1712, Short.MAX_VALUE))
         );
         jp_notificacionesLayout.setVerticalGroup(
             jp_notificacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3023, Short.MAX_VALUE)
+            .addGroup(jp_notificacionesLayout.createSequentialGroup()
+                .addGroup(jp_notificacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_notificacionesLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_notificacionesLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton2)
+                        .addGap(26, 26, 26)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(2361, Short.MAX_VALUE))
         );
 
         jPanelSliderEmpresa.add(jp_notificaciones, "card4");
@@ -299,6 +358,7 @@ public class frmP_Empresa extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Direccion de la  empresa ");
 
         jbn_ubicacion.setIcon(new javax.swing.ImageIcon("C:\\Users\\LARS\\Downloads\\ic_location_on_128_28437.png")); // NOI18N
@@ -320,8 +380,10 @@ public class frmP_Empresa extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("Correo electronico ");
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("Telefono ");
 
         lb_nombres.setBackground(new java.awt.Color(51, 51, 51));
@@ -368,9 +430,9 @@ public class frmP_Empresa extends javax.swing.JFrame {
                                 .addContainerGap(60, Short.MAX_VALUE))
                             .addGroup(jp_generalidadesEmpresaLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addGap(217, 217, 217)
+                                .addGap(132, 132, 132)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(250, 250, 250)
+                                .addGap(236, 236, 236)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jp_generalidadesEmpresaLayout.createSequentialGroup()
@@ -423,7 +485,7 @@ public class frmP_Empresa extends javax.swing.JFrame {
                 .addGroup(inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jo_empleos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jp_generalidadesEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1637, Short.MAX_VALUE))
+                .addContainerGap(1668, Short.MAX_VALUE))
         );
         inicioLayout.setVerticalGroup(
             inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,7 +497,7 @@ public class frmP_Empresa extends javax.swing.JFrame {
                         .addComponent(jp_generalidadesEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jo_empleos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(2245, Short.MAX_VALUE))
+                .addContainerGap(2287, Short.MAX_VALUE))
         );
 
         jPanelSliderEmpresa.add(inicio, "card2");
@@ -612,21 +674,26 @@ public class frmP_Empresa extends javax.swing.JFrame {
     private javax.swing.JButton btnperfil;
     private javax.swing.JPanel inicio;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private diu.swe.habib.JPanelSlider.JPanelSlider jPanelSliderEmpresa;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPaneEmpresa;
     public javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     public javax.swing.JTextArea jText_Descripcion;
     private javax.swing.JButton jbn_ubicacion;
     private javax.swing.JPanel jo_empleos;
