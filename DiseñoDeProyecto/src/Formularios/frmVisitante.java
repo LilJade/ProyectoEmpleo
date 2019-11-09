@@ -494,21 +494,22 @@ public class frmVisitante extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
         //if (!txtUsuario.getText().equals("CORREO ELECTRONICO") || !txtUsuario.getText().isEmpty()) {
-            if (rtnEmpresa.isSelected()) {
-                eEmpresa.setCorreo(txtUsuario.getText());
-                eEmpresa.setContraseña(txtContraseña.getText());
-                cEmpresa.ValidarEmpresa(eEmpresa);
+        if (rtnEmpresa.isSelected()) {
+            eEmpresa.setCorreo(txtUsuario.getText());
+            eEmpresa.setContraseña(txtContraseña.getText());
+            cEmpresa.ValidarEmpresa(eEmpresa);
+            //this.dispose();
 
-            } else if (rtnTrabajador.isSelected()) {
-                eTrabajador.setCorreo(txtUsuario.getText());
-                eTrabajador.setPass(txtContraseña.getText());
-                cTrabajador.ValidarTrabajador(eTrabajador);
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Por favor elige entre ingresar como Empresa o como Trabajador.");
-            }
+        } else if (rtnTrabajador.isSelected()) {
+            eTrabajador.setCorreo(txtUsuario.getText());
+            eTrabajador.setPass(txtContraseña.getText());
+            cTrabajador.ValidarTrabajador(eTrabajador);
+        //  this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor elige entre ingresar como Empresa o como Trabajador.");
+        }
         //} else {
-            //JOptionPane.showMessageDialog(null, "Asegurate de rellenar los campos necesarios!");
+        //JOptionPane.showMessageDialog(null, "Asegurate de rellenar los campos necesarios!");
         //}
 
     }//GEN-LAST:event_btnEntrarActionPerformed
@@ -569,15 +570,15 @@ public class frmVisitante extends javax.swing.JFrame {
 
     private void btnAdultoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdultoActionPerformed
 
-         frmR_Trabajador V = new frmR_Trabajador ();
+        frmR_Trabajador V = new frmR_Trabajador();
         V.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAdultoActionPerformed
 
     private void btnEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmpresaMouseClicked
-frmR_Empresa V = new frmR_Empresa();
+        frmR_Empresa V = new frmR_Empresa();
         V.setVisible(true);
-        this.dispose(); 
+        this.dispose();
 
     }//GEN-LAST:event_btnEmpresaMouseClicked
 
@@ -606,6 +607,8 @@ frmR_Empresa V = new frmR_Empresa();
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

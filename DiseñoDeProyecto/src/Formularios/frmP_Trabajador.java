@@ -637,7 +637,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator1.setPreferredSize(new java.awt.Dimension(4, 2));
 
         btnConfigEstudios.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigEstudios.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEstudios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEstudios.setText("Gestionar...");
         btnConfigEstudios.addActionListener(new java.awt.event.ActionListener() {
@@ -696,8 +695,8 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jp_Exp2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -929,7 +928,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         );
 
         btnConfigExps.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigExps.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps.setText("Gestionar...");
 
@@ -1194,6 +1192,34 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmP_Trabajador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

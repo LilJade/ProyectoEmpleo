@@ -2,15 +2,20 @@ package Formularios;
 
 import Consultas.ConsultasEmpresa;
 import Entidades.Empresa;
+import Entidades.GiroComercial;
 import org.jdesktop.swingx.prompt.PromptSupport;
 import java.awt.Font;
 import java.awt.Image;
 import java.io.File;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class frmR_Empresa extends javax.swing.JFrame {
@@ -18,10 +23,12 @@ public class frmR_Empresa extends javax.swing.JFrame {
     public frmR_Empresa() {
         initComponents();
         this.setLocationRelativeTo(null);
+       
+        
+ 
 
         //sms flotantel
-        PromptSupport.setPrompt("Giro Comercial", txtGiroComercial);
-        PromptSupport.setPrompt("Departamento", txtDepartamento);
+  
         PromptSupport.setPrompt("Nombre Empresa", txtNombreE);
         PromptSupport.setPrompt("Acronimo Empresa", txtAcronimoE);
         PromptSupport.setPrompt("Descrpcion de la Empresa", txtDescripcion);
@@ -53,11 +60,31 @@ public class frmR_Empresa extends javax.swing.JFrame {
         txtTelefono.setForeground(new java.awt.Color(65, 138, 168));
         btnRegistrarE.setFont(fuente);
         btnRegistrarE.setForeground(new java.awt.Color(65, 138, 168));
-        txtDepartamento.setFont(fuente);
-        txtDepartamento.setForeground(new java.awt.Color(65, 138, 168));
-        txtGiroComercial.setFont(fuente);
-        txtGiroComercial.setForeground(new java.awt.Color(65, 138, 168));
+        
+        cargarcombo();
+    }
 
+    String filasCombo[] = new String[13];
+
+    String array[] = new String[6];
+    int contadors = 0;
+
+    public void cargarcombo() {
+        ConsultasEmpresa mo = new ConsultasEmpresa();
+        ArrayList<GiroComercial> PS = mo.mostrargiros();
+        Iterator i = PS.iterator();
+        DefaultComboBoxModel DefaultComboBoxModel = new DefaultComboBoxModel();
+        DefaultComboBoxModel.removeAllElements();
+        while (i.hasNext()) {
+            GiroComercial p;
+            p = (GiroComercial) i.next();
+            array[contadors] = String.valueOf(p.getIdGiroComercial());
+            filasCombo[1] = p.getCategoriaNombre();
+            DefaultComboBoxModel.addElement(p.getCategoriaNombre());
+            contadors++;
+        }
+
+        cmb_girocomercial.setModel(DefaultComboBoxModel);
     }
 
     @SuppressWarnings("unchecked")
@@ -77,10 +104,10 @@ public class frmR_Empresa extends javax.swing.JFrame {
         btnAyuda = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnCambiarPerfil = new javax.swing.JButton();
-        txtDepartamento = new javax.swing.JTextField();
-        txtGiroComercial = new javax.swing.JTextField();
         txturl = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
+        cmb_girocomercial = new javax.swing.JComboBox();
+        cmbt_Departamento = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(202, 219, 236));
@@ -92,6 +119,12 @@ public class frmR_Empresa extends javax.swing.JFrame {
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 180, 20));
         getContentPane().add(txtNombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 240, 35));
         getContentPane().add(txtAcronimoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 240, 35));
+
+        txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescripcionActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 490, 90));
 
         txtUbicacion.addActionListener(new java.awt.event.ActionListener() {
@@ -157,14 +190,17 @@ public class frmR_Empresa extends javax.swing.JFrame {
                 btnCambiarPerfilActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCambiarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 140, 140));
-        getContentPane().add(txtDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 240, 35));
-        getContentPane().add(txtGiroComercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 240, 35));
-        getContentPane().add(txturl, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 70, 20));
+        getContentPane().add(btnCambiarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 140, 140));
+        getContentPane().add(txturl, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 70, 20));
 
         jSeparator3.setBackground(new java.awt.Color(99, 130, 191));
         jSeparator3.setForeground(new java.awt.Color(73, 210, 149));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 180, 10));
+
+        getContentPane().add(cmb_girocomercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 240, 30));
+
+        cmbt_Departamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ahuachapán", "Cabañas", "Chalatenango", "Cuscatlán", "La Libertad", "La Paz", "La Unión", "Morazán", "San Miguel", "San Salvador", "San Vicente", "Santa Ana", "Sonsonate", "Usulután" }));
+        getContentPane().add(cmbt_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 220, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -185,18 +221,21 @@ public class frmR_Empresa extends javax.swing.JFrame {
             eEmp.setAcronimo(txtAcronimoE.getText());
             eEmp.setDescripcion(txtDescripcion.getText());
 
-            eEmp.setDepartamento(txtDepartamento.getText());
+            eEmp.setDepartamento((String) cmbt_Departamento.getSelectedItem());
             eEmp.setDireccion(txtUbicacion.getText());
             eEmp.setTelefono(txtTelefono.getText());
             eEmp.setCorreo(txtCorreoE.getText());
             eEmp.setContraseña(txtContraseñaE.getText());
-            
+
             byte[] sq = Files.readAllBytes(file.toPath());
             eEmp.setImPerfil(sq);
-            
-            String Girocomercial = String.valueOf(txtGiroComercial.getText());
-            int numEntero = Integer.parseInt(Girocomercial);
-            eEmp.setIdGiroComercial(numEntero);
+
+            int indice, otro;
+            String valor;
+            indice = cmb_girocomercial.getSelectedIndex();
+            valor = array[indice];
+            otro = Integer.parseInt(valor);
+            eEmp.setIdGiroComercial(otro);
 
             cEmp.insertar(eEmp);
         } catch (Exception ex) {
@@ -233,6 +272,10 @@ public class frmR_Empresa extends javax.swing.JFrame {
         }          // TODO add your handling code here:
     }//GEN-LAST:event_btnCambiarPerfilActionPerformed
 
+    private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
+       // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescripcionActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -257,6 +300,8 @@ public class frmR_Empresa extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -272,14 +317,14 @@ public class frmR_Empresa extends javax.swing.JFrame {
     private javax.swing.JButton btnCambiarPerfil;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnRegistrarE;
+    private javax.swing.JComboBox cmb_girocomercial;
+    private javax.swing.JComboBox cmbt_Departamento;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField txtAcronimoE;
     private javax.swing.JTextField txtContraseñaE;
     private javax.swing.JTextField txtCorreoE;
-    private javax.swing.JTextField txtDepartamento;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtGiroComercial;
     private javax.swing.JTextField txtNombreE;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtUbicacion;
