@@ -22,6 +22,8 @@ public class frmVisitante extends javax.swing.JFrame {
     frmR_Empresa formEmpresa = new frmR_Empresa();
 
     PlaceHolder holder;
+    
+    public static int id = 0;
 
     public frmVisitante() {
 
@@ -503,7 +505,12 @@ public class frmVisitante extends javax.swing.JFrame {
         } else if (rtnTrabajador.isSelected()) {
             eTrabajador.setCorreo(txtUsuario.getText());
             eTrabajador.setPass(txtContraseña.getText());
-            cTrabajador.ValidarTrabajador(eTrabajador);
+            this.id = cTrabajador.ValidarTrabajador(eTrabajador);
+            
+            if(id != 0){
+                frmP_Trabajador frmP_Tr = new frmP_Trabajador();
+                frmP_Tr.setVisible(true);
+            }
         //  this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Por favor elige entre ingresar como Empresa o como Trabajador.");

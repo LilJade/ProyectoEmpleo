@@ -2,6 +2,7 @@ package Formularios;
 import Consultas.ConsultasEstudio;
 import Consultas.ConsultasExperiencia;
 import Consultas.ConsultasHabilidades;
+import Consultas.ConsultasTrabajador;
 import Entidades.Habilidad;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -18,9 +19,10 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     public frmP_Trabajador() {
         initComponents();
         
-        Estudio(1);
-        Experiencia(1);
-        Habilidades(1);
+        Datos(frmVisitante.id);
+        Estudio(frmVisitante.id);
+        Experiencia(frmVisitante.id);
+        Habilidades(frmVisitante.id);
 
         this.setBounds(0, 0, 1350, 900);
         this.setLocationRelativeTo(null);
@@ -1185,6 +1187,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnConfigEstudiosActionPerformed
 
+    public void Datos(int id){
+        ConsultasTrabajador cTr = new ConsultasTrabajador();
+        cTr.datosTrabajador(id);
+    }
+    
     public void Estudio(int id){        
         ConsultasEstudio cEst = new ConsultasEstudio();
         cEst.mostrarEstudios(id);

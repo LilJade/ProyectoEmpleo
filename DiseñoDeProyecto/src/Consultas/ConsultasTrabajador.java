@@ -1,8 +1,8 @@
 package Consultas;
+
 import Modelo.conexionbd;
 import Entidades.Trabajador;
 import Formularios.frmP_Trabajador;
-import Formularios.frmVisitante;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -16,10 +16,10 @@ import javax.swing.JOptionPane;
 public class ConsultasTrabajador {
 
     private Connection con = new conexionbd().getconexion();
+    public static int id = 0;
+    frmP_Trabajador frmP_Tr;
 
-    public void ValidarTrabajador(Trabajador T) {
-        ImageIcon img = null;
-        InputStream inp = null;
+    public int ValidarTrabajador(Trabajador T) {
         int Resultado = 0;
 
         try {
@@ -34,41 +34,17 @@ public class ConsultasTrabajador {
                 Resultado = 1;
 
                 if (Resultado == 1) {
-                    frmP_Trabajador frmPTr = new frmP_Trabajador();
-                    frmVisitante frmV = new frmVisitante();
-
-                    //enviando id a un label en frmP_Trabajador (No util).
-                    frmPTr.lblId.setText(String.valueOf(rs.getInt("idTrabajador")));
-
-                    //Agregando foto de Perfil, si existe en la base.
-                    try {
-                        if (rs.getBinaryStream("imgPerfil") != null) {
-                            inp = rs.getBinaryStream("imgPerfil");
-                            BufferedImage bi = ImageIO.read(inp);
-                            img = new ImageIcon(bi);
-                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmPTr.lblFotoperfil.getWidth(), frmPTr.lblFotoperfil.getHeight(), Image.SCALE_DEFAULT));
-
-                            frmPTr.lblFotoperfil.setIcon(icn);
-                        } else {
-                            frmPTr.lblFotoperfil.setIcon(null);
-                        }
-                    } catch (IOException ex) {
-                        frmPTr.lblFotoperfil.setIcon(null);
-                    }
-
-                    //Agregando nombres y descripcion del usuario
-                    frmPTr.lblNombres.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
-                    frmPTr.jtxta_Descripcion.setText(rs.getString("descripcion"));
-
-                    frmPTr.setVisible(true);
-                    frmV.hide();
-                    frmV.setVisible(false);
+                    this.id = rs.getInt("idTrabajador");
+                    return id;
                 }
+                return id;
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta!", "Mensaje del Sistema", 2);
+                return id;
             }
         } catch (SQLException ex) {
             System.out.println("Error en la validacion del Trabajador: " + ex.getMessage());
+            return id;
         }
     }
 
@@ -97,6 +73,41 @@ public class ConsultasTrabajador {
 
         } catch (Exception ex) {
             System.out.println("Error de insercion: " + ex.getMessage());
+        }
+    }
+
+    public void datosTrabajador(int id) {
+        ImageIcon img = null;
+        InputStream inp = null;
+
+        try {
+            CallableStatement st = con.prepareCall("SELECT * FROM Trabajador WHERE idTrabajador = " + id);
+
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next()) {
+                //Agregando foto de Perfil, si existe en la base.
+                try {
+                    if (rs.getBinaryStream("imgPerfil") != null) {
+                        inp = rs.getBinaryStream("imgPerfil");
+                        BufferedImage bi = ImageIO.read(inp);
+                        img = new ImageIcon(bi);
+                        Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil.getWidth(), frmP_Tr.lblFotoperfil.getHeight(), Image.SCALE_DEFAULT));
+
+                        frmP_Tr.lblFotoperfil.setIcon(icn);
+                    } else {
+                        frmP_Tr.lblFotoperfil.setIcon(null);
+                    }
+                } catch (IOException ex) {
+                    frmP_Tr.lblFotoperfil.setIcon(null);
+                }
+
+                //Agregando nombres y descripcion del usuario
+                frmP_Tr.lblNombres.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
+                frmP_Tr.jtxta_Descripcion.setText(rs.getString("descripcion"));
+            }
+        } catch (Exception e) {
+            System.out.println("Error a consultar datos del trabajador: " + e.getMessage());
         }
     }
 }
