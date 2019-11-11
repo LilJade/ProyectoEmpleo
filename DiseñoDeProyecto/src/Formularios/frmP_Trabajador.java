@@ -1,13 +1,27 @@
 package Formularios;
-import Consultas.ConsultasTrabajador;
+import Consultas.ConsultasEstudio;
+import Consultas.ConsultasExperiencia;
+import Consultas.ConsultasHabilidades;
+import Entidades.Habilidad;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.swing.JLabel;
 
 public class frmP_Trabajador extends javax.swing.JFrame {
 
-    ConsultasTrabajador cT = new ConsultasTrabajador();
-    
+    frmVisitante frmV;
+    int indice = 0;
+    private List<JLabel> lblHabilidades = new ArrayList<>();
+        
     public frmP_Trabajador() {
         initComponents();
+        
+        Estudio(1);
+        Experiencia(1);
+        Habilidades(1);
+
         this.setBounds(0, 0, 1350, 900);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -20,6 +34,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jtxta_Descripcion.setBorder(null);
         jtxta_Descripcion.setBackground(new Color(0, 0, 0, 1));
 
+        btnMiPerfil.setSelected(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -51,64 +66,64 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         lblId = new javax.swing.JLabel();
         jp_Estudios = new javax.swing.JPanel();
         jp_Est1 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblInstitucion1 = new javax.swing.JLabel();
+        lblAño1 = new javax.swing.JLabel();
+        lblCiudad1 = new javax.swing.JLabel();
+        lblTitulo1 = new javax.swing.JLabel();
         jp_Est2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblInstitucion2 = new javax.swing.JLabel();
+        lblAño2 = new javax.swing.JLabel();
+        lblCiudad2 = new javax.swing.JLabel();
+        lblTitulo2 = new javax.swing.JLabel();
         jp_Est3 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lblInstitucion3 = new javax.swing.JLabel();
+        lblAño3 = new javax.swing.JLabel();
+        lblCiudad3 = new javax.swing.JLabel();
+        lblTitulo3 = new javax.swing.JLabel();
         jp_Est4 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        lblInstitucion5 = new javax.swing.JLabel();
+        lblAño5 = new javax.swing.JLabel();
+        lblCiudad5 = new javax.swing.JLabel();
+        lblTitulo5 = new javax.swing.JLabel();
         jp_Est5 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        lblInstitucion4 = new javax.swing.JLabel();
+        lblAño4 = new javax.swing.JLabel();
+        lblCiudad4 = new javax.swing.JLabel();
+        lblTitulo4 = new javax.swing.JLabel();
         jp_Est6 = new javax.swing.JPanel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        lblInstitucion6 = new javax.swing.JLabel();
+        lblAño6 = new javax.swing.JLabel();
+        lblCiudad6 = new javax.swing.JLabel();
+        lblTitulo6 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         btnConfigEstudios = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jp_Experiencias = new javax.swing.JPanel();
         jp_Exp1 = new javax.swing.JPanel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
+        lblCargo1 = new javax.swing.JLabel();
+        lblInstitucionExp1 = new javax.swing.JLabel();
+        descripcionExp1 = new javax.swing.JLabel();
+        añoExp1 = new javax.swing.JLabel();
         jp_Exp2 = new javax.swing.JPanel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
+        lblCargo2 = new javax.swing.JLabel();
+        lblInstitucionExp2 = new javax.swing.JLabel();
+        descripcionExp2 = new javax.swing.JLabel();
+        añoExp2 = new javax.swing.JLabel();
         jp_Exp3 = new javax.swing.JPanel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
+        lblCargo3 = new javax.swing.JLabel();
+        lblInstitucionExp3 = new javax.swing.JLabel();
+        descripcionExp3 = new javax.swing.JLabel();
+        añoExp3 = new javax.swing.JLabel();
         jp_Exp4 = new javax.swing.JPanel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
+        lblCargo4 = new javax.swing.JLabel();
+        lblInstitucionExp4 = new javax.swing.JLabel();
+        descripcionExp4 = new javax.swing.JLabel();
+        añoExp4 = new javax.swing.JLabel();
         jp_Exp5 = new javax.swing.JPanel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
+        lblCargo5 = new javax.swing.JLabel();
+        lblInstitucionExp5 = new javax.swing.JLabel();
+        descripcionExp5 = new javax.swing.JLabel();
+        añoExp5 = new javax.swing.JLabel();
         btnConfigExps = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -120,6 +135,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jp_Titulos.setBackground(new java.awt.Color(93, 0, 93));
+        jp_Titulos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,10 +206,9 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        scroll1.setBorder(null);
-        scroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jp_Perfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jps_Perfil.setBorder(null);
+        scroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -301,25 +316,25 @@ public class frmP_Trabajador extends javax.swing.JFrame {
 
         jp_Est1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("institucion");
+        lblInstitucion1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucion1.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucion1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucion1.setText("institucion");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("año");
+        lblAño1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblAño1.setForeground(new java.awt.Color(51, 51, 51));
+        lblAño1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAño1.setText("año");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("ciudad");
+        lblCiudad1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCiudad1.setForeground(new java.awt.Color(51, 51, 51));
+        lblCiudad1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCiudad1.setText("ciudad");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("titulo");
+        lblTitulo1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitulo1.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo1.setText("titulo");
 
         javax.swing.GroupLayout jp_Est1Layout = new javax.swing.GroupLayout(jp_Est1);
         jp_Est1.setLayout(jp_Est1Layout);
@@ -327,13 +342,13 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             jp_Est1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Est1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jp_Est1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jp_Est1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblAño1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                    .addComponent(lblCiudad1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_Est1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblInstitucion1, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE)
+                    .addComponent(lblTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
         );
         jp_Est1Layout.setVerticalGroup(
@@ -341,36 +356,36 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_Est1Layout.createSequentialGroup()
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jp_Est1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAño1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Est1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCiudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInstitucion1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         jp_Est2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("institucion");
+        lblInstitucion2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucion2.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucion2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucion2.setText("institucion");
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("año");
+        lblAño2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblAño2.setForeground(new java.awt.Color(51, 51, 51));
+        lblAño2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAño2.setText("año");
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("ciudad");
+        lblCiudad2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCiudad2.setForeground(new java.awt.Color(51, 51, 51));
+        lblCiudad2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCiudad2.setText("ciudad");
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("titulo");
+        lblTitulo2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitulo2.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo2.setText("titulo");
 
         javax.swing.GroupLayout jp_Est2Layout = new javax.swing.GroupLayout(jp_Est2);
         jp_Est2.setLayout(jp_Est2Layout);
@@ -378,13 +393,13 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             jp_Est2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Est2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jp_Est2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jp_Est2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCiudad2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAño2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_Est2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblInstitucion2, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
         );
         jp_Est2Layout.setVerticalGroup(
@@ -392,36 +407,36 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_Est2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_Est2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAño2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Est2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCiudad2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInstitucion2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jp_Est3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("institucion");
+        lblInstitucion3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucion3.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucion3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucion3.setText("institucion");
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("año");
+        lblAño3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblAño3.setForeground(new java.awt.Color(51, 51, 51));
+        lblAño3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAño3.setText("año");
 
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("ciudad");
+        lblCiudad3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCiudad3.setForeground(new java.awt.Color(51, 51, 51));
+        lblCiudad3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCiudad3.setText("ciudad");
 
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("titulo");
+        lblTitulo3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitulo3.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo3.setText("titulo");
 
         javax.swing.GroupLayout jp_Est3Layout = new javax.swing.GroupLayout(jp_Est3);
         jp_Est3.setLayout(jp_Est3Layout);
@@ -429,13 +444,13 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             jp_Est3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Est3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jp_Est3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jp_Est3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCiudad3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAño3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_Est3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTitulo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblInstitucion3, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
         );
         jp_Est3Layout.setVerticalGroup(
@@ -443,36 +458,36 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_Est3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_Est3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAño3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Est3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCiudad3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInstitucion3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jp_Est4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("institucion");
+        lblInstitucion5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucion5.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucion5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucion5.setText("institucion");
 
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("año");
+        lblAño5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblAño5.setForeground(new java.awt.Color(51, 51, 51));
+        lblAño5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAño5.setText("año");
 
-        jLabel18.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("ciudad");
+        lblCiudad5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCiudad5.setForeground(new java.awt.Color(51, 51, 51));
+        lblCiudad5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCiudad5.setText("ciudad");
 
-        jLabel19.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("titulo");
+        lblTitulo5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitulo5.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo5.setText("titulo");
 
         javax.swing.GroupLayout jp_Est4Layout = new javax.swing.GroupLayout(jp_Est4);
         jp_Est4.setLayout(jp_Est4Layout);
@@ -480,13 +495,13 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             jp_Est4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Est4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jp_Est4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jp_Est4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCiudad5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAño5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_Est4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTitulo5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblInstitucion5, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
         );
         jp_Est4Layout.setVerticalGroup(
@@ -494,36 +509,36 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_Est4Layout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addGroup(jp_Est4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAño5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Est4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCiudad5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInstitucion5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jp_Est5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("institucion");
+        lblInstitucion4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucion4.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucion4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucion4.setText("institucion");
 
-        jLabel21.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("año");
+        lblAño4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblAño4.setForeground(new java.awt.Color(51, 51, 51));
+        lblAño4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAño4.setText("año");
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("ciudad");
+        lblCiudad4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCiudad4.setForeground(new java.awt.Color(51, 51, 51));
+        lblCiudad4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCiudad4.setText("ciudad");
 
-        jLabel23.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("titulo");
+        lblTitulo4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitulo4.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo4.setText("titulo");
 
         javax.swing.GroupLayout jp_Est5Layout = new javax.swing.GroupLayout(jp_Est5);
         jp_Est5.setLayout(jp_Est5Layout);
@@ -531,13 +546,13 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             jp_Est5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Est5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jp_Est5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jp_Est5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblAño4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCiudad4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_Est5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTitulo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblInstitucion4, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
         );
         jp_Est5Layout.setVerticalGroup(
@@ -545,36 +560,36 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_Est5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_Est5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAño4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Est5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCiudad4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInstitucion4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jp_Est6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("institucion");
+        lblInstitucion6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucion6.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucion6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucion6.setText("institucion");
 
-        jLabel29.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText("año");
+        lblAño6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblAño6.setForeground(new java.awt.Color(51, 51, 51));
+        lblAño6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAño6.setText("año");
 
-        jLabel30.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel30.setText("ciudad");
+        lblCiudad6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCiudad6.setForeground(new java.awt.Color(51, 51, 51));
+        lblCiudad6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCiudad6.setText("ciudad");
 
-        jLabel31.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText("titulo");
+        lblTitulo6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitulo6.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo6.setText("titulo");
 
         javax.swing.GroupLayout jp_Est6Layout = new javax.swing.GroupLayout(jp_Est6);
         jp_Est6.setLayout(jp_Est6Layout);
@@ -582,13 +597,13 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             jp_Est6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Est6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jp_Est6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jp_Est6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCiudad6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAño6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_Est6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTitulo6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblInstitucion6, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
         );
         jp_Est6Layout.setVerticalGroup(
@@ -596,12 +611,12 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_Est6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_Est6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAño6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Est6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCiudad6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInstitucion6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -637,6 +652,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator1.setPreferredSize(new java.awt.Dimension(4, 2));
 
         btnConfigEstudios.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigEstudios.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEstudios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEstudios.setText("Gestionar...");
         btnConfigEstudios.addActionListener(new java.awt.event.ActionListener() {
@@ -650,25 +666,25 @@ public class frmP_Trabajador extends javax.swing.JFrame {
 
         jp_Exp1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel32.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setText("cargo desempeñado");
+        lblCargo1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblCargo1.setForeground(new java.awt.Color(51, 51, 51));
+        lblCargo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCargo1.setText("cargo desempeñado");
 
-        jLabel33.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel33.setText("institucion");
+        lblInstitucionExp1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucionExp1.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucionExp1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucionExp1.setText("institucion");
 
-        jLabel34.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel34.setText("descripcion");
+        descripcionExp1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        descripcionExp1.setForeground(new java.awt.Color(51, 51, 51));
+        descripcionExp1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        descripcionExp1.setText("descripcion");
 
-        jLabel35.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel35.setText("año");
+        añoExp1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        añoExp1.setForeground(new java.awt.Color(51, 51, 51));
+        añoExp1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        añoExp1.setText("año");
 
         javax.swing.GroupLayout jp_Exp1Layout = new javax.swing.GroupLayout(jp_Exp1);
         jp_Exp1.setLayout(jp_Exp1Layout);
@@ -677,49 +693,49 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_Exp1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_Exp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(descripcionExp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCargo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jp_Exp1Layout.createSequentialGroup()
-                        .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblInstitucionExp1, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(añoExp1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jp_Exp1Layout.setVerticalGroup(
             jp_Exp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Exp1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCargo1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Exp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblInstitucionExp1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(añoExp1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addComponent(descripcionExp1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jp_Exp2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel36.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setText("cargo desempeñado");
+        lblCargo2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblCargo2.setForeground(new java.awt.Color(51, 51, 51));
+        lblCargo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCargo2.setText("cargo desempeñado");
 
-        jLabel37.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel37.setText("institucion");
+        lblInstitucionExp2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucionExp2.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucionExp2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucionExp2.setText("institucion");
 
-        jLabel38.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel38.setText("descripcion");
+        descripcionExp2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        descripcionExp2.setForeground(new java.awt.Color(51, 51, 51));
+        descripcionExp2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        descripcionExp2.setText("descripcion");
 
-        jLabel39.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel39.setText("año");
+        añoExp2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        añoExp2.setForeground(new java.awt.Color(51, 51, 51));
+        añoExp2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        añoExp2.setText("año");
 
         javax.swing.GroupLayout jp_Exp2Layout = new javax.swing.GroupLayout(jp_Exp2);
         jp_Exp2.setLayout(jp_Exp2Layout);
@@ -728,49 +744,49 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_Exp2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_Exp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(descripcionExp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCargo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jp_Exp2Layout.createSequentialGroup()
-                        .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblInstitucionExp2, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(añoExp2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jp_Exp2Layout.setVerticalGroup(
             jp_Exp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Exp2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCargo2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Exp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblInstitucionExp2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(añoExp2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(descripcionExp2, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jp_Exp3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel40.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel40.setText("cargo desempeñado");
+        lblCargo3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblCargo3.setForeground(new java.awt.Color(51, 51, 51));
+        lblCargo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCargo3.setText("cargo desempeñado");
 
-        jLabel41.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel41.setText("institucion");
+        lblInstitucionExp3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucionExp3.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucionExp3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucionExp3.setText("institucion");
 
-        jLabel42.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel42.setText("descripcion");
+        descripcionExp3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        descripcionExp3.setForeground(new java.awt.Color(51, 51, 51));
+        descripcionExp3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        descripcionExp3.setText("descripcion");
 
-        jLabel43.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel43.setText("año");
+        añoExp3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        añoExp3.setForeground(new java.awt.Color(51, 51, 51));
+        añoExp3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        añoExp3.setText("año");
 
         javax.swing.GroupLayout jp_Exp3Layout = new javax.swing.GroupLayout(jp_Exp3);
         jp_Exp3.setLayout(jp_Exp3Layout);
@@ -779,49 +795,49 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_Exp3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_Exp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(descripcionExp3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCargo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jp_Exp3Layout.createSequentialGroup()
-                        .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblInstitucionExp3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(añoExp3, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jp_Exp3Layout.setVerticalGroup(
             jp_Exp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Exp3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCargo3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Exp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblInstitucionExp3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(añoExp3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(descripcionExp3, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jp_Exp4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel44.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel44.setText("cargo desempeñado");
+        lblCargo4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblCargo4.setForeground(new java.awt.Color(51, 51, 51));
+        lblCargo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCargo4.setText("cargo desempeñado");
 
-        jLabel45.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel45.setText("institucion");
+        lblInstitucionExp4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucionExp4.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucionExp4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucionExp4.setText("institucion");
 
-        jLabel46.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel46.setText("descripcion");
+        descripcionExp4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        descripcionExp4.setForeground(new java.awt.Color(51, 51, 51));
+        descripcionExp4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        descripcionExp4.setText("descripcion");
 
-        jLabel47.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel47.setText("año");
+        añoExp4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        añoExp4.setForeground(new java.awt.Color(51, 51, 51));
+        añoExp4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        añoExp4.setText("año");
 
         javax.swing.GroupLayout jp_Exp4Layout = new javax.swing.GroupLayout(jp_Exp4);
         jp_Exp4.setLayout(jp_Exp4Layout);
@@ -830,49 +846,49 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_Exp4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_Exp4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(descripcionExp4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCargo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jp_Exp4Layout.createSequentialGroup()
-                        .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblInstitucionExp4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(añoExp4, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jp_Exp4Layout.setVerticalGroup(
             jp_Exp4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Exp4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCargo4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Exp4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblInstitucionExp4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(añoExp4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(descripcionExp4, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jp_Exp5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel48.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel48.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel48.setText("cargo desempeñado");
+        lblCargo5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblCargo5.setForeground(new java.awt.Color(51, 51, 51));
+        lblCargo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCargo5.setText("cargo desempeñado");
 
-        jLabel49.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel49.setText("institucion");
+        lblInstitucionExp5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblInstitucionExp5.setForeground(new java.awt.Color(51, 51, 51));
+        lblInstitucionExp5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInstitucionExp5.setText("institucion");
 
-        jLabel50.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel50.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel50.setText("descripcion");
+        descripcionExp5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        descripcionExp5.setForeground(new java.awt.Color(51, 51, 51));
+        descripcionExp5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        descripcionExp5.setText("descripcion");
 
-        jLabel51.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel51.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel51.setText("año");
+        añoExp5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        añoExp5.setForeground(new java.awt.Color(51, 51, 51));
+        añoExp5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        añoExp5.setText("año");
 
         javax.swing.GroupLayout jp_Exp5Layout = new javax.swing.GroupLayout(jp_Exp5);
         jp_Exp5.setLayout(jp_Exp5Layout);
@@ -881,25 +897,25 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_Exp5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_Exp5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(descripcionExp5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCargo5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jp_Exp5Layout.createSequentialGroup()
-                        .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblInstitucionExp5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(añoExp5, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jp_Exp5Layout.setVerticalGroup(
             jp_Exp5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Exp5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCargo5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_Exp5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblInstitucionExp5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(añoExp5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel50, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(descripcionExp5, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -924,10 +940,12 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_Exp4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_Exp5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jp_Exp5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         btnConfigExps.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigExps.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps.setText("Gestionar...");
 
@@ -1014,7 +1032,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             jp_Perfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Perfil1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 131, Short.MAX_VALUE))
         );
         jp_Perfil1Layout.setVerticalGroup(
             jp_Perfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1072,7 +1090,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jp_Busqueda.setLayout(jp_BusquedaLayout);
         jp_BusquedaLayout.setHorizontalGroup(
             jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1449, Short.MAX_VALUE)
+            .addGap(0, 1462, Short.MAX_VALUE)
         );
         jp_BusquedaLayout.setVerticalGroup(
             jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1085,7 +1103,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jp_Notificaciones.setLayout(jp_NotificacionesLayout);
         jp_NotificacionesLayout.setHorizontalGroup(
             jp_NotificacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1449, Short.MAX_VALUE)
+            .addGap(0, 1462, Short.MAX_VALUE)
         );
         jp_NotificacionesLayout.setVerticalGroup(
             jp_NotificacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1111,11 +1129,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jp_Perfil.setLayout(jp_PerfilLayout);
         jp_PerfilLayout.setHorizontalGroup(
             jp_PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 1325, Short.MAX_VALUE)
+            .addComponent(scroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 1323, Short.MAX_VALUE)
         );
         jp_PerfilLayout.setVerticalGroup(
             jp_PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 2806, Short.MAX_VALUE)
+            .addComponent(scroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 2802, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1167,6 +1185,38 @@ public class frmP_Trabajador extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnConfigEstudiosActionPerformed
 
+    public void Estudio(int id){        
+        ConsultasEstudio cEst = new ConsultasEstudio();
+        cEst.mostrarEstudios(id);
+    }
+    
+    public void Experiencia(int id){
+        ConsultasExperiencia cExp = new ConsultasExperiencia();
+        cExp.mostrarExperiencias(id);
+    }
+
+    void Habilidades(int id) {
+        ConsultasHabilidades cHab = new ConsultasHabilidades();
+        ArrayList<Habilidad> hbld = cHab.mostrarHabilidades(id);
+        Iterator i = hbld.iterator();
+
+        while (i.hasNext()) {
+            Habilidad h;
+            h = (Habilidad) i.next();
+            //Creando LJLabels
+            String name = "lbl" + indice;
+            JLabel lbl = new JLabel();
+            lbl.setFont(new java.awt.Font("Dialog", 1, 20));
+            lbl.setForeground(new java.awt.Color(255, 255, 255));
+            lbl.setName(name);
+            lbl.setText("✔ " + h.getHabilidad());
+            jp_Habilidades.add(lbl);
+            lblHabilidades.add(lbl);
+            indice++;
+            jp_Habilidades.updateUI();
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -1200,30 +1250,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1234,60 +1260,26 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel añoExp1;
+    public static javax.swing.JLabel añoExp2;
+    public static javax.swing.JLabel añoExp3;
+    public static javax.swing.JLabel añoExp4;
+    public static javax.swing.JLabel añoExp5;
     private javax.swing.JButton btnBusqueda;
     private javax.swing.JButton btnConfigEstudios;
     private javax.swing.JButton btnConfigExps;
     private javax.swing.JButton btnMiPerfil;
     private javax.swing.JButton btnNotificaciones;
+    public static javax.swing.JLabel descripcionExp1;
+    public static javax.swing.JLabel descripcionExp2;
+    public static javax.swing.JLabel descripcionExp3;
+    public static javax.swing.JLabel descripcionExp4;
+    public static javax.swing.JLabel descripcionExp5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1318,10 +1310,44 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     private javax.swing.JPanel jp_Titulos;
     private diu.swe.habib.JPanelSlider.JPanelSlider jps_Perfil;
     public static javax.swing.JTextArea jtxta_Descripcion;
+    public static javax.swing.JLabel lblAño1;
+    public static javax.swing.JLabel lblAño2;
+    public static javax.swing.JLabel lblAño3;
+    public static javax.swing.JLabel lblAño4;
+    public static javax.swing.JLabel lblAño5;
+    public static javax.swing.JLabel lblAño6;
+    public static javax.swing.JLabel lblCargo1;
+    public static javax.swing.JLabel lblCargo2;
+    public static javax.swing.JLabel lblCargo3;
+    public static javax.swing.JLabel lblCargo4;
+    public static javax.swing.JLabel lblCargo5;
+    public static javax.swing.JLabel lblCiudad1;
+    public static javax.swing.JLabel lblCiudad2;
+    public static javax.swing.JLabel lblCiudad3;
+    public static javax.swing.JLabel lblCiudad4;
+    public static javax.swing.JLabel lblCiudad5;
+    public static javax.swing.JLabel lblCiudad6;
     public static javax.swing.JLabel lblFotoperfil;
     public static javax.swing.JLabel lblId;
+    public static javax.swing.JLabel lblInstitucion1;
+    public static javax.swing.JLabel lblInstitucion2;
+    public static javax.swing.JLabel lblInstitucion3;
+    public static javax.swing.JLabel lblInstitucion4;
+    public static javax.swing.JLabel lblInstitucion5;
+    public static javax.swing.JLabel lblInstitucion6;
+    public static javax.swing.JLabel lblInstitucionExp1;
+    public static javax.swing.JLabel lblInstitucionExp2;
+    public static javax.swing.JLabel lblInstitucionExp3;
+    public static javax.swing.JLabel lblInstitucionExp4;
+    public static javax.swing.JLabel lblInstitucionExp5;
     public static javax.swing.JLabel lblNombres;
     public static javax.swing.JLabel lblProfesion;
+    public static javax.swing.JLabel lblTitulo1;
+    public static javax.swing.JLabel lblTitulo2;
+    public static javax.swing.JLabel lblTitulo3;
+    public static javax.swing.JLabel lblTitulo4;
+    public static javax.swing.JLabel lblTitulo5;
+    public static javax.swing.JLabel lblTitulo6;
     private javax.swing.JScrollPane scroll1;
     private javax.swing.JScrollPane scrollTxtA;
     // End of variables declaration//GEN-END:variables

@@ -43,6 +43,11 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="5d" green="0" red="5d" type="rgb"/>
         </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
       </Properties>
 
       <Layout>
@@ -160,25 +165,29 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jp_Perfil">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="scroll1" alignment="0" pref="1325" max="32767" attributes="0"/>
+              <Component id="scroll1" alignment="0" pref="1323" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="scroll1" alignment="0" pref="2806" max="32767" attributes="0"/>
+              <Component id="scroll1" alignment="0" pref="2802" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
         <Container class="javax.swing.JScrollPane" name="scroll1">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
             <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
           </Properties>
 
@@ -200,11 +209,6 @@
               </Layout>
               <SubComponents>
                 <Container class="diu.swe.habib.JPanelSlider.JPanelSlider" name="jps_Perfil">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
-                  </Properties>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
                   <SubComponents>
@@ -253,7 +257,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="131" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -610,14 +614,14 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel5" max="32767" attributes="0"/>
-                                                      <Component id="jLabel4" min="-2" pref="100" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel7" max="32767" attributes="0"/>
-                                                      <Component id="jLabel6" max="32767" attributes="0"/>
+                                                      <Component id="lblAño1" pref="181" max="32767" attributes="0"/>
+                                                      <Component id="lblCiudad1" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="lblInstitucion1" pref="777" max="32767" attributes="0"/>
+                                                      <Component id="lblTitulo1" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                               </Group>
@@ -628,13 +632,13 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <EmptySpace pref="17" max="32767" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel4" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                                                      <Component id="jLabel6" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblAño1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblTitulo1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel5" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel7" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblCiudad1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucion1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
@@ -642,7 +646,7 @@
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel7">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucion1">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -653,8 +657,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel4">
+                                        <Component class="javax.swing.JLabel" name="lblA&#xf1;o1">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -665,8 +672,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel5">
+                                        <Component class="javax.swing.JLabel" name="lblCiudad1">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -677,8 +687,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="ciudad"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel6">
+                                        <Component class="javax.swing.JLabel" name="lblTitulo1">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -689,6 +702,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="titulo"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -706,14 +722,14 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel9" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lblCiudad2" max="32767" attributes="0"/>
+                                                      <Component id="lblAño2" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="lblTitulo2" max="32767" attributes="0"/>
+                                                      <Component id="lblInstitucion2" pref="777" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                               </Group>
@@ -724,13 +740,13 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel9" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                                                      <Component id="jLabel11" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblAño2" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblTitulo2" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel10" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel8" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblCiudad2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucion2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace pref="17" max="32767" attributes="0"/>
                                               </Group>
@@ -738,7 +754,7 @@
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel8">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucion2">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -749,8 +765,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel9">
+                                        <Component class="javax.swing.JLabel" name="lblA&#xf1;o2">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -761,8 +780,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel10">
+                                        <Component class="javax.swing.JLabel" name="lblCiudad2">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -773,8 +795,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="ciudad"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel11">
+                                        <Component class="javax.swing.JLabel" name="lblTitulo2">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -785,6 +810,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="titulo"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -802,14 +830,14 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel14" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel13" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel15" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lblCiudad3" max="32767" attributes="0"/>
+                                                      <Component id="lblAño3" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="lblTitulo3" max="32767" attributes="0"/>
+                                                      <Component id="lblInstitucion3" pref="777" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                               </Group>
@@ -820,13 +848,13 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel13" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                                                      <Component id="jLabel15" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblAño3" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblTitulo3" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel14" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel12" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblCiudad3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucion3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace pref="17" max="32767" attributes="0"/>
                                               </Group>
@@ -834,7 +862,7 @@
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel12">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucion3">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -845,8 +873,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel13">
+                                        <Component class="javax.swing.JLabel" name="lblA&#xf1;o3">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -857,8 +888,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel14">
+                                        <Component class="javax.swing.JLabel" name="lblCiudad3">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -869,8 +903,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="ciudad"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel15">
+                                        <Component class="javax.swing.JLabel" name="lblTitulo3">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -881,6 +918,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="titulo"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -898,14 +938,14 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel17" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel19" max="32767" attributes="0"/>
-                                                      <Component id="jLabel16" max="32767" attributes="0"/>
+                                                      <Component id="lblCiudad5" max="32767" attributes="0"/>
+                                                      <Component id="lblAño5" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="lblTitulo5" max="32767" attributes="0"/>
+                                                      <Component id="lblInstitucion5" pref="777" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                               </Group>
@@ -916,13 +956,13 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel17" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                                                      <Component id="jLabel19" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblAño5" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblTitulo5" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel18" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel16" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblCiudad5" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucion5" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace pref="17" max="32767" attributes="0"/>
                                               </Group>
@@ -930,7 +970,7 @@
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel16">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucion5">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -941,8 +981,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel17">
+                                        <Component class="javax.swing.JLabel" name="lblA&#xf1;o5">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -953,8 +996,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel18">
+                                        <Component class="javax.swing.JLabel" name="lblCiudad5">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -965,8 +1011,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="ciudad"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel19">
+                                        <Component class="javax.swing.JLabel" name="lblTitulo5">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -977,6 +1026,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="titulo"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -994,14 +1046,14 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel22" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel21" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel20" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel23" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lblAño4" max="32767" attributes="0"/>
+                                                      <Component id="lblCiudad4" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="lblTitulo4" max="32767" attributes="0"/>
+                                                      <Component id="lblInstitucion4" pref="777" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                               </Group>
@@ -1012,13 +1064,13 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel21" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                                                      <Component id="jLabel23" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblAño4" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblTitulo4" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel22" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel20" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblCiudad4" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucion4" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace pref="17" max="32767" attributes="0"/>
                                               </Group>
@@ -1026,7 +1078,7 @@
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel20">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucion4">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1037,8 +1089,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel21">
+                                        <Component class="javax.swing.JLabel" name="lblA&#xf1;o4">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -1049,8 +1104,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel22">
+                                        <Component class="javax.swing.JLabel" name="lblCiudad4">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1061,8 +1119,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="ciudad"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel23">
+                                        <Component class="javax.swing.JLabel" name="lblTitulo4">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -1073,6 +1134,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="titulo"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -1090,14 +1154,14 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel30" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel29" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel28" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel31" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lblCiudad6" max="32767" attributes="0"/>
+                                                      <Component id="lblAño6" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="lblTitulo6" max="32767" attributes="0"/>
+                                                      <Component id="lblInstitucion6" pref="777" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                               </Group>
@@ -1108,13 +1172,13 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel29" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                                                      <Component id="jLabel31" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblAño6" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="lblTitulo6" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel30" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel28" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblCiudad6" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucion6" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace pref="19" max="32767" attributes="0"/>
                                               </Group>
@@ -1122,7 +1186,7 @@
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel28">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucion6">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1133,8 +1197,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel29">
+                                        <Component class="javax.swing.JLabel" name="lblA&#xf1;o6">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -1145,8 +1212,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel30">
+                                        <Component class="javax.swing.JLabel" name="lblCiudad6">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1157,8 +1227,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="ciudad"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel31">
+                                        <Component class="javax.swing.JLabel" name="lblTitulo6">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -1169,6 +1242,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="titulo"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -1191,6 +1267,9 @@
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="99" green="ff" red="99" type="rgb"/>
+                                    </Property>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Dialog" size="12" style="1"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/Imagenes/settings24.png"/>
@@ -1235,6 +1314,7 @@
                                               <Component id="jp_Exp4" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jp_Exp5" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace pref="89" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                     </DimensionLayout>
@@ -1255,12 +1335,12 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel34" max="32767" attributes="0"/>
-                                                      <Component id="jLabel32" max="32767" attributes="0"/>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="jLabel33" max="32767" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                          <Component id="jLabel35" min="-2" pref="298" max="-2" attributes="0"/>
+                                                      <Component id="descripcionExp1" max="32767" attributes="0"/>
+                                                      <Component id="lblCargo1" max="32767" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblInstitucionExp1" min="-2" pref="652" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="añoExp1" min="-2" pref="298" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -1271,21 +1351,21 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel32" min="-2" pref="37" max="-2" attributes="0"/>
+                                                  <Component id="lblCargo1" min="-2" pref="37" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel33" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel35" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucionExp1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="añoExp1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jLabel34" min="-2" pref="2" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                                                  <Component id="descripcionExp1" pref="41" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel32">
+                                        <Component class="javax.swing.JLabel" name="lblCargo1">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -1296,8 +1376,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="cargo desempe&#xf1;ado"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel33">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucionExp1">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1308,8 +1391,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel34">
+                                        <Component class="javax.swing.JLabel" name="descripcionExp1">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1320,8 +1406,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="descripcion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel35">
+                                        <Component class="javax.swing.JLabel" name="a&#xf1;oExp1">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1332,6 +1421,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -1350,12 +1442,12 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel38" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel36" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="descripcionExp2" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lblCargo2" alignment="0" max="32767" attributes="0"/>
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel37" max="32767" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                          <Component id="jLabel39" min="-2" pref="298" max="-2" attributes="0"/>
+                                                          <Component id="lblInstitucionExp2" min="-2" pref="652" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="añoExp2" min="-2" pref="298" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -1366,21 +1458,21 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel36" min="-2" pref="37" max="-2" attributes="0"/>
+                                                  <Component id="lblCargo2" min="-2" pref="37" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel37" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel39" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucionExp2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="añoExp2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jLabel38" pref="41" max="32767" attributes="0"/>
+                                                  <Component id="descripcionExp2" pref="41" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel36">
+                                        <Component class="javax.swing.JLabel" name="lblCargo2">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -1391,8 +1483,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="cargo desempe&#xf1;ado"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel37">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucionExp2">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1403,8 +1498,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel38">
+                                        <Component class="javax.swing.JLabel" name="descripcionExp2">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1415,8 +1513,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="descripcion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel39">
+                                        <Component class="javax.swing.JLabel" name="a&#xf1;oExp2">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1427,6 +1528,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -1445,12 +1549,12 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel42" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel40" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="descripcionExp3" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lblCargo3" alignment="0" max="32767" attributes="0"/>
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel41" max="32767" attributes="0"/>
+                                                          <Component id="lblInstitucionExp3" max="32767" attributes="0"/>
                                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                          <Component id="jLabel43" min="-2" pref="298" max="-2" attributes="0"/>
+                                                          <Component id="añoExp3" min="-2" pref="298" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -1461,21 +1565,21 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel40" min="-2" pref="37" max="-2" attributes="0"/>
+                                                  <Component id="lblCargo3" min="-2" pref="37" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel41" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel43" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucionExp3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="añoExp3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jLabel42" pref="41" max="32767" attributes="0"/>
+                                                  <Component id="descripcionExp3" pref="41" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel40">
+                                        <Component class="javax.swing.JLabel" name="lblCargo3">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -1486,8 +1590,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="cargo desempe&#xf1;ado"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel41">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucionExp3">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1498,8 +1605,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel42">
+                                        <Component class="javax.swing.JLabel" name="descripcionExp3">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1510,8 +1620,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="descripcion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel43">
+                                        <Component class="javax.swing.JLabel" name="a&#xf1;oExp3">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1522,6 +1635,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -1540,12 +1656,12 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel46" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel44" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="descripcionExp4" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lblCargo4" alignment="0" max="32767" attributes="0"/>
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel45" max="32767" attributes="0"/>
+                                                          <Component id="lblInstitucionExp4" max="32767" attributes="0"/>
                                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                          <Component id="jLabel47" min="-2" pref="298" max="-2" attributes="0"/>
+                                                          <Component id="añoExp4" min="-2" pref="298" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -1556,21 +1672,21 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel44" min="-2" pref="37" max="-2" attributes="0"/>
+                                                  <Component id="lblCargo4" min="-2" pref="37" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel45" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel47" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucionExp4" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="añoExp4" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jLabel46" pref="41" max="32767" attributes="0"/>
+                                                  <Component id="descripcionExp4" pref="41" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel44">
+                                        <Component class="javax.swing.JLabel" name="lblCargo4">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -1581,8 +1697,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="cargo desempe&#xf1;ado"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel45">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucionExp4">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1593,8 +1712,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel46">
+                                        <Component class="javax.swing.JLabel" name="descripcionExp4">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1605,8 +1727,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="descripcion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel47">
+                                        <Component class="javax.swing.JLabel" name="a&#xf1;oExp4">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1617,6 +1742,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -1635,12 +1763,12 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel50" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel48" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="descripcionExp5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lblCargo5" alignment="0" max="32767" attributes="0"/>
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel49" max="32767" attributes="0"/>
+                                                          <Component id="lblInstitucionExp5" max="32767" attributes="0"/>
                                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                          <Component id="jLabel51" min="-2" pref="298" max="-2" attributes="0"/>
+                                                          <Component id="añoExp5" min="-2" pref="298" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -1651,21 +1779,21 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel48" min="-2" pref="37" max="-2" attributes="0"/>
+                                                  <Component id="lblCargo5" min="-2" pref="37" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel49" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="jLabel51" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblInstitucionExp5" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="añoExp5" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jLabel50" pref="41" max="32767" attributes="0"/>
+                                                  <Component id="descripcionExp5" pref="41" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
                                       </Layout>
                                       <SubComponents>
-                                        <Component class="javax.swing.JLabel" name="jLabel48">
+                                        <Component class="javax.swing.JLabel" name="lblCargo5">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="24" style="1"/>
@@ -1676,8 +1804,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="cargo desempe&#xf1;ado"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel49">
+                                        <Component class="javax.swing.JLabel" name="lblInstitucionExp5">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1688,8 +1819,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="institucion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel50">
+                                        <Component class="javax.swing.JLabel" name="descripcionExp5">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1700,8 +1834,11 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="descripcion"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
-                                        <Component class="javax.swing.JLabel" name="jLabel51">
+                                        <Component class="javax.swing.JLabel" name="a&#xf1;oExp5">
                                           <Properties>
                                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                               <Font name="Dialog" size="18" style="1"/>
@@ -1712,6 +1849,9 @@
                                             <Property name="horizontalAlignment" type="int" value="0"/>
                                             <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
@@ -1721,6 +1861,9 @@
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="99" green="ff" red="99" type="rgb"/>
+                                    </Property>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Dialog" size="12" style="1"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                                       <Image iconType="3" name="/Imagenes/settings24.png"/>
@@ -1810,7 +1953,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="1449" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="1462" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -1830,7 +1973,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="1449" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="1462" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">

@@ -1,6 +1,4 @@
 package Consultas;
-
-import Entidades.Habilidad;
 import Modelo.conexionbd;
 import Entidades.Trabajador;
 import Formularios.frmP_Trabajador;
@@ -10,20 +8,14 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class ConsultasTrabajador {
 
     private Connection con = new conexionbd().getconexion();
-    int indice = 0;
-    private List<JLabel> lblHabilidades = new ArrayList<>();
 
     public void ValidarTrabajador(Trabajador T) {
         ImageIcon img = null;
@@ -64,24 +56,6 @@ public class ConsultasTrabajador {
                         frmPTr.lblFotoperfil.setIcon(null);
                     }
 
-                    //Agregando Habilidades.
-                    ArrayList<Habilidad> hbld = mostrarHabilidades(rs.getInt("idTrabajador"));
-                    Iterator i = hbld.iterator();
-                    while (i.hasNext()) {
-                        Habilidad h;
-                        h = (Habilidad) i.next();
-                        //Creando JLabels
-                        String name = "lbl" + indice;
-                        JLabel lbl = new JLabel();
-                        lbl.setFont(new java.awt.Font("Dialog", 1, 20));
-                        lbl.setForeground(new java.awt.Color(255, 255, 255));
-                        lbl.setName(name);
-                        lbl.setText("✔ " + h.getHabilidad());
-                        frmPTr.jp_Habilidades.add(lbl);
-                        lblHabilidades.add(lbl);
-                        indice++;
-                        frmPTr.jp_Habilidades.updateUI();
-                    }
                     //Agregando nombres y descripcion del usuario
                     frmPTr.lblNombres.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
                     frmPTr.jtxta_Descripcion.setText(rs.getString("descripcion"));
@@ -124,27 +98,5 @@ public class ConsultasTrabajador {
         } catch (Exception ex) {
             System.out.println("Error de insercion: " + ex.getMessage());
         }
-    }
-
-    public ArrayList<Habilidad> mostrarHabilidades(int id) {
-
-        ArrayList<Habilidad> habil = new ArrayList<>();
-        try {
-            CallableStatement st = con.prepareCall("SELECT h.idHabilidad, h.habilidad, h.idTrabajador FROM Habilidad AS h INNER JOIN Trabajador AS t ON t.idTrabajador = h.idTrabajador WHERE t.idTrabajador = '" + id + "'");
-            ResultSet rs = st.executeQuery();
-
-            while (rs.next()) {
-                Habilidad h = new Habilidad();
-
-                h.setIdHabilidad(rs.getInt("idHabilidad"));
-                h.setHabilidad(rs.getString("Habilidad"));
-                h.setIdTrabajador(rs.getInt("idTrabajador"));
-
-                habil.add(h);
-            }
-        } catch (Exception e) {
-            System.out.println("Error en la lista de habilidades: " + e.getMessage());
-        }
-        return habil;
     }
 }
