@@ -2,7 +2,7 @@ package Entidades;
 
 public class Referencia {
 
-    int idreferencia;
+    int idreferencia, orden, idTrabajador;
     String nombrereferente, apellidorefrente, empresareferente, cargoReferente, telefonoReferente, correoReferente;
 
     public int getIdreferencia() {
@@ -11,6 +11,22 @@ public class Referencia {
 
     public void setIdreferencia(int idreferencia) {
         this.idreferencia = idreferencia;
+    }
+
+    public int getOrden() {
+        return orden;
+    }
+
+    public void setOrden(int orden) {
+        this.orden = orden;
+    }
+
+    public int getIdTrabajador() {
+        return idTrabajador;
+    }
+
+    public void setIdTrabajador(int idTrabajador) {
+        this.idTrabajador = idTrabajador;
     }
 
     public String getNombrereferente() {

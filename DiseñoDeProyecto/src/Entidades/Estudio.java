@@ -1,11 +1,19 @@
 package Entidades;
 
 public class Estudio {
-    int idEstudio,idTrabajador;
+    int idEstudio,orden, idTrabajador;
     String institucion,titulo,añoTerminado,cuidad;
 
     public int getIdEstudio() {
         return idEstudio;
+    }
+
+    public int getOrden() {
+        return orden;
+    }
+
+    public void setOrden(int orden) {
+        this.orden = orden;
     }
 
     public void setIdEstudio(int idEstudio) {

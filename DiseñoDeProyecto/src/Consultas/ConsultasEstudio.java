@@ -1,17 +1,70 @@
 package Consultas;
 
+import Entidades.Estudio;
 import Modelo.conexionbd;
 import Formularios.frmP_Trabajador;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class ConsultasEstudio {
 
     private Connection con = new conexionbd().getconexion();
     frmP_Trabajador frmP_Tr;
 
+    public void insertarEstudios(Estudio est){
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_I_Estudio(?,?,?,?,?,?)");
+            
+            st.setString("institucionEst", est.getInstitucion());
+            st.setString("tituloEst", est.getTitulo());
+            st.setString("añoTerminado", est.getAñoTerminado());
+            st.setString("ciudadEst", est.getCuidad());
+            st.setInt("ordenEst", est.getOrden());
+            st.setInt("idTrabajadorEst", est.getIdTrabajador());
+            
+            st.execute();
+            JOptionPane.showMessageDialog(null, "Registrado con Exito");
+        } catch (Exception e) {
+            System.out.println("Error de insercion: " + e.getMessage());
+        }
+    }
+    
+    public void actualizarEstudios(Estudio est){
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_U_Estudio(?,?,?,?,?,?,?)");
+            
+            st.setString("institucionEst", est.getInstitucion());
+            st.setString("tituloEst", est.getTitulo());
+            st.setString("añoTerminado", est.getAñoTerminado());
+            st.setString("ciudadEst", est.getCuidad());
+            st.setInt("ordenEst", est.getOrden());
+            st.setInt("idTrabajadorEst", est.getIdTrabajador());
+            st.setInt("idEstudioEst", est.getIdEstudio());
+            
+            st.execute();
+            JOptionPane.showMessageDialog(null, "Actualizado con Exito");
+        } catch (Exception e) {
+            System.out.println("Error al actualizar registro: " + e.getMessage());
+        }
+    }
+    
+    public void eliminarEstudios(Estudio est){
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_D_Estudio(?)");
+            
+            st.setInt("idEstudioEst", est.getIdEstudio());
+            
+            st.execute();
+            
+            JOptionPane.showMessageDialog(null, "Actualizado con Exito");
+        } catch (Exception e) {
+            System.out.println("Error al eliminar registro: " + e.getMessage());
+        }
+    }
+    
     public void mostrarEstudios(int id) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_M_Estudio(?)");

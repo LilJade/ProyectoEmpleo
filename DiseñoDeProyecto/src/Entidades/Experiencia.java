@@ -3,9 +3,8 @@ package Entidades;
 import java.util.Date;
 
 public class Experiencia {
-    int idExperiencia,idTrabajador;
-    String nombreEmpresa,cargoOcupado,descripcion;
-    Date fechaInicio,fechaFinal;
+    int idExperiencia, orden, idTrabajador;
+    String nombreEmpresa,cargoOcupado,descripcion, fechaInicio,fechaFinal;
 
     public int getIdExperiencia() {
         return idExperiencia;
@@ -13,6 +12,14 @@ public class Experiencia {
 
     public void setIdExperiencia(int idExperiencia) {
         this.idExperiencia = idExperiencia;
+    }
+
+    public int getOrden() {
+        return orden;
+    }
+
+    public void setOrden(int orden) {
+        this.orden = orden;
     }
 
     public int getIdTrabajador() {
@@ -47,20 +54,20 @@ public class Experiencia {
         this.descripcion = descripcion;
     }
 
-    public Date getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFinal() {
+    public String getFechaFinal() {
         return fechaFinal;
     }
 
-    public void setFechaFinal(Date fechaFinal) {
+    public void setFechaFinal(String fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
-            
+
 }

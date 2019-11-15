@@ -1,13 +1,68 @@
 package Consultas;
+import Entidades.Experiencia;
 import Formularios.frmP_Trabajador;
 import Modelo.conexionbd;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 public class ConsultasExperiencia {
     private Connection con = new conexionbd().getconexion();
     frmP_Trabajador frmP_Tr;
+    
+        public void insertarExperiencia(Experiencia exp){
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_I_Experiencia(?,?,?,?,?,?,?)");
+            
+            st.setString("nombreEmpresaExp", exp.getNombreEmpresa());
+            st.setString("cargoOcupadoExp", exp.getCargoOcupado());
+            st.setString("descripcionExp", exp.getDescripcion());
+            st.setString("fechaInicioExp", exp.getFechaInicio());
+            st.setString("fechaFinalExp", exp.getFechaFinal());
+            st.setInt("ordenExp", exp.getOrden());
+            st.setInt("idTrabajadorExp", exp.getIdTrabajador());
+            
+            st.execute();
+            JOptionPane.showMessageDialog(null, "Registrado con Exito");
+        } catch (Exception e) {
+            System.out.println("Error de insercion: " + e.getMessage());
+        }
+    }
+    
+    public void actualizarExperiencia(Experiencia exp){
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_U_Experiencia(?,?,?,?,?,?,?,?)");
+            
+            st.setString("nombreEmpresaExp", exp.getNombreEmpresa());
+            st.setString("cargoOcupadoExp", exp.getCargoOcupado());
+            st.setString("descripcionExp", exp.getDescripcion());
+            st.setString("fechaInicioExp", exp.getFechaInicio());
+            st.setString("fechaFinalExp", exp.getFechaFinal());
+            st.setInt("ordenExp", exp.getOrden());
+            st.setInt("idTrabajadorExp", exp.getIdTrabajador());
+            st.setInt("idExp", exp.getIdExperiencia());
+            
+            st.execute();
+            JOptionPane.showMessageDialog(null, "Actualizado con Exito");
+        } catch (Exception e) {
+            System.out.println("Error al actualizar registro: " + e.getMessage());
+        }
+    }
+    
+    public void eliminarEstudios(Experiencia exp){
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_D_Experiencia(?)");
+            
+            st.setInt("idExp", exp.getIdExperiencia());
+            
+            st.execute();
+            
+            JOptionPane.showMessageDialog(null, "Eliminado con Exito");
+        } catch (Exception e) {
+            System.out.println("Error al eliminar registro: " + e.getMessage());
+        }
+    }
     
     public void mostrarExperiencias(int id){
         try {
