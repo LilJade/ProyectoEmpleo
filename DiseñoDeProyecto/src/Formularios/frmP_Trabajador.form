@@ -257,7 +257,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="131" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="115" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -285,40 +285,44 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
                                                   <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                                                   <Component id="lblId" min="-2" pref="47" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jp_BarraIzquierda" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jp_Experiencias" alignment="1" max="32767" attributes="0"/>
-                                                      <Group type="102" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jSeparator2" min="-2" pref="994" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
-                                                                  <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
-                                                                  <Component id="jp_Estudios" alignment="1" max="32767" attributes="0"/>
-                                                              </Group>
-                                                              <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                      </Group>
                                                       <Group type="102" alignment="1" attributes="0">
                                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
                                                               <Component id="btnConfigEstudios" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
                                                               <Component id="btnConfigExps" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
+                                                              <Component id="btnConfigExps1" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
                                                           </Group>
+                                                      </Group>
+                                                      <Component id="jPanel4" max="32767" attributes="0"/>
+                                                      <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
+                                                      <Group type="102" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                                  <Component id="jSeparator2" pref="1018" max="32767" attributes="0"/>
+                                                                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
+                                                                  <Component id="jp_Estudios" alignment="1" max="32767" attributes="0"/>
+                                                                  <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
+                                                                  <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+                                                              </Group>
+                                                              <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -347,6 +351,14 @@
                                                   <Component id="btnConfigExps" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jp_Experiencias" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                                  <Component id="jLabel27" min="-2" pref="43" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jSeparator3" min="-2" pref="14" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="btnConfigExps1" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -374,7 +386,7 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="lblNombres" max="32767" attributes="0"/>
                                                   <Group type="102" alignment="1" attributes="0">
-                                                      <EmptySpace min="0" pref="295" max="32767" attributes="0"/>
+                                                      <EmptySpace min="0" pref="319" max="32767" attributes="0"/>
                                                       <Component id="lblProfesion" min="-2" pref="675" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -442,19 +454,25 @@
                                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                  </Group>
                                                   <Group type="102" alignment="1" attributes="0">
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="jp_Habilidades" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="scrollTxtA" pref="0" max="32767" attributes="0"/>
-                                                      </Group>
+                                                      <Component id="scrollTxtA" pref="0" max="32767" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnConfigExps2" min="-2" pref="141" max="-2" attributes="0"/>
+                                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                  </Group>
                                               </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jp_Habilidades" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                     </DimensionLayout>
@@ -467,11 +485,15 @@
                                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="scrollTxtA" min="-2" pref="354" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace pref="1011" max="32767" attributes="0"/>
                                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="btnConfigExps2" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jp_Habilidades" min="-2" pref="607" max="-2" attributes="0"/>
-                                              <EmptySpace pref="1342" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                     </DimensionLayout>
@@ -561,6 +583,31 @@
                                         <Property name="rows" type="int" value="0"/>
                                       </Layout>
                                     </Container>
+                                    <Component class="javax.swing.JButton" name="btnConfigExps2">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="99" green="ff" red="99" type="rgb"/>
+                                        </Property>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Dialog" size="12" style="1"/>
+                                        </Property>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/Imagenes/settings24.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Gestionar..."/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="jLabel4">
+                                      <Properties>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Dialog" size="24" style="1"/>
+                                        </Property>
+                                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Personales."/>
+                                      </Properties>
+                                    </Component>
                                   </SubComponents>
                                 </Container>
                                 <Component class="javax.swing.JLabel" name="lblId">
@@ -615,7 +662,7 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="lblAño1" pref="181" max="32767" attributes="0"/>
+                                                      <Component id="lblAño1" pref="205" max="32767" attributes="0"/>
                                                       <Component id="lblCiudad1" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1314,7 +1361,6 @@
                                               <Component id="jp_Exp4" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jp_Exp5" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace pref="89" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                     </DimensionLayout>
@@ -1336,7 +1382,7 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="descripcionExp1" max="32767" attributes="0"/>
-                                                      <Component id="lblCargo1" max="32767" attributes="0"/>
+                                                      <Component id="lblCargo1" pref="992" max="32767" attributes="0"/>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Component id="lblInstitucionExp1" min="-2" pref="652" max="-2" attributes="0"/>
                                                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1907,6 +1953,442 @@
                                     <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel25.setOpaque(true);"/>
                                   </AuxValues>
                                 </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel27">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Dialog" size="36" style="1"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="66" green="0" red="0" type="rgb"/>
+                                    </Property>
+                                    <Property name="horizontalAlignment" type="int" value="2"/>
+                                    <Property name="text" type="java.lang.String" value="Referencias."/>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel25.setOpaque(true);"/>
+                                  </AuxValues>
+                                </Component>
+                                <Component class="javax.swing.JSeparator" name="jSeparator3">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="66" green="0" red="0" type="rgb"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="0" green="0" red="0" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="btnConfigExps1">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="99" green="ff" red="99" type="rgb"/>
+                                    </Property>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Dialog" size="12" style="1"/>
+                                    </Property>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/Imagenes/settings24.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Gestionar..."/>
+                                  </Properties>
+                                </Component>
+                                <Container class="javax.swing.JPanel" name="jPanel4">
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jPanel5" max="32767" attributes="0"/>
+                                          <Component id="jPanel6" max="32767" attributes="0"/>
+                                          <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Container class="javax.swing.JPanel" name="jPanel5">
+                                      <Properties>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                            <LineBorder/>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblNombreRef1" max="32767" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblCargoRef1" alignment="0" min="-2" pref="480" max="-2" attributes="0"/>
+                                                      <Component id="lblCorreoRef1" alignment="0" min="-2" pref="480" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="lblTelefonoRef1" max="32767" attributes="0"/>
+                                                      <Component id="lblEmpresaRef1" pref="480" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblNombreRef1" min="-2" pref="37" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblCargoRef1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblEmpresaRef1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblCorreoRef1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblTelefonoRef1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="lblNombreRef1">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="24" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Nombre del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblCargoRef1">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Cargo del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblEmpresaRef1">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Empresa del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblTelefonoRef1">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Telefono del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblCorreoRef1">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Correo del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel6">
+                                      <Properties>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                            <LineBorder/>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblNombreRef2" alignment="0" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblCargoRef2" alignment="0" min="-2" pref="480" max="-2" attributes="0"/>
+                                                      <Component id="lblCorreoRef2" alignment="0" min="-2" pref="480" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="lblTelefonoRef2" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lblEmpresaRef2" alignment="0" pref="480" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblNombreRef2" min="-2" pref="37" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblCargoRef2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblEmpresaRef2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblCorreoRef2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblTelefonoRef2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="lblNombreRef2">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="24" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Nombre del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblCargoRef2">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Cargo del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblEmpresaRef2">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Empresa del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblTelefonoRef2">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Telefono del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblCorreoRef2">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Correo del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel7">
+                                      <Properties>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                            <LineBorder/>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblNombreRef3" alignment="0" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblCargoRef3" alignment="0" min="-2" pref="480" max="-2" attributes="0"/>
+                                                      <Component id="lblCorreoRef3" alignment="0" min="-2" pref="480" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="lblTelefonoRef3" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lblEmpresaRef3" alignment="0" pref="480" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblNombreRef3" min="-2" pref="37" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblCargoRef3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblEmpresaRef3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblCorreoRef3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <Component id="lblTelefonoRef3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="lblNombreRef3">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="24" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Nombre del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblCargoRef3">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Cargo del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblEmpresaRef3">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Empresa del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblTelefonoRef3">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Telefono del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="lblCorreoRef3">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Dialog" size="18" style="1"/>
+                                            </Property>
+                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="33" green="33" red="33" type="rgb"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Correo del Referente"/>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                  </SubComponents>
+                                </Container>
                               </SubComponents>
                             </Container>
                           </SubComponents>
