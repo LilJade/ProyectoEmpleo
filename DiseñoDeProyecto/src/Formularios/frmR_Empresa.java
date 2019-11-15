@@ -6,6 +6,7 @@ import Entidades.GiroComercial;
 import org.jdesktop.swingx.prompt.PromptSupport;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -19,16 +20,14 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class frmR_Empresa extends javax.swing.JFrame {
-
+    
     public frmR_Empresa() {
         initComponents();
         this.setLocationRelativeTo(null);
-       
-        
- 
-
+        btnRegistrarE.setEnabled(false);
+        txtDescripcion.setLineWrap(true);
+        txtUbicacion.setLineWrap(true);
         //sms flotantel
-  
         PromptSupport.setPrompt("Nombre Empresa", txtNombreE);
         PromptSupport.setPrompt("Acronimo Empresa", txtAcronimoE);
         PromptSupport.setPrompt("Descrpcion de la Empresa", txtDescripcion);
@@ -36,6 +35,7 @@ public class frmR_Empresa extends javax.swing.JFrame {
         PromptSupport.setPrompt("Correo de la Empresa", txtCorreoE);
         PromptSupport.setPrompt("Contraseña", txtContraseñaE);
         PromptSupport.setPrompt("Telefono  de la Empresa", txtTelefono);
+        
         btnActivaA.setToolTipText("Activar");
         btnAyuda.setToolTipText("Ayuda");
         btnCancelar.setToolTipText("Cerrar");
@@ -43,7 +43,7 @@ public class frmR_Empresa extends javax.swing.JFrame {
 
         //fuente y diseño de la letra en cada txt
         Font fuente = new Font("Decker", 3, 15);
-
+        
         txtAcronimoE.setFont(fuente);
         txtAcronimoE.setForeground(new java.awt.Color(65, 138, 168));
         txtNombreE.setFont(fuente);
@@ -63,12 +63,12 @@ public class frmR_Empresa extends javax.swing.JFrame {
         
         cargarcombo();
     }
-
+    
     String filasCombo[] = new String[13];
-
+    
     String array[] = new String[6];
     int contadors = 0;
-
+    
     public void cargarcombo() {
         ConsultasEmpresa mo = new ConsultasEmpresa();
         ArrayList<GiroComercial> PS = mo.mostrargiros();
@@ -83,10 +83,10 @@ public class frmR_Empresa extends javax.swing.JFrame {
             DefaultComboBoxModel.addElement(p.getCategoriaNombre());
             contadors++;
         }
-
+        
         cmb_girocomercial.setModel(DefaultComboBoxModel);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -94,8 +94,6 @@ public class frmR_Empresa extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         txtNombreE = new javax.swing.JTextField();
         txtAcronimoE = new javax.swing.JTextField();
-        txtDescripcion = new javax.swing.JTextField();
-        txtUbicacion = new javax.swing.JTextField();
         txtContraseñaE = new javax.swing.JTextField();
         txtCorreoE = new javax.swing.JTextField();
         btnRegistrarE = new javax.swing.JButton();
@@ -108,6 +106,19 @@ public class frmR_Empresa extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         cmb_girocomercial = new javax.swing.JComboBox();
         cmbt_Departamento = new javax.swing.JComboBox();
+        lblNombreE = new javax.swing.JLabel();
+        lblAcronimoE = new javax.swing.JLabel();
+        lblDescripcionE = new javax.swing.JLabel();
+        lblUbicacionE = new javax.swing.JLabel();
+        lblCorreoE = new javax.swing.JLabel();
+        lblContraseñaE = new javax.swing.JLabel();
+        lblTelefonoE = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JTextArea();
+        txtConfirmarC = new javax.swing.JTextField();
+        lblConfirmarC = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtUbicacion = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(202, 219, 236));
@@ -116,25 +127,52 @@ public class frmR_Empresa extends javax.swing.JFrame {
 
         jSeparator2.setBackground(new java.awt.Color(99, 130, 191));
         jSeparator2.setForeground(new java.awt.Color(73, 210, 149));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 180, 20));
-        getContentPane().add(txtNombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 240, 35));
-        getContentPane().add(txtAcronimoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 240, 35));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 180, -1));
 
-        txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescripcionActionPerformed(evt);
+        txtNombreE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreEKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreEKeyTyped(evt);
             }
         });
-        getContentPane().add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 490, 90));
+        getContentPane().add(txtNombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 500, 35));
 
-        txtUbicacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUbicacionActionPerformed(evt);
+        txtAcronimoE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAcronimoEKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAcronimoEKeyTyped(evt);
             }
         });
-        getContentPane().add(txtUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 240, 35));
-        getContentPane().add(txtContraseñaE, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 240, 35));
-        getContentPane().add(txtCorreoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 240, 35));
+        getContentPane().add(txtAcronimoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 240, 35));
+
+        txtContraseñaE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtContraseñaEKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraseñaEKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtContraseñaE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 240, 35));
+
+        txtCorreoE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoEActionPerformed(evt);
+            }
+        });
+        txtCorreoE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCorreoEKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoEKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtCorreoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 240, 35));
 
         btnRegistrarE.setBackground(new java.awt.Color(202, 219, 236));
         btnRegistrarE.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -148,8 +186,22 @@ public class frmR_Empresa extends javax.swing.JFrame {
                 btnRegistrarEActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrarE, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 730, 330, 50));
-        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 240, 35));
+        getContentPane().add(btnRegistrarE, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 710, 330, 50));
+
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, 230, 35));
 
         btnActivaA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/feliz_24.png"))); // NOI18N
         btnActivaA.setBorder(null);
@@ -190,56 +242,119 @@ public class frmR_Empresa extends javax.swing.JFrame {
                 btnCambiarPerfilActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCambiarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 140, 140));
+        getContentPane().add(btnCambiarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 150, 140));
         getContentPane().add(txturl, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 70, 20));
 
         jSeparator3.setBackground(new java.awt.Color(99, 130, 191));
         jSeparator3.setForeground(new java.awt.Color(73, 210, 149));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 180, 10));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 180, 10));
 
-        getContentPane().add(cmb_girocomercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 240, 30));
+        cmb_girocomercial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_girocomercialActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmb_girocomercial, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 140, 30));
 
         cmbt_Departamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ahuachapán", "Cabañas", "Chalatenango", "Cuscatlán", "La Libertad", "La Paz", "La Unión", "Morazán", "San Miguel", "San Salvador", "San Vicente", "Santa Ana", "Sonsonate", "Usulután" }));
-        getContentPane().add(cmbt_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 220, -1));
+        getContentPane().add(cmbt_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 140, -1));
+
+        lblNombreE.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(lblNombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 500, 20));
+
+        lblAcronimoE.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(lblAcronimoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 240, 20));
+
+        lblDescripcionE.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(lblDescripcionE, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 370, 20));
+
+        lblUbicacionE.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(lblUbicacionE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 240, 20));
+
+        lblCorreoE.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(lblCorreoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, 240, 20));
+
+        lblContraseñaE.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(lblContraseñaE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 670, 230, 20));
+
+        lblTelefonoE.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(lblTelefonoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 600, 230, 20));
+
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setRows(5);
+        txtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDescripcionKeyReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(txtDescripcion);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 490, 70));
+
+        txtConfirmarC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtConfirmarCKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtConfirmarCKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtConfirmarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 630, 230, 35));
+
+        lblConfirmarC.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(lblConfirmarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 670, 230, 20));
+
+        txtUbicacion.setColumns(20);
+        txtUbicacion.setRows(5);
+        txtUbicacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUbicacionKeyReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(txtUbicacion);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 320, 110));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     File file;
-
-
-    private void txtUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUbicacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUbicacionActionPerformed
+    
 
     private void btnRegistrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEActionPerformed
-        ConsultasEmpresa cEmp = new ConsultasEmpresa();
-        Empresa eEmp = new Empresa();
-        try {
-
-            eEmp.setNombre(txtNombreE.getText());
-            eEmp.setAcronimo(txtAcronimoE.getText());
-            eEmp.setDescripcion(txtDescripcion.getText());
-
-            eEmp.setDepartamento((String) cmbt_Departamento.getSelectedItem());
-            eEmp.setDireccion(txtUbicacion.getText());
-            eEmp.setTelefono(txtTelefono.getText());
-            eEmp.setCorreo(txtCorreoE.getText());
-            eEmp.setContraseña(txtContraseñaE.getText());
-
-            byte[] sq = Files.readAllBytes(file.toPath());
-            eEmp.setImPerfil(sq);
-
-            int indice, otro;
-            String valor;
-            indice = cmb_girocomercial.getSelectedIndex();
-            valor = array[indice];
-            otro = Integer.parseInt(valor);
-            eEmp.setIdGiroComercial(otro);
-
-            cEmp.insertar(eEmp);
-        } catch (Exception ex) {
-            Logger.getLogger(frmR_Empresa.class.getName()).log(Level.SEVERE, null, ex);
+        if (txtContraseñaE.getText().equals(txtConfirmarC.getText())) {
+            
+            ConsultasEmpresa cEmp = new ConsultasEmpresa();
+            Empresa eEmp = new Empresa();
+            try {
+                
+                eEmp.setNombre(txtNombreE.getText());
+                eEmp.setAcronimo(txtAcronimoE.getText());
+                eEmp.setDescripcion(txtDescripcion.getText());
+                
+                eEmp.setDepartamento((String) cmbt_Departamento.getSelectedItem());
+                eEmp.setDireccion(txtUbicacion.getText());
+                eEmp.setTelefono(txtTelefono.getText());
+                eEmp.setCorreo(txtCorreoE.getText());
+                eEmp.setContraseña(txtContraseñaE.getText());
+                
+                byte[] sq = Files.readAllBytes(file.toPath());
+                eEmp.setImPerfil(sq);
+                
+                int indice, otro;
+                String valor;
+                indice = cmb_girocomercial.getSelectedIndex();
+                valor = array[indice];
+                otro = Integer.parseInt(valor);
+                eEmp.setIdGiroComercial(otro);
+                
+                cEmp.insertar(eEmp);
+            } catch (Exception ex) {
+                Logger.getLogger(frmR_Empresa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        } else {
+            lblConfirmarC.setText("La contraseña no coinciden");
         }
 
     }//GEN-LAST:event_btnRegistrarEActionPerformed
@@ -266,16 +381,191 @@ public class frmR_Empresa extends javax.swing.JFrame {
             txturl.setText(String.valueOf(file));
             Image foto = getToolkit().getImage(txturl.getText());
             foto = foto.getScaledInstance(btnCambiarPerfil.getWidth(), btnCambiarPerfil.getHeight(), Image.SCALE_DEFAULT);
-
+            
             btnCambiarPerfil.setIcon(new ImageIcon(foto));
-
+            
         }          // TODO add your handling code here:
     }//GEN-LAST:event_btnCambiarPerfilActionPerformed
 
-    private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
-       // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescripcionActionPerformed
+    private void txtNombreEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEKeyTyped
+        if (txtNombreE.getText().length() >= 100) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            lblNombreE.setText("Limite permitido de caracteres 100");
+        } else {
+            lblNombreE.setText("");
+        }
+    }//GEN-LAST:event_txtNombreEKeyTyped
 
+    private void txtAcronimoEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAcronimoEKeyTyped
+        if (txtAcronimoE.getText().length() >= 25) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            lblAcronimoE.setText("Limite permitido de caraceteres 25");
+        } else {
+            lblAcronimoE.setText("");
+        }
+    }//GEN-LAST:event_txtAcronimoEKeyTyped
+
+    private void txtCorreoEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoEKeyTyped
+        if (txtCorreoE.getText().length() >= 150) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            lblCorreoE.setText("Limite permitido de caracteres 150");
+        } else {
+            lblCorreoE.setText("");
+        }
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != '.' && !Character.isDigit(evt.getKeyChar())
+                && evt.getKeyChar() != '@') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '.' && txtCorreoE.getText().contains(".")) {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '@' && txtCorreoE.getText().contains("@")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCorreoEKeyTyped
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+        if (txtTelefono.getText().length() == 4) {
+            evt.consume();
+            String nombre = txtTelefono.getText() + "-";
+            txtTelefono.setText(nombre);
+            Toolkit.getDefaultToolkit().beep();
+            
+        } else if (txtTelefono.getText().length() >= 9) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            lblTelefonoE.setText("Maximo de numeros alcanzados");
+        }
+        if (!Character.isDigit(evt.getKeyChar())
+                && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == ' ' && txtTelefono.getText().contains(" ")) {
+            evt.consume();
+    }//GEN-LAST:event_txtTelefonoKeyTyped
+    }
+    private void txtNombreEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEKeyReleased
+        ValidacionRegistroE();
+    }//GEN-LAST:event_txtNombreEKeyReleased
+
+    private void txtAcronimoEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAcronimoEKeyReleased
+        ValidacionRegistroE();
+    }//GEN-LAST:event_txtAcronimoEKeyReleased
+
+    private void txtCorreoEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoEKeyReleased
+        ValidacionRegistroE();
+    }//GEN-LAST:event_txtCorreoEKeyReleased
+
+    private void txtTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyReleased
+        ValidacionRegistroE();
+    }//GEN-LAST:event_txtTelefonoKeyReleased
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
+
+    private void txtContraseñaEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaEKeyTyped
+        if (txtContraseñaE.getText().length() >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            lblContraseñaE.setText("Limite permitido de caracteres 50");
+        } else {
+            lblContraseñaE.setText("");
+        }
+    }//GEN-LAST:event_txtContraseñaEKeyTyped
+
+    private void txtContraseñaEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaEKeyReleased
+        ValidacionRegistroE();
+    }//GEN-LAST:event_txtContraseñaEKeyReleased
+
+    private void txtConfirmarCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmarCKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtConfirmarCKeyReleased
+
+    private void txtConfirmarCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmarCKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtConfirmarCKeyTyped
+
+    private void cmb_girocomercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_girocomercialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_girocomercialActionPerformed
+
+    private void txtCorreoEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoEActionPerformed
+
+    private void txtDescripcionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescripcionKeyReleased
+        ValidacionRegistroE();
+    }//GEN-LAST:event_txtDescripcionKeyReleased
+
+    private void txtUbicacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUbicacionKeyReleased
+        ValidacionRegistroE();
+    }//GEN-LAST:event_txtUbicacionKeyReleased
+    public void ValidacionRegistroE() {
+        if (txtNombreE.getText().isEmpty()) {
+            lblNombreE.setText("Campo requerido");
+        } else {
+            lblNombreE.setText("");
+        }
+        if (txtAcronimoE.getText().isEmpty()) {
+            lblAcronimoE.setText("Campo requerido");
+        } else {
+            lblAcronimoE.setText("");
+        }
+        if (txtDescripcion.getText().isEmpty()) {
+            lblDescripcionE.setText("Campo requerido");
+        } else {
+            lblDescripcionE.setText("");
+        }
+        if (txtUbicacion.getText().isEmpty()) {
+            lblUbicacionE.setText("Campo requerido");
+        } else {
+            lblUbicacionE.setText("");
+        }
+        if (txtCorreoE.getText().isEmpty()) {
+            lblCorreoE.setText("Campo requerido");
+        } else if (!txtCorreoE.getText().contains("@") || !txtCorreoE.getText().contains(".com")) {
+            lblCorreoE.setText("Correo invalido");
+        } else {
+            lblCorreoE.setText("");
+        }
+        if (txtContraseñaE.getText().isEmpty()) {
+            lblContraseñaE.setText("Campo requerido");
+        } else {
+            lblContraseñaE.setText("");
+        }
+        if (txtTelefono.getText().isEmpty()) {
+            lblTelefonoE.setText("Campo requerido");
+        } else {
+            lblTelefonoE.setText("");
+        }
+        if (txtContraseñaE.getText().length() < 8) {
+            lblContraseñaE.setText("La contraseña debe contener entre 8~50 caracteres");
+            btnRegistrarE.setEnabled(false);
+        } else {
+            btnRegistrarE.setEnabled(true);
+        }if(txtConfirmarC.getText().isEmpty()){
+            lblConfirmarC.setText("Campo requerido");
+        }else{
+            lblConfirmarC.setText("");
+        }
+        if (txtNombreE.getText().isEmpty() || txtAcronimoE.getText().isEmpty()
+                || txtDescripcion.getText().isEmpty() || txtUbicacion.getText().isEmpty()
+                || txtCorreoE.getText().isEmpty() || txtContraseñaE.getText().isEmpty()
+                || txtTelefono.getText().isEmpty() || !lblNombreE.getText().isEmpty()
+                || !lblAcronimoE.getText().isEmpty() || !lblDescripcionE.getText().isEmpty()
+                || !lblUbicacionE.getText().isEmpty() || !lblCorreoE.getText().isEmpty()
+                || !lblContraseñaE.getText().isEmpty() || !lblTelefonoE.getText().isEmpty()
+                || txtConfirmarC.getText().isEmpty() || !lblConfirmarC.getText().isEmpty()) {
+            btnRegistrarE.setEnabled(false);
+        } else {
+            btnRegistrarE.setEnabled(true);
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -319,15 +609,26 @@ public class frmR_Empresa extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarE;
     private javax.swing.JComboBox cmb_girocomercial;
     private javax.swing.JComboBox cmbt_Departamento;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lblAcronimoE;
+    private javax.swing.JLabel lblConfirmarC;
+    private javax.swing.JLabel lblContraseñaE;
+    private javax.swing.JLabel lblCorreoE;
+    private javax.swing.JLabel lblDescripcionE;
+    private javax.swing.JLabel lblNombreE;
+    private javax.swing.JLabel lblTelefonoE;
+    private javax.swing.JLabel lblUbicacionE;
     private javax.swing.JTextField txtAcronimoE;
+    private javax.swing.JTextField txtConfirmarC;
     private javax.swing.JTextField txtContraseñaE;
     private javax.swing.JTextField txtCorreoE;
-    private javax.swing.JTextField txtDescripcion;
+    public javax.swing.JTextArea txtDescripcion;
     private javax.swing.JTextField txtNombreE;
     private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txtUbicacion;
+    public javax.swing.JTextArea txtUbicacion;
     private javax.swing.JLabel txturl;
     // End of variables declaration//GEN-END:variables
 }
