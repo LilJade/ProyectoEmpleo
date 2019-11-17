@@ -23,6 +23,7 @@ public class frmVisitante extends javax.swing.JFrame {
     PlaceHolder holder;
     
     public static int id = 0;
+    public static int estilo = 0;
 
     public frmVisitante() {
 
@@ -507,6 +508,7 @@ public class frmVisitante extends javax.swing.JFrame {
             this.id = cTrabajador.ValidarTrabajador(eTrabajador);
             
             if(id != 0){
+                this.estilo = cTrabajador.consultarEstiloTrabajador(this.id);
                 frmP_Trabajador frmP_Tr = new frmP_Trabajador();
                 frmP_Tr.setVisible(true);
             }
@@ -613,6 +615,10 @@ public class frmVisitante extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

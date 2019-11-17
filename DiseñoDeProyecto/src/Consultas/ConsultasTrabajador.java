@@ -17,6 +17,7 @@ public class ConsultasTrabajador {
 
     private Connection con = new conexionbd().getconexion();
     public static int id = 0;
+    public static int estilo = 0;
     frmP_Trabajador frmP_Tr;
 
     public int ValidarTrabajador(Trabajador T) {
@@ -76,6 +77,24 @@ public class ConsultasTrabajador {
         }
     }
 
+    public int consultarEstiloTrabajador(int id) {
+        try {
+            CallableStatement st = con.prepareCall("SELECT * FROM Trabajador WHERE idTrabajador = '" + id + "'");
+
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next()) {
+                this.estilo = rs.getInt("estilo");
+
+                return estilo;
+            }
+        } catch (Exception e) {
+            System.out.println("Sin resultados...");
+            return estilo;
+        }
+        return estilo;
+    }
+
     public void datosTrabajador(int id) {
         ImageIcon img = null;
         InputStream inp = null;
@@ -86,25 +105,70 @@ public class ConsultasTrabajador {
             ResultSet rs = st.executeQuery();
 
             if (rs.next()) {
-                //Agregando foto de Perfil, si existe en la base.
-                try {
-                    if (rs.getBinaryStream("imgPerfil") != null) {
-                        inp = rs.getBinaryStream("imgPerfil");
-                        BufferedImage bi = ImageIO.read(inp);
-                        img = new ImageIcon(bi);
-                        Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil.getWidth(), frmP_Tr.lblFotoperfil.getHeight(), Image.SCALE_DEFAULT));
+                int estilo = rs.getInt("estilo");
+                if (estilo == 1) {
+                    //Agregando foto de Perfil, si existe en la base.
+                    try {
+                        if (rs.getBinaryStream("imgPerfil") != null) {
+                            inp = rs.getBinaryStream("imgPerfil");
+                            BufferedImage bi = ImageIO.read(inp);
+                            img = new ImageIcon(bi);
+                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil.getWidth(), frmP_Tr.lblFotoperfil.getHeight(), Image.SCALE_DEFAULT));
 
-                        frmP_Tr.lblFotoperfil.setIcon(icn);
-                    } else {
+                            frmP_Tr.lblFotoperfil.setIcon(icn);
+                        } else {
+                            frmP_Tr.lblFotoperfil.setIcon(null);
+                        }
+                    } catch (IOException ex) {
                         frmP_Tr.lblFotoperfil.setIcon(null);
                     }
-                } catch (IOException ex) {
-                    frmP_Tr.lblFotoperfil.setIcon(null);
-                }
 
-                //Agregando nombres y descripcion del usuario
-                frmP_Tr.lblNombres.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
-                frmP_Tr.jtxta_Descripcion.setText(rs.getString("descripcion"));
+                    //Agregando nombres y descripcion del usuario
+                    frmP_Tr.lblNombres.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
+                    frmP_Tr.jtxta_Descripcion.setText(rs.getString("descripcion"));
+                    
+                } else if (estilo == 2) {
+                    //Agregando foto de Perfil, si existe en la base.
+                    try {
+                        if (rs.getBinaryStream("imgPerfil") != null) {
+                            inp = rs.getBinaryStream("imgPerfil");
+                            BufferedImage bi = ImageIO.read(inp);
+                            img = new ImageIcon(bi);
+                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil2.getWidth(), frmP_Tr.lblFotoperfil2.getHeight(), Image.SCALE_DEFAULT));
+
+                            frmP_Tr.lblFotoperfil2.setIcon(icn);
+                        } else {
+                            frmP_Tr.lblFotoperfil2.setIcon(null);
+                        }
+                    } catch (IOException ex) {
+                        frmP_Tr.lblFotoperfil2.setIcon(null);
+                    }
+
+                    //Agregando nombres y descripcion del usuario
+                    frmP_Tr.lblNombres2.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
+                    //frmP_Tr.jtxta_Descripcion.setText(rs.getString("descripcion"));
+
+                } else if(estilo == 3){
+                    //Agregando foto de Perfil, si existe en la base.
+                    try {
+                        if (rs.getBinaryStream("imgPerfil") != null) {
+                            inp = rs.getBinaryStream("imgPerfil");
+                            BufferedImage bi = ImageIO.read(inp);
+                            img = new ImageIcon(bi);
+                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil1.getWidth(), frmP_Tr.lblFotoperfil1.getHeight(), Image.SCALE_DEFAULT));
+
+                            frmP_Tr.lblFotoperfil1.setIcon(icn);
+                        } else {
+                            frmP_Tr.lblFotoperfil1.setIcon(null);
+                        }
+                    } catch (IOException ex) {
+                        frmP_Tr.lblFotoperfil1.setIcon(null);
+                    }
+
+                    //Agregando nombres y descripcion del usuario
+                    frmP_Tr.lblNombres1.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
+                    //frmP_Tr.jtxta_Descripcion.setText(rs.getString("descripcion"));
+                }
             }
         } catch (Exception e) {
             System.out.println("Error a consultar datos del trabajador: " + e.getMessage());
