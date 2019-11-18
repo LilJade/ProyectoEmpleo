@@ -1231,6 +1231,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         btnConfigExps1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps1.setText("Gestionar...");
+        btnConfigExps1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfigExps1ActionPerformed(evt);
+            }
+        });
 
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -3617,6 +3622,9 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNotificacionesActionPerformed
 
     private void btnConfigEstudiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigEstudiosActionPerformed
+//hacer visible el JDialog_trabajador_FormacionAcademica
+        new JDialog_Trabajador_FormacionAcademica(this, true).setVisible(true);
+
 
     }//GEN-LAST:event_btnConfigEstudiosActionPerformed
 
@@ -3637,23 +3645,28 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         new JDialog_P_Trabajador(this, true).setVisible(true);
     }//GEN-LAST:event_btnConfigExpsActionPerformed
 
-    public void Estilo(){
+    private void btnConfigExps1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigExps1ActionPerformed
+        // hacer visible el JDialog_Trabajador_Referencia
+        new JDialog_Trabajador_Referencias(this, true).setVisible(true);
+    }//GEN-LAST:event_btnConfigExps1ActionPerformed
+
+    public void Estilo() {
         int estilo = frmVisitante.estilo;
-        if(estilo == 1){
+        if (estilo == 1) {
             jp_Perfil1.setVisible(true);
             jp_Perfil2.setVisible(false);
             jp_Perfil3.setVisible(false);
-        } else if(estilo == 2){
+        } else if (estilo == 2) {
             jp_Perfil1.setVisible(false);
             jp_Perfil2.setVisible(true);
             jp_Perfil3.setVisible(false);
-        }else if(estilo == 3){
+        } else if (estilo == 3) {
             jp_Perfil1.setVisible(false);
             jp_Perfil2.setVisible(false);
             jp_Perfil3.setVisible(true);
         }
     }
-    
+
     public void Datos(int id) {
         ConsultasTrabajador cTr = new ConsultasTrabajador();
         cTr.datosTrabajador(id);
