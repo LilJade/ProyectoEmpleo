@@ -1197,6 +1197,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         btnConfigExps.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps.setText("Gestionar...");
+        btnConfigExps.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfigExpsActionPerformed(evt);
+            }
+        });
 
         jLabel25.setOpaque(true);
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
@@ -3626,6 +3631,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     private void btnConfigEstudios5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigEstudios5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConfigEstudios5ActionPerformed
+
+    private void btnConfigExpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigExpsActionPerformed
+        //hacer visible ij JDialog_P_Trabajador
+        new JDialog_P_Trabajador(this, true).setVisible(true);
+    }//GEN-LAST:event_btnConfigExpsActionPerformed
 
     public void Estilo(){
         int estilo = frmVisitante.estilo;
