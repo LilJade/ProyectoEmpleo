@@ -7,6 +7,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class ConsultasEstudio {
@@ -14,6 +15,32 @@ public class ConsultasEstudio {
     private Connection con = new conexionbd().getconexion();
     frmP_Trabajador frmP_Tr;
 
+    public ArrayList<Estudio> mostrarEstudiosCrud(int id){
+        ArrayList<Estudio> CrudEstudios = new ArrayList<>();
+        
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_CM_Estudio(?)");
+            st.setInt("idTrabajadorEst", id);
+            ResultSet rs = st.executeQuery();
+            
+            while(rs.next()){
+                Estudio est = new Estudio();
+                
+                est.setIdEstudio(rs.getInt("idEstudio"));
+                est.setInstitucion(rs.getString("institucion"));
+                est.setTitulo(rs.getString("titulo"));
+                est.setAñoTerminado(rs.getString("añoTerminado"));
+                est.setCuidad(rs.getString("ciudad"));
+                est.setOrden(rs.getInt("orden"));
+                est.setIdTrabajador(rs.getInt("idTrabajador"));
+                CrudEstudios.add(est);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener la lista de registros... " + e.getMessage());
+        }
+        
+        return CrudEstudios;
+    }
     public void insertarEstudios(Estudio est){
         try {
             CallableStatement st = con.prepareCall("CALL SP_I_Estudio(?,?,?,?,?,?)");

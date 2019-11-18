@@ -1,20 +1,49 @@
 package Consultas;
+
 import Entidades.Experiencia;
 import Formularios.frmP_Trabajador;
 import Modelo.conexionbd;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class ConsultasExperiencia {
+
     private Connection con = new conexionbd().getconexion();
     frmP_Trabajador frmP_Tr;
-    
-        public void insertarExperiencia(Experiencia exp){
+
+    public ArrayList<Experiencia> mostrarExperienciasCrud(int id) {
+        ArrayList<Experiencia> CrudExperiencias = new ArrayList<>();
+
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_CM_Experiencia(?)");
+            st.setInt("idTrabajadorExp", id);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Experiencia exp = new Experiencia();
+                exp.setIdExperiencia(rs.getInt("idExperiencia"));
+                exp.setNombreEmpresa(rs.getString("nombreEmpresa"));
+                exp.setCargoOcupado(rs.getString("cargoOcupado"));
+                exp.setFechaInicio(rs.getString("fechaInicio"));
+                exp.setFechaFinal(rs.getString("fechaFinal"));
+                exp.setOrden(rs.getInt("orden"));
+                exp.setIdTrabajador(rs.getInt("idTrabajador"));
+                CrudExperiencias.add(exp);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener la lista de registros... " + e.getMessage());
+        }
+
+        return CrudExperiencias;
+    }
+
+    public void insertarExperiencia(Experiencia exp) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_I_Experiencia(?,?,?,?,?,?,?)");
-            
+
             st.setString("nombreEmpresaExp", exp.getNombreEmpresa());
             st.setString("cargoOcupadoExp", exp.getCargoOcupado());
             st.setString("descripcionExp", exp.getDescripcion());
@@ -22,18 +51,18 @@ public class ConsultasExperiencia {
             st.setString("fechaFinalExp", exp.getFechaFinal());
             st.setInt("ordenExp", exp.getOrden());
             st.setInt("idTrabajadorExp", exp.getIdTrabajador());
-            
+
             st.execute();
             JOptionPane.showMessageDialog(null, "Registrado con Exito");
         } catch (Exception e) {
             System.out.println("Error de insercion: " + e.getMessage());
         }
     }
-    
-    public void actualizarExperiencia(Experiencia exp){
+
+    public void actualizarExperiencia(Experiencia exp) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_U_Experiencia(?,?,?,?,?,?,?,?)");
-            
+
             st.setString("nombreEmpresaExp", exp.getNombreEmpresa());
             st.setString("cargoOcupadoExp", exp.getCargoOcupado());
             st.setString("descripcionExp", exp.getDescripcion());
@@ -42,28 +71,28 @@ public class ConsultasExperiencia {
             st.setInt("ordenExp", exp.getOrden());
             st.setInt("idTrabajadorExp", exp.getIdTrabajador());
             st.setInt("idExp", exp.getIdExperiencia());
-            
+
             st.execute();
             JOptionPane.showMessageDialog(null, "Actualizado con Exito");
         } catch (Exception e) {
             System.out.println("Error al actualizar registro: " + e.getMessage());
         }
     }
-    
-    public void eliminarEstudios(Experiencia exp){
+
+    public void eliminarEstudios(Experiencia exp) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_D_Experiencia(?)");
-            
+
             st.setInt("idExp", exp.getIdExperiencia());
-            
+
             st.execute();
-            
+
             JOptionPane.showMessageDialog(null, "Eliminado con Exito");
         } catch (Exception e) {
             System.out.println("Error al eliminar registro: " + e.getMessage());
         }
     }
-    
+
     public void mostrarExperiencias(int id) {
         try {
             CallableStatement st = con.prepareCall("call SP_M_Experiencia(?)");
@@ -195,5 +224,5 @@ public class ConsultasExperiencia {
         } catch (Exception e) {
         }
     }
-    
+
 }

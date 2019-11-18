@@ -5,16 +5,45 @@ import Modelo.conexionbd;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class ConsultasReferencia {
+
     private Connection con = new conexionbd().getconexion();
     frmP_Trabajador frmP_Tr;
+
+    public ArrayList<Referencia> mostrarExperienciasCrud(int id) {
+        ArrayList<Referencia> CrudReferencias = new ArrayList<>();
+
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_CM_Referencia(?)");
+            st.setInt("idTrabajadorRef", id);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Referencia ref = new Referencia();
+                ref.setNombrereferente(rs.getString("nombreReferente"));
+                ref.setApellidorefrente(rs.getString("apellidoReferente"));
+                ref.setEmpresareferente(rs.getString("empresaReferente"));
+                ref.setCargoReferente(rs.getString("cargoReferente"));
+                ref.setTelefonoReferente(rs.getString("telefonoReferente"));
+                ref.setCorreoReferente(rs.getString("correoReferente"));
+                ref.setOrden(rs.getInt("orden"));
+                ref.setIdTrabajador(rs.getInt("idTrabajador"));
+                CrudReferencias.add(ref);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener la lista de registros... " + e.getMessage());
+        }
+
+        return CrudReferencias;
+    }
     
-            public void insertarExperiencia(Referencia ref){
+    public void insertarExperiencia(Referencia ref) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_I_Referencia(?,?,?,?,?,?,?,?)");
-            
+
             st.setString("nombreRef", ref.getNombrereferente());
             st.setString("apellidoRef", ref.getApellidorefrente());
             st.setString("empresaRef", ref.getEmpresareferente());
@@ -23,18 +52,18 @@ public class ConsultasReferencia {
             st.setString("correoRef", ref.getCorreoReferente());
             st.setInt("ordenRef", ref.getOrden());
             st.setInt("idTrabajadorRef", ref.getIdTrabajador());
-            
+
             st.execute();
             JOptionPane.showMessageDialog(null, "Registrado con Exito");
         } catch (Exception e) {
             System.out.println("Error de insercion: " + e.getMessage());
         }
     }
-    
-    public void actualizarExperiencia(Referencia ref){
+
+    public void actualizarExperiencia(Referencia ref) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_U_Referencia(?,?,?,?,?,?,?,?,?)");
-            
+
             st.setString("nombreRef", ref.getNombrereferente());
             st.setString("apellidoRef", ref.getApellidorefrente());
             st.setString("empresaRef", ref.getEmpresareferente());
@@ -50,21 +79,21 @@ public class ConsultasReferencia {
             System.out.println("Error al actualizar registro: " + e.getMessage());
         }
     }
-    
-    public void eliminarReferencia(Referencia ref){
+
+    public void eliminarReferencia(Referencia ref) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_D_Referencia(?)");
-            
+
             st.setInt("idExp", ref.getIdreferencia());
-            
+
             st.execute();
-            
+
             JOptionPane.showMessageDialog(null, "Eliminado con Exito");
         } catch (Exception e) {
             System.out.println("Error al eliminar registro: " + e.getMessage());
         }
     }
-    
+
     public void mostrarReferencias(int id) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_M_Referencia(?)");
