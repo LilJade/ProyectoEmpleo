@@ -41,15 +41,16 @@ public class ConsultasEstudio {
         
         return CrudEstudios;
     }
+    
     public void insertarEstudios(Estudio est){
         try {
-            CallableStatement st = con.prepareCall("CALL SP_I_Estudio(?,?,?,?,?,?)");
+            CallableStatement st = con.prepareCall("CALL SP_I_Estudio(?,?,?,?,?)");
             
             st.setString("institucionEst", est.getInstitucion());
             st.setString("tituloEst", est.getTitulo());
-            st.setString("añoTerminado", est.getAñoTerminado());
+            st.setString("añoTerminadoEst",est.getAñoTerminado());
             st.setString("ciudadEst", est.getCuidad());
-            st.setInt("ordenEst", est.getOrden());
+            //st.setInt("ordenEst", est.getOrden());
             st.setInt("idTrabajadorEst", est.getIdTrabajador());
             
             st.execute();

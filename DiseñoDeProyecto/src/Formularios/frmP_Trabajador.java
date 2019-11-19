@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
 
 public class frmP_Trabajador extends javax.swing.JFrame {
 
@@ -3637,7 +3638,10 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConfigEstudios4ActionPerformed
 
     private void btnConfigEstudios5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigEstudios5ActionPerformed
-        // TODO add your handling code here:
+DefaultTableModel modelo = new DefaultTableModel();
+
+        
+
     }//GEN-LAST:event_btnConfigEstudios5ActionPerformed
 
     private void btnConfigExpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigExpsActionPerformed
