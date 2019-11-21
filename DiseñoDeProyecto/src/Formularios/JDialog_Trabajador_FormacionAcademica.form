@@ -85,12 +85,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="204" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtInstitucion" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="txtTitulo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="txtCiudad" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="txtIdTrabajador" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jDate_Chooser" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtInstitucion" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txtTitulo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txtCiudad" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txtIdTrabajador" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
