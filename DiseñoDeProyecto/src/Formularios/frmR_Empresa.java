@@ -1,6 +1,7 @@
 package Formularios;
 
 import Consultas.ConsultasEmpresa;
+import Consultas.ConsultasGiroComercial;
 import Entidades.Empresa;
 import Entidades.GiroComercial;
 import org.jdesktop.swingx.prompt.PromptSupport;
@@ -66,11 +67,11 @@ public class frmR_Empresa extends javax.swing.JFrame {
     
     String filasCombo[] = new String[13];
     
-    String array[] = new String[6];
+    String array[] = new String[23];
     int contadors = 0;
     
     public void cargarcombo() {
-        ConsultasEmpresa mo = new ConsultasEmpresa();
+         ConsultasGiroComercial mo = new ConsultasGiroComercial();
         ArrayList<GiroComercial> PS = mo.mostrargiros();
         Iterator i = PS.iterator();
         DefaultComboBoxModel DefaultComboBoxModel = new DefaultComboBoxModel();
@@ -120,7 +121,7 @@ public class frmR_Empresa extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtUbicacion = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(202, 219, 236));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -482,11 +483,11 @@ public class frmR_Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContraseñaEKeyReleased
 
     private void txtConfirmarCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmarCKeyReleased
-        // TODO add your handling code here:
+        ValidacionRegistroE();
     }//GEN-LAST:event_txtConfirmarCKeyReleased
 
     private void txtConfirmarCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmarCKeyTyped
-        // TODO add your handling code here:
+        ValidacionRegistroE();
     }//GEN-LAST:event_txtConfirmarCKeyTyped
 
     private void cmb_girocomercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_girocomercialActionPerformed

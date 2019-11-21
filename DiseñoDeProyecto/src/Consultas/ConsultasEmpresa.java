@@ -6,6 +6,7 @@ import Modelo.conexionbd;
 import Entidades.Empresa;
 import Entidades.GiroComercial;
 import Entidades.Trabajador;
+import Entidades.cargar_Aspirantes;
 import Formularios.frmP_Empresa;
 import Formularios.frmR_Empresa;
 import Formularios.frmVisitante;
@@ -17,6 +18,7 @@ import java.io.InputStream;
 import java.sql.*;
 import java.util.*;
 import javax.imageio.ImageIO;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -26,7 +28,8 @@ public class ConsultasEmpresa {
 
     private Connection con = new conexionbd().getconexion();
     public static int idE = 0;
-public static int idG=0;
+    public static int idG = 0;
+
     public void ValidarEmpresa(Empresa E) {
         ImageIcon img = null;
         InputStream inp = null;
@@ -70,16 +73,16 @@ public static int idG=0;
                     frme.txtDireccion.setText(rs.getString("direccion"));
                     frme.txtCorreo.setText(rs.getString("correo"));
                     frme.txtTelefono.setText(rs.getString("telefono"));
-//                    frme.txtGiro_Comercial1.setText(rs.getString("CategoriaNombre"));
+                    frme.jc_girocomercial.setSelectedItem(rs.getString("CategoriaNombre"));
                     frme.txtDepartamento.setText(rs.getString("departamento"));
-                    idG= rs.getInt("idGiroComercial");
+                    idG = rs.getInt("idGiroComercial");
                     frme.idgiro.setText(String.valueOf(idG));
                     idE = rs.getInt("idEmpresa");
                     frme.idempresa.setText(String.valueOf(idE));
                     frme.setVisible(true);
-                    frmv.hide();
-                    frmv.setVisible(false);
+                   frmv.setVisible(false);
 
+                    frme.cargarcombos();
                 }
 
             } else {
@@ -109,37 +112,20 @@ public static int idG=0;
             st.execute();
 
             JOptionPane.showMessageDialog(null, "Registrado con Exito");
-
+            frmVisitante V = new frmVisitante();
+            V.setVisible(true);
+            frmP_Empresa frme = new frmP_Empresa();
+            frme.dispose();
         } catch (SQLException | HeadlessException ex) {
             System.out.println("Error de insercion: " + ex.getMessage());
         }
     }
 
-    public ArrayList<GiroComercial> mostrargiros() {
-
-        ArrayList<GiroComercial> liscombo = new ArrayList<>();
-        try {
-            CallableStatement cb = con.prepareCall("select *from girocomercial");
-            ResultSet rs = cb.executeQuery();
-            while (rs.next()) {
-                GiroComercial g = new GiroComercial();
-                g.setIdGiroComercial(rs.getInt("idGiroComercial"));
-                g.setCategoriaNombre(rs.getString("categoriaNombre"));
-
-                liscombo.add(g);
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la consulta :" + e);
-        }
-        return liscombo;
-
-    }
- public ArrayList<GiroComercial> mostrargirosEmpresa() {
+    public ArrayList<GiroComercial> mostrargirosEmpresa() {
 
         ArrayList<GiroComercial> idgiroempresa = new ArrayList<>();
         try {
-            CallableStatement cb = con.prepareCall("select *from girocomercial where idgirocomercial='"+idG+"'");
+            CallableStatement cb = con.prepareCall("select *from girocomercial where idgirocomercial='" + idG + "'");
             ResultSet rs = cb.executeQuery();
             while (rs.next()) {
                 GiroComercial g = new GiroComercial();
@@ -155,6 +141,7 @@ public static int idG=0;
         return idgiroempresa;
 
     }
+
     public ArrayList<Empleo> Mostraempleos() {
         frmP_Empresa s = new frmP_Empresa();
 
@@ -166,9 +153,9 @@ public static int idG=0;
                 Empleo p = new Empleo();
 
                 int idem = rs.getInt("idEmpleo");
-                
+
                 p.setIdEmpleo(idem);
-                
+
                 p.setNombre(rs.getString("nombre"));
 
                 p.setDescripcion(rs.getString("descripcion"));
@@ -184,9 +171,9 @@ public static int idG=0;
 
     }
 
-    public ArrayList<Aspirantes> MostraAspirantes() {
+    public ArrayList<cargar_Aspirantes> MostraAspirantes() {
 
-        ArrayList<Aspirantes> Aspirantes = new ArrayList<>();
+        ArrayList<cargar_Aspirantes> cargar_Aspirantes = new ArrayList<>();
         try {
             CallableStatement cb = con.prepareCall("select  t.nombres,t.apellidos,e.nombre,e.requisitos  \n"
                     + "from Aspirantes as a\n"
@@ -200,30 +187,27 @@ public static int idG=0;
                     + "where m.idEmpresa ='" + idE + "'");
             ResultSet rs = cb.executeQuery();
             while (rs.next()) {
-                Aspirantes p = new Aspirantes();
-                Empleo e = new Empleo();
-                Trabajador t = new Trabajador();
+                cargar_Aspirantes a = new cargar_Aspirantes();
 
-                t.setNombres(rs.getString("nombres"));
-                t.setApellidos(rs.getString("apellidos"));
-                e.setNombre(rs.getString("nombre"));
-                e.setRequisitos(rs.getString("requisitos"));
-
-                Aspirantes.add(p);
+                a.setNombreT(rs.getString("nombres"));
+                a.setApellidoT(rs.getString("apellidos"));
+                a.setRequisitosE(rs.getString("requisitos"));
+                a.setNombreE(rs.getString("nombre"));
+                cargar_Aspirantes.add(a);
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error en la consulta :" + e);
         }
-        return Aspirantes;
+        return cargar_Aspirantes;
 
     }
     //metodo actualizar empresa(alexis)
-                                                           
+
     public void Actualizar_empresa(Empresa e) {
         try {
             CallableStatement st = con.prepareCall("{call SP_U_Empresa(?,?,?,?,?,?,?,?,?,?,?)}");
-            st.setInt("idE",e.getIdEmpresa());
+            st.setInt("idE", e.getIdEmpresa());
             st.setString("nombreE", e.getNombre());
             st.setString("acronimoE", e.getAcronimo());
             st.setString("descripcionE", e.getDescripcion());
@@ -235,52 +219,48 @@ public static int idG=0;
             st.setBytes("imgE", e.getImPerfil());
             st.setInt("idGiroComercialE", e.getIdGiroComercial());
             st.execute();
-            
+
             JOptionPane.showMessageDialog(null, "Datos Actualizados:");
-            
+
         } catch (SQLException ex) {
             System.out.println("Error al actualizar " + ex.getMessage());
         }
     }
-    
 
-    public void insertarEmpleo(Empleo o){
-        
-        try{
-           CallableStatement st = con.prepareCall("Call SP_I_Empleo(?,?,?,?,?)");
-           
-           st.setString("nombreE", o.getNombre());
-           st.setString("descripcionE", o.getDescripcion());
-           st.setString("requisitosE", o.getRequisitos());
-           st.setDouble("salarioE", o.getSalario());
-           st.setInt("idEmpresaE", o.getIdEmpresa());
-           
-           st.execute();
-           
-           JOptionPane.showMessageDialog(null, " Empleo Agregado:");
-             
-        }catch(Exception e){
+    public void insertarEmpleo(Empleo o) {
+
+        try {
+            CallableStatement st = con.prepareCall("Call SP_I_Empleo(?,?,?,?,?)");
+
+            st.setString("nombreE", o.getNombre());
+            st.setString("descripcionE", o.getDescripcion());
+            st.setString("requisitosE", o.getRequisitos());
+            st.setDouble("salarioE", o.getSalario());
+            st.setInt("idEmpresaE", o.getIdEmpresa());
+
+            st.execute();
+
+            JOptionPane.showMessageDialog(null, " Empleo Agregado:");
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al Insertar Empleo:" + e);
-            
-            
-            
-        }}
-        
-        public void Actualizarempleo(Empleo r){
-            try{
-                CallableStatement st= con.prepareCall("call SP_U_Empleo(?,?,?,?,?)");
-                st.setInt("idEmpleoE",r.getIdEmpleo());
-                st.setString("nombreE", r.getNombre());
-                st.setString("descripcionE", r.getDescripcion());
-                st.setString("requisitosE", r.getRequisitos());
-                st.setDouble("salarioE", r.getSalario());
-                st.execute();
-                JOptionPane.showMessageDialog(null, "empleo actualizado");
-            }catch(Exception e){
-                  JOptionPane.showMessageDialog(null, "empleo actualizado"+e);
-                
-            }
+
         }
     }
 
+    public void Actualizarempleo(Empleo r) {
+        try {
+            CallableStatement st = con.prepareCall("call SP_U_Empleo(?,?,?,?,?)");
+            st.setInt("idEmpleoE", r.getIdEmpleo());
+            st.setString("nombreE", r.getNombre());
+            st.setString("descripcionE", r.getDescripcion());
+            st.setString("requisitosE", r.getRequisitos());
+            st.setDouble("salarioE", r.getSalario());
+            st.execute();
+            JOptionPane.showMessageDialog(null, "empleo actualizado");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "empleo actualizado" + e);
 
+        }
+    }
+}

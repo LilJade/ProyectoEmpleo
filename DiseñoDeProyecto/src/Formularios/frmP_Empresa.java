@@ -7,11 +7,13 @@ package Formularios;
 
 import AppPackage.AnimationClass;
 import Consultas.ConsultasEmpresa;
+import Consultas.ConsultasGiroComercial;
 import Entidades.Aspirantes;
 import Entidades.Empleo;
 import Entidades.Empresa;
 import Entidades.GiroComercial;
 import Entidades.Trabajador;
+import Entidades.cargar_Aspirantes;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +26,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -40,16 +43,17 @@ public class frmP_Empresa extends javax.swing.JFrame {
      */
     public frmP_Empresa() {
         initComponents();
-        
-      
+
         txtId.setVisible(false);
-        txturl.setVisible(false);
+        txturl2.setVisible(false);
         idempresa.setVisible(false);
         idgiro.setVisible(false);
         txtDescripcion.setLineWrap(true);
-//        this.setBounds(0, 0, 1350,1200);
-//        this.setLocationRelativeTo(null);
-//        this.setResizable(false);
+        txtDescripciones2.setLineWrap(true);
+        txtRequisitos2.setLineWrap(true);
+        this.setBounds(0, 0, 1350, 1200);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
 
     }
 
@@ -78,7 +82,7 @@ public class frmP_Empresa extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         lb_fotoEmpresa = new javax.swing.JLabel();
         btnCambiarFoto = new javax.swing.JButton();
-        txturl = new javax.swing.JTextField();
+        txturl2 = new javax.swing.JTextField();
         jo_empleos = new javax.swing.JPanel();
         btnConfigEmpleos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -109,7 +113,7 @@ public class frmP_Empresa extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         txtContraseña = new javax.swing.JPasswordField();
-        jc_girocomercial = new javax.swing.JComboBox<>();
+        jc_girocomercial = new javax.swing.JComboBox<String>();
         jp_notificaciones = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Empleos = new javax.swing.JPanel();
@@ -279,8 +283,8 @@ public class frmP_Empresa extends javax.swing.JFrame {
         });
         jPanel4.add(btnCambiarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, 180, 160, -1));
 
-        txturl.setText("jTextField1");
-        jPanel4.add(txturl, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        txturl2.setText("jTextField1");
+        jPanel4.add(txturl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
         btnConfigEmpleos.setBackground(new java.awt.Color(153, 255, 153));
         btnConfigEmpleos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
@@ -463,7 +467,12 @@ public class frmP_Empresa extends javax.swing.JFrame {
         txtContraseña.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtContraseña.setForeground(new java.awt.Color(39, 86, 179));
 
-        jc_girocomercial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jc_girocomercial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jc_girocomercial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jc_girocomercialActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_generalidadesEmpresaLayout = new javax.swing.GroupLayout(jp_generalidadesEmpresa);
         jp_generalidadesEmpresa.setLayout(jp_generalidadesEmpresaLayout);
@@ -690,7 +699,7 @@ public class frmP_Empresa extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -986,7 +995,7 @@ public class frmP_Empresa extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jp_empresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -997,11 +1006,14 @@ public class frmP_Empresa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- String filasCombo[] = new String[13];
-    
-    String array[] = new String[6];
+
+    String filasCombo[] = new String[13];
+
+    String array[] = new String[23];
     int contadors = 0;
+
     public void cargarcombos() {
+
         ConsultasEmpresa mo = new ConsultasEmpresa();
         ArrayList<GiroComercial> PS = mo.mostrargirosEmpresa();
         Iterator i = PS.iterator();
@@ -1015,12 +1027,12 @@ public class frmP_Empresa extends javax.swing.JFrame {
             DefaultComboBoxModel.addElement(p.getCategoriaNombre());
             contadors++;
         }
-        
+
         jc_girocomercial.setModel(DefaultComboBoxModel);
     }
 
-    public void cargarcombotodo() {
-        ConsultasEmpresa mo = new ConsultasEmpresa();
+    public void actualizargiro() {
+        ConsultasGiroComercial mo = new ConsultasGiroComercial();
         ArrayList<GiroComercial> PS = mo.mostrargiros();
         Iterator i = PS.iterator();
         DefaultComboBoxModel DefaultComboBoxModel = new DefaultComboBoxModel();
@@ -1033,10 +1045,10 @@ public class frmP_Empresa extends javax.swing.JFrame {
             DefaultComboBoxModel.addElement(p.getCategoriaNombre());
             contadors++;
         }
-        
+
         jc_girocomercial.setModel(DefaultComboBoxModel);
     }
-    
+
     void cargarTabla() {
         String titulos[] = {"Id", "Empleo", "Descripcion", "Requisitos", "Salario"};
         DefaultTableModel df = new DefaultTableModel(null, titulos);
@@ -1048,7 +1060,7 @@ public class frmP_Empresa extends javax.swing.JFrame {
             Empleo p;
 
             p = (Empleo) i.next();
-            
+
             int id = p.getIdEmpleo();
             filas[0] = String.valueOf(id);
             filas[1] = p.getNombre();
@@ -1062,35 +1074,32 @@ public class frmP_Empresa extends javax.swing.JFrame {
         tabla_empleos.setModel(df);
 
     }
-// void cargarTablaaspirantes() {
-//      String titulos[] = {"Nombre de Aspirantes","Apellidos","Empleo","Requisitos"};
-//        DefaultTableModel df = new DefaultTableModel(null, titulos);
-//        ConsultasEmpresa mo = new ConsultasEmpresa();
-//        ArrayList<Aspirantes> PS = mo.MostraAspirantes();
-//        Iterator i = PS.iterator();
-//        String filas[] = new String[4];
-//        while (i.hasNext()) {
-//           Aspirantes p;
-//          Empleo e = null;
-//          Trabajador t = null;
-//            
-//            p = (Aspirantes) i.next();
-//
-//            filas[0] =t.getNombres();
-//            filas[1] = t.getApellidos();
-//            filas[2] = e.getNombre();
-//            filas[3] = e.getRequisitos();
-//            
-//            
-//            
-//            df.addRow(filas);
-//        }
-//       tabla_aspirantes.setModel(df);
-//
-//    }
+
+    void cargarTablaaspirantes() {
+        String titulos[] = {"Nombre","Apellidos", "Empleo","Requisitos de Empleo"};
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+        ConsultasEmpresa mo = new ConsultasEmpresa();
+        ArrayList<cargar_Aspirantes> PS = mo.MostraAspirantes();
+        Iterator i = PS.iterator();
+        String filas[] = new String[4];
+        while (i.hasNext()) {
+            cargar_Aspirantes a;
+
+            a = (cargar_Aspirantes) i.next();
+
+            filas[0] = a.getNombreT();
+            filas[1] = a.getApellidoT();
+            filas[2] = a.getRequisitosE();
+            filas[3] = a.getNombreE();
+            df.addRow(filas);
+        }
+        tabla_aspirantes.setModel(df);
+
+    }
+
     private void btnperfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfilActionPerformed
-       cargarcombos();
-       if (!btnperfil.isSelected()) {
+       
+        if (!btnperfil.isSelected()) {
             btnperfil.setSelected(true);
 
             btnnotificaciones.setSelected(false);
@@ -1101,7 +1110,7 @@ public class frmP_Empresa extends javax.swing.JFrame {
 
     private void btnnotificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnotificacionesActionPerformed
         cargarTabla();
-//cargarTablaaspirantes();
+        cargarTablaaspirantes();
         if (!btnnotificaciones.isSelected()) {
             btnnotificaciones.setSelected(true);
 
@@ -1112,8 +1121,9 @@ public class frmP_Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnotificacionesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        frmVisitante V = new frmVisitante();
-        V.setVisible(true);
+
+        
+        
         this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -1180,17 +1190,21 @@ public class frmP_Empresa extends javax.swing.JFrame {
             eT.setContraseña(txtContraseña.getText());
             byte[] imagenes = Files.readAllBytes(file.toPath());
             eT.setImPerfil(imagenes);//8
-            eT.setIdGiroComercial(Integer.parseInt(idgiro.getText()));
+            int indice, otro;
+            String valor;
+            indice = jc_girocomercial.getSelectedIndex();
+            valor = array[indice];
+            otro = Integer.parseInt(valor);
+            eT.setIdGiroComercial(otro);
 
             AC.Actualizar_empresa(eT);
 
-          
         } catch (IOException ex) {
 
             Logger.getLogger(frmR_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "No a completado la Edición, Vuelva intentar" + ex);
         }
-
+        cargarcombos();
         txtNombre.setEditable(false);
         txtAcronimo.setEditable(false);
         txtDireccion.setEditable(false);
@@ -1213,8 +1227,8 @@ public class frmP_Empresa extends javax.swing.JFrame {
         int ventana = archivo.showOpenDialog(null);
         if (ventana == JFileChooser.APPROVE_OPTION) {
             file = archivo.getSelectedFile();
-            txturl.setText(String.valueOf(file));
-            Image foto = getToolkit().getImage(txturl.getText());
+            txturl2.setText(String.valueOf(file));
+            Image foto = getToolkit().getImage(txturl2.getText());
             foto = foto.getScaledInstance(lb_fotoEmpresa.getWidth(), lb_fotoEmpresa.getHeight(), Image.SCALE_DEFAULT);
 
             lb_fotoEmpresa.setIcon(new ImageIcon(foto));
@@ -1235,7 +1249,7 @@ public class frmP_Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPublicarEmpleosActionPerformed
 
     private void btnGestionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarActionPerformed
-cargarcombotodo();
+        actualizargiro();
         txtNombre.setEditable(true);
         txtAcronimo.setEditable(true);
         txtDireccion.setEditable(true);
@@ -1277,48 +1291,42 @@ cargarcombotodo();
     }//GEN-LAST:event_txtEmpleoActionPerformed
 
     private void btnActualizar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar2ActionPerformed
-     
-      Empleo e=new Empleo();
-      
-      e.setIdEmpleo(Integer.parseInt(txtId.getText()));
-      e.setNombre(txtEmpleo2.getText());
-      e.setRequisitos(txtRequisitos2.getText());
-      e.setDescripcion(txtDescripciones2.getText());
-      e.setSalario(Double.parseDouble(txtSalario2.getText()));
-      
-      AC.Actualizarempleo(e);
-      cargarTabla();
-      
-      
-        
-        
-        
-        
-        
+
+        Empleo e = new Empleo();
+
+        e.setIdEmpleo(Integer.parseInt(txtId.getText()));
+        e.setNombre(txtEmpleo2.getText());
+        e.setRequisitos(txtRequisitos2.getText());
+        e.setDescripcion(txtDescripciones2.getText());
+        e.setSalario(Double.parseDouble(txtSalario2.getText()));
+
+        AC.Actualizarempleo(e);
+        cargarTabla();
+
+
     }//GEN-LAST:event_btnActualizar2ActionPerformed
 
     private void tabla_empleosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_empleosMouseClicked
-   String id, empleo, salario, descripcion, requisitos;
-   
-    id = String.valueOf(tabla_empleos.getModel().getValueAt(tabla_empleos.getSelectedRow(), 0));
-     empleo= String.valueOf(tabla_empleos.getModel().getValueAt(tabla_empleos.getSelectedRow(), 1));
-     
-     descripcion = String.valueOf(tabla_empleos.getModel().getValueAt(tabla_empleos.getSelectedRow(), 2));
-     requisitos = String.valueOf(tabla_empleos.getModel().getValueAt(tabla_empleos.getSelectedRow(), 3));
-     salario = String.valueOf(tabla_empleos.getModel().getValueAt(tabla_empleos.getSelectedRow(), 4));
-     txtId.setText(id);
-     txtEmpleo2.setText(empleo);
-     txtSalario2.setText(salario);
-     txtDescripciones2.setText(descripcion);
-     txtRequisitos2.setText(requisitos);
-     
-     
-        
-        
-        
-        
-        
+        String id, empleo, salario, descripcion, requisitos;
+
+        id = String.valueOf(tabla_empleos.getModel().getValueAt(tabla_empleos.getSelectedRow(), 0));
+        empleo = String.valueOf(tabla_empleos.getModel().getValueAt(tabla_empleos.getSelectedRow(), 1));
+
+        descripcion = String.valueOf(tabla_empleos.getModel().getValueAt(tabla_empleos.getSelectedRow(), 2));
+        requisitos = String.valueOf(tabla_empleos.getModel().getValueAt(tabla_empleos.getSelectedRow(), 3));
+        salario = String.valueOf(tabla_empleos.getModel().getValueAt(tabla_empleos.getSelectedRow(), 4));
+        txtId.setText(id);
+        txtEmpleo2.setText(empleo);
+        txtSalario2.setText(salario);
+        txtDescripciones2.setText(descripcion);
+        txtRequisitos2.setText(requisitos);
+
+
     }//GEN-LAST:event_tabla_empleosMouseClicked
+
+    private void jc_girocomercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jc_girocomercialActionPerformed
+        cargarcombos();
+    }//GEN-LAST:event_jc_girocomercialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1448,6 +1456,6 @@ cargarcombotodo();
     private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtSalario2;
     public javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txturl;
+    private javax.swing.JTextField txturl2;
     // End of variables declaration//GEN-END:variables
 }

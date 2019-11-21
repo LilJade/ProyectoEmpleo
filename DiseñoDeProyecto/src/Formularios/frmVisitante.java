@@ -99,7 +99,6 @@ public class frmVisitante extends javax.swing.JFrame {
         jpnlAcercaDe = new javax.swing.JPanel();
         btnEntrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -123,6 +122,11 @@ public class frmVisitante extends javax.swing.JFrame {
         btnEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEmpresaMouseClicked(evt);
+            }
+        });
+        btnEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmpresaActionPerformed(evt);
             }
         });
         jpOpcion.add(btnEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-85, 150, 100, 90));
@@ -231,6 +235,11 @@ public class frmVisitante extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCancelarMouseExited(evt);
+            }
+        });
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
             }
         });
         jpnlTitular.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 10, 30, 30));
@@ -500,7 +509,7 @@ public class frmVisitante extends javax.swing.JFrame {
             eEmpresa.setCorreo(txtUsuario.getText());
             eEmpresa.setContraseña(txtContraseña.getText());
             cEmpresa.ValidarEmpresa(eEmpresa);
-            //this.dispose();
+            
 
         } else if (rtnTrabajador.isSelected()) {
             eTrabajador.setCorreo(txtUsuario.getText());
@@ -511,8 +520,9 @@ public class frmVisitante extends javax.swing.JFrame {
                 this.estilo = cTrabajador.consultarEstiloTrabajador(this.id);
                 frmP_Trabajador frmP_Tr = new frmP_Trabajador();
                 frmP_Tr.setVisible(true);
+                this.dispose();
             }
-        //  this.dispose();
+
         } else {
             JOptionPane.showMessageDialog(null, "Por favor elige entre ingresar como Empresa o como Trabajador.");
         }
@@ -589,6 +599,14 @@ public class frmVisitante extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_btnEmpresaMouseClicked
+
+    private void btnEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpresaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEmpresaActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
