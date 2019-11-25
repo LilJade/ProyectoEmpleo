@@ -263,4 +263,63 @@ public class ConsultasEmpresa {
 
         }
     }
+    
+    public ArrayList<Empresa> mostrarEmpresasVisitante(){
+        ArrayList<Empresa> mostrarEmpresaV = new ArrayList<>();
+        
+        try {
+            CallableStatement st = con.prepareCall("SELECT idEmpresa, nombre, acronimo, departamento FROM Empresa");
+            ResultSet rs = st.executeQuery();
+            
+            while(rs.next()){
+                Empresa emp = new Empresa();
+                emp.setIdEmpresa(rs.getInt("idEmpresa"));
+                emp.setNombre(rs.getString("nombre"));
+                emp.setAcronimo(rs.getString("acronimo"));
+                emp.setDepartamento(rs.getString("departamento"));
+                mostrarEmpresaV.add(emp);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar los registros de empresas: " + e.getMessage());
+        }
+        return mostrarEmpresaV;
+    }
+    
+        public ArrayList<Empresa> MostrarFotos(String id) {
+        ArrayList<Empresa> mostrarFotoEmpV = new ArrayList<>();
+        try {
+            CallableStatement cb = con.prepareCall("SELECT imgPerfil FROM Empresa WHERE idEmpresa = '" + id + "'");
+            ResultSet rs = cb.executeQuery();
+            while (rs.next()) {
+                Empresa emp = new Empresa();
+                emp.setImPerfil(rs.getBytes("imgPerfil"));
+                mostrarFotoEmpV.add(emp);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al consultar la imagen de la empresa: " + e.getMessage());
+        }
+        return mostrarFotoEmpV;
+    }
+        
+        public ArrayList<Empresa> BuscarEmpresaV(String nombre){
+        ArrayList<Empresa> buscarEmpV = new ArrayList<>();
+            try {
+                String filtro = ""+nombre+"_%";
+                CallableStatement st = con.prepareCall("SELECT idEmpresa, nombre, acronimo, departamento FROM empresa WHERE nombre LIKE " + '"' + filtro + '"');
+                ResultSet rs = st.executeQuery();
+                
+                while(rs.next()){
+                    Empresa emp = new Empresa();
+                    emp.setIdEmpresa(rs.getInt("idEmpresa"));
+                    emp.setNombre(rs.getString("nombre"));
+                    emp.setAcronimo(rs.getString("acronimo"));
+                    emp.setDepartamento(rs.getString("departamento"));
+                    buscarEmpV.add(emp);
+                }
+            } catch (Exception e) {
+            System.out.println("Error al buscar entre registros de las empresas: " + e.getMessage());
+            }
+        return buscarEmpV;
+        }
 }

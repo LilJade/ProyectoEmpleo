@@ -1,4 +1,5 @@
 package Formularios;
+
 import java.awt.Color;
 import java.awt.Font;
 import AppPackage.AnimationClass;
@@ -8,8 +9,13 @@ import Entidades.Empresa;
 import Entidades.Trabajador;
 import Utilidades.EstiloTabla;
 import com.placeholder.PlaceHolder;
+import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class frmVisitante extends javax.swing.JFrame {
 
@@ -21,14 +27,16 @@ public class frmVisitante extends javax.swing.JFrame {
     frmR_Empresa formEmpresa = new frmR_Empresa();
 
     PlaceHolder holder;
-    
+
     public static int id = 0;
     public static int estilo = 0;
 
     public frmVisitante() {
-
         initComponents();
         btnEntrar.setEnabled(false);
+
+        idEmp.setVisible(false);
+        lblNombreEmpresa.setText("");
 
         this.setLocationRelativeTo(null);
         this.setTitle("Work Search Engine v0.1");
@@ -52,6 +60,8 @@ public class frmVisitante extends javax.swing.JFrame {
         jtblMostrarEmpresas.getColumnModel().getColumn(1).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));
         jtblMostrarEmpresas.getColumnModel().getColumn(2).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));
         jtblMostrarEmpresas.getColumnModel().getColumn(3).setHeaderRenderer(new EstiloTabla(new Color(0, 0, 51), Color.WHITE));
+
+        CargarTable();
     }
 
     @SuppressWarnings("unchecked")
@@ -68,6 +78,12 @@ public class frmVisitante extends javax.swing.JFrame {
         jpVista = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblMostrarEmpresas = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        lblImgEmpresa = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        lblNombreEmpresa = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        idEmp = new javax.swing.JLabel();
         jpnlTitular = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
@@ -75,6 +91,7 @@ public class frmVisitante extends javax.swing.JFrame {
         lbMinimizar = new javax.swing.JLabel();
         btnAyuda = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         pnlSesion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -199,6 +216,7 @@ public class frmVisitante extends javax.swing.JFrame {
         jpVista.setToolTipText("");
         jpVista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jtblMostrarEmpresas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         jtblMostrarEmpresas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -210,9 +228,78 @@ public class frmVisitante extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtblMostrarEmpresas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtblMostrarEmpresasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtblMostrarEmpresas);
 
-        jpVista.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 640, 530));
+        jpVista.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 640, 360));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 51));
+
+        lblImgEmpresa.setText("jLabel3");
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 51));
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Visitar el Perfil de la Empresa");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        lblNombreEmpresa.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblNombreEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreEmpresa.setText("Empresa");
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Nombre de la Empresa:");
+
+        idEmp.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        idEmp.setForeground(new java.awt.Color(255, 255, 255));
+        idEmp.setText("id: ");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(idEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                    .addComponent(lblNombreEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblImgEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblImgEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 20, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(idEmp))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNombreEmpresa)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        jpVista.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 640, 170));
 
         getContentPane().add(jpVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 650, 530));
 
@@ -220,7 +307,7 @@ public class frmVisitante extends javax.swing.JFrame {
         jpnlTitular.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lupa_24.png"))); // NOI18N
-        jpnlTitular.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, 30));
+        jpnlTitular.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, 30));
 
         btnCancelar.setBackground(new java.awt.Color(93, 0, 93));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar_24.png"))); // NOI18N
@@ -287,7 +374,17 @@ public class frmVisitante extends javax.swing.JFrame {
         txtBuscar.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         txtBuscar.setForeground(new java.awt.Color(255, 153, 0));
         txtBuscar.setBorder(null);
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyReleased(evt);
+            }
+        });
         jpnlTitular.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 320, 30));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel3.setText("Buscar: ");
+        jpnlTitular.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
         getContentPane().add(jpnlTitular, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 60));
 
@@ -502,6 +599,48 @@ public class frmVisitante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnListaActionPerformed
 
+    public void buscandoEmpresa(String nombre) {
+        String title[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
+        DefaultTableModel df = new DefaultTableModel(null, title);
+        ConsultasEmpresa cEmp = new ConsultasEmpresa();
+        ArrayList<Empresa> ResultadoBusqueda = cEmp.BuscarEmpresaV(nombre);
+        Iterator i = ResultadoBusqueda.iterator();
+        String filas[] = new String[5];
+
+        while (i.hasNext()) {
+            Empresa emp;
+            emp = (Empresa) i.next();
+            filas[0] = String.valueOf(emp.getIdEmpresa());
+            filas[1] = emp.getNombre();
+            filas[2] = emp.getAcronimo();
+            filas[3] = emp.getDepartamento();
+            df.addRow(filas);
+        }
+
+        jtblMostrarEmpresas.setModel(df);
+    }
+
+    public void CargarTable() {
+        String titulos[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+        ConsultasEmpresa cEmp = new ConsultasEmpresa();
+        ArrayList<Empresa> PS = cEmp.mostrarEmpresasVisitante();
+        Iterator i = PS.iterator();
+        String filas[] = new String[5];
+        while (i.hasNext()) {
+            Empresa emp;
+
+            emp = (Empresa) i.next();
+            filas[0] = String.valueOf(emp.getIdEmpresa());
+            filas[1] = emp.getNombre();
+            filas[2] = emp.getAcronimo();
+            filas[3] = emp.getDepartamento();
+            df.addRow(filas);
+        }
+        jtblMostrarEmpresas.setModel(df);
+    }
+
+
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
         //if (!txtUsuario.getText().equals("CORREO ELECTRONICO") || !txtUsuario.getText().isEmpty()) {
@@ -509,14 +648,13 @@ public class frmVisitante extends javax.swing.JFrame {
             eEmpresa.setCorreo(txtUsuario.getText());
             eEmpresa.setContraseña(txtContraseña.getText());
             cEmpresa.ValidarEmpresa(eEmpresa);
-            
 
         } else if (rtnTrabajador.isSelected()) {
             eTrabajador.setCorreo(txtUsuario.getText());
             eTrabajador.setPass(txtContraseña.getText());
             this.id = cTrabajador.ValidarTrabajador(eTrabajador);
-            
-            if(id != 0){
+
+            if (id != 0) {
                 this.estilo = cTrabajador.consultarEstiloTrabajador(this.id);
                 frmP_Trabajador frmP_Tr = new frmP_Trabajador();
                 frmP_Tr.setVisible(true);
@@ -608,6 +746,53 @@ public class frmVisitante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void jtblMostrarEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblMostrarEmpresasMouseClicked
+        lblImgEmpresa.setIcon(null);
+        lblImgEmpresa.repaint();
+        //  lblfoto.setText("SIN IMAGEN");\
+        ConsultasEmpresa cEmp = new ConsultasEmpresa();
+        String id = String.valueOf(jtblMostrarEmpresas.getModel().getValueAt(jtblMostrarEmpresas.getSelectedRow(), 0));
+        idEmp.setText(id);
+        ArrayList<Empresa> PS = cEmp.MostrarFotos(id);
+        Iterator i = PS.iterator();
+        while (i.hasNext()) {
+            Empresa emp;
+            emp = (Empresa) i.next();
+            byte[] img = emp.getImPerfil();
+            System.err.println(img);
+            if (img != null) {
+                ImageIcon image = new ImageIcon(img);
+                Image im = image.getImage();
+                Image myImg = im.getScaledInstance(lblImgEmpresa.getWidth(), lblImgEmpresa.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon newImage = new ImageIcon(myImg);
+                lblImgEmpresa.setIcon(newImage);
+            } else {
+                lblImgEmpresa.setText("SIN IMAGEN");
+            }
+        }
+        String nombreEmp = String.valueOf(jtblMostrarEmpresas.getModel().getValueAt(jtblMostrarEmpresas.getSelectedRow(), 1));
+//        String acronimoEmp = String.valueOf(jtblMostrarEmpresas.getModel().getValueAt(jtblMostrarEmpresas.getSelectedRow(), 2));
+//        String departEmp = String.valueOf(jtblMostrarEmpresas.getModel().getValueAt(jtblMostrarEmpresas.getSelectedRow(), 3));
+
+        lblNombreEmpresa.setText(nombreEmp);
+
+        CargarTable();
+    }//GEN-LAST:event_jtblMostrarEmpresasMouseClicked
+
+    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
+        String busq = txtBuscar.getText();
+
+        buscandoEmpresa(busq);
+    }//GEN-LAST:event_txtBuscarKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (lblNombreEmpresa.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Selecciona la empresa que deseas visitar.", "¡Te invitamos a registrarte!", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Para poder acceder a los perfiles de las empresas debes estar registrado.", "¡Te invitamos a registrarte!", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -659,11 +844,16 @@ public class frmVisitante extends javax.swing.JFrame {
     private javax.swing.JButton btnEmpresa;
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnLista;
+    private javax.swing.JLabel idEmp;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -682,6 +872,8 @@ public class frmVisitante extends javax.swing.JFrame {
     private javax.swing.JLabel lbOjo2;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblContraseña2;
+    public static javax.swing.JLabel lblImgEmpresa;
+    public static javax.swing.JLabel lblNombreEmpresa;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblUsuario2;
     private javax.swing.JPanel pnlSesion;
