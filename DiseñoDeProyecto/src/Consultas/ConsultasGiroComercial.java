@@ -11,6 +11,26 @@ import javax.swing.JOptionPane;
 public class ConsultasGiroComercial {
     
     private Connection con = new conexionbd().getconexion();
+    public ArrayList<GiroComercial> mostrargirosEmpresa(int idG) {
+
+        ArrayList<GiroComercial> idgiroempresa = new ArrayList<>();
+        try {
+            CallableStatement cb = con.prepareCall("select *from girocomercial where idgirocomercial='" + idG + "'");
+            ResultSet rs = cb.executeQuery();
+            while (rs.next()) {
+                GiroComercial g = new GiroComercial();
+                g.setIdGiroComercial(rs.getInt("idGiroComercial"));
+                g.setCategoriaNombre(rs.getString("categoriaNombre"));
+
+                idgiroempresa.add(g);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la consulta :" + e);
+        }
+        return idgiroempresa;
+
+    }
     
       public ArrayList<GiroComercial> mostrargiros() {
 

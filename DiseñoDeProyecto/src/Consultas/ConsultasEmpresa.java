@@ -27,8 +27,8 @@ import sun.net.www.content.image.gif;
 public class ConsultasEmpresa {
 
     private Connection con = new conexionbd().getconexion();
-    public static int idE = 0;
-    public static int idG = 0;
+    public  int idE = 0;
+    public  int idG = 0;
 
     public void ValidarEmpresa(Empresa E) {
         ImageIcon img = null;
@@ -37,12 +37,10 @@ public class ConsultasEmpresa {
         int Resultado = 1;
         try {
 
-            CallableStatement st = con.prepareCall("SELECT e.idEmpresa,e.nombre,e.acronimo,e.idGiroComercial,e.descripcion,e.departamento,e.direccion, \n"
-                    + "e.telefono,e.correo,e.contraseña,e.imgPerfil,c.categoriaNombre\n" + "FROM Empresa as e\n" + ""
-                    + "inner join girocomercial as c\n"
-                    + "WHERE e.idGiroComercial = c.idGiroComercial and correo = "
-                    + "'" + E.getCorreo() + "' and contraseña ='" + E.getContraseña() + "'");
-
+           CallableStatement st = con.prepareCall(" call SP_V_Empresa(?,?)");
+         
+            st.setString("correoE", E.getCorreo());
+            st.setString("contraseñaE", E.getContraseña());
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
                 Resultado = 1;
@@ -94,7 +92,35 @@ public class ConsultasEmpresa {
         }
 
     }
+public ArrayList<Empleo> Mostraempleos() {
+        frmP_Empresa s = new frmP_Empresa();
 
+        ArrayList<Empleo> empleo = new ArrayList<>();
+        try {
+               CallableStatement cb = con.prepareCall("call SP_M_Empleos(?)");
+            cb.setInt("idEmpresas", idE);
+            ResultSet rs = cb.executeQuery();
+            while (rs.next()) {
+                Empleo p = new Empleo();
+
+                int idem = rs.getInt("idEmpleo");
+
+                p.setIdEmpleo(idem);
+
+                p.setNombre(rs.getString("nombre"));
+
+                p.setDescripcion(rs.getString("descripcion"));
+                p.setRequisitos(rs.getString("requisitos"));
+                p.setSalario(rs.getDouble("salario"));
+                empleo.add(p);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la consulta :" + e);
+        }
+        return empleo;
+
+    }
     public void insertar(Empresa i) {
         try {
             CallableStatement st = con.prepareCall(" call SP_I_Empresa(?,?,?,?,?,?,?,?,?,?)");
@@ -121,70 +147,16 @@ public class ConsultasEmpresa {
         }
     }
 
-    public ArrayList<GiroComercial> mostrargirosEmpresa() {
+    
 
-        ArrayList<GiroComercial> idgiroempresa = new ArrayList<>();
-        try {
-            CallableStatement cb = con.prepareCall("select *from girocomercial where idgirocomercial='" + idG + "'");
-            ResultSet rs = cb.executeQuery();
-            while (rs.next()) {
-                GiroComercial g = new GiroComercial();
-                g.setIdGiroComercial(rs.getInt("idGiroComercial"));
-                g.setCategoriaNombre(rs.getString("categoriaNombre"));
-
-                idgiroempresa.add(g);
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la consulta :" + e);
-        }
-        return idgiroempresa;
-
-    }
-
-    public ArrayList<Empleo> Mostraempleos() {
-        frmP_Empresa s = new frmP_Empresa();
-
-        ArrayList<Empleo> empleo = new ArrayList<>();
-        try {
-            CallableStatement cb = con.prepareCall("select *from empleo where idEmpresa='" + idE + "'");
-            ResultSet rs = cb.executeQuery();
-            while (rs.next()) {
-                Empleo p = new Empleo();
-
-                int idem = rs.getInt("idEmpleo");
-
-                p.setIdEmpleo(idem);
-
-                p.setNombre(rs.getString("nombre"));
-
-                p.setDescripcion(rs.getString("descripcion"));
-                p.setRequisitos(rs.getString("requisitos"));
-                p.setSalario(rs.getDouble("salario"));
-                empleo.add(p);
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la consulta :" + e);
-        }
-        return empleo;
-
-    }
+    
 
     public ArrayList<cargar_Aspirantes> MostraAspirantes() {
 
         ArrayList<cargar_Aspirantes> cargar_Aspirantes = new ArrayList<>();
         try {
-            CallableStatement cb = con.prepareCall("select  t.nombres,t.apellidos,e.nombre,e.requisitos  \n"
-                    + "from Aspirantes as a\n"
-                    + "inner join Trabajador as t\n"
-                    + "on\n"
-                    + " a.idTrabajador = t.idTrabajador\n"
-                    + "inner join Empleo as e\n"
-                    + "on e.idEmpleo = a.idEmpleo\n"
-                    + "inner join Empresa as m\n"
-                    + "on e.idEmpresa = m.idEmpresa\n"
-                    + "where m.idEmpresa ='" + idE + "'");
+             CallableStatement cb = con.prepareCall("call SP_M_Aspirantes(?)");
+            cb.setInt("idE",idE);
             ResultSet rs = cb.executeQuery();
             while (rs.next()) {
                 cargar_Aspirantes a = new cargar_Aspirantes();
