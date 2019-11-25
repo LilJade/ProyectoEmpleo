@@ -368,7 +368,12 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         Es.setAñoTerminado(date);
 
         Es.setCuidad(txtCiudad.getText());
-//        Es.setOrden(Integer.parseInt(txtOrden.getText()));
+        if(txtOrden.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Favor Rellenar los campos");
+        }else {
+          Es.setOrden(Integer.parseInt(txtOrden.getText()));
+        }
+
         Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
         estu.insertarEstudios(Es);
         Muestrame();
