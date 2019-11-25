@@ -1,16 +1,16 @@
-
 package Formularios;
 
 import Consultas.ConsultasExperiencia;
 import Entidades.Experiencia;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import rojerusan.RSAnimation;
-
 
 public class JDialog_P_Trabajador extends javax.swing.JDialog {
 
@@ -23,8 +23,14 @@ public class JDialog_P_Trabajador extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         Muestrame();
         RSAnimation.setMoverDerecha(-700, 500, 0, 2, this);
+        //CODIGO PARA OCULTAR COLUMNAS EN UNA JTABLE
+        jTableExperienciaTrabajador.getColumnModel().getColumn(0).setMaxWidth(0);
+        jTableExperienciaTrabajador.getColumnModel().getColumn(6).setMaxWidth(0);
+        jTableExperienciaTrabajador.getColumnModel().getColumn(7).setMaxWidth(0);
+
     }
 //MOSTRAR DATOS EN LA JTABLE
+
     void Muestrame() {
         String Titulos[] = {"idExperiencia", "nombreEmpresa", "cargoOcupado", "descripcion", "fechaInicio", "fechaFinal", "orden", "idTrabajador"};
         DefaultTableModel model = new DefaultTableModel(null, Titulos);
@@ -45,13 +51,11 @@ public class JDialog_P_Trabajador extends javax.swing.JDialog {
             filas[6] = String.valueOf(ex.getOrden());
             filas[7] = String.valueOf(ex.getIdTrabajador());
             model.addRow(filas);
-            
+
         }
         jTableExperienciaTrabajador.setModel(model);
     }
-    
-    
-   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -65,11 +69,11 @@ public class JDialog_P_Trabajador extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableExperienciaTrabajador = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnOrdenar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnInsertar = new javax.swing.JButton();
         txtIdExp = new javax.swing.JTextField();
         txtNombreEmpresa = new javax.swing.JTextField();
         txtCargoOcup = new javax.swing.JTextField();
@@ -131,40 +135,50 @@ public class JDialog_P_Trabajador extends javax.swing.JDialog {
                 "ID_EXPERIENCIA", "NOMBRE_EMPRESA", "CARGO_OCUPADO", "DESCRIPCION", "FECHA_INICIO", "FECHA_FINAL", "ORDEN", "ID_TRABAJADOR"
             }
         ));
+        jTableExperienciaTrabajador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableExperienciaTrabajadorMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableExperienciaTrabajador);
 
         jPanel2.setBackground(new java.awt.Color(48, 62, 71));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(247, 211, 3), 2));
 
-        jButton2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(240, 240, 240));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar_24.png"))); // NOI18N
-        jButton2.setText("ACTUALIZAR");
-        jButton2.setContentAreaFilled(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        jButton3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(240, 240, 240));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ordenar_24.png"))); // NOI18N
-        jButton3.setText("ORDENAR");
-        jButton3.setContentAreaFilled(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        jButton4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(240, 240, 240));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar_24.png"))); // NOI18N
-        jButton4.setText("ELIMINAR");
-        jButton4.setContentAreaFilled(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(240, 240, 240));
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar_24.png"))); // NOI18N
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.setContentAreaFilled(false);
+        btnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActualizar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnActualizar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
+        btnOrdenar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnOrdenar.setForeground(new java.awt.Color(240, 240, 240));
+        btnOrdenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ordenar_24.png"))); // NOI18N
+        btnOrdenar.setText("ORDENAR");
+        btnOrdenar.setContentAreaFilled(false);
+        btnOrdenar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnOrdenar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnOrdenar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(240, 240, 240));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar_24.png"))); // NOI18N
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEliminar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -182,17 +196,17 @@ public class JDialog_P_Trabajador extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(240, 240, 240));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/insertar_24.png"))); // NOI18N
-        jButton1.setText("INSERTAR");
-        jButton1.setContentAreaFilled(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnInsertar.setForeground(new java.awt.Color(240, 240, 240));
+        btnInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/insertar_24.png"))); // NOI18N
+        btnInsertar.setText("INSERTAR");
+        btnInsertar.setContentAreaFilled(false);
+        btnInsertar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnInsertar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnInsertar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInsertarActionPerformed(evt);
             }
         });
 
@@ -202,13 +216,13 @@ public class JDialog_P_Trabajador extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addComponent(jButton1)
+                .addComponent(btnInsertar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnActualizar)
                 .addGap(95, 95, 95)
-                .addComponent(jButton4)
+                .addComponent(btnEliminar)
                 .addGap(94, 94, 94)
-                .addComponent(jButton3)
+                .addComponent(btnOrdenar)
                 .addGap(140, 140, 140)
                 .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59))
@@ -218,11 +232,11 @@ public class JDialog_P_Trabajador extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnOrdenar)
+                    .addComponent(btnEliminar)
                     .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(btnInsertar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -348,7 +362,7 @@ public class JDialog_P_Trabajador extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-         try {
+        try {
             //btnAtras
             RSAnimation.setMoverIzquierda(500, -900, 0, 2, this);
             Thread.sleep(1000);
@@ -356,42 +370,97 @@ public class JDialog_P_Trabajador extends javax.swing.JDialog {
         } catch (InterruptedException ex) {
             Logger.getLogger(JDialog_P_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }//GEN-LAST:event_btnAtrasActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         //BOTON INSERTAR UNA EXPERIENCIA LABORAL
         ConsultasExperiencia expe = new ConsultasExperiencia();
         Experiencia ex = new Experiencia();
-        
+
         ex.setNombreEmpresa(txtNombreEmpresa.getText());
         ex.setCargoOcupado(txtCargoOcup.getText());
         ex.setDescripcion(txtDescripcion.getText());
-        
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(jDateChooserInicio.getDate());
         ex.setFechaInicio(date);
-        
+
         SimpleDateFormat sdffinal = new SimpleDateFormat("yyyy-MM-dd");
         String datefinal = sdffinal.format(jDateChooserFinal.getDate());
         ex.setFechaFinal(datefinal);
-        
+
         ex.setOrden(Integer.parseInt(txtOrden.getText()));
         ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
-        
-        expe.insertarExperiencia(ex);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      //BOTON ELIMINAR EXPERIENCIA LABORAL
+        expe.insertarExperiencia(ex);
+        Muestrame();
+    }//GEN-LAST:event_btnInsertarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        //BOTON ELIMINAR EXPERIENCIA LABORAL
         ConsultasExperiencia cex = new ConsultasExperiencia();
         Experiencia ex = new Experiencia();
-        
+
         ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
         cex.eliminarEstudios(ex);
-    }//GEN-LAST:event_jButton4ActionPerformed
+        Muestrame();
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
-    
+    private void jTableExperienciaTrabajadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableExperienciaTrabajadorMouseClicked
+        // CODIGO PARA QUE CARGUEN EN LAS TXT
+        int selec = jTableExperienciaTrabajador.rowAtPoint(evt.getPoint());
+        txtIdExp.setText(String.valueOf(jTableExperienciaTrabajador.getValueAt(selec, 0)));
+        txtNombreEmpresa.setText(String.valueOf(jTableExperienciaTrabajador.getValueAt(selec, 1)));
+        txtCargoOcup.setText(String.valueOf(jTableExperienciaTrabajador.getValueAt(selec, 2)));
+        txtDescripcion.setText(String.valueOf(jTableExperienciaTrabajador.getValueAt(selec, 3)));
+
+        try {
+            int srow = jTableExperienciaTrabajador.getSelectedRow();
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String) jTableExperienciaTrabajador.getValueAt(srow, 4));
+            jDateChooserInicio.setDate(date);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        try {
+            int srow = jTableExperienciaTrabajador.getSelectedRow();
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String) jTableExperienciaTrabajador.getValueAt(srow, 5));
+            jDateChooserFinal.setDate(date);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        txtOrden.setText(String.valueOf(jTableExperienciaTrabajador.getValueAt(selec, 6)));
+        txtIdTrabajador.setText(String.valueOf(jTableExperienciaTrabajador.getValueAt(selec, 7)));
+
+
+    }//GEN-LAST:event_jTableExperienciaTrabajadorMouseClicked
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // BOTON ACTUALIZAR
+        ConsultasExperiencia cex = new ConsultasExperiencia();
+        Experiencia ex = new Experiencia();
+
+        ex.setNombreEmpresa(txtNombreEmpresa.getText());
+        ex.setCargoOcupado(txtCargoOcup.getText());
+        ex.setDescripcion(txtDescripcion.getText());
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(jDateChooserInicio.getDate());
+        ex.setFechaInicio(date);
+
+        SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
+        String datef = sdff.format(jDateChooserFinal.getDate());
+        ex.setFechaFinal(date);
+
+        ex.setOrden(Integer.parseInt(txtOrden.getText()));
+        ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+
+        ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
+
+        Muestrame();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -432,11 +501,11 @@ public class JDialog_P_Trabajador extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAtras;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnInsertar;
+    private javax.swing.JButton btnOrdenar;
     private com.toedter.calendar.JDateChooser jDateChooserFinal;
     private com.toedter.calendar.JDateChooser jDateChooserInicio;
     private javax.swing.JLabel jLabel1;
