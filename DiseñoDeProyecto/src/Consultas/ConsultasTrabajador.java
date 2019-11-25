@@ -113,19 +113,18 @@ public class ConsultasTrabajador {
                             inp = rs.getBinaryStream("imgPerfil");
                             BufferedImage bi = ImageIO.read(inp);
                             img = new ImageIcon(bi);
-                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil.getWidth(), frmP_Tr.lblFotoperfil.getHeight(), Image.SCALE_DEFAULT));
+                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil_p1.getWidth(), frmP_Tr.lblFotoperfil_p1.getHeight(), Image.SCALE_DEFAULT));
 
-                            frmP_Tr.lblFotoperfil.setIcon(icn);
+                            frmP_Tr.lblFotoperfil_p1.setIcon(icn);
                         } else {
-                            frmP_Tr.lblFotoperfil.setIcon(null);
+                            frmP_Tr.lblFotoperfil_p1.setIcon(null);
                         }
                     } catch (IOException ex) {
-                        frmP_Tr.lblFotoperfil.setIcon(null);
+                        frmP_Tr.lblFotoperfil_p1.setIcon(null);
                     }
 
                     //Agregando nombres y descripcion del usuario
-                    frmP_Tr.lblNombres.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
-                    frmP_Tr.jtxta_Descripcion.setText(rs.getString("descripcion"));
+                    frmP_Tr.lblNombres_p1.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
                     
                 } else if (estilo == 2) {
                     //Agregando foto de Perfil, si existe en la base.
@@ -134,14 +133,14 @@ public class ConsultasTrabajador {
                             inp = rs.getBinaryStream("imgPerfil");
                             BufferedImage bi = ImageIO.read(inp);
                             img = new ImageIcon(bi);
-                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil2.getWidth(), frmP_Tr.lblFotoperfil2.getHeight(), Image.SCALE_DEFAULT));
+                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil_p2.getWidth(), frmP_Tr.lblFotoperfil_p2.getHeight(), Image.SCALE_DEFAULT));
 
-                            frmP_Tr.lblFotoperfil2.setIcon(icn);
+                            frmP_Tr.lblFotoperfil_p2.setIcon(icn);
                         } else {
-                            frmP_Tr.lblFotoperfil2.setIcon(null);
+                            frmP_Tr.lblFotoperfil_p2.setIcon(null);
                         }
                     } catch (IOException ex) {
-                        frmP_Tr.lblFotoperfil2.setIcon(null);
+                        frmP_Tr.lblFotoperfil_p2.setIcon(null);
                     }
 
                     //Agregando nombres y descripcion del usuario
@@ -155,14 +154,14 @@ public class ConsultasTrabajador {
                             inp = rs.getBinaryStream("imgPerfil");
                             BufferedImage bi = ImageIO.read(inp);
                             img = new ImageIcon(bi);
-                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil1.getWidth(), frmP_Tr.lblFotoperfil1.getHeight(), Image.SCALE_DEFAULT));
+                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmP_Tr.lblFotoperfil_p3.getWidth(), frmP_Tr.lblFotoperfil_p3.getHeight(), Image.SCALE_DEFAULT));
 
-                            frmP_Tr.lblFotoperfil1.setIcon(icn);
+                            frmP_Tr.lblFotoperfil_p3.setIcon(icn);
                         } else {
-                            frmP_Tr.lblFotoperfil1.setIcon(null);
+                            frmP_Tr.lblFotoperfil_p3.setIcon(null);
                         }
                     } catch (IOException ex) {
-                        frmP_Tr.lblFotoperfil1.setIcon(null);
+                        frmP_Tr.lblFotoperfil_p3.setIcon(null);
                     }
 
                     //Agregando nombres y descripcion del usuario

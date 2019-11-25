@@ -66,7 +66,7 @@ public class ConsultasEstudio {
             
             st.setString("institucionEst", est.getInstitucion());
             st.setString("tituloEst", est.getTitulo());
-            st.setString("añoTerminadoEst", est.getAñoTerminado());
+            st.setString("añoTerminado", est.getAñoTerminado());
             st.setString("ciudadEst", est.getCuidad());
             st.setInt("ordenEst", est.getOrden());
             st.setInt("idTrabajadorEst", est.getIdTrabajador());
@@ -108,49 +108,49 @@ public class ConsultasEstudio {
                 if (estilo == 1) {
                     switch (orden) {
                         case 1: {
-                            frmP_Tr.lblAño1.setText(String.valueOf(rs.getString("añoTerminado")));
-                            frmP_Tr.lblCiudad1.setText(rs.getString("ciudad"));
-                            frmP_Tr.lblTitulo1.setText(rs.getString("titulo"));
-                            frmP_Tr.lblInstitucion1.setText(rs.getString("institucion"));
+                            frmP_Tr.lblAño1_p1.setText(String.valueOf(rs.getString("añoTerminado")));
+                            frmP_Tr.lblCiudad1_p1.setText(rs.getString("ciudad"));
+                            frmP_Tr.lblTitulo1_p1.setText(rs.getString("titulo"));
+                            frmP_Tr.lblInstitucion1_p1.setText(rs.getString("institucion"));
                             break;
                         }
                         case 2: {
-                            frmP_Tr.lblAño2.setText(String.valueOf(rs.getString("añoTerminado")));
-                            frmP_Tr.lblCiudad2.setText(rs.getString("ciudad"));
-                            frmP_Tr.lblTitulo2.setText(rs.getString("titulo"));
-                            frmP_Tr.lblInstitucion2.setText(rs.getString("institucion"));
+                            frmP_Tr.lblAño2_p1.setText(String.valueOf(rs.getString("añoTerminado")));
+                            frmP_Tr.lblCiudad2_p1.setText(rs.getString("ciudad"));
+                            frmP_Tr.lblTitulo2_p1.setText(rs.getString("titulo"));
+                            frmP_Tr.lblInstitucion2_p1.setText(rs.getString("institucion"));
                             break;
                         }
 
                         case 3: {
-                            frmP_Tr.lblAño3.setText(String.valueOf(rs.getString("añoTerminado")));
-                            frmP_Tr.lblCiudad3.setText(rs.getString("ciudad"));
-                            frmP_Tr.lblTitulo3.setText(rs.getString("titulo"));
-                            frmP_Tr.lblInstitucion3.setText(rs.getString("institucion"));
+                            frmP_Tr.lblAño3_p1.setText(String.valueOf(rs.getString("añoTerminado")));
+                            frmP_Tr.lblCiudad3_p1.setText(rs.getString("ciudad"));
+                            frmP_Tr.lblTitulo3_p1.setText(rs.getString("titulo"));
+                            frmP_Tr.lblInstitucion3_p1.setText(rs.getString("institucion"));
                             break;
                         }
 
                         case 4: {
-                            frmP_Tr.lblAño4.setText(String.valueOf(rs.getString("añoTerminado")));
-                            frmP_Tr.lblCiudad4.setText(rs.getString("ciudad"));
-                            frmP_Tr.lblTitulo4.setText(rs.getString("titulo"));
-                            frmP_Tr.lblInstitucion4.setText(rs.getString("institucion"));
+                            frmP_Tr.lblAño4_p1.setText(String.valueOf(rs.getString("añoTerminado")));
+                            frmP_Tr.lblCiudad4_p1.setText(rs.getString("ciudad"));
+                            frmP_Tr.lblTitulo4_p1.setText(rs.getString("titulo"));
+                            frmP_Tr.lblInstitucion4_p1.setText(rs.getString("institucion"));
                             break;
                         }
 
                         case 5: {
-                            frmP_Tr.lblAño5.setText(String.valueOf(rs.getString("añoTerminado")));
-                            frmP_Tr.lblCiudad5.setText(rs.getString("ciudad"));
-                            frmP_Tr.lblTitulo5.setText(rs.getString("titulo"));
-                            frmP_Tr.lblInstitucion5.setText(rs.getString("institucion"));
+                            frmP_Tr.lblAño5_p1.setText(String.valueOf(rs.getString("añoTerminado")));
+                            frmP_Tr.lblCiudad5_p1.setText(rs.getString("ciudad"));
+                            frmP_Tr.lblTitulo5_p1.setText(rs.getString("titulo"));
+                            frmP_Tr.lblInstitucion5_p1.setText(rs.getString("institucion"));
                             break;
                         }
 
                         case 6: {
-                            frmP_Tr.lblAño6.setText(String.valueOf(rs.getString("añoTerminado")));
-                            frmP_Tr.lblCiudad6.setText(rs.getString("ciudad"));
-                            frmP_Tr.lblTitulo6.setText(rs.getString("titulo"));
-                            frmP_Tr.lblInstitucion6.setText(rs.getString("institucion"));
+                            frmP_Tr.lblAño6_p1.setText(String.valueOf(rs.getString("añoTerminado")));
+                            frmP_Tr.lblCiudad6_p1.setText(rs.getString("ciudad"));
+                            frmP_Tr.lblTitulo6_p1.setText(rs.getString("titulo"));
+                            frmP_Tr.lblInstitucion6_p1.setText(rs.getString("institucion"));
                             break;
                         }
                     }
