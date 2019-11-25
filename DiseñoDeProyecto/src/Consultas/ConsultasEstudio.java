@@ -50,7 +50,7 @@ public class ConsultasEstudio {
             st.setString("tituloEst", est.getTitulo());
             st.setString("añoTerminadoEst",est.getAñoTerminado());
             st.setString("ciudadEst", est.getCuidad());
-            //st.setInt("ordenEst", est.getOrden());
+            st.setInt("ordenEst", est.getOrden());
             st.setInt("idTrabajadorEst", est.getIdTrabajador());
             
             st.execute();
@@ -66,7 +66,7 @@ public class ConsultasEstudio {
             
             st.setString("institucionEst", est.getInstitucion());
             st.setString("tituloEst", est.getTitulo());
-            st.setString("añoTerminado", est.getAñoTerminado());
+            st.setString("añoTerminadoEst", est.getAñoTerminado());
             st.setString("ciudadEst", est.getCuidad());
             st.setInt("ordenEst", est.getOrden());
             st.setInt("idTrabajadorEst", est.getIdTrabajador());

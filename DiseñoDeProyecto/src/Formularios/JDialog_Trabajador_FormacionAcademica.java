@@ -369,7 +369,8 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
 
         Es.setCuidad(txtCiudad.getText());
         if(txtOrden.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Favor Rellenar los campos");
+           
+            
         }else {
           Es.setOrden(Integer.parseInt(txtOrden.getText()));
         }
