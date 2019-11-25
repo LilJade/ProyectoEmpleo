@@ -664,10 +664,6 @@ public class frmVisitante extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Por favor elige entre ingresar como Empresa o como Trabajador.");
         }
-        //} else {
-        //JOptionPane.showMessageDialog(null, "Asegurate de rellenar los campos necesarios!");
-        //}
-
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
@@ -749,7 +745,6 @@ public class frmVisitante extends javax.swing.JFrame {
     private void jtblMostrarEmpresasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblMostrarEmpresasMouseClicked
         lblImgEmpresa.setIcon(null);
         lblImgEmpresa.repaint();
-        //  lblfoto.setText("SIN IMAGEN");\
         ConsultasEmpresa cEmp = new ConsultasEmpresa();
         String id = String.valueOf(jtblMostrarEmpresas.getModel().getValueAt(jtblMostrarEmpresas.getSelectedRow(), 0));
         idEmp.setText(id);
@@ -771,9 +766,6 @@ public class frmVisitante extends javax.swing.JFrame {
             }
         }
         String nombreEmp = String.valueOf(jtblMostrarEmpresas.getModel().getValueAt(jtblMostrarEmpresas.getSelectedRow(), 1));
-//        String acronimoEmp = String.valueOf(jtblMostrarEmpresas.getModel().getValueAt(jtblMostrarEmpresas.getSelectedRow(), 2));
-//        String departEmp = String.valueOf(jtblMostrarEmpresas.getModel().getValueAt(jtblMostrarEmpresas.getSelectedRow(), 3));
-
         lblNombreEmpresa.setText(nombreEmp);
 
         CargarTable();
@@ -818,13 +810,6 @@ public class frmVisitante extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmVisitante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
