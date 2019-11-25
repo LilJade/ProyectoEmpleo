@@ -34,9 +34,24 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        txtReferencia1 = new javax.swing.JTextField();
-        txtReferencia2 = new javax.swing.JTextField();
-        txtReferencia3 = new javax.swing.JTextField();
+        txtIdRef = new javax.swing.JTextField();
+        txtNombRef = new javax.swing.JTextField();
+        txtApelliRef = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtEntidadRef = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtCarRef = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtTelRef = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtCorreoRef = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtOrdenRef = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtIdTrabajador = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -80,7 +95,7 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
 
             },
             new String [] {
-                "REFERENCIA 1", "REFERENCIA 2", "REFERENCIA 3"
+                "ID_REFERENCIAS", "NOMBRE_REFERENCIANTE", "APELLIDO_REFERENCIADOR", "EMPRESA_REFERENCIADORA", "CARGO_REFERENCIANTE", "TEL_REFERENCIANTE", "CORREO_REFERENCIANTE", "ORDEN", "ID_TRABAJADOR"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -144,13 +159,13 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1)
-                .addGap(58, 58, 58)
+                .addGap(148, 148, 148)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGap(143, 143, 143)
                 .addComponent(jButton3)
-                .addGap(42, 42, 42)
+                .addGap(132, 132, 132)
                 .addComponent(jButton4)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(47, 47, 47))
         );
@@ -161,17 +176,56 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton4)
                     .addComponent(jButton5)
                     .addComponent(jButton1))
                 .addGap(26, 26, 26))
         );
 
-        txtReferencia1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtIdRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
 
-        txtReferencia2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtNombRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
 
-        txtReferencia3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtApelliRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel3.setText("ID_REFEREN..");
+
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel4.setText("NOMB. REFEREN...");
+
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel5.setText("APELLI.. REFEREN..");
+
+        txtEntidadRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel6.setText("ENTIDAD_REFEREN..");
+
+        txtCarRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel7.setText("CARGO_DEL REFREN..");
+
+        txtTelRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel8.setText("TEL: REFEREN..");
+
+        txtCorreoRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel9.setText("Em@il. REFEREN..");
+
+        txtOrdenRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel10.setText("ORDEN");
+
+        txtIdTrabajador.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel11.setText("ID_TRABAJADOR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,26 +235,93 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
             .addComponent(jScrollPane1)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(txtReferencia1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101)
-                .addComponent(txtReferencia2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(111, 111, 111)
-                .addComponent(txtReferencia3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(txtIdRef, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel3)))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombRef, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtApelliRef, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel5)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtEntidadRef)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCarRef, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTelRef, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel8)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(txtCorreoRef, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(46, 46, 46)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(txtOrdenRef, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtIdRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(363, 363, 363)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtApelliRef, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEntidadRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCarRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTelRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCorreoRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOrdenRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtReferencia1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtReferencia2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtReferencia3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addGap(40, 40, 40)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -269,13 +390,28 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtReferencia1;
-    private javax.swing.JTextField txtReferencia2;
-    private javax.swing.JTextField txtReferencia3;
+    private javax.swing.JTextField txtApelliRef;
+    private javax.swing.JTextField txtCarRef;
+    private javax.swing.JTextField txtCorreoRef;
+    private javax.swing.JTextField txtEntidadRef;
+    private javax.swing.JTextField txtIdRef;
+    private javax.swing.JTextField txtIdTrabajador;
+    private javax.swing.JTextField txtNombRef;
+    private javax.swing.JTextField txtOrdenRef;
+    private javax.swing.JTextField txtTelRef;
     // End of variables declaration//GEN-END:variables
 }
