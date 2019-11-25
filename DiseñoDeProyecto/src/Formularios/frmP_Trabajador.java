@@ -1,16 +1,23 @@
 package Formularios;
 
+import Consultas.ConsultasEmpresa;
 import Consultas.ConsultasEstudio;
 import Consultas.ConsultasExperiencia;
 import Consultas.ConsultasHabilidades;
 import Consultas.ConsultasReferencia;
 import Consultas.ConsultasTrabajador;
+import Entidades.Empresa;
 import Entidades.Habilidad;
+import static Formularios.frmVisitante.lblImgEmpresa;
+import static Formularios.frmVisitante.lblNombreEmpresa;
 import java.awt.Color;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
 
 public class frmP_Trabajador extends javax.swing.JFrame {
 
@@ -20,6 +27,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
 
     public frmP_Trabajador() {
         initComponents();
+        lblIdEmpresa.setVisible(false);
         this.lblId.setText(String.valueOf(frmVisitante.id));
         this.jp_Perfil1.setVisible(false);
         this.jp_Perfil2.setVisible(false);
@@ -36,6 +44,8 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         this.setResizable(false);
 
         btnMiPerfil.setSelected(true);
+
+        CargarTable();
     }
 
     @SuppressWarnings("unchecked")
@@ -386,8 +396,19 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jSeparator15 = new javax.swing.JSeparator();
         jp_Habilidades_p3 = new javax.swing.JPanel();
-        jp_Notificaciones = new javax.swing.JPanel();
         jp_Busqueda = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        txtBusqueda = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        lblImgPerfilEmpresa = new javax.swing.JLabel();
+        lblIdEmpresa = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jtbl_BusquedaEmp_pTrab = new javax.swing.JTable();
+        jp_Notificaciones = new javax.swing.JPanel();
 
         jInternalFrame1.setVisible(true);
 
@@ -528,6 +549,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jpHabilidades_p1.setLayout(new java.awt.GridLayout(0, 1));
 
         btnConfigExps2.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigExps2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps2.setText("Gestionar...");
 
@@ -1028,6 +1050,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator1.setPreferredSize(new java.awt.Dimension(4, 2));
 
         btnConfigEst_p1.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigEst_p1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEst_p1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEst_p1.setText("Gestionar...");
         btnConfigEst_p1.addActionListener(new java.awt.event.ActionListener() {
@@ -1319,6 +1342,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         );
 
         btnConfigExps_p1.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigExps_p1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps_p1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps_p1.setText("Gestionar...");
         btnConfigExps_p1.addActionListener(new java.awt.event.ActionListener() {
@@ -1352,6 +1376,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
 
         btnConfigRefs_p1.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigRefs_p1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigRefs_p1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigRefs_p1.setText("Gestionar...");
         btnConfigRefs_p1.addActionListener(new java.awt.event.ActionListener() {
@@ -1558,6 +1583,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator7.setPreferredSize(new java.awt.Dimension(4, 2));
 
         btnConfigEstudios2.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigEstudios2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEstudios2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEstudios2.setText("Gestionar...");
         btnConfigEstudios2.addActionListener(new java.awt.event.ActionListener() {
@@ -1746,6 +1772,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jpHabilidades_p2.setLayout(new java.awt.GridLayout(0, 1));
 
         btnConfigExps3.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigExps3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps3.setText("Gestionar...");
 
@@ -1788,6 +1815,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jScrollPane4.setViewportView(txtA_Descripcion_ip_p2);
 
         btnConfigEstudios3.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigEstudios3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEstudios3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEstudios3.setText("Gestionar...");
         btnConfigEstudios3.addActionListener(new java.awt.event.ActionListener() {
@@ -1861,6 +1889,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         );
 
         btnConfigEst_p2.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigEst_p2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEst_p2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEst_p2.setText("Gestionar...");
         btnConfigEst_p2.addActionListener(new java.awt.event.ActionListener() {
@@ -2296,7 +2325,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jp_Exp7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(descripcionExp2_p2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCargo2_p2, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
+                    .addComponent(lblCargo2_p2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jp_Exp7Layout.createSequentialGroup()
                         .addComponent(lblInstitucionExp2_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -2504,6 +2533,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jLabel29.setText("Experiencia Laboral.");
 
         btnConfigExps_p2.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigExps_p2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps_p2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps_p2.setText("Gestionar...");
         btnConfigExps_p2.addActionListener(new java.awt.event.ActionListener() {
@@ -2523,6 +2553,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
 
         btnConfigRefs_p2.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigRefs_p2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigRefs_p2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigRefs_p2.setText("Gestionar...");
         btnConfigRefs_p2.addActionListener(new java.awt.event.ActionListener() {
@@ -2733,7 +2764,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                             .addComponent(jLabel29)
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(btnConfigExps_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jp_Experiencias_p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jp_Experiencias_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 984, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator5)
                             .addComponent(jLabel30)
                             .addComponent(jSeparator6)
@@ -3414,6 +3445,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         );
 
         btnConfigExps_p3.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigExps_p3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps_p3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps_p3.setText("Gestionar...");
         btnConfigExps_p3.addActionListener(new java.awt.event.ActionListener() {
@@ -3447,6 +3479,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator13.setForeground(new java.awt.Color(0, 0, 0));
 
         btnConfigRefs_p3.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigRefs_p3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigRefs_p3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigRefs_p3.setText("Gestionar...");
         btnConfigRefs_p3.addActionListener(new java.awt.event.ActionListener() {
@@ -3662,6 +3695,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator14.setPreferredSize(new java.awt.Dimension(4, 2));
 
         btnConfigEstudios5.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigEstudios5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEstudios5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEstudios5.setText("Gestionar...");
         btnConfigEstudios5.addActionListener(new java.awt.event.ActionListener() {
@@ -3750,6 +3784,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         );
 
         btnConfigEst_p3.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigEst_p3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEst_p3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEst_p3.setText("Gestionar...");
         btnConfigEst_p3.addActionListener(new java.awt.event.ActionListener() {
@@ -3759,6 +3794,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         });
 
         btnConfigExps10.setBackground(new java.awt.Color(153, 255, 153));
+        btnConfigExps10.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps10.setText("Gestionar...");
 
@@ -3932,6 +3968,136 @@ public class frmP_Trabajador extends javax.swing.JFrame {
 
         jps_Perfil.add(jp_Perfiles, "card4");
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 996, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel3.setBackground(new java.awt.Color(93, 0, 93));
+
+        txtBusqueda.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusquedaKeyReleased(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Busca empresas: ");
+
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton1.setText("Ver Perfil");
+
+        lblIdEmpresa.setForeground(new java.awt.Color(255, 255, 255));
+        lblIdEmpresa.setText("id");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jButton1))
+                    .addComponent(lblImgPerfilEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(lblIdEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblImgPerfilEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(lblIdEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jPanel4.setBackground(new java.awt.Color(0, 0, 51));
+
+        jtbl_BusquedaEmp_pTrab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jtbl_BusquedaEmp_pTrab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtbl_BusquedaEmp_pTrabMouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(jtbl_BusquedaEmp_pTrab);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 3278, Short.MAX_VALUE)
+                .addGap(44, 44, 44))
+        );
+
+        jScrollPane6.setViewportView(jPanel4);
+
+        javax.swing.GroupLayout jp_BusquedaLayout = new javax.swing.GroupLayout(jp_Busqueda);
+        jp_Busqueda.setLayout(jp_BusquedaLayout);
+        jp_BusquedaLayout.setHorizontalGroup(
+            jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_BusquedaLayout.createSequentialGroup()
+                .addGroup(jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jp_BusquedaLayout.setVerticalGroup(
+            jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_BusquedaLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jp_BusquedaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 3337, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+
+        jps_Perfil.add(jp_Busqueda, "card3");
+
         javax.swing.GroupLayout jp_NotificacionesLayout = new javax.swing.GroupLayout(jp_Notificaciones);
         jp_Notificaciones.setLayout(jp_NotificacionesLayout);
         jp_NotificacionesLayout.setHorizontalGroup(
@@ -3962,22 +4128,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jp_Perfil.setLayout(jp_PerfilLayout);
         jp_PerfilLayout.setHorizontalGroup(
             jp_PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 1506, Short.MAX_VALUE)
+            .addComponent(scroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 1323, Short.MAX_VALUE)
         );
         jp_PerfilLayout.setVerticalGroup(
             jp_PerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 3255, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jp_BusquedaLayout = new javax.swing.GroupLayout(jp_Busqueda);
-        jp_Busqueda.setLayout(jp_BusquedaLayout);
-        jp_BusquedaLayout.setHorizontalGroup(
-            jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1508, Short.MAX_VALUE)
-        );
-        jp_BusquedaLayout.setVerticalGroup(
-            jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3338, Short.MAX_VALUE)
+            .addComponent(scroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 2802, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -3986,11 +4141,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jp_Titulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jp_Perfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jp_Busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3998,15 +4148,30 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addComponent(jp_Titulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_Perfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jp_Busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void CargarTable() {
+        String titulos[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+        ConsultasEmpresa cEmp = new ConsultasEmpresa();
+        ArrayList<Empresa> PS = cEmp.mostrarEmpresasVisitante();
+        Iterator i = PS.iterator();
+        String filas[] = new String[5];
+        while (i.hasNext()) {
+            Empresa emp;
+
+            emp = (Empresa) i.next();
+            filas[0] = String.valueOf(emp.getIdEmpresa());
+            filas[1] = emp.getNombre();
+            filas[2] = emp.getAcronimo();
+            filas[3] = emp.getDepartamento();
+            df.addRow(filas);
+        }
+        jtbl_BusquedaEmp_pTrab.setModel(df);
+    }
 
     private void btnMiPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiPerfilActionPerformed
         if (!btnMiPerfil.isSelected()) {
@@ -4092,23 +4257,78 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         new JDialog_Trabajador_Referencias(this, true).setVisible(true);
     }//GEN-LAST:event_btnConfigRefs_p3ActionPerformed
 
-    public void Estilo(){
+    private void txtBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyReleased
+        String busq = txtBusqueda.getText();
+        buscandoEmpresa(busq);
+    }//GEN-LAST:event_txtBusquedaKeyReleased
+
+    private void jtbl_BusquedaEmp_pTrabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_BusquedaEmp_pTrabMouseClicked
+        lblImgPerfilEmpresa.setIcon(null);
+        lblImgPerfilEmpresa.repaint();
+        ConsultasEmpresa cEmp = new ConsultasEmpresa();
+        String id = String.valueOf(jtbl_BusquedaEmp_pTrab.getModel().getValueAt(jtbl_BusquedaEmp_pTrab.getSelectedRow(), 0));
+        lblIdEmpresa.setText(id);
+        ArrayList<Empresa> PS = cEmp.MostrarFotos(id);
+        Iterator i = PS.iterator();
+        while (i.hasNext()) {
+            Empresa emp;
+            emp = (Empresa) i.next();
+            byte[] img = emp.getImPerfil();
+            //System.err.println(img);
+            if (img != null) {
+                ImageIcon image = new ImageIcon(img);
+                Image im = image.getImage();
+                Image myImg = im.getScaledInstance(lblImgPerfilEmpresa.getWidth(), lblImgPerfilEmpresa.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon newImage = new ImageIcon(myImg);
+                lblImgPerfilEmpresa.setIcon(newImage);
+            } else {
+                lblImgPerfilEmpresa.setText("SIN IMAGEN");
+            }
+        }
+//        String nombreEmp = String.valueOf(jtbl_BusquedaEmp_pTrab.getModel().getValueAt(jtbl_BusquedaEmp_pTrab.getSelectedRow(), 1));
+//        lblNombreEmpresa.setText(nombreEmp);
+
+        CargarTable();
+    }//GEN-LAST:event_jtbl_BusquedaEmp_pTrabMouseClicked
+
+    public void buscandoEmpresa(String nombre) {
+        String title[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
+        DefaultTableModel df = new DefaultTableModel(null, title);
+        ConsultasEmpresa cEmp = new ConsultasEmpresa();
+        ArrayList<Empresa> ResultadoBusqueda = cEmp.BuscarEmpresaV(nombre);
+        Iterator i = ResultadoBusqueda.iterator();
+        String filas[] = new String[5];
+
+        while (i.hasNext()) {
+            Empresa emp;
+            emp = (Empresa) i.next();
+            filas[0] = String.valueOf(emp.getIdEmpresa());
+            filas[1] = emp.getNombre();
+            filas[2] = emp.getAcronimo();
+            filas[3] = emp.getDepartamento();
+            df.addRow(filas);
+        }
+
+        jtbl_BusquedaEmp_pTrab.setModel(df);
+    }
+
+    public void Estilo() {
         int estilo = frmVisitante.estilo;
-        if(estilo == 1){
+        if (estilo == 1) {
             jp_Perfil1.setVisible(true);
             jp_Perfil2.setVisible(false);
             jp_Perfil3.setVisible(false);
-        } else if(estilo == 2){
+        } else if (estilo == 2) {
             jp_Perfil1.setVisible(false);
             jp_Perfil2.setVisible(true);
             jp_Perfil3.setVisible(false);
-        }else if(estilo == 3){
+        } else if (estilo == 3) {
             jp_Perfil1.setVisible(false);
             jp_Perfil2.setVisible(false);
             jp_Perfil3.setVisible(true);
         }
     }
-    
+
     public void Datos(int id) {
         ConsultasTrabajador cTr = new ConsultasTrabajador();
         cTr.datosTrabajador(id);
@@ -4192,6 +4412,54 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -4249,7 +4517,9 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     public static javax.swing.JLabel descripcionExp5_p1;
     public static javax.swing.JLabel descripcionExp5_p2;
     public static javax.swing.JLabel descripcionExp5_p3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
@@ -4273,9 +4543,12 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -4286,6 +4559,8 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
@@ -4358,6 +4633,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     private javax.swing.JPanel jp_Referencias_p3;
     private javax.swing.JPanel jp_Titulos;
     private diu.swe.habib.JPanelSlider.JPanelSlider jps_Perfil;
+    private javax.swing.JTable jtbl_BusquedaEmp_pTrab;
     public static javax.swing.JLabel lblAño10;
     public static javax.swing.JLabel lblAño11;
     public static javax.swing.JLabel lblAño12;
@@ -4452,6 +4728,8 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     public static javax.swing.JLabel lblFotoperfil_p2;
     public static javax.swing.JLabel lblFotoperfil_p3;
     public static javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblIdEmpresa;
+    private javax.swing.JLabel lblImgPerfilEmpresa;
     public static javax.swing.JLabel lblInstitucion10;
     public static javax.swing.JLabel lblInstitucion11;
     public static javax.swing.JLabel lblInstitucion12;
@@ -4542,6 +4820,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     private javax.swing.JTextArea txtA_Direccion_ip_p1;
     public static javax.swing.JTextArea txtA_Direccion_ip_p2;
     public static javax.swing.JTextArea txtA_descripcion_p1;
+    private javax.swing.JTextField txtBusqueda;
     public static javax.swing.JTextField txtCelular_ip_p1;
     public static javax.swing.JTextField txtCorreo_ip_p1;
     public static javax.swing.JTextField txtEdad_ip_p2;
