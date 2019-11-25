@@ -44,7 +44,7 @@ public class ConsultasEstudio {
     
     public void insertarEstudios(Estudio est){
         try {
-            CallableStatement st = con.prepareCall("CALL SP_I_Estudio(?,?,?,?,?)");
+            CallableStatement st = con.prepareCall("CALL SP_I_Estudio(?,?,?,?,?,?)");
             
             st.setString("institucionEst", est.getInstitucion());
             st.setString("tituloEst", est.getTitulo());
