@@ -23,6 +23,7 @@ public class ConsultasReferencia {
 
             while (rs.next()) {
                 Referencia ref = new Referencia();
+                ref.setIdreferencia(rs.getInt("idReferencia"));
                 ref.setNombrereferente(rs.getString("nombreReferente"));
                 ref.setApellidorefrente(rs.getString("apellidoReferente"));
                 ref.setEmpresareferente(rs.getString("empresaReferente"));

@@ -285,7 +285,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jp_Contenedor_p1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="154" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -348,14 +348,19 @@
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="lblId" min="-2" pref="47" max="-2" attributes="0"/>
+                                          <Component id="lblStyle_P1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="lblId_P1" min="-2" pref="47" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblId" min="-2" pref="39" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="lblId_P1" pref="39" max="32767" attributes="0"/>
+                                              <Component id="lblStyle_P1" max="32767" attributes="0"/>
+                                          </Group>
                                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jp_BarraIzquierda_p1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -736,12 +741,15 @@
                                             </Property>
                                             <Property name="rows" type="int" value="5"/>
                                           </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                          </AuxValues>
                                         </Component>
                                       </SubComponents>
                                     </Container>
                                   </SubComponents>
                                 </Container>
-                                <Component class="javax.swing.JLabel" name="lblId">
+                                <Component class="javax.swing.JLabel" name="lblId_P1">
                                   <AuxValues>
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                                   </AuxValues>
@@ -754,15 +762,15 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="lblSexo_ip_p1" alignment="1" max="32767" attributes="0"/>
-                                                          <Component id="lblEdad_ip_p1" alignment="1" max="32767" attributes="0"/>
-                                                      </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="lblEdad_ip_p1" max="32767" attributes="0"/>
                                                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="lblDescripcion_p1" min="-2" pref="261" max="-2" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                          <Component id="lblSexo_ip_p1" max="32767" attributes="0"/>
+                                                          <Component id="lblDescripcion_p1" pref="261" max="32767" attributes="0"/>
+                                                      </Group>
                                                       <EmptySpace pref="30" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -778,12 +786,12 @@
                                               <Group type="103" groupAlignment="1" attributes="0">
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Component id="lblDescripcion_p1" min="-2" pref="37" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <EmptySpace pref="31" max="32767" attributes="0"/>
                                                       <Component id="lblEdad_ip_p1" min="-2" pref="37" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="lblSexo_ip_p1" min="-2" pref="37" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jScrollPane1" alignment="1" pref="155" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane1" alignment="1" pref="160" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
@@ -813,7 +821,7 @@
                                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                           <Color blue="33" green="33" red="33" type="rgb"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="Sexo: "/>
+                                        <Property name="text" type="java.lang.String" value="Genero: "/>
                                       </Properties>
                                       <AuxValues>
                                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -1252,7 +1260,7 @@
                                                       <Component id="lblCiudad5_p1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                       <Component id="lblInstitucion5_p1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="18" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
@@ -2684,6 +2692,14 @@
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfigEstudios2ActionPerformed"/>
                                   </Events>
                                 </Component>
+                                <Component class="javax.swing.JLabel" name="lblStyle_P1">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="jLabel6"/>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                  </AuxValues>
+                                </Component>
                               </SubComponents>
                             </Container>
                           </SubComponents>
@@ -2723,21 +2739,28 @@
                                               <Component id="jp_Cabecera" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="btnConfigEst_p2" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
-                                                      <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                                          <Component id="btnConfigExps_p2" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
-                                                          <Component id="jp_Experiencias_p2" alignment="1" min="-2" pref="984" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="btnConfigEst_p2" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
+                                                          <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                                              <Component id="btnConfigExps_p2" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
+                                                              <Component id="jp_Experiencias_p2" alignment="1" min="-2" pref="984" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Component id="jSeparator5" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="jp_Referencias_p2" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="btnConfigRefs_p2" alignment="1" min="-2" pref="137" max="-2" attributes="0"/>
+                                                          <Component id="jp_Estudios_p2" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <Component id="jSeparator5" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jp_Referencias_p2" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="btnConfigRefs_p2" alignment="1" min="-2" pref="137" max="-2" attributes="0"/>
-                                                      <Component id="jp_Estudios_p2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="lblId_P2" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="lblStyle_P2" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
                                                   </Group>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="jp_Ixquierda" min="-2" max="-2" attributes="0"/>
@@ -2751,9 +2774,14 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jp_Cabecera" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblId_P2" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                                      <Component id="lblStyle_P2" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                                                   <Component id="jLabel28" min="-2" pref="43" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
@@ -2778,10 +2806,7 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jp_Referencias_p2" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jp_Ixquierda" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="jp_Ixquierda" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="499" max="-2" attributes="0"/>
                                       </Group>
@@ -4999,6 +5024,22 @@
                                     </Container>
                                   </SubComponents>
                                 </Container>
+                                <Component class="javax.swing.JLabel" name="lblId_P2">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="jLabel6"/>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                  </AuxValues>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="lblStyle_P2">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="jLabel6"/>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                  </AuxValues>
+                                </Component>
                               </SubComponents>
                             </Container>
                           </SubComponents>
@@ -5041,10 +5082,20 @@
                                           <Component id="lblFotoperfil_p3" min="-2" pref="180" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblNombres1" alignment="0" min="-2" pref="835" max="-2" attributes="0"/>
-                                              <Component id="lblProfesion1" alignment="0" min="-2" pref="675" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblNombres1" min="-2" pref="835" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblStyle_P3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblId_P3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblProfesion1" min="-2" pref="675" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
@@ -5097,7 +5148,7 @@
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                                                   <Component id="lblFotoperfil_p3" min="-2" pref="180" max="-2" attributes="0"/>
@@ -5105,7 +5156,18 @@
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="lblNombres1" min="-2" pref="74" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                          <Component id="lblNombres1" min="-2" pref="74" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblStyle_P3" min="-2" pref="46" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="lblId_P3" min="-2" pref="46" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblProfesion1" min="-2" pref="23" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
@@ -5552,7 +5614,7 @@
                                                       <Component id="lblCiudad10" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                       <Component id="lblInstitucion10" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="20" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                         </DimensionLayout>
@@ -6356,7 +6418,7 @@
                                                       <Component id="añoExp5_p3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="descripcionExp5_p3" pref="45" max="32767" attributes="0"/>
+                                                  <Component id="descripcionExp5_p3" pref="48" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -7257,6 +7319,22 @@
                                     </DimensionLayout>
                                   </Layout>
                                 </Container>
+                                <Component class="javax.swing.JLabel" name="lblId_P3">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="jLabel6"/>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                  </AuxValues>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="lblStyle_P3">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="jLabel6"/>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                  </AuxValues>
+                                </Component>
                               </SubComponents>
                             </Container>
                           </SubComponents>

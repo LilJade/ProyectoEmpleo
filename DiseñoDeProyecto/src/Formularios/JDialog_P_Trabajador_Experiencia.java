@@ -14,25 +14,25 @@ import rojerusan.RSAnimation;
 
 public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
 
-    /**
-     * Creates new form JDialog_P_Trabajador
-     */
     public JDialog_P_Trabajador_Experiencia(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        txtIdTrabajador.setText(String.valueOf(frmVisitante.id));
+        txtIdExp.setVisible(false);
+        txtIdTrabajador.setVisible(false);
+        txtOrden.setVisible(false);
         Muestrame();
         RSAnimation.setMoverDerecha(-700, 500, 0, 2, this);
-        //CODIGO PARA OCULTAR COLUMNAS EN UNA JTABLE
-        jTableExperienciaTrabajador.getColumnModel().getColumn(0).setMaxWidth(0);
-        jTableExperienciaTrabajador.getColumnModel().getColumn(6).setMaxWidth(0);
-        jTableExperienciaTrabajador.getColumnModel().getColumn(7).setMaxWidth(0);
-
+        btnInsertar.setEnabled(true);
+        btnActualizar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+        btnOrdenar.setEnabled(false);
     }
 //MOSTRAR DATOS EN LA JTABLE
 
     void Muestrame() {
-        String Titulos[] = {"idExperiencia", "nombreEmpresa", "cargoOcupado", "descripcion", "fechaInicio", "fechaFinal", "orden", "idTrabajador"};
+        String Titulos[] = {"idExp", "Nombre de la Empresa", "Cargo Ocupado", "Descripcion", "Fecha Inicial", "Fecha Final", "orden", "idTrabajador"};
         DefaultTableModel model = new DefaultTableModel(null, Titulos);
         ConsultasExperiencia cex = new ConsultasExperiencia();
         Experiencia ex = new Experiencia();
@@ -54,6 +54,14 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
 
         }
         jTableExperienciaTrabajador.setModel(model);
+        //CODIGO PARA OCULTAR COLUMNAS EN UNA JTABLE
+        jTableExperienciaTrabajador.getColumnModel().getColumn(0).setMaxWidth(0);
+//        jTableExperienciaTrabajador.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        jTableExperienciaTrabajador.getColumnModel().getColumn(6).setMaxWidth(0);
+//        jTableExperienciaTrabajador.getTableHeader().getColumnModel().getColumn(6).setMaxWidth(0);
+        jTableExperienciaTrabajador.getColumnModel().getColumn(7).setMaxWidth(0);
+//        jTableExperienciaTrabajador.getTableHeader().getColumnModel().getColumn(7).setMaxWidth(0);        
+        //jTableExperienciaTrabajador.removeColumn(jTableExperienciaTrabajador.getColumnModel().getColumn(0));
     }
 
     @SuppressWarnings("unchecked")
@@ -66,6 +74,9 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        txtIdExp = new javax.swing.JTextField();
+        txtOrden = new javax.swing.JTextField();
+        txtIdTrabajador = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableExperienciaTrabajador = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -74,22 +85,16 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         btnEliminar = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         btnInsertar = new javax.swing.JButton();
-        txtIdExp = new javax.swing.JTextField();
         txtNombreEmpresa = new javax.swing.JTextField();
         txtCargoOcup = new javax.swing.JTextField();
         txtDescripcion = new javax.swing.JTextField();
-        txtOrden = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jDateChooserInicio = new com.toedter.calendar.JDateChooser();
-        jLabel9 = new javax.swing.JLabel();
         jDateChooserFinal = new com.toedter.calendar.JDateChooser();
         jLabel10 = new javax.swing.JLabel();
-        txtIdTrabajador = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/experiencia_laboral64.png"))); // NOI18N
 
@@ -123,10 +128,17 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("EXPERIENCIAS LABORALES");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 400, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 400, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/experiencia_laboral64.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 60, 60));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 60, 60));
+
+        txtIdExp.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jPanel1.add(txtIdExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 36, 30));
+
+        txtOrden.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jPanel1.add(txtOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 47, 30));
+        jPanel1.add(txtIdTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 51, 30));
 
         jTableExperienciaTrabajador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -218,7 +230,7 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(btnInsertar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addComponent(btnActualizar)
                 .addGap(95, 95, 95)
                 .addComponent(btnEliminar)
@@ -241,31 +253,26 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        txtIdExp.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-
         txtNombreEmpresa.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
 
         txtCargoOcup.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
 
         txtDescripcion.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
 
-        txtOrden.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setText("Nombre de la empresa: ");
 
-        jLabel4.setText("ID_EXPERIENCIA");
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setText("Cargo ocupado:");
 
-        jLabel5.setText("NOMBRE_EMPRESA");
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel11.setText("Descripción:");
 
-        jLabel6.setText("CARGO OCUPADO");
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel12.setText("Inicio de Trabajo: ");
 
-        jLabel7.setText("DESCRIPCION");
-
-        jLabel8.setText("FINALIZO EL TRABAJO");
-
-        jLabel9.setText("INICIO DE TRABAJO");
-
-        jLabel10.setText("ORDEN");
-
-        jLabel11.setText("ID_TRABAJADOR");
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel13.setText("Fin de Trabajo: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -274,57 +281,27 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(txtIdExp, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)))
-                .addGap(40, 40, 40)
+                    .addComponent(txtNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel5))
-                    .addComponent(txtNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10)
+                    .addComponent(txtCargoOcup, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txtCargoOcup, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel6)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDateChooserInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel9)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jDateChooserFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel10)))
-                .addGap(50, 50, 50)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                    .addComponent(jLabel13)
+                    .addComponent(jDateChooserFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane2)
         );
         layout.setVerticalGroup(
@@ -333,29 +310,34 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jDateChooserInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtIdExp)
-                        .addComponent(txtNombreEmpresa)
-                        .addComponent(txtCargoOcup)
-                        .addComponent(txtDescripcion))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtOrden)
-                        .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jDateChooserFinal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtNombreEmpresa)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtCargoOcup)
+                                .addGap(22, 22, 22))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jDateChooserInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jDateChooserFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -375,34 +357,40 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
-        //BOTON INSERTAR UNA EXPERIENCIA LABORAL
-        ConsultasExperiencia expe = new ConsultasExperiencia();
-        Experiencia ex = new Experiencia();
-
-        ex.setNombreEmpresa(txtNombreEmpresa.getText());
-        ex.setCargoOcupado(txtCargoOcup.getText());
-        ex.setDescripcion(txtDescripcion.getText());
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String date = sdf.format(jDateChooserInicio.getDate());
-        ex.setFechaInicio(date);
-
-        SimpleDateFormat sdffinal = new SimpleDateFormat("yyyy-MM-dd");
-        String datefinal = sdffinal.format(jDateChooserFinal.getDate());
-        ex.setFechaFinal(datefinal);
-
-       
-        if (txtOrden.getText().isEmpty()) {
-
+        if (txtNombreEmpresa.getText().equals("") || txtCargoOcup.getText().equals("") || txtDescripcion.getText().equals("")
+                || jDateChooserInicio.getDate() == null || jDateChooserFinal.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+            Muestrame();
         } else {
-            ex.setOrden(Integer.parseInt(txtOrden.getText()));
+            //BOTON INSERTAR UNA EXPERIENCIA LABORAL
+            ConsultasExperiencia expe = new ConsultasExperiencia();
+            Experiencia ex = new Experiencia();
+
+            ex.setNombreEmpresa(txtNombreEmpresa.getText());
+            ex.setCargoOcupado(txtCargoOcup.getText());
+            ex.setDescripcion(txtDescripcion.getText());
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(jDateChooserInicio.getDate());
+            ex.setFechaInicio(date);
+
+            SimpleDateFormat sdffinal = new SimpleDateFormat("yyyy-MM-dd");
+            String datefinal = sdffinal.format(jDateChooserFinal.getDate());
+            ex.setFechaFinal(datefinal);
+
+            if (txtOrden.getText().isEmpty()) {
+
+            } else {
+                ex.setOrden(Integer.parseInt(txtOrden.getText()));
+            }
+
+            ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+
+            expe.insertarExperiencia(ex);
+            Muestrame();
+            Limpiame();
         }
-       
 
-        ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
-
-        expe.insertarExperiencia(ex);
-        Muestrame();
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -413,10 +401,16 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
         cex.eliminarEstudios(ex);
         Muestrame();
+        Limpiame();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jTableExperienciaTrabajadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableExperienciaTrabajadorMouseClicked
         // CODIGO PARA QUE CARGUEN EN LAS TXT
+        btnInsertar.setEnabled(true);
+        btnActualizar.setEnabled(true);
+        btnEliminar.setEnabled(true);
+        btnOrdenar.setEnabled(true);
+
         int selec = jTableExperienciaTrabajador.rowAtPoint(evt.getPoint());
         txtIdExp.setText(String.valueOf(jTableExperienciaTrabajador.getValueAt(selec, 0)));
         txtNombreEmpresa.setText(String.valueOf(jTableExperienciaTrabajador.getValueAt(selec, 1)));
@@ -445,31 +439,56 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
     }//GEN-LAST:event_jTableExperienciaTrabajadorMouseClicked
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // BOTON ACTUALIZAR
-        ConsultasExperiencia cex = new ConsultasExperiencia();
-        Experiencia ex = new Experiencia();
 
-        ex.setNombreEmpresa(txtNombreEmpresa.getText());
-        ex.setCargoOcupado(txtCargoOcup.getText());
-        ex.setDescripcion(txtDescripcion.getText());
+        if (txtNombreEmpresa.getText().equals("") || txtCargoOcup.getText().equals("") || txtDescripcion.getText().equals("")
+                || jDateChooserInicio.getDate() == null || jDateChooserFinal.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+            Muestrame();
+        } else {
+            // BOTON ACTUALIZAR
+            ConsultasExperiencia cex = new ConsultasExperiencia();
+            Experiencia ex = new Experiencia();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String date = sdf.format(jDateChooserInicio.getDate());
-        ex.setFechaInicio(date);
+            ex.setNombreEmpresa(txtNombreEmpresa.getText());
+            ex.setCargoOcupado(txtCargoOcup.getText());
+            ex.setDescripcion(txtDescripcion.getText());
 
-        SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
-        String datef = sdff.format(jDateChooserFinal.getDate());
-        ex.setFechaFinal(date);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(jDateChooserInicio.getDate());
+            ex.setFechaInicio(date);
 
-        ex.setOrden(Integer.parseInt(txtOrden.getText()));
-        ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+            SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
+            String datef = sdff.format(jDateChooserFinal.getDate());
+            ex.setFechaFinal(date);
 
-        ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
-        
-        cex.insertarExperiencia(ex);
+            ex.setOrden(Integer.parseInt(txtOrden.getText()));
+            ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
 
-        Muestrame();
+            ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
+
+            cex.actualizarExperiencia(ex);
+//        cex.insertarExperiencia(ex);
+
+            Muestrame();
+            Limpiame();
+        }
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    void Limpiame() {
+        txtNombreEmpresa.setText("");
+        txtCargoOcup.setText("");
+        txtDescripcion.setText("");
+        txtOrden.setText("");
+        txtIdExp.setText("");
+
+        jDateChooserInicio.setDate(null);
+        jDateChooserFinal.setDate(null);
+
+        btnInsertar.setEnabled(true);
+        btnActualizar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+        btnOrdenar.setEnabled(false);
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -524,14 +543,11 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

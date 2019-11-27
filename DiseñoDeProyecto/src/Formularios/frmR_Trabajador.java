@@ -534,7 +534,6 @@ public class frmR_Trabajador extends javax.swing.JFrame {
                 cT.insertar(eT);
             } catch (IOException ex) {
                 Logger.getLogger(frmR_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
-
             }
         } else {
             lblConfirmarC.setText("La contraseña no coincide");

@@ -22,19 +22,31 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
     public JDialog_Trabajador_FormacionAcademica(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        txtIdTrabajador.setText(String.valueOf(frmVisitante.id));
+        txtIdTrabajador.setVisible(false);
+        txtIdEstudio.setVisible(false);
+        txtOrden.setVisible(false);
         this.setLocationRelativeTo(null);
         Muestrame();
+        Limpiame();
         RSAnimation.setMoverDerecha(-700, 500, 0, 2, this);
-        //CODIGO PARA OCULTAR COLUMNAS EN UNA JTABLE
-        jTableFormacionAcademina.getColumnModel().getColumn(0).setMaxWidth(0);
-        jTableFormacionAcademina.getColumnModel().getColumn(5).setMaxWidth(0);
-        jTableFormacionAcademina.getColumnModel().getColumn(6).setMaxWidth(0);
 
+        btnInsertar.setEnabled(true);
+        btnActualizar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+        btnOrdenar.setEnabled(false);
+    }
+
+    void Limpiame() {
+        txtInstitucion.setText("");
+        txtTitulo.setText("");
+        txtCiudad.setText("");
+        jDate_Chooser.setDate(null);
     }
 
     //METODO PARA VER LOS DATOS EN UNA JTABLE
     void Muestrame() {
-        String Titulos[] = {"idEstudio", "institucion", "titulo", "añoTerminado", "ciudad", "orden", "idTrabajado"};
+        String Titulos[] = {"idEst", "Institucion", "Titulo", "Año de finalizacion", "Ciudad", "orden", "idTrabajador"};
         DefaultTableModel model = new DefaultTableModel(null, Titulos);
         ConsultasEstudio estu = new ConsultasEstudio();
         Estudio es = new Estudio();
@@ -51,11 +63,13 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
             filas[4] = es.getCuidad();
             filas[5] = String.valueOf(es.getOrden());
             filas[6] = String.valueOf(es.getIdTrabajador());
-
             model.addRow(filas);
-
         }
         jTableFormacionAcademina.setModel(model);
+        //CODIGO PARA OCULTAR COLUMNAS EN UNA JTABLE
+        jTableFormacionAcademina.getColumnModel().getColumn(0).setMaxWidth(0);
+        jTableFormacionAcademina.getColumnModel().getColumn(5).setMaxWidth(0);
+        jTableFormacionAcademina.getColumnModel().getColumn(6).setMaxWidth(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -65,6 +79,9 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        txtIdEstudio = new javax.swing.JTextField();
+        txtOrden = new javax.swing.JTextField();
+        txtIdTrabajador = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableFormacionAcademina = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -76,17 +93,11 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         txtInstitucion = new javax.swing.JTextField();
         txtTitulo = new javax.swing.JTextField();
         txtCiudad = new javax.swing.JTextField();
-        txtIdTrabajador = new javax.swing.JTextField();
         jDate_Chooser = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtOrden = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtIdEstudio = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -105,23 +116,32 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(235, 235, 235)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(64, 64, 64)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtIdEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(15, 15, 15)))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(11, 11, 11))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtIdEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
         jTableFormacionAcademina.setModel(new javax.swing.table.DefaultTableModel(
@@ -249,13 +269,6 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel6.setText("CIUDAD");
 
-        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel7.setText("ID_TRABAJADOR");
-
-        jLabel8.setText("ORDEN");
-
-        jLabel9.setText("ID_ESTUDIO");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -264,16 +277,10 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
             .addComponent(jScrollPane1)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtIdEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(txtInstitucion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(84, 84, 84)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtInstitucion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
@@ -293,21 +300,7 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel6)))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel8)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,21 +314,14 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtInstitucion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtIdEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
                         .addComponent(jLabel6))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(jLabel8))
                     .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel3))
                 .addGap(31, 31, 31)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -357,49 +343,60 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
     }//GEN-LAST:event_btnAtrasMouseClicked
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
-        //insertar Formacion Academica
-        ConsultasEstudio estu = new ConsultasEstudio();
-        Estudio Es = new Estudio();
+        if (txtInstitucion.getText().equals("") || txtTitulo.getText().equals("") || txtCiudad.getText().equals("") || jDate_Chooser.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+            Muestrame();
+        } else {
+//insertar Formacion Academica
+            ConsultasEstudio estu = new ConsultasEstudio();
+            Estudio Es = new Estudio();
 
-        Es.setInstitucion(txtInstitucion.getText());
-        Es.setTitulo(txtTitulo.getText());
+            Es.setInstitucion(txtInstitucion.getText());
+            Es.setTitulo(txtTitulo.getText());
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String date = sdf.format(jDate_Chooser.getDate());
-        Es.setAñoTerminado(date);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(jDate_Chooser.getDate());
+            Es.setAñoTerminado(date);
 
-        Es.setCuidad(txtCiudad.getText());
-        if(txtOrden.getText().isEmpty()){
-           
-            
-        }else {
-          Es.setOrden(Integer.parseInt(txtOrden.getText()));
+            Es.setCuidad(txtCiudad.getText());
+            if (txtOrden.getText().isEmpty()) {
+
+            } else {
+                Es.setOrden(Integer.parseInt(txtOrden.getText()));
+            }
+
+            Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+            estu.insertarEstudios(Es);
+            Muestrame();
+            Limpiame();
         }
-
-        Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
-        estu.insertarEstudios(Es);
-        Muestrame();
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // BOTON ACTUALIZAR INFORMACION ACADEMICA
-        ConsultasEstudio estu = new ConsultasEstudio();
-        Estudio Es = new Estudio();
+        if (txtInstitucion.getText().equals("") || txtTitulo.getText().equals("") || txtCiudad.getText().equals("") || jDate_Chooser.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+            Muestrame();
+        } else {
+// BOTON ACTUALIZAR INFORMACION ACADEMICA
+            ConsultasEstudio estu = new ConsultasEstudio();
+            Estudio Es = new Estudio();
 
-        Es.setInstitucion(txtInstitucion.getText());
-        Es.setTitulo(txtTitulo.getText());
+            Es.setInstitucion(txtInstitucion.getText());
+            Es.setTitulo(txtTitulo.getText());
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String date = sdf.format(jDate_Chooser.getDate());
-        Es.setAñoTerminado(date);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(jDate_Chooser.getDate());
+            Es.setAñoTerminado(date);
 
-        Es.setCuidad(txtCiudad.getText());
-        Es.setOrden(Integer.parseInt(txtOrden.getText()));
-        Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
-        Es.setIdEstudio(Integer.parseInt(txtIdEstudio.getText()));
+            Es.setCuidad(txtCiudad.getText());
+            Es.setOrden(Integer.parseInt(txtOrden.getText()));
+            Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+            Es.setIdEstudio(Integer.parseInt(txtIdEstudio.getText()));
 
-        estu.actualizarEstudios(Es);
-        Muestrame();
+            estu.actualizarEstudios(Es);
+            Muestrame();
+            Limpiame();
+        }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -409,9 +406,15 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         Es.setIdEstudio(Integer.parseInt(txtIdEstudio.getText()));
         estu.eliminarEstudios(Es);
         Muestrame();
+        Limpiame();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jTableFormacionAcademinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFormacionAcademinaMouseClicked
+        btnInsertar.setEnabled(true);
+        btnActualizar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+        btnOrdenar.setEnabled(false);
+
         // CARGUEN MIS DATOS EN LOS TXT
         int seleccionar = jTableFormacionAcademina.rowAtPoint(evt.getPoint());
         txtIdEstudio.setText(String.valueOf(jTableFormacionAcademina.getValueAt(seleccionar, 0)));
@@ -482,9 +485,6 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

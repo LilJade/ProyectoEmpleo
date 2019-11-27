@@ -111,35 +111,35 @@ public class ConsultasExperiencia {
                         case 1: {
                             frmP_Tr.lblCargo1_p1.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp1_p1.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp1_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp1_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp1_p1.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 2: {
                             frmP_Tr.lblCargo2_p1.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp2_p1.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp2_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp2_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp2_p1.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 3: {
                             frmP_Tr.lblCargo3_p1.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp3_p1.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp3_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp3_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp3_p1.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 4: {
                             frmP_Tr.lblCargo4_p1.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp4_p1.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp4_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp4_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp4_p1.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 5: {
                             frmP_Tr.lblCargo5_p1.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp5_p1.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp5_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp5_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp5_p1.setText(rs.getString("descripcion"));
                             break;
                         }
@@ -149,35 +149,35 @@ public class ConsultasExperiencia {
                         case 1: {
                             frmP_Tr.lblCargo1_p2.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp1_p2.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp1_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp1_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp1_p2.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 2: {
                             frmP_Tr.lblCargo2_p2.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp2_p2.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp2_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp2_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp2_p2.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 3: {
                             frmP_Tr.lblCargo3_p2.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp3_p2.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp3_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp3_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp3_p2.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 4: {
                             frmP_Tr.lblCargo4_p2.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp4_p2.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp4_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp4_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp4_p2.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 5: {
                             frmP_Tr.lblCargo5_p2.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp5_p2.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp5_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp5_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp5_p2.setText(rs.getString("descripcion"));
                             break;
                         }
@@ -187,35 +187,35 @@ public class ConsultasExperiencia {
                         case 1: {
                             frmP_Tr.lblCargo1_p3.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp1_p3.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp1_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp1_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp1_p3.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 2: {
                             frmP_Tr.lblCargo2_p3.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp2_p3.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp2_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp2_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp2_p3.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 3: {
                             frmP_Tr.lblCargo3_p3.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp3_p3.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp3_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp3_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp3_p3.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 4: {
                             frmP_Tr.lblCargo4_p3.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp4_p3.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp4_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp4_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp4_p3.setText(rs.getString("descripcion"));
                             break;
                         }
                         case 5: {
                             frmP_Tr.lblCargo5_p3.setText(rs.getString("cargoOcupado"));
                             frmP_Tr.lblInstitucionExp5_p3.setText(rs.getString("nombreEmpresa"));
-                            frmP_Tr.añoExp5_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fehaFinal")));
+                            frmP_Tr.añoExp5_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
                             frmP_Tr.descripcionExp5_p3.setText(rs.getString("descripcion"));
                             break;
                         }
@@ -223,6 +223,7 @@ public class ConsultasExperiencia {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Error al extraer experiencias: " + e.getMessage());
         }
     }
 
