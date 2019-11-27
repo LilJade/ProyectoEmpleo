@@ -114,6 +114,7 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(48, 62, 71));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(247, 211, 3), 2));
@@ -390,7 +391,14 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         String datefinal = sdffinal.format(jDateChooserFinal.getDate());
         ex.setFechaFinal(datefinal);
 
-        ex.setOrden(Integer.parseInt(txtOrden.getText()));
+       
+        if (txtOrden.getText().isEmpty()) {
+
+        } else {
+            ex.setOrden(Integer.parseInt(txtOrden.getText()));
+        }
+       
+
         ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
 
         expe.insertarExperiencia(ex);
@@ -457,6 +465,8 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
 
         ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
+        
+        cex.insertarExperiencia(ex);
 
         Muestrame();
     }//GEN-LAST:event_btnActualizarActionPerformed

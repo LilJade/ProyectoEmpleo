@@ -60,13 +60,14 @@ public class ConsultasEstudio {
         }
     }
     
+    //METODO ACTUALIZAR
     public void actualizarEstudios(Estudio est){
         try {
             CallableStatement st = con.prepareCall("CALL SP_U_Estudio(?,?,?,?,?,?,?)");
             
             st.setString("institucionEst", est.getInstitucion());
             st.setString("tituloEst", est.getTitulo());
-            st.setString("añoTerminado", est.getAñoTerminado());
+            st.setString("añoTerminadoEst", est.getAñoTerminado());
             st.setString("ciudadEst", est.getCuidad());
             st.setInt("ordenEst", est.getOrden());
             st.setInt("idTrabajadorEst", est.getIdTrabajador());

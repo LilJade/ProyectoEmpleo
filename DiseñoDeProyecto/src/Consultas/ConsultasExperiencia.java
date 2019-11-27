@@ -27,6 +27,7 @@ public class ConsultasExperiencia {
                 exp.setIdExperiencia(rs.getInt("idExperiencia"));
                 exp.setNombreEmpresa(rs.getString("nombreEmpresa"));
                 exp.setCargoOcupado(rs.getString("cargoOcupado"));
+                exp.setDescripcion(rs.getString("descripcion"));
                 exp.setFechaInicio(rs.getString("fechaInicio"));
                 exp.setFechaFinal(rs.getString("fechaFinal"));
                 exp.setOrden(rs.getInt("orden"));

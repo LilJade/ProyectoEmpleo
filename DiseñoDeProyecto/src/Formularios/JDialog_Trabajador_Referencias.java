@@ -1,7 +1,12 @@
 package Formularios;
 
+import Consultas.ConsultasReferencia;
+import Entidades.Referencia;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import rojerusan.RSAnimation;
 
 /**
@@ -10,15 +15,47 @@ import rojerusan.RSAnimation;
  */
 public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
 
-  
     public JDialog_Trabajador_Referencias(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-         RSAnimation.setMoverDerecha(-700, 500, 0, 2, this);
+        RSAnimation.setMoverDerecha(-700, 500, 0, 2, this);
+        Muestrame();
+        //CODIGO PARA OCULTAR COLUMNAS EN UNA JTABLE
+        jTableReferencias.getColumnModel().getColumn(0).setMaxWidth(0);
+        jTableReferencias.getColumnModel().getColumn(7).setMaxWidth(0);
+        jTableReferencias.getColumnModel().getColumn(8).setMaxWidth(0);
     }
 
-   
+    //METODO PARA VER LOS DATOS EN UNA JTABLE
+    void Muestrame() {
+        String Titulos[] = {"idReferencia", "nombreReferente", "apellidoReferente", "empresaReferente", "cargoReferente", "telefonoReferente", "correoReferente", "orden", "idTrabajador"};
+        DefaultTableModel modelo = new DefaultTableModel(null, Titulos);
+        ConsultasReferencia CoRe = new ConsultasReferencia();
+        Referencia re = new Referencia();
+        ArrayList<Referencia> PS = CoRe.mostrarReferenciasCrud(frmVisitante.id);
+        Iterator i = PS.iterator();
+        String Filas[] = new String[9];
+        while (i.hasNext()) {
+            Referencia ps;
+
+            re = (Referencia) i.next();
+            Filas[0] = String.valueOf(re.getIdreferencia());
+            Filas[1] = re.getNombrereferente();
+            Filas[2] = re.getApellidorefrente();
+            Filas[3] = re.getEmpresareferente();
+            Filas[4] = re.getCargoReferente();
+            Filas[5] = re.getTelefonoReferente();
+            Filas[6] = re.getCorreoReferente();
+            Filas[7] = String.valueOf(re.getOrden());
+            Filas[8] = String.valueOf(re.getIdTrabajador());
+            modelo.addRow(Filas);
+
+        }
+        jTableReferencias.setModel(modelo);
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -27,12 +64,12 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableReferencias = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnInsertar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnOrdenar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         txtIdRef = new javax.swing.JTextField();
         txtNombRef = new javax.swing.JTextField();
@@ -54,6 +91,7 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(48, 62, 71));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(247, 211, 3), 2));
@@ -70,7 +108,7 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(143, 143, 143)
+                .addGap(451, 451, 451)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -78,19 +116,14 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableReferencias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -98,45 +131,65 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
                 "ID_REFERENCIAS", "NOMBRE_REFERENCIANTE", "APELLIDO_REFERENCIADOR", "EMPRESA_REFERENCIADORA", "CARGO_REFERENCIANTE", "TEL_REFERENCIANTE", "CORREO_REFERENCIANTE", "ORDEN", "ID_TRABAJADOR"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jTableReferencias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableReferenciasMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableReferencias);
 
         jPanel2.setBackground(new java.awt.Color(48, 62, 71));
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(240, 240, 240));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/insertar_24.png"))); // NOI18N
-        jButton1.setText("INSERTAR");
-        jButton1.setContentAreaFilled(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnInsertar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnInsertar.setForeground(new java.awt.Color(240, 240, 240));
+        btnInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/insertar_24.png"))); // NOI18N
+        btnInsertar.setText("INSERTAR");
+        btnInsertar.setContentAreaFilled(false);
+        btnInsertar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnInsertar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnInsertar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(240, 240, 240));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar_24.png"))); // NOI18N
-        jButton2.setText("ACTUALIZAR");
-        jButton2.setContentAreaFilled(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnActualizar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(240, 240, 240));
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar_24.png"))); // NOI18N
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.setContentAreaFilled(false);
+        btnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActualizar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnActualizar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(240, 240, 240));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ordenar_24.png"))); // NOI18N
-        jButton3.setText("ORDENAR");
-        jButton3.setContentAreaFilled(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnOrdenar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnOrdenar.setForeground(new java.awt.Color(240, 240, 240));
+        btnOrdenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ordenar_24.png"))); // NOI18N
+        btnOrdenar.setText("ORDENAR");
+        btnOrdenar.setContentAreaFilled(false);
+        btnOrdenar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnOrdenar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnOrdenar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jButton4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(240, 240, 240));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar_24.png"))); // NOI18N
-        jButton4.setText("ELIMINAR");
-        jButton4.setContentAreaFilled(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(240, 240, 240));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar_24.png"))); // NOI18N
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEliminar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         jButton5.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(240, 240, 240));
@@ -158,13 +211,13 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnInsertar)
                 .addGap(148, 148, 148)
-                .addComponent(jButton2)
+                .addComponent(btnActualizar)
                 .addGap(143, 143, 143)
-                .addComponent(jButton3)
+                .addComponent(btnOrdenar)
                 .addGap(132, 132, 132)
-                .addComponent(jButton4)
+                .addComponent(btnEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(47, 47, 47))
@@ -174,11 +227,11 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
+                    .addComponent(btnActualizar)
+                    .addComponent(btnOrdenar)
+                    .addComponent(btnEliminar)
                     .addComponent(jButton5)
-                    .addComponent(jButton1))
+                    .addComponent(btnInsertar))
                 .addGap(26, 26, 26))
         );
 
@@ -337,13 +390,79 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
         } catch (InterruptedException ex) {
             Logger.getLogger(JDialog_Trabajador_Referencias.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-    }//GEN-LAST:event_jButton5MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+
+    }//GEN-LAST:event_jButton5MouseClicked
+    // BOTON INSERTAR REFERENCIA
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
+        ConsultasReferencia ref = new ConsultasReferencia();
+        Referencia re = new Referencia();
+        re.setNombrereferente(txtNombRef.getText());
+        re.setApellidorefrente(txtApelliRef.getText());
+        re.setEmpresareferente(txtEntidadRef.getText());
+        re.setCargoReferente(txtCorreoRef.getText());
+        re.setTelefonoReferente(txtTelRef.getText());
+        re.setCorreoReferente(txtCorreoRef.getText());
+
+        if (txtOrdenRef.getText().isEmpty()) {
+
+        } else {
+            re.setOrden(Integer.parseInt(txtOrdenRef.getText()));
+        }
+        re.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+
+        ref.insertarReferencia(re);
+        Muestrame();
+
+
+    }//GEN-LAST:event_btnInsertarActionPerformed
+
+    //BOTON ACTUALIZAR REFERENCIA
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        ConsultasReferencia ref = new ConsultasReferencia();
+        Referencia re = new Referencia();
+        re.setNombrereferente(txtNombRef.getText());
+        re.setNombrereferente(txtNombRef.getText());
+        re.setApellidorefrente(txtApelliRef.getText());
+        re.setEmpresareferente(txtEntidadRef.getText());
+        re.setCargoReferente(txtCorreoRef.getText());
+        re.setTelefonoReferente(txtTelRef.getText());
+        re.setCorreoReferente(txtCorreoRef.getText());
+        re.setOrden(Integer.parseInt(txtOrdenRef.getText()));
+        re.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+        re.setIdreferencia(Integer.parseInt(txtIdRef.getText()));
+        
+        ref.actualizarReferencia(re);
+        Muestrame();
+
+
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    // BOTON ELIMINAR REFRENCIA
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        ConsultasReferencia ref = new ConsultasReferencia();
+        Referencia re = new Referencia();
+
+        re.setIdreferencia(Integer.parseInt(txtIdRef.getText()));
+        ref.eliminarReferencia(re);
+        Muestrame();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    //MOSTRAR LOS DATOS DE LA JTABLE EN LOS TXT
+    private void jTableReferenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableReferenciasMouseClicked
+        int selec = jTableReferencias.rowAtPoint(evt.getPoint());
+        txtIdRef.setText(String.valueOf(jTableReferencias.getValueAt(selec, 0)));
+        txtNombRef.setText(String.valueOf(jTableReferencias.getValueAt(selec, 1)));
+        txtApelliRef.setText(String.valueOf(jTableReferencias.getValueAt(selec, 2)));
+        txtEntidadRef.setText(String.valueOf(jTableReferencias.getValueAt(selec, 3)));
+        txtCarRef.setText(String.valueOf(jTableReferencias.getValueAt(selec, 4)));
+        txtTelRef.setText(String.valueOf(jTableReferencias.getValueAt(selec, 5)));
+        txtCorreoRef.setText(String.valueOf(jTableReferencias.getValueAt(selec, 6)));
+        txtOrdenRef.setText(String.valueOf(jTableReferencias.getValueAt(selec, 7)));
+        txtIdTrabajador.setText(String.valueOf(jTableReferencias.getValueAt(selec, 8)));
+
+    }//GEN-LAST:event_jTableReferenciasMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -385,10 +504,10 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnInsertar;
+    private javax.swing.JButton btnOrdenar;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -404,7 +523,7 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableReferencias;
     private javax.swing.JTextField txtApelliRef;
     private javax.swing.JTextField txtCarRef;
     private javax.swing.JTextField txtCorreoRef;

@@ -13,7 +13,7 @@ public class ConsultasReferencia {
     private Connection con = new conexionbd().getconexion();
     frmP_Trabajador frmP_Tr;
 
-    public ArrayList<Referencia> mostrarExperienciasCrud(int id) {
+    public ArrayList<Referencia> mostrarReferenciasCrud(int id) {
         ArrayList<Referencia> CrudReferencias = new ArrayList<>();
 
         try {
@@ -40,7 +40,8 @@ public class ConsultasReferencia {
         return CrudReferencias;
     }
     
-    public void insertarExperiencia(Referencia ref) {
+    //METODO INSERTAR REFERENCIA
+    public void insertarReferencia(Referencia ref) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_I_Referencia(?,?,?,?,?,?,?,?)");
 
@@ -60,7 +61,9 @@ public class ConsultasReferencia {
         }
     }
 
-    public void actualizarExperiencia(Referencia ref) {
+    
+    //METODO ACTUALIZAR REFERENCIA
+    public void actualizarReferencia(Referencia ref) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_U_Referencia(?,?,?,?,?,?,?,?,?)");
 
@@ -80,11 +83,12 @@ public class ConsultasReferencia {
         }
     }
 
+    //METODO ELIMINAR REFRENCIA
     public void eliminarReferencia(Referencia ref) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_D_Referencia(?)");
 
-            st.setInt("idExp", ref.getIdreferencia());
+            st.setInt("idRef", ref.getIdreferencia());
 
             st.execute();
 
