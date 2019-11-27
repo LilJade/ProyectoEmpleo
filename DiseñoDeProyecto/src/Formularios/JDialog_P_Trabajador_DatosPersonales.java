@@ -1,8 +1,6 @@
 package Formularios;
 
 import Consultas.ConsultasTrabajador;
-import Consultas.ConsultasExperiencia;
-import Entidades.Experiencia;
 import Entidades.Trabajador;
 import java.awt.Image;
 import java.io.IOException;
@@ -12,9 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
 import rojerusan.RSAnimation;
 
 public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
@@ -28,6 +24,7 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
 //        txtEstilo.setText(String.valueOf());
         txtIdTrabajador.setText(String.valueOf(frmVisitante.id));
+        System.out.println("id: " + frmVisitante.id);
         txtIdTrabajador.setVisible(false);
         RSAnimation.setMoverDerecha(-700, 500, 0, 2, this);
 
@@ -47,7 +44,7 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         btnEditar.setEnabled(true);
         btnCancelar.setEnabled(false);
         btnGuardar.setEnabled(false);
-        cTr.editarDatosTrabajador(txtIdTrabajador.getText());
+        cTr.editarDatosTrabajador(String.valueOf(frmVisitante.id));
     }
 
     @SuppressWarnings("unchecked")

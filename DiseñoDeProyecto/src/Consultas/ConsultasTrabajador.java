@@ -4,7 +4,6 @@ import Modelo.conexionbd;
 import Entidades.Trabajador;
 import Formularios.JDialog_P_Trabajador_DatosPersonales;
 import Formularios.frmP_Trabajador;
-import Formularios.frmP_Trabajador_DatosPersonales;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -91,7 +90,7 @@ public class ConsultasTrabajador {
             while (rs.next()) {
                 int style = rs.getInt("estilo");
 
-                if (style == 1) {
+//                if (style == 1) {
                     dp.txtNombresTrab.setText(rs.getString("nombres"));
                     dp.txtApellidosTrab.setText(rs.getString("apellidos"));
                     dp.txtDescrTrab.setText(rs.getString("descripcion"));
@@ -117,7 +116,7 @@ public class ConsultasTrabajador {
                     } catch (IOException ex) {
                         dp.lblImgPerfilTrab.setIcon(null);
                     }
-                }
+//                }
             }
         } catch (Exception e) {
             System.out.println("Error al consultar datos personales: " + e.getMessage());
