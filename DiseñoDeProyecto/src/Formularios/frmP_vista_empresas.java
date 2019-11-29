@@ -31,15 +31,15 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
      */
     public frmP_vista_empresas() {
         initComponents();
-        // cargarcombos();
+       
         txtNombre2.setEditable(false);
         txtAcronimo2.setEditable(false);
         txtDireccion2.setEditable(false);
         txtCorreo2.setEditable(false);
         txtTelefono2.setEditable(false);
         txtDepartamento2.setEditable(false);
-       mostrar();
-       cargarTabla();
+      
+//       cargarTabla();
         txtDescripcion2.setEditable(false);
     }
 
@@ -85,6 +85,7 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         empleos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         txtgirocomercial = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(0, 0));
@@ -275,6 +276,13 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         jLabel1.setText("Empleos ");
         jLabel1.setToolTipText("");
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpDatos_empresaLayout = new javax.swing.GroupLayout(jpDatos_empresa);
         jpDatos_empresa.setLayout(jpDatos_empresaLayout);
         jpDatos_empresaLayout.setHorizontalGroup(
@@ -336,6 +344,8 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
                                 .addGap(192, 192, 192)
                                 .addComponent(txtAcronimo2, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)
+                                .addGap(61, 61, 61)
                                 .addComponent(idempresa2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jpDatos_empresaLayout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -354,10 +364,12 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
                 .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idgiro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idempresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAcronimo2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(idgiro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idempresa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtAcronimo2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1))
                 .addGap(28, 28, 28)
                 .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpDatos_empresaLayout.createSequentialGroup()
@@ -439,14 +451,16 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public void mostrar(){
-    ConsultasAspirantes ce=new ConsultasAspirantes();
-   ce.mostrarvista();
-}
-    void cargarTabla() {
+//public void mostrar(){
+//    ConsultasAspirantes ce=new ConsultasAspirantes();
+//   ce.mostrarvista
+//}
+    frmP_Trabajador T= new frmP_Trabajador();
+    
+  public   void cargarTabla() {
         String titulos[] = {"Id", "Empleo", "Descripcion", "Requisitos", "Salario"};
         DefaultTableModel df = new DefaultTableModel(null, titulos);
-        ConsultasEmpleo mo = new ConsultasEmpleo();
+        ConsultasAspirantes  mo = new ConsultasAspirantes();
         ArrayList<Empleo> PS = mo.Mostraempleosvisitante();
         Iterator i = PS.iterator();
         String filas[] = new String[5];
@@ -504,6 +518,10 @@ public void mostrar(){
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDepartamento2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+cargarTabla();       // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -546,6 +564,7 @@ public void mostrar(){
     public javax.swing.JTable empleos;
     public javax.swing.JTextField idempresa2;
     public javax.swing.JTextField idgiro2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;

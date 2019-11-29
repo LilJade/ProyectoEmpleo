@@ -93,7 +93,7 @@ public class ConsultasEmpleo {
         
         ArrayList<Empleo> empleo = new ArrayList<>();
         try {
-            CallableStatement cb = con.prepareCall("call SP_M_Empleos(?)");
+            CallableStatement cb = con.prepareCall("select *from empleo where idEmpresa='"+1+"'");
             cb.setInt("idEmpresas",1);
             ResultSet rs = cb.executeQuery();
             while (rs.next()) {

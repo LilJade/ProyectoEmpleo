@@ -52,7 +52,7 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         jc_girocomercial.setVisible(false);
-        actualizargiro();
+       
         
     }
 
@@ -1173,9 +1173,10 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGestionarMouseClicked
 
     private void btnGestionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarActionPerformed
+     actualizargiro();
         txtgirocomercial.setVisible(false);
         jc_girocomercial.setVisible(true);
-        actualizargiro();
+         
         btnActualizar.setVisible(true);
         txtNombre.setEditable(true);
         txtAcronimo.setEditable(true);

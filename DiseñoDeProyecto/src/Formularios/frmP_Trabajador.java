@@ -1,5 +1,6 @@
 package Formularios;
 
+import Consultas.ConsultasAspirantes;
 import Consultas.ConsultasEmpresa;
 import Consultas.ConsultasEstudio;
 import Consultas.ConsultasExperiencia;
@@ -4041,6 +4042,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(93, 0, 93));
 
         txtBusqueda.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusquedaActionPerformed(evt);
+            }
+        });
         txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusquedaKeyReleased(evt);
@@ -4389,9 +4395,14 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      frmP_vista_empresas em= new frmP_vista_empresas();
-      em.setVisible(true);
+      ConsultasAspirantes cAsp = new ConsultasAspirantes();
+      cAsp.mostrarvista(lblIdEmpresa.getText());
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusquedaActionPerformed
 
     public void buscandoEmpresa(String nombre) {
         String title[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};

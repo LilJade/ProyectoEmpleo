@@ -7,6 +7,7 @@ package Consultas;
 import static Consultas.ConsultasTrabajador.id;
 import static Consultas.ConsultasEmpresa.idE;
 import static Consultas.ConsultasEmpresa.idG;
+import Entidades.Empleo;
 import Entidades.cargar_Aspirantes;
 import Formularios.frmP_Trabajador;
 import Formularios.frmP_vista_empresas;
@@ -33,27 +34,25 @@ public class ConsultasAspirantes {
      private Connection con = new conexionbd().getconexion();
       public static int idE = 0;
     public static  int idG= 0;
-    int Resultado = 1;
-    public int idEmpresavisitante;
-
     
-    public void mostrarvista() {
+    public int idEmpresavisitante;
+                    frmP_vista_empresas frmve = new frmP_vista_empresas();  
+
+                    public void mostrarvista(String id) {
         ImageIcon img = null;
         InputStream inp = null;
-    frmP_Trabajador t= new frmP_Trabajador();
-String idempresa=t.lblIdEmpresa.getText();
-        try {
-            CallableStatement st = con.prepareCall("SELECT e.idGiroComercial,e.idEmpresa,e.nombre,e.acronimo,e.idGiroComercial,e.descripcion,"
+  int Resultado = 0;
+  try {
+             CallableStatement st = con.prepareCall("SELECT e.idGiroComercial,e.idEmpresa,e.nombre,e.acronimo,e.idGiroComercial,e.descripcion,"
                     + "e.departamento,e.direccion,e.telefono,e.correo,e.contraseña,e.imgPerfil,c.categoriaNombre"
                     + " FROM Empresa as e inner join girocomercial as c "
-                    + "where e.idEmpresa='"+idempresa+"'and e.idGiroComercial=c.idGiroComercial");
+                    + "where  e.idGiroComercial=c.idGiroComercial and e.idEmpresa='"+id+"'");
            
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
                 Resultado = 1;
            
                 if (Resultado == 1) {
-                    frmP_vista_empresas frmve = new frmP_vista_empresas();
                     
                     try {
                         if (rs.getBinaryStream("imgPerfil") != null) {
@@ -83,7 +82,9 @@ String idempresa=t.lblIdEmpresa.getText();
                     frmve.idgiro2.setText(String.valueOf(idG));
                     idE = rs.getInt("idEmpresa");
                     frmve.idempresa2.setText(String.valueOf(idE));
-                    
+                     frmve.cargarTabla();
+                    frmve.setVisible(true);
+                   
                     
                 }
            } else {
@@ -93,6 +94,35 @@ String idempresa=t.lblIdEmpresa.getText();
         } catch (SQLException ex) {
             System.out.println("Error en el login de empresa: " + ex.getMessage());
         }
+        
+    }
+     public ArrayList<Empleo> Mostraempleosvisitante() {
+      //  FrmP_Empresa1 s = new FrmP_Empresa1();
+        
+        ArrayList<Empleo> empleo = new ArrayList<>();
+        try {
+            CallableStatement cb = con.prepareCall("select *from empleo where idEmpresa='"+idE+"'");
+     
+            ResultSet rs = cb.executeQuery();
+            while (rs.next()) {
+                Empleo p = new Empleo();
+                
+                int idem = rs.getInt("idEmpleo");
+                
+                p.setIdEmpleo(idem);
+                
+                p.setNombre(rs.getString("nombre"));
+                
+                p.setDescripcion(rs.getString("descripcion"));
+                p.setRequisitos(rs.getString("requisitos"));
+                p.setSalario(rs.getDouble("salario"));
+                empleo.add(p);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la consulta :" + e);
+        }
+        return empleo;
         
     }
     

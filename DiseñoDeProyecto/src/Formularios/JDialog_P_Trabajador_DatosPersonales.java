@@ -482,35 +482,39 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        Trabajador eT = new Trabajador();
-        if (txConfirContraseñaTrab.getText().equals(txtContraseñaTrab.getText())) {
-            try {
-                eT.setNombres(txtNombresTrab.getText());
-                eT.setApellidos(txtApellidosTrab.getText());
-                eT.setDescripcion(txtDescrTrab.getText());
-                eT.setEdad(Integer.parseInt(txtEdadTrab.getText()));
-                eT.setSexo(txtSexoTrab.getText());
-                eT.setDireccion(txtDireccionTrab.getText());
-                eT.setCelular(txtCelTrab.getText());
-                eT.setTelefonoFijo(txtTelefTrab.getText());
-                eT.setCorreo(txtCorreoTrab.getText());
-                eT.setPass(txtContraseñaTrab.getText());
-                eT.setEstilo(Integer.parseInt(txtEstilo.getText()));
-
-                byte[] sq = Files.readAllBytes(file.toPath());//se hace la convercion de File a Bytes
-                eT.setImgPerfil(sq);
-                cTr.actualizarDatosTrabajador(eT);
-                
-                System.out.println("Cambios Guardados!");
-                btnEditar.setEnabled(true);
-                btnCancelar.setEnabled(false);
-                btnGuardar.setEnabled(false);
-            } catch (IOException ex) {
-                Logger.getLogger(frmR_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            System.out.println("Asegurate de ingresar tu contraseña bien...");
-        }
+//        Trabajador eT = new Trabajador();
+//        if (txConfirContraseñaTrab.getText().equals(txtContraseñaTrab.getText())) {
+//            try {
+//                eT.setNombres(txtNombresTrab.getText());
+//                eT.setApellidos(txtApellidosTrab.getText());
+//                eT.setDescripcion(txtDescrTrab.getText());
+//                eT.setEdad(Integer.parseInt(txtEdadTrab.getText()));
+//                eT.setSexo(txtSexoTrab.getText());
+//                eT.setDireccion(txtDireccionTrab.getText());
+//                eT.setCelular(txtCelTrab.getText());
+//                eT.setTelefonoFijo(txtTelefTrab.getText());
+//                eT.setCorreo(txtCorreoTrab.getText());
+//                eT.setPass(txtContraseñaTrab.getText());
+//                eT.setEstilo(Integer.parseInt(txtEstilo.getText()));
+//
+//                
+//                byte[] sq = Files.readAllBytes(file.toPath());//se hace la convercion de File a Bytes
+//                eT.setImgPerfil(sq);
+//                cTr.actualizarDatosTrabajador(eT);
+//                
+//                byte[] sq2 = Files.readAllBytes();
+//                
+//                System.out.println("Cambios Guardados!");
+//                btnEditar.setEnabled(true);
+//                btnCancelar.setEnabled(false);
+//                btnGuardar.setEnabled(false);
+//            } catch (IOException ex) {
+//                Logger.getLogger(frmR_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            
+//        } else {
+//            System.out.println("Asegurate de ingresar tu contraseña bien...");
+//        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCambiarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarImgActionPerformed
