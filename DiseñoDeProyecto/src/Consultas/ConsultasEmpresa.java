@@ -1,5 +1,6 @@
 package Consultas;
 
+import static Consultas.ConsultasAspirantes.idE;
 import Entidades.Aspirantes;
 import Entidades.Empleo;
 import Modelo.conexionbd;
@@ -229,5 +230,28 @@ public class ConsultasEmpresa {
             System.out.println("Error al buscar entre registros de las empresas: " + e.getMessage());
         }
         return buscarEmpV;
+    }
+public ArrayList<cargar_Aspirantes> MostraAspirantes() {
+        
+        ArrayList<cargar_Aspirantes> cargar_Aspirantes = new ArrayList<>();
+        try {
+            CallableStatement cb = con.prepareCall("call SP_M_Aspirantes(?)");
+            cb.setInt("idE", idE);
+            ResultSet rs = cb.executeQuery();
+            while (rs.next()) {
+                cargar_Aspirantes a = new cargar_Aspirantes();
+                
+                a.setNombreT(rs.getString("nombres"));
+                a.setApellidoT(rs.getString("apellidos"));
+                a.setRequisitosE(rs.getString("requisitos"));
+                a.setNombreE(rs.getString("nombre"));
+                cargar_Aspirantes.add(a);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la consulta :" + e);
+        }
+        return cargar_Aspirantes;
+        
     }
 }

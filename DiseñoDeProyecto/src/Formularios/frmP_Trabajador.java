@@ -406,7 +406,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         lblId_P3 = new javax.swing.JLabel();
         lblStyle_P3 = new javax.swing.JLabel();
         jp_Busqueda = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         txtBusqueda = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -585,7 +584,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jpHabilidades_p1.setLayout(new java.awt.GridLayout(0, 1));
 
         btnConfigExps2.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigExps2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps2.setText("Gestionar...");
         btnConfigExps2.addActionListener(new java.awt.event.ActionListener() {
@@ -1090,7 +1088,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator1.setPreferredSize(new java.awt.Dimension(4, 2));
 
         btnConfigEst_p1.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigEst_p1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEst_p1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEst_p1.setText("Gestionar...");
         btnConfigEst_p1.addActionListener(new java.awt.event.ActionListener() {
@@ -1382,7 +1379,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         );
 
         btnConfigExps_p1.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigExps_p1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps_p1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps_p1.setText("Gestionar...");
         btnConfigExps_p1.addActionListener(new java.awt.event.ActionListener() {
@@ -1416,7 +1412,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
 
         btnConfigRefs_p1.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigRefs_p1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigRefs_p1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigRefs_p1.setText("Gestionar...");
         btnConfigRefs_p1.addActionListener(new java.awt.event.ActionListener() {
@@ -1623,7 +1618,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator7.setPreferredSize(new java.awt.Dimension(4, 2));
 
         btnConfigEstudios2.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigEstudios2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEstudios2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEstudios2.setText("Gestionar...");
         btnConfigEstudios2.addActionListener(new java.awt.event.ActionListener() {
@@ -1729,7 +1723,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             jp_Perfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Perfil1Layout.createSequentialGroup()
                 .addComponent(jp_Contenedor_p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 177, Short.MAX_VALUE))
+                .addGap(0, 190, Short.MAX_VALUE))
         );
         jp_Perfil1Layout.setVerticalGroup(
             jp_Perfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1822,7 +1816,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jpHabilidades_p2.setLayout(new java.awt.GridLayout(0, 1));
 
         btnConfigExps3.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigExps3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps3.setText("Gestionar...");
         btnConfigExps3.addActionListener(new java.awt.event.ActionListener() {
@@ -1870,7 +1863,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jScrollPane4.setViewportView(txtA_Descripcion_ip_p2);
 
         btnConfigEstudios3.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigEstudios3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEstudios3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEstudios3.setText("Gestionar...");
         btnConfigEstudios3.addActionListener(new java.awt.event.ActionListener() {
@@ -1890,7 +1882,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                     .addGroup(jp_IxquierdaLayout.createSequentialGroup()
                         .addGroup(jp_IxquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jpHabilidades_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_IxquierdaLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jp_IxquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1899,6 +1890,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                                 .addGap(59, 59, 59))
                             .addGroup(jp_IxquierdaLayout.createSequentialGroup()
                                 .addGroup(jp_IxquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jpHabilidades_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jp_IxquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtSexo_ip_p2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lblCiudad1_p6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1943,11 +1935,10 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addComponent(btnConfigExps3)
                 .addGap(18, 18, 18)
                 .addComponent(jpHabilidades_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 1081, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1025, Short.MAX_VALUE))
+                .addContainerGap(1032, Short.MAX_VALUE))
         );
 
         btnConfigEst_p2.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigEst_p2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEst_p2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEst_p2.setText("Gestionar...");
         btnConfigEst_p2.addActionListener(new java.awt.event.ActionListener() {
@@ -2383,7 +2374,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jp_Exp7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(descripcionExp2_p2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCargo2_p2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCargo2_p2, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
                     .addGroup(jp_Exp7Layout.createSequentialGroup()
                         .addComponent(lblInstitucionExp2_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -2591,7 +2582,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jLabel29.setText("Experiencia Laboral.");
 
         btnConfigExps_p2.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigExps_p2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps_p2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps_p2.setText("Gestionar...");
         btnConfigExps_p2.addActionListener(new java.awt.event.ActionListener() {
@@ -2611,7 +2601,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
 
         btnConfigRefs_p2.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigRefs_p2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigRefs_p2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigRefs_p2.setText("Gestionar...");
         btnConfigRefs_p2.addActionListener(new java.awt.event.ActionListener() {
@@ -2835,7 +2824,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jp_Referencias_p2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jp_Experiencias_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 984, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jp_Experiencias_p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jp_Ixquierda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
@@ -2884,7 +2873,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             jp_Perfil2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_Perfil2Layout.createSequentialGroup()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 197, Short.MAX_VALUE))
+                .addGap(0, 201, Short.MAX_VALUE))
         );
         jp_Perfil2Layout.setVerticalGroup(
             jp_Perfil2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2993,7 +2982,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addGroup(jp_Est20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCiudad8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblInstitucion8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         jp_Est21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -3044,7 +3033,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addGroup(jp_Est21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCiudad9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblInstitucion9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         jp_Est22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -3095,7 +3084,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addGroup(jp_Est22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCiudad10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblInstitucion10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         jp_Est23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -3146,7 +3135,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addGroup(jp_Est23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCiudad11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblInstitucion11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         jp_Est24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -3197,7 +3186,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addGroup(jp_Est24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCiudad12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblInstitucion12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jp_Estudios_p3Layout = new javax.swing.GroupLayout(jp_Estudios_p3);
@@ -3514,7 +3503,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         );
 
         btnConfigExps_p3.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigExps_p3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps_p3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps_p3.setText("Gestionar...");
         btnConfigExps_p3.addActionListener(new java.awt.event.ActionListener() {
@@ -3548,7 +3536,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator13.setForeground(new java.awt.Color(0, 0, 0));
 
         btnConfigRefs_p3.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigRefs_p3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigRefs_p3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigRefs_p3.setText("Gestionar...");
         btnConfigRefs_p3.addActionListener(new java.awt.event.ActionListener() {
@@ -3764,7 +3751,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jSeparator14.setPreferredSize(new java.awt.Dimension(4, 2));
 
         btnConfigEstudios5.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigEstudios5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEstudios5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEstudios5.setText("Gestionar...");
         btnConfigEstudios5.addActionListener(new java.awt.event.ActionListener() {
@@ -3853,7 +3839,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         );
 
         btnConfigEst_p3.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigEst_p3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigEst_p3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigEst_p3.setText("Gestionar...");
         btnConfigEst_p3.addActionListener(new java.awt.event.ActionListener() {
@@ -3863,7 +3848,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         });
 
         btnConfigExps10.setBackground(new java.awt.Color(153, 255, 153));
-        btnConfigExps10.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnConfigExps10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/settings24.png"))); // NOI18N
         btnConfigExps10.setText("Gestionar...");
         btnConfigExps10.addActionListener(new java.awt.event.ActionListener() {
@@ -4054,17 +4038,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
 
         jps_Perfil.add(jp_Perfiles, "card4");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 996, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
         jPanel3.setBackground(new java.awt.Color(93, 0, 93));
 
         txtBusqueda.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -4080,6 +4053,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButton1.setText("Ver Perfil");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         lblIdEmpresa.setForeground(new java.awt.Color(255, 255, 255));
         lblIdEmpresa.setText("id");
@@ -4096,11 +4074,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(90, 90, 90)
                         .addComponent(jButton1))
-                    .addComponent(lblImgPerfilEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(lblIdEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lblImgPerfilEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4115,7 +4093,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(lblIdEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(3167, Short.MAX_VALUE))
         );
 
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -4147,14 +4125,14 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(0, 929, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 3278, Short.MAX_VALUE)
-                .addGap(44, 44, 44))
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 3363, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jScrollPane6.setViewportView(jPanel4);
@@ -4164,22 +4142,20 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         jp_BusquedaLayout.setHorizontalGroup(
             jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_BusquedaLayout.createSequentialGroup()
-                .addGroup(jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 968, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jp_BusquedaLayout.setVerticalGroup(
             jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_BusquedaLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp_BusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jp_BusquedaLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 3337, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jp_BusquedaLayout.createSequentialGroup()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 3337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jps_Perfil.add(jp_Busqueda, "card3");
@@ -4412,6 +4388,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      frmP_vista_empresas em= new frmP_vista_empresas();
+      em.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void buscandoEmpresa(String nombre) {
         String title[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
         DefaultTableModel df = new DefaultTableModel(null, title);
@@ -4629,7 +4610,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
@@ -4813,7 +4793,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     public static javax.swing.JLabel lblFotoperfil_p1;
     public static javax.swing.JLabel lblFotoperfil_p2;
     public static javax.swing.JLabel lblFotoperfil_p3;
-    private javax.swing.JLabel lblIdEmpresa;
+    public javax.swing.JLabel lblIdEmpresa;
     public static javax.swing.JLabel lblId_P1;
     public static javax.swing.JLabel lblId_P2;
     public static javax.swing.JLabel lblId_P3;

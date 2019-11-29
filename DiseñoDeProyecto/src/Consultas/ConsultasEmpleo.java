@@ -88,13 +88,13 @@ public class ConsultasEmpleo {
         }
     }
           
-     public ArrayList<Empleo> Mostraempleosvisitante(int id) {
-        FrmP_Empresa1 s = new FrmP_Empresa1();
+     public ArrayList<Empleo> Mostraempleosvisitante() {
+      //  FrmP_Empresa1 s = new FrmP_Empresa1();
         
         ArrayList<Empleo> empleo = new ArrayList<>();
         try {
             CallableStatement cb = con.prepareCall("call SP_M_Empleos(?)");
-            cb.setInt("idEmpresas", id);
+            cb.setInt("idEmpresas",1);
             ResultSet rs = cb.executeQuery();
             while (rs.next()) {
                 Empleo p = new Empleo();

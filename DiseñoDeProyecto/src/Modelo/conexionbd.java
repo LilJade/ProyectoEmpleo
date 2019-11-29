@@ -10,9 +10,9 @@ public class conexionbd {
 
     public Connection getconexion() {
         try {
-            String url = "jdbc:mysql://localhost:3306/ProyectoEmpleo";
+            String url = "jdbc:mysql://localhost:3306/proyectoempleo";
             String user = "root";
-            String contraseña = "";
+            String contraseña = "jonathan";
 
             con = DriverManager.getConnection(url, user, contraseña);
            //System.out.println("conectado");

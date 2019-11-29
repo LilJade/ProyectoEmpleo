@@ -5,7 +5,10 @@
  */
 package Formularios;
 
+import Consultas.ConsultasAspirantes;
+import Consultas.ConsultasEmpleo;
 import Consultas.ConsultasEmpresa;
+import Entidades.Empleo;
 import Entidades.GiroComercial;
 import java.awt.Image;
 import java.io.File;
@@ -15,6 +18,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,9 +37,9 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         txtDireccion2.setEditable(false);
         txtCorreo2.setEditable(false);
         txtTelefono2.setEditable(false);
-        combo_giro2.setEditable(false);
         txtDepartamento2.setEditable(false);
-       
+       mostrar();
+       cargarTabla();
         txtDescripcion2.setEditable(false);
     }
 
@@ -65,7 +69,6 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
-        combo_giro2 = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         jButton14 = new javax.swing.JButton();
         txtCorreo2 = new javax.swing.JTextField();
@@ -81,6 +84,7 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         empleos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        txtgirocomercial = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(0, 0));
@@ -186,8 +190,6 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         jLabel16.setText("Giro Comercial");
 
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ic_attach_money_128_28210.png"))); // NOI18N
-
-        combo_giro2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(26, 99, 66));
@@ -311,7 +313,7 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jpDatos_empresaLayout.createSequentialGroup()
                                     .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
@@ -321,7 +323,7 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(combo_giro2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(txtgirocomercial)))))
                         .addContainerGap(81, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDatos_empresaLayout.createSequentialGroup()
                 .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -349,7 +351,7 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         jpDatos_empresaLayout.setVerticalGroup(
             jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpDatos_empresaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -362,13 +364,15 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
                         .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
                             .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jbn_ubicacion2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDireccion2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpDatos_empresaLayout.createSequentialGroup()
-                                .addComponent(combo_giro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jpDatos_empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jbn_ubicacion2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDireccion2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDatos_empresaLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(txtgirocomercial, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jpDatos_empresaLayout.createSequentialGroup()
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)))
@@ -435,28 +439,34 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-// String filasCombo[] = new String[13];
-//
-//    String array[] = new String[23];
-//    int contadors = 0;
-//    public void cargarcombos() {
-//
-//        ConsultasEmpresa mo = new ConsultasEmpresa();
-//        ArrayList<GiroComercial> PS = mo.mostrargirosEmpresa();
-//        Iterator i = PS.iterator();
-//        DefaultComboBoxModel DefaultComboBoxModel = new DefaultComboBoxModel();
-//        DefaultComboBoxModel.removeAllElements();
-//        while (i.hasNext()) {
-//            GiroComercial p;
-//            p = (GiroComercial) i.next();
-//            array[contadors] = String.valueOf(p.getIdGiroComercial());
-//            filasCombo[1] = p.getCategoriaNombre();
-//            DefaultComboBoxModel.addElement(p.getCategoriaNombre());
-//            contadors++;
-//        }
-//
-//        combo_giro2.setModel(DefaultComboBoxModel);
-//    }
+public void mostrar(){
+    ConsultasAspirantes ce=new ConsultasAspirantes();
+   ce.mostrarvista();
+}
+    void cargarTabla() {
+        String titulos[] = {"Id", "Empleo", "Descripcion", "Requisitos", "Salario"};
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+        ConsultasEmpleo mo = new ConsultasEmpleo();
+        ArrayList<Empleo> PS = mo.Mostraempleosvisitante();
+        Iterator i = PS.iterator();
+        String filas[] = new String[5];
+        while (i.hasNext()) {
+            Empleo p;
+
+            p = (Empleo) i.next();
+
+            int id = p.getIdEmpleo();
+            filas[0] = String.valueOf(id);
+            filas[1] = p.getNombre();
+            filas[2] = p.getDescripcion();
+            filas[3] = p.getRequisitos();
+            double salario = p.getSalario();
+            filas[4] = String.valueOf(salario);
+
+            df.addRow(filas);
+        }
+        empleos.setModel(df);
+}
     private void btnCambiarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarFotoActionPerformed
 
     }//GEN-LAST:event_btnCambiarFotoActionPerformed
@@ -533,8 +543,7 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCambiarFoto;
     private javax.swing.JButton btn_salir;
-    public javax.swing.JComboBox combo_giro2;
-    private javax.swing.JTable empleos;
+    public javax.swing.JTable empleos;
     public javax.swing.JTextField idempresa2;
     public javax.swing.JTextField idgiro2;
     private javax.swing.JButton jButton13;
@@ -564,5 +573,6 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
     public javax.swing.JTextField txtDireccion2;
     public javax.swing.JTextField txtNombre2;
     public javax.swing.JTextField txtTelefono2;
+    public javax.swing.JTextField txtgirocomercial;
     // End of variables declaration//GEN-END:variables
 }
