@@ -49,7 +49,7 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel4 = new javax.swing.JPanel();
-        lb_fotoEmpresa = new javax.swing.JLabel();
+        lb_fotoEmpresa1 = new javax.swing.JLabel();
         btnCambiarFoto = new javax.swing.JButton();
         jpGestiones = new javax.swing.JPanel();
         titulos = new javax.swing.JPanel();
@@ -88,11 +88,11 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(102, 0, 102));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lb_fotoEmpresa.setBackground(new java.awt.Color(51, 51, 255));
-        lb_fotoEmpresa.setForeground(new java.awt.Color(51, 51, 255));
-        lb_fotoEmpresa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_fotoEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/folder de trabajo.png"))); // NOI18N
-        jPanel4.add(lb_fotoEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 157, 106));
+        lb_fotoEmpresa1.setBackground(new java.awt.Color(51, 51, 255));
+        lb_fotoEmpresa1.setForeground(new java.awt.Color(51, 51, 255));
+        lb_fotoEmpresa1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_fotoEmpresa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/folder de trabajo.png"))); // NOI18N
+        jPanel4.add(lb_fotoEmpresa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 157, 106));
 
         btnCambiarFoto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnCambiarFoto.setForeground(new java.awt.Color(255, 255, 255));
@@ -554,7 +554,7 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
     private javax.swing.JButton jbn_ubicacion2;
     private javax.swing.JPanel jpDatos_empresa;
     private javax.swing.JPanel jpGestiones;
-    public javax.swing.JLabel lb_fotoEmpresa;
+    public javax.swing.JLabel lb_fotoEmpresa1;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel titulos;
     public javax.swing.JTextField txtAcronimo2;
