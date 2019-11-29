@@ -173,7 +173,7 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
             }
         });
 
-        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar_24.png"))); // NOI18N
+        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/regresar_24.png"))); // NOI18N
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsalirActionPerformed(evt);
@@ -191,9 +191,9 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
                 .addComponent(btnperfil, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(btnGestionarEmpleos)
-                .addGap(355, 355, 355)
-                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 338, Short.MAX_VALUE)
+                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         titulosLayout.setVerticalGroup(
             titulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,9 +223,9 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         });
         jPanel4.add(lb_fotoEmpresas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 160, 140));
 
-        btnCambiarFoto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCambiarFoto.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         btnCambiarFoto.setForeground(new java.awt.Color(255, 255, 255));
-        btnCambiarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/añadirfoto_64.png"))); // NOI18N
+        btnCambiarFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar_24.png"))); // NOI18N
         btnCambiarFoto.setText("Cambiar Foto");
         btnCambiarFoto.setBorder(null);
         btnCambiarFoto.setContentAreaFilled(false);
@@ -238,7 +238,7 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
                 btnCambiarFotoActionPerformed(evt);
             }
         });
-        jPanel4.add(btnCambiarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 160, -1));
+        jPanel4.add(btnCambiarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 140, 60));
 
         txturl2.setText("jTextField1");
         txturl2.addActionListener(new java.awt.event.ActionListener() {

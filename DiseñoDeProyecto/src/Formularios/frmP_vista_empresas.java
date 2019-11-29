@@ -38,7 +38,8 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         txtCorreo2.setEditable(false);
         txtTelefono2.setEditable(false);
         txtDepartamento2.setEditable(false);
-      
+      idgiro2.setVisible(false);
+      idempresa2.setVisible(false);
 //       cargarTabla();
         txtDescripcion2.setEditable(false);
     }
