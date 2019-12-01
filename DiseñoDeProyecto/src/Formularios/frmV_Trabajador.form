@@ -22,7 +22,7 @@
     </Container>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -538,6 +538,9 @@
                                     </Property>
                                     <Property name="rows" type="int" value="5"/>
                                   </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                                  </AuxValues>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -4519,7 +4522,7 @@
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lblTelefonoRef6" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblTelefonoRef3_p2" alignment="0" max="32767" attributes="0"/>
                                               <Component id="lblEmpresaRef3_p2" alignment="0" pref="480" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -4537,7 +4540,7 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="lblCorreoRef3_p2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                              <Component id="lblTelefonoRef6" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="lblTelefonoRef3_p2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
                                       </Group>
@@ -4590,7 +4593,7 @@
                                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                                   </AuxValues>
                                 </Component>
-                                <Component class="javax.swing.JLabel" name="lblTelefonoRef6">
+                                <Component class="javax.swing.JLabel" name="lblTelefonoRef3_p2">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Dialog" size="18" style="1"/>

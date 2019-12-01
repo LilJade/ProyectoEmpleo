@@ -28,6 +28,7 @@ public class frmVisitante extends javax.swing.JFrame {
 
     PlaceHolder holder;
 
+    public static int idE = 0;
     public static int id = 0;
     public static int estilo = 0;
 
@@ -71,7 +72,6 @@ public class frmVisitante extends javax.swing.JFrame {
         rdgEntidad = new javax.swing.ButtonGroup();
         jpOpcion = new javax.swing.JPanel();
         btnEmpresa = new javax.swing.JButton();
-        btnAdolescente = new javax.swing.JButton();
         btnAdulto = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         btnLista = new javax.swing.JButton();
@@ -147,20 +147,6 @@ public class frmVisitante extends javax.swing.JFrame {
             }
         });
         jpOpcion.add(btnEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-85, 150, 100, 90));
-
-        btnAdolescente.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
-        btnAdolescente.setForeground(new java.awt.Color(255, 153, 0));
-        btnAdolescente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estudiante_32.png"))); // NOI18N
-        btnAdolescente.setText("Estudiante");
-        btnAdolescente.setBorder(null);
-        btnAdolescente.setContentAreaFilled(false);
-        btnAdolescente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAdolescente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAdolescente.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estudiante_32.png"))); // NOI18N
-        btnAdolescente.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estudiante_64.png"))); // NOI18N
-        btnAdolescente.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnAdolescente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jpOpcion.add(btnAdolescente, new org.netbeans.lib.awtextra.AbsoluteConstraints(-85, 350, 100, 90));
 
         btnAdulto.setBackground(new java.awt.Color(40, 20, 67));
         btnAdulto.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
@@ -584,15 +570,15 @@ public class frmVisitante extends javax.swing.JFrame {
         empresa.jButtonXRight(-85, 70, 5, 5, btnEmpresa);
         AnimationClass adulto = new AnimationClass();
         adulto.jButtonXRight(-85, 70, 5, 5, btnAdulto);
-        AnimationClass adolescente = new AnimationClass();
-        adolescente.jButtonXRight(-85, 70, 5, 5, btnAdolescente);
+//        AnimationClass adolescente = new AnimationClass();
+//        adolescente.jButtonXRight(-85, 70, 5, 5, btnAdolescente);
         //<---------
         AnimationClass empressa = new AnimationClass();
         empressa.jButtonXLeft(70, -85, 5, 5, btnEmpresa);
         AnimationClass adultoo = new AnimationClass();
         adultoo.jButtonXLeft(70, -85, 5, 5, btnAdulto);
-        AnimationClass adolescentee = new AnimationClass();
-        adolescentee.jButtonXLeft(70, -85, 5, 5, btnAdolescente);
+//        AnimationClass adolescentee = new AnimationClass();
+//        adolescentee.jButtonXLeft(70, -85, 5, 5, btnAdolescente);
     }//GEN-LAST:event_btnListaMouseClicked
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
@@ -645,16 +631,26 @@ public class frmVisitante extends javax.swing.JFrame {
 
         //if (!txtUsuario.getText().equals("CORREO ELECTRONICO") || !txtUsuario.getText().isEmpty()) {
         if (rtnEmpresa.isSelected()) {
+            this.idE = 0;
             eEmpresa.setCorreo(txtUsuario.getText());
             eEmpresa.setContraseña(txtContraseña.getText());
-            cEmpresa.ValidarEmpresa(eEmpresa);
+            this.idE = cEmpresa.ValidarEmpresa(eEmpresa);
+
+            if (idE != 0) {
+                holder = new PlaceHolder(txtUsuario, "CORREO ELECTRONICO");
+                holder = new PlaceHolder(txtContraseña, "CONTRASEÑA");
+                this.dispose();
+            }
 
         } else if (rtnTrabajador.isSelected()) {
+            this.id = 0;
             eTrabajador.setCorreo(txtUsuario.getText());
             eTrabajador.setPass(txtContraseña.getText());
             this.id = cTrabajador.ValidarTrabajador(eTrabajador);
 
             if (id != 0) {
+                holder = new PlaceHolder(txtUsuario, "CORREO ELECTRONICO");
+                holder = new PlaceHolder(txtContraseña, "CONTRASEÑA");
                 this.estilo = cTrabajador.consultarEstiloTrabajador(this.id);
                 frmP_Trabajador frmP_Tr = new frmP_Trabajador();
                 frmP_Tr.setVisible(true);
@@ -773,7 +769,6 @@ public class frmVisitante extends javax.swing.JFrame {
 
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
         String busq = txtBuscar.getText();
-
         buscandoEmpresa(busq);
     }//GEN-LAST:event_txtBuscarKeyReleased
 
@@ -821,7 +816,6 @@ public class frmVisitante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdolescente;
     private javax.swing.JButton btnAdulto;
     private javax.swing.JButton btnAyuda;
     private javax.swing.JButton btnCancelar;

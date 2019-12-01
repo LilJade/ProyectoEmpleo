@@ -26,6 +26,7 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         txtIdTrabajador.setVisible(false);
         txtIdEstudio.setVisible(false);
         txtOrden.setVisible(false);
+        lblMuestra.setVisible(false);
         this.setLocationRelativeTo(null);
         Muestrame();
         Limpiame();
@@ -34,7 +35,18 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         btnInsertar.setEnabled(true);
         btnActualizar.setEnabled(false);
         btnEliminar.setEnabled(false);
-        btnOrdenar.setEnabled(false);
+        btnOrdenar.setEnabled(true);
+
+        btnCancelarOrd.setEnabled(false);
+        btnCancelarOrd.setVisible(false);
+        btnPos1.setVisible(false);
+        btnPos2.setVisible(false);
+        btnPos3.setVisible(false);
+        btnPos4.setVisible(false);
+        btnPos5.setVisible(false);
+        btnPos6.setVisible(false);
+
+        btnPos7.setVisible(false);
     }
 
     void Limpiame() {
@@ -68,7 +80,7 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         jTableFormacionAcademina.setModel(model);
         //CODIGO PARA OCULTAR COLUMNAS EN UNA JTABLE
         jTableFormacionAcademina.getColumnModel().getColumn(0).setMaxWidth(0);
-        jTableFormacionAcademina.getColumnModel().getColumn(5).setMaxWidth(0);
+        //jTableFormacionAcademina.getColumnModel().getColumn(5).setMaxWidth(0);
         jTableFormacionAcademina.getColumnModel().getColumn(6).setMaxWidth(0);
     }
 
@@ -79,9 +91,14 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtIdEstudio = new javax.swing.JTextField();
-        txtOrden = new javax.swing.JTextField();
-        txtIdTrabajador = new javax.swing.JTextField();
+        btnCancelarOrd = new javax.swing.JButton();
+        btnPos1 = new javax.swing.JButton();
+        btnPos2 = new javax.swing.JButton();
+        btnPos3 = new javax.swing.JButton();
+        btnPos4 = new javax.swing.JButton();
+        btnPos5 = new javax.swing.JButton();
+        btnPos6 = new javax.swing.JButton();
+        btnPos7 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableFormacionAcademina = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -98,6 +115,10 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        txtIdEstudio = new javax.swing.JTextField();
+        txtOrden = new javax.swing.JTextField();
+        txtIdTrabajador = new javax.swing.JTextField();
+        lblMuestra = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -111,6 +132,81 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/formacion_academica_64.png"))); // NOI18N
 
+        btnCancelarOrd.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnCancelarOrd.setForeground(new java.awt.Color(240, 240, 240));
+        btnCancelarOrd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/regresar_24.png"))); // NOI18N
+        btnCancelarOrd.setText("CANCELAR");
+        btnCancelarOrd.setContentAreaFilled(false);
+        btnCancelarOrd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCancelarOrd.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnCancelarOrd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCancelarOrd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelarOrdMouseClicked(evt);
+            }
+        });
+        btnCancelarOrd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarOrdActionPerformed(evt);
+            }
+        });
+
+        btnPos1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos1.setText("POSICIÓN 1");
+        btnPos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos1ActionPerformed(evt);
+            }
+        });
+
+        btnPos2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos2.setText("POSICIÓN 2");
+        btnPos2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos2ActionPerformed(evt);
+            }
+        });
+
+        btnPos3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos3.setText("POSICIÓN 3");
+        btnPos3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos3ActionPerformed(evt);
+            }
+        });
+
+        btnPos4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos4.setText("POSICIÓN 4");
+        btnPos4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos4ActionPerformed(evt);
+            }
+        });
+
+        btnPos5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos5.setText("POSICIÓN 5");
+        btnPos5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos5ActionPerformed(evt);
+            }
+        });
+
+        btnPos6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos6.setText("POSICIÓN 6");
+        btnPos6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos6ActionPerformed(evt);
+            }
+        });
+
+        btnPos7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos7.setText("DESMARCAR");
+        btnPos7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -121,27 +217,49 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txtIdEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnPos1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPos3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPos5, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnPos2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPos4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPos6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPos7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnCancelarOrd)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(11, 11, 11))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtIdEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnPos1)
+                                    .addComponent(btnPos3)
+                                    .addComponent(btnPos5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnPos2)
+                                    .addComponent(btnPos4)
+                                    .addComponent(btnPos6)
+                                    .addComponent(btnPos7)))
+                            .addComponent(btnCancelarOrd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(11, 11, 11))))
         );
 
         jTableFormacionAcademina.setModel(new javax.swing.table.DefaultTableModel(
@@ -197,6 +315,11 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         btnOrdenar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnOrdenar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnOrdenar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(240, 240, 240));
@@ -225,6 +348,11 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
                 btnAtrasMouseClicked(evt);
             }
         });
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -239,7 +367,7 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
                 .addComponent(btnOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
         );
@@ -269,6 +397,9 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel6.setText("CIUDAD");
 
+        lblMuestra.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        lblMuestra.setText("Este registro se muestra");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -277,52 +408,72 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
             .addComponent(jScrollPane1)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtInstitucion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel4)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDate_Chooser, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel6)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtInstitucion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(jLabel4)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDate_Chooser, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel6))
+                            .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtIdEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDate_Chooser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtInstitucion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(lblMuestra)
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel6))
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
-                .addGap(31, 31, 31)
+                        .addComponent(txtIdEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDate_Chooser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtInstitucion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -330,15 +481,6 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtrasMouseClicked
-        try {
-            //btnAtras
-            RSAnimation.setMoverIzquierda(500, -900, 0, 2, this);
-            Thread.sleep(1000);
-            this.dispose();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(JDialog_Trabajador_FormacionAcademica.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
 
     }//GEN-LAST:event_btnAtrasMouseClicked
 
@@ -359,12 +501,6 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
             Es.setAñoTerminado(date);
 
             Es.setCuidad(txtCiudad.getText());
-            if (txtOrden.getText().isEmpty()) {
-
-            } else {
-                Es.setOrden(Integer.parseInt(txtOrden.getText()));
-            }
-
             Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
             estu.insertarEstudios(Es);
             Muestrame();
@@ -411,9 +547,9 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
 
     private void jTableFormacionAcademinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFormacionAcademinaMouseClicked
         btnInsertar.setEnabled(true);
-        btnActualizar.setEnabled(false);
-        btnEliminar.setEnabled(false);
-        btnOrdenar.setEnabled(false);
+        btnActualizar.setEnabled(true);
+        btnEliminar.setEnabled(true);
+        btnOrdenar.setEnabled(true);
 
         // CARGUEN MIS DATOS EN LOS TXT
         int seleccionar = jTableFormacionAcademina.rowAtPoint(evt.getPoint());
@@ -430,7 +566,393 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         txtCiudad.setText(String.valueOf(jTableFormacionAcademina.getValueAt(seleccionar, 4)));
         txtOrden.setText(String.valueOf(jTableFormacionAcademina.getValueAt(seleccionar, 5)));
         txtIdTrabajador.setText(String.valueOf(jTableFormacionAcademina.getValueAt(seleccionar, 6)));
+
+        if (txtOrden.getText().equals("1")) {
+            btnPos1.setEnabled(false);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(true);
+            btnPos6.setEnabled(true);
+        }
+        if (txtOrden.getText().equals("2")) {
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(false);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(true);
+            btnPos6.setEnabled(true);
+        }
+        if (txtOrden.getText().equals("3")) {
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(false);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(true);
+            btnPos6.setEnabled(true);
+        }
+        if (txtOrden.getText().equals("4")) {
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(false);
+            btnPos5.setEnabled(true);
+            btnPos6.setEnabled(true);
+        }
+        if (txtOrden.getText().equals("5")) {
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(false);
+            btnPos6.setEnabled(true);
+        }
+        if (txtOrden.getText().equals("6")) {
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(true);
+            btnPos6.setEnabled(false);
+        }
+
+        if (txtOrden.getText().equals("") || txtOrden.getText().equals("0")) {
+            lblMuestra.setVisible(false);
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(true);
+            btnPos6.setEnabled(true);
+        } else {
+            lblMuestra.setVisible(true);
+            lblMuestra.setText("Este registro se muestra en la posicion: " + txtOrden.getText());
+        }
     }//GEN-LAST:event_jTableFormacionAcademinaMouseClicked
+
+    private void btnCancelarOrdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarOrdMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarOrdMouseClicked
+
+    private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
+        btnCancelarOrd.setEnabled(true);
+        btnCancelarOrd.setVisible(true);
+        btnPos1.setVisible(true);
+        btnPos2.setVisible(true);
+        btnPos3.setVisible(true);
+        btnPos4.setVisible(true);
+        btnPos5.setVisible(true);
+        btnPos6.setVisible(true);
+        btnPos7.setVisible(true);
+        txtOrden.setText("");
+
+        jTableFormacionAcademina.clearSelection();
+        Limpiame();
+    }//GEN-LAST:event_btnOrdenarActionPerformed
+
+    private void btnCancelarOrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarOrdActionPerformed
+        btnCancelarOrd.setEnabled(false);
+        btnCancelarOrd.setVisible(false);
+        btnPos1.setEnabled(false);
+        btnPos1.setVisible(false);
+        btnPos2.setEnabled(false);
+        btnPos2.setVisible(false);
+        btnPos3.setEnabled(false);
+        btnPos3.setVisible(false);
+        btnPos4.setEnabled(false);
+        btnPos4.setVisible(false);
+        btnPos5.setEnabled(false);
+        btnPos5.setVisible(false);
+        btnPos6.setEnabled(false);
+        btnPos6.setVisible(false);
+        btnPos7.setEnabled(false);
+        btnPos7.setVisible(false);
+    }//GEN-LAST:event_btnCancelarOrdActionPerformed
+
+    private void btnPos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos1ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableFormacionAcademina.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 5)).equals("1") || String.valueOf(df.getValueAt(i, 5)).equals("2") || String.valueOf(df.getValueAt(i, 5)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 5)).equals("4") || String.valueOf(df.getValueAt(i, 5)).equals("5") || String.valueOf(df.getValueAt(i, 5)).equals("6")) {
+                if (String.valueOf(df.getValueAt(i, 5)).equals("1")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 1 entonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtInstitucion.getText().equals("") || txtTitulo.getText().equals("") || txtCiudad.getText().equals("") || jDate_Chooser.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+//                    break;
+                } else {
+// BOTON ACTUALIZAR INFORMACION ACADEMICA
+                    ConsultasEstudio estu = new ConsultasEstudio();
+                    Estudio Es = new Estudio();
+
+                    Es.setInstitucion(txtInstitucion.getText());
+                    Es.setTitulo(txtTitulo.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDate_Chooser.getDate());
+                    Es.setAñoTerminado(date);
+
+                    Es.setCuidad(txtCiudad.getText());
+                    Es.setOrden(1);
+                    Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+                    Es.setIdEstudio(Integer.parseInt(txtIdEstudio.getText()));
+
+                    estu.actualizarEstudios(Es);
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos1ActionPerformed
+
+    private void btnPos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos2ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableFormacionAcademina.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 5)).equals("1") || String.valueOf(df.getValueAt(i, 5)).equals("2") || String.valueOf(df.getValueAt(i, 5)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 5)).equals("4") || String.valueOf(df.getValueAt(i, 5)).equals("5") || String.valueOf(df.getValueAt(i, 5)).equals("6")) {
+                if (String.valueOf(df.getValueAt(i, 5)).equals("2")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 2 entonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtInstitucion.getText().equals("") || txtTitulo.getText().equals("") || txtCiudad.getText().equals("") || jDate_Chooser.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+//                    break;
+                } else {
+// BOTON ACTUALIZAR INFORMACION ACADEMICA
+                    ConsultasEstudio estu = new ConsultasEstudio();
+                    Estudio Es = new Estudio();
+
+                    Es.setInstitucion(txtInstitucion.getText());
+                    Es.setTitulo(txtTitulo.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDate_Chooser.getDate());
+                    Es.setAñoTerminado(date);
+
+                    Es.setCuidad(txtCiudad.getText());
+                    Es.setOrden(2);
+                    Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+                    Es.setIdEstudio(Integer.parseInt(txtIdEstudio.getText()));
+
+                    estu.actualizarEstudios(Es);
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos2ActionPerformed
+
+    private void btnPos3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos3ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableFormacionAcademina.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 5)).equals("1") || String.valueOf(df.getValueAt(i, 5)).equals("2") || String.valueOf(df.getValueAt(i, 5)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 5)).equals("4") || String.valueOf(df.getValueAt(i, 5)).equals("5") || String.valueOf(df.getValueAt(i, 5)).equals("6")) {
+                if (String.valueOf(df.getValueAt(i, 5)).equals("3")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 3 entonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtInstitucion.getText().equals("") || txtTitulo.getText().equals("") || txtCiudad.getText().equals("") || jDate_Chooser.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+//                    break;
+                } else {
+// BOTON ACTUALIZAR INFORMACION ACADEMICA
+                    ConsultasEstudio estu = new ConsultasEstudio();
+                    Estudio Es = new Estudio();
+
+                    Es.setInstitucion(txtInstitucion.getText());
+                    Es.setTitulo(txtTitulo.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDate_Chooser.getDate());
+                    Es.setAñoTerminado(date);
+
+                    Es.setCuidad(txtCiudad.getText());
+                    Es.setOrden(3);
+                    Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+                    Es.setIdEstudio(Integer.parseInt(txtIdEstudio.getText()));
+
+                    estu.actualizarEstudios(Es);
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos3ActionPerformed
+
+    private void btnPos4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos4ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableFormacionAcademina.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 5)).equals("1") || String.valueOf(df.getValueAt(i, 5)).equals("2") || String.valueOf(df.getValueAt(i, 5)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 5)).equals("4") || String.valueOf(df.getValueAt(i, 5)).equals("5") || String.valueOf(df.getValueAt(i, 5)).equals("6")) {
+                if (String.valueOf(df.getValueAt(i, 5)).equals("4")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 4 entonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtInstitucion.getText().equals("") || txtTitulo.getText().equals("") || txtCiudad.getText().equals("") || jDate_Chooser.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+//                    break;
+                } else {
+// BOTON ACTUALIZAR INFORMACION ACADEMICA
+                    ConsultasEstudio estu = new ConsultasEstudio();
+                    Estudio Es = new Estudio();
+
+                    Es.setInstitucion(txtInstitucion.getText());
+                    Es.setTitulo(txtTitulo.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDate_Chooser.getDate());
+                    Es.setAñoTerminado(date);
+
+                    Es.setCuidad(txtCiudad.getText());
+                    Es.setOrden(4);
+                    Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+                    Es.setIdEstudio(Integer.parseInt(txtIdEstudio.getText()));
+
+                    estu.actualizarEstudios(Es);
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos4ActionPerformed
+
+    private void btnPos5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos5ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableFormacionAcademina.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 5)).equals("1") || String.valueOf(df.getValueAt(i, 5)).equals("2") || String.valueOf(df.getValueAt(i, 5)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 5)).equals("4") || String.valueOf(df.getValueAt(i, 5)).equals("5") || String.valueOf(df.getValueAt(i, 5)).equals("6")) {
+                if (String.valueOf(df.getValueAt(i, 5)).equals("5")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 5 entonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtInstitucion.getText().equals("") || txtTitulo.getText().equals("") || txtCiudad.getText().equals("") || jDate_Chooser.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+//                    break;
+                } else {
+// BOTON ACTUALIZAR INFORMACION ACADEMICA
+                    ConsultasEstudio estu = new ConsultasEstudio();
+                    Estudio Es = new Estudio();
+
+                    Es.setInstitucion(txtInstitucion.getText());
+                    Es.setTitulo(txtTitulo.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDate_Chooser.getDate());
+                    Es.setAñoTerminado(date);
+
+                    Es.setCuidad(txtCiudad.getText());
+                    Es.setOrden(5);
+                    Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+                    Es.setIdEstudio(Integer.parseInt(txtIdEstudio.getText()));
+
+                    estu.actualizarEstudios(Es);
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos5ActionPerformed
+
+    private void btnPos6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos6ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableFormacionAcademina.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 5)).equals("1") || String.valueOf(df.getValueAt(i, 5)).equals("2") || String.valueOf(df.getValueAt(i, 5)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 5)).equals("4") || String.valueOf(df.getValueAt(i, 5)).equals("5") || String.valueOf(df.getValueAt(i, 5)).equals("6")) {
+                if (String.valueOf(df.getValueAt(i, 5)).equals("6")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 6 entonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtInstitucion.getText().equals("") || txtTitulo.getText().equals("") || txtCiudad.getText().equals("") || jDate_Chooser.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+//                    break;
+                } else {
+// BOTON ACTUALIZAR INFORMACION ACADEMICA
+                    ConsultasEstudio estu = new ConsultasEstudio();
+                    Estudio Es = new Estudio();
+
+                    Es.setInstitucion(txtInstitucion.getText());
+                    Es.setTitulo(txtTitulo.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDate_Chooser.getDate());
+                    Es.setAñoTerminado(date);
+
+                    Es.setCuidad(txtCiudad.getText());
+                    Es.setOrden(6);
+                    Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+                    Es.setIdEstudio(Integer.parseInt(txtIdEstudio.getText()));
+
+                    estu.actualizarEstudios(Es);
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos6ActionPerformed
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        try {
+            //btnAtras
+            frmP_Trabajador.Estudio(Integer.parseInt(txtIdTrabajador.getText()));
+            RSAnimation.setMoverIzquierda(500, -900, 0, 2, this);
+            Thread.sleep(1000);
+            this.dispose();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JDialog_Trabajador_FormacionAcademica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void btnPos7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos7ActionPerformed
+        if (txtInstitucion.getText().equals("") || txtTitulo.getText().equals("") || txtCiudad.getText().equals("") || jDate_Chooser.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+            Muestrame();
+        } else {
+// BOTON ACTUALIZAR INFORMACION ACADEMICA
+            ConsultasEstudio estu = new ConsultasEstudio();
+            Estudio Es = new Estudio();
+
+            Es.setInstitucion(txtInstitucion.getText());
+            Es.setTitulo(txtTitulo.getText());
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(jDate_Chooser.getDate());
+            Es.setAñoTerminado(date);
+
+            Es.setCuidad(txtCiudad.getText());
+            Es.setOrden(0);
+            Es.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+            Es.setIdEstudio(Integer.parseInt(txtIdEstudio.getText()));
+
+            estu.actualizarEstudios(Es);
+            Muestrame();
+            Limpiame();
+        }
+    }//GEN-LAST:event_btnPos7ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -475,9 +997,17 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnCancelarOrd;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnOrdenar;
+    private javax.swing.JButton btnPos1;
+    private javax.swing.JButton btnPos2;
+    private javax.swing.JButton btnPos3;
+    private javax.swing.JButton btnPos4;
+    private javax.swing.JButton btnPos5;
+    private javax.swing.JButton btnPos6;
+    private javax.swing.JButton btnPos7;
     private com.toedter.calendar.JDateChooser jDate_Chooser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -489,6 +1019,7 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableFormacionAcademina;
+    private javax.swing.JLabel lblMuestra;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtIdEstudio;
     private javax.swing.JTextField txtIdTrabajador;

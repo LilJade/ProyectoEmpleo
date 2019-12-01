@@ -1,4 +1,5 @@
 package Formularios;
+
 import Consultas.ConsultasHabilidades;
 import Entidades.Habilidad;
 import java.util.ArrayList;
@@ -9,7 +10,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import rojerusan.RSAnimation;
 
-
 public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
 
     public JDialog_Trabajador_Habilidades(java.awt.Frame parent, boolean modal) {
@@ -17,24 +17,25 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
         initComponents();
         txtIdTrabajador.setText(String.valueOf(frmVisitante.id));
 //        txtIdTrabajador.setVisible(false);
- //       txtIdHabil.setVisible(false);
-                
+        //       txtIdHabil.setVisible(false);
+
         this.setLocationRelativeTo(null);
         RSAnimation.setMoverDerecha(-700, 500, 0, 2, this);
 
         btnInsertar.setEnabled(true);
         btnActualizar.setEnabled(false);
         btnEliminar.setEnabled(false);
-        btnOrdenar.setEnabled(false);
         Muestrame();
         Limpiame();
     }
 
-    void Limpiame(){
+    void Limpiame() {
         txtHabilidad.setText("");
         txtIdHabil.setText("");
     }
+
     //METODO PARA VER LOS DATOS EN UNA JTABLE
+
     void Muestrame() {
         String Titulos[] = {"idHabil", "Habilidad", "idTrab"};
         DefaultTableModel modelo = new DefaultTableModel(null, Titulos);
@@ -73,7 +74,6 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         btnInsertar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
-        btnOrdenar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         txtHabilidad = new javax.swing.JTextField();
@@ -169,15 +169,6 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
             }
         });
 
-        btnOrdenar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        btnOrdenar.setForeground(new java.awt.Color(240, 240, 240));
-        btnOrdenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ordenar_24.png"))); // NOI18N
-        btnOrdenar.setText("ORDENAR");
-        btnOrdenar.setContentAreaFilled(false);
-        btnOrdenar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnOrdenar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnOrdenar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
         btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(240, 240, 240));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar_24.png"))); // NOI18N
@@ -205,6 +196,11 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
                 jButton5MouseClicked(evt);
             }
         });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -215,9 +211,7 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
                 .addComponent(btnInsertar)
                 .addGap(148, 148, 148)
                 .addComponent(btnActualizar)
-                .addGap(143, 143, 143)
-                .addComponent(btnOrdenar)
-                .addGap(132, 132, 132)
+                .addGap(392, 392, 392)
                 .addComponent(btnEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addComponent(jButton5)
@@ -229,7 +223,6 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
                 .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnActualizar)
-                    .addComponent(btnOrdenar)
                     .addComponent(btnEliminar)
                     .addComponent(jButton5)
                     .addComponent(btnInsertar))
@@ -259,8 +252,8 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -321,13 +314,13 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
 
     // BOTON ELIMINAR REFRENCIA
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-            ConsultasHabilidades cHab = new ConsultasHabilidades();
-            Habilidad h = new Habilidad();
-            h.setIdHabilidad(Integer.parseInt(txtIdHabil.getText()));
+        ConsultasHabilidades cHab = new ConsultasHabilidades();
+        Habilidad h = new Habilidad();
+        h.setIdHabilidad(Integer.parseInt(txtIdHabil.getText()));
 
-            cHab.eliminarHabilidades(h);
-            Muestrame();
-            Limpiame();
+        cHab.eliminarHabilidades(h);
+        Muestrame();
+        Limpiame();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     //MOSTRAR LOS DATOS DE LA JTABLE EN LOS TXT
@@ -335,13 +328,16 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
         btnInsertar.setEnabled(true);
         btnActualizar.setEnabled(true);
         btnEliminar.setEnabled(true);
-        btnOrdenar.setEnabled(true);
 
         int selec = jTableHabilidades.rowAtPoint(evt.getPoint());
         txtIdHabil.setText(String.valueOf(jTableHabilidades.getValueAt(selec, 0)));
         txtHabilidad.setText(String.valueOf(jTableHabilidades.getValueAt(selec, 1)));
         txtIdTrabajador.setText(String.valueOf(jTableHabilidades.getValueAt(selec, 2)));
     }//GEN-LAST:event_jTableHabilidadesMouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        frmP_Trabajador.Habilidades(Integer.parseInt(txtIdTrabajador.getText()));
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -389,7 +385,6 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
-    private javax.swing.JButton btnOrdenar;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

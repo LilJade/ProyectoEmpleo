@@ -12,7 +12,7 @@ public class conexionbd {
         try {
             String url = "jdbc:mysql://localhost:3306/proyectoempleo";
             String user = "root";
-            String contraseña = "jonathan";
+            String contraseña = "liljade09";
 
             con = DriverManager.getConnection(url, user, contraseña);
            //System.out.println("conectado");

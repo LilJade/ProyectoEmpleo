@@ -25,12 +25,12 @@ public class frmV_Trabajador extends javax.swing.JFrame {
         this.jp_Perfil1.setVisible(true);
         this.jp_Perfil2.setVisible(false);
         this.jp_Perfil3.setVisible(false);
-//        Estilo();
-//        Datos(frmVisitante.id);
-//        Estudio(frmVisitante.id);
-//        Experiencia(frmVisitante.id);
-//        Referencia(frmVisitante.id);
-//        Habilidades(frmVisitante.id);
+        Estilo();
+        Datos(FrmP_Empresa1.idVTrabajador);
+        Estudio(FrmP_Empresa1.idVTrabajador);
+        Experiencia(FrmP_Empresa1.idVTrabajador);
+        Referencia(FrmP_Empresa1.idVTrabajador);
+        Habilidades(FrmP_Empresa1.idVTrabajador);
 
         this.setBounds(0, 0, 1350, 900);
         this.setLocationRelativeTo(null);
@@ -259,7 +259,7 @@ public class frmV_Trabajador extends javax.swing.JFrame {
         lblNombreRef3_p2 = new javax.swing.JLabel();
         lblCargoRef3_p2 = new javax.swing.JLabel();
         lblEmpresaRef3_p2 = new javax.swing.JLabel();
-        lblTelefonoRef6 = new javax.swing.JLabel();
+        lblTelefonoRef3_p2 = new javax.swing.JLabel();
         lblCorreoRef3_p2 = new javax.swing.JLabel();
         jp_Perfil3 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -377,7 +377,7 @@ public class frmV_Trabajador extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jp_Perfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -2447,10 +2447,10 @@ public class frmV_Trabajador extends javax.swing.JFrame {
         lblEmpresaRef3_p2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmpresaRef3_p2.setText("Empresa del Referente");
 
-        lblTelefonoRef6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblTelefonoRef6.setForeground(new java.awt.Color(51, 51, 51));
-        lblTelefonoRef6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTelefonoRef6.setText("Telefono del Referente");
+        lblTelefonoRef3_p2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblTelefonoRef3_p2.setForeground(new java.awt.Color(51, 51, 51));
+        lblTelefonoRef3_p2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTelefonoRef3_p2.setText("Telefono del Referente");
 
         lblCorreoRef3_p2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblCorreoRef3_p2.setForeground(new java.awt.Color(51, 51, 51));
@@ -2468,7 +2468,7 @@ public class frmV_Trabajador extends javax.swing.JFrame {
                     .addComponent(lblCorreoRef3_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblTelefonoRef6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTelefonoRef3_p2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblEmpresaRef3_p2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)))
         );
         jPanel15Layout.setVerticalGroup(
@@ -2482,7 +2482,7 @@ public class frmV_Trabajador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCorreoRef3_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTelefonoRef6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTelefonoRef3_p2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 13, Short.MAX_VALUE))
         );
 
@@ -3677,7 +3677,7 @@ public class frmV_Trabajador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void Estilo(){
-        int estilo = frmVisitante.estilo;
+        int estilo = FrmP_Empresa1.estiloVTrabajador;
         if(estilo == 1){
             jp_Perfil1.setVisible(true);
             jp_Perfil2.setVisible(false);
@@ -3695,22 +3695,22 @@ public class frmV_Trabajador extends javax.swing.JFrame {
     
     public void Datos(int id) {
         ConsultasTrabajador cTr = new ConsultasTrabajador();
-        cTr.datosTrabajador(id);
+        cTr.datosTrabajadorV(id);
     }
 
     public void Estudio(int id) {
         ConsultasEstudio cEst = new ConsultasEstudio();
-        cEst.mostrarEstudios(id);
+        cEst.mostrarEstudiosV(id);
     }
 
     public void Experiencia(int id) {
         ConsultasExperiencia cExp = new ConsultasExperiencia();
-        cExp.mostrarExperiencias(id);
+        cExp.mostrarExperienciasV(id);
     }
 
     public void Referencia(int id) {
         ConsultasReferencia cRef = new ConsultasReferencia();
-        cRef.mostrarReferencias(id);
+        cRef.mostrarReferenciasV(id);
     }
 
     void Habilidades(int id) {
@@ -4061,8 +4061,8 @@ public class frmV_Trabajador extends javax.swing.JFrame {
     public static javax.swing.JLabel lblTelefonoRef2_p2;
     public static javax.swing.JLabel lblTelefonoRef2_p3;
     public static javax.swing.JLabel lblTelefonoRef3_p1;
+    public static javax.swing.JLabel lblTelefonoRef3_p2;
     public static javax.swing.JLabel lblTelefonoRef3_p3;
-    public static javax.swing.JLabel lblTelefonoRef6;
     public static javax.swing.JLabel lblTelefono_ip;
     public static javax.swing.JLabel lblTelefono_ip1;
     public static javax.swing.JLabel lblTelefono_ip10;
@@ -4091,7 +4091,7 @@ public class frmV_Trabajador extends javax.swing.JFrame {
     private javax.swing.JScrollPane scroll_Perfiles;
     public static javax.swing.JTextArea txtA_Descripcion_ip_p2;
     public static javax.swing.JTextArea txtA_Descripcion_ip_p3;
-    private javax.swing.JTextArea txtA_Direccion_ip_p1;
+    public static javax.swing.JTextArea txtA_Direccion_ip_p1;
     public static javax.swing.JTextArea txtA_Direccion_ip_p2;
     public static javax.swing.JTextArea txtA_descripcion_p1;
     public static javax.swing.JTextField txtCelular_ip_p1;

@@ -22,12 +22,24 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         txtIdExp.setVisible(false);
         txtIdTrabajador.setVisible(false);
         txtOrden.setVisible(false);
+        lblMuestra.setVisible(false);
+
         Muestrame();
         RSAnimation.setMoverDerecha(-700, 500, 0, 2, this);
         btnInsertar.setEnabled(true);
         btnActualizar.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnOrdenar.setEnabled(false);
+
+        btnCancelarOrd.setEnabled(false);
+        btnCancelarOrd.setVisible(false);
+        btnPos1.setVisible(false);
+        btnPos2.setVisible(false);
+        btnPos3.setVisible(false);
+        btnPos4.setVisible(false);
+        btnPos5.setVisible(false);
+
+        btnPos7.setVisible(false);
     }
 //MOSTRAR DATOS EN LA JTABLE
 
@@ -74,9 +86,13 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtIdExp = new javax.swing.JTextField();
-        txtOrden = new javax.swing.JTextField();
-        txtIdTrabajador = new javax.swing.JTextField();
+        btnPos7 = new javax.swing.JButton();
+        btnCancelarOrd = new javax.swing.JButton();
+        btnPos1 = new javax.swing.JButton();
+        btnPos2 = new javax.swing.JButton();
+        btnPos3 = new javax.swing.JButton();
+        btnPos4 = new javax.swing.JButton();
+        btnPos5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableExperienciaTrabajador = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -95,6 +111,10 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        lblMuestra = new javax.swing.JLabel();
+        txtIdExp = new javax.swing.JTextField();
+        txtOrden = new javax.swing.JTextField();
+        txtIdTrabajador = new javax.swing.JTextField();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/experiencia_laboral64.png"))); // NOI18N
 
@@ -133,12 +153,79 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/experiencia_laboral64.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 60, 60));
 
-        txtIdExp.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jPanel1.add(txtIdExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 36, 30));
+        btnPos7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos7.setText("DESMARCAR");
+        btnPos7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPos7, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 40, -1, -1));
 
-        txtOrden.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jPanel1.add(txtOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 47, 30));
-        jPanel1.add(txtIdTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 51, 30));
+        btnCancelarOrd.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnCancelarOrd.setForeground(new java.awt.Color(240, 240, 240));
+        btnCancelarOrd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/regresar_24.png"))); // NOI18N
+        btnCancelarOrd.setText("CANCELAR");
+        btnCancelarOrd.setContentAreaFilled(false);
+        btnCancelarOrd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCancelarOrd.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnCancelarOrd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCancelarOrd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelarOrdMouseClicked(evt);
+            }
+        });
+        btnCancelarOrd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarOrdActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCancelarOrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, -1, -1));
+
+        btnPos1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos1.setText("POSICIÓN 1");
+        btnPos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
+
+        btnPos2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos2.setText("POSICIÓN 2");
+        btnPos2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, -1, -1));
+
+        btnPos3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos3.setText("POSICIÓN 3");
+        btnPos3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, -1));
+
+        btnPos4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos4.setText("POSICIÓN 4");
+        btnPos4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPos4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, -1, -1));
+
+        btnPos5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnPos5.setText("POSICIÓN 5");
+        btnPos5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPos5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPos5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, -1, -1));
 
         jTableExperienciaTrabajador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -180,6 +267,11 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         btnOrdenar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnOrdenar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnOrdenar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(240, 240, 240));
@@ -274,12 +366,20 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setText("Fin de Trabajo: ");
 
+        lblMuestra.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblMuestra.setText("Fin de Trabajo: ");
+
+        txtIdExp.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+
+        txtOrden.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,20 +399,30 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addComponent(jDateChooserFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
+                    .addComponent(lblMuestra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jDateChooserFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtIdExp, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMuestra)
+                .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel10))
@@ -320,24 +430,28 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtNombreEmpresa)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtCargoOcup)
-                                .addGap(22, 22, 22))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCargoOcup)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jDateChooserInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jDateChooserFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(jLabel12)
                             .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)))
+                        .addGap(1, 1, 1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtIdExp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -346,6 +460,7 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         try {
+            frmP_Trabajador.Experiencia(Integer.parseInt(txtIdTrabajador.getText()));
             //btnAtras
             RSAnimation.setMoverIzquierda(500, -900, 0, 2, this);
             Thread.sleep(1000);
@@ -435,11 +550,63 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         txtOrden.setText(String.valueOf(jTableExperienciaTrabajador.getValueAt(selec, 6)));
         txtIdTrabajador.setText(String.valueOf(jTableExperienciaTrabajador.getValueAt(selec, 7)));
 
+        if (txtOrden.getText().equals("1")) {
+            btnPos1.setEnabled(false);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(true);
+        }
+        if (txtOrden.getText().equals("2")) {
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(false);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(true);
+        }
+        if (txtOrden.getText().equals("3")) {
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(false);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(true);
+        }
+        if (txtOrden.getText().equals("4")) {
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(false);
+            btnPos5.setEnabled(true);
+        }
+        if (txtOrden.getText().equals("5")) {
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(false);
+        }
+        if (txtOrden.getText().equals("6")) {
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(true);
+        }
 
+        if (txtOrden.getText().equals("") || txtOrden.getText().equals("0")) {
+            lblMuestra.setVisible(false);
+            btnPos1.setEnabled(true);
+            btnPos2.setEnabled(true);
+            btnPos3.setEnabled(true);
+            btnPos4.setEnabled(true);
+            btnPos5.setEnabled(true);
+        } else {
+            lblMuestra.setVisible(true);
+            lblMuestra.setText("Este registro se muestra en la posicion: " + txtOrden.getText());
+        }
     }//GEN-LAST:event_jTableExperienciaTrabajadorMouseClicked
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-
         if (txtNombreEmpresa.getText().equals("") || txtCargoOcup.getText().equals("") || txtDescripcion.getText().equals("")
                 || jDateChooserInicio.getDate() == null || jDateChooserFinal.getDate() == null) {
             JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
@@ -473,6 +640,321 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
             Limpiame();
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnPos7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos7ActionPerformed
+        if (txtNombreEmpresa.getText().equals("") || txtCargoOcup.getText().equals("") || txtDescripcion.getText().equals("")
+                || jDateChooserInicio.getDate() == null || jDateChooserFinal.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+            Muestrame();
+        } else {
+            // BOTON ACTUALIZAR
+            ConsultasExperiencia cex = new ConsultasExperiencia();
+            Experiencia ex = new Experiencia();
+
+            ex.setNombreEmpresa(txtNombreEmpresa.getText());
+            ex.setCargoOcupado(txtCargoOcup.getText());
+            ex.setDescripcion(txtDescripcion.getText());
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(jDateChooserInicio.getDate());
+            ex.setFechaInicio(date);
+
+            SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
+            String datef = sdff.format(jDateChooserFinal.getDate());
+            ex.setFechaFinal(date);
+
+            ex.setOrden(0);
+            ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+
+            ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
+
+            cex.actualizarExperiencia(ex);
+//        cex.insertarExperiencia(ex);
+
+            Muestrame();
+            Limpiame();
+        }
+    }//GEN-LAST:event_btnPos7ActionPerformed
+
+    private void btnCancelarOrdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarOrdMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarOrdMouseClicked
+
+    private void btnCancelarOrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarOrdActionPerformed
+        btnCancelarOrd.setEnabled(false);
+        btnCancelarOrd.setVisible(false);
+        btnPos1.setEnabled(false);
+        btnPos1.setVisible(false);
+        btnPos2.setEnabled(false);
+        btnPos2.setVisible(false);
+        btnPos3.setEnabled(false);
+        btnPos3.setVisible(false);
+        btnPos4.setEnabled(false);
+        btnPos4.setVisible(false);
+        btnPos5.setEnabled(false);
+        btnPos5.setVisible(false);
+        btnPos7.setEnabled(false);
+        btnPos7.setVisible(false);
+    }//GEN-LAST:event_btnCancelarOrdActionPerformed
+
+    private void btnPos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos1ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableExperienciaTrabajador.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 6)).equals("1") || String.valueOf(df.getValueAt(i, 6)).equals("2") || String.valueOf(df.getValueAt(i, 6)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 6)).equals("4") || String.valueOf(df.getValueAt(i, 6)).equals("5")) {
+                if (String.valueOf(df.getValueAt(i, 6)).equals("1")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 1 "
+                            + "\nentonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtNombreEmpresa.getText().equals("") || txtCargoOcup.getText().equals("") || txtDescripcion.getText().equals("")
+                        || jDateChooserInicio.getDate() == null || jDateChooserFinal.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+                } else {
+                    // BOTON ACTUALIZAR
+                    ConsultasExperiencia cex = new ConsultasExperiencia();
+                    Experiencia ex = new Experiencia();
+
+                    ex.setNombreEmpresa(txtNombreEmpresa.getText());
+                    ex.setCargoOcupado(txtCargoOcup.getText());
+                    ex.setDescripcion(txtDescripcion.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDateChooserInicio.getDate());
+                    ex.setFechaInicio(date);
+
+                    SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
+                    String datef = sdff.format(jDateChooserFinal.getDate());
+                    ex.setFechaFinal(date);
+
+                    ex.setOrden(1);
+                    ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+
+                    ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
+
+                    cex.actualizarExperiencia(ex);
+
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos1ActionPerformed
+
+    private void btnPos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos2ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableExperienciaTrabajador.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 6)).equals("1") || String.valueOf(df.getValueAt(i, 6)).equals("2") || String.valueOf(df.getValueAt(i, 6)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 6)).equals("4") || String.valueOf(df.getValueAt(i, 6)).equals("5")) {
+                if (String.valueOf(df.getValueAt(i, 6)).equals("2")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 2 "
+                            + "\nentonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtNombreEmpresa.getText().equals("") || txtCargoOcup.getText().equals("") || txtDescripcion.getText().equals("")
+                        || jDateChooserInicio.getDate() == null || jDateChooserFinal.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+                } else {
+                    // BOTON ACTUALIZAR
+                    ConsultasExperiencia cex = new ConsultasExperiencia();
+                    Experiencia ex = new Experiencia();
+
+                    ex.setNombreEmpresa(txtNombreEmpresa.getText());
+                    ex.setCargoOcupado(txtCargoOcup.getText());
+                    ex.setDescripcion(txtDescripcion.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDateChooserInicio.getDate());
+                    ex.setFechaInicio(date);
+
+                    SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
+                    String datef = sdff.format(jDateChooserFinal.getDate());
+                    ex.setFechaFinal(date);
+
+                    ex.setOrden(2);
+                    ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+
+                    ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
+
+                    cex.actualizarExperiencia(ex);
+//        cex.insertarExperiencia(ex);
+
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos2ActionPerformed
+
+    private void btnPos3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos3ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableExperienciaTrabajador.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 6)).equals("1") || String.valueOf(df.getValueAt(i, 6)).equals("2") || String.valueOf(df.getValueAt(i, 6)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 6)).equals("4") || String.valueOf(df.getValueAt(i, 6)).equals("5")) {
+                if (String.valueOf(df.getValueAt(i, 6)).equals("3")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 3 "
+                            + "\nentonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtNombreEmpresa.getText().equals("") || txtCargoOcup.getText().equals("") || txtDescripcion.getText().equals("")
+                        || jDateChooserInicio.getDate() == null || jDateChooserFinal.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+                } else {
+                    // BOTON ACTUALIZAR
+                    ConsultasExperiencia cex = new ConsultasExperiencia();
+                    Experiencia ex = new Experiencia();
+
+                    ex.setNombreEmpresa(txtNombreEmpresa.getText());
+                    ex.setCargoOcupado(txtCargoOcup.getText());
+                    ex.setDescripcion(txtDescripcion.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDateChooserInicio.getDate());
+                    ex.setFechaInicio(date);
+
+                    SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
+                    String datef = sdff.format(jDateChooserFinal.getDate());
+                    ex.setFechaFinal(date);
+
+                    ex.setOrden(3);
+                    ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+
+                    ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
+
+                    cex.actualizarExperiencia(ex);
+//        cex.insertarExperiencia(ex);
+
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos3ActionPerformed
+
+    private void btnPos4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos4ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableExperienciaTrabajador.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 6)).equals("1") || String.valueOf(df.getValueAt(i, 6)).equals("2") || String.valueOf(df.getValueAt(i, 6)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 6)).equals("4") || String.valueOf(df.getValueAt(i, 6)).equals("5")) {
+                if (String.valueOf(df.getValueAt(i, 6)).equals("4")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 4 "
+                            + "\nentonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtNombreEmpresa.getText().equals("") || txtCargoOcup.getText().equals("") || txtDescripcion.getText().equals("")
+                        || jDateChooserInicio.getDate() == null || jDateChooserFinal.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+                } else {
+                    // BOTON ACTUALIZAR
+                    ConsultasExperiencia cex = new ConsultasExperiencia();
+                    Experiencia ex = new Experiencia();
+
+                    ex.setNombreEmpresa(txtNombreEmpresa.getText());
+                    ex.setCargoOcupado(txtCargoOcup.getText());
+                    ex.setDescripcion(txtDescripcion.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDateChooserInicio.getDate());
+                    ex.setFechaInicio(date);
+
+                    SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
+                    String datef = sdff.format(jDateChooserFinal.getDate());
+                    ex.setFechaFinal(date);
+
+                    ex.setOrden(4);
+                    ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+
+                    ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
+
+                    cex.actualizarExperiencia(ex);
+//        cex.insertarExperiencia(ex);
+
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos4ActionPerformed
+
+    private void btnPos5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPos5ActionPerformed
+        DefaultTableModel df = (DefaultTableModel) jTableExperienciaTrabajador.getModel();
+        for (int i = 0; i < df.getRowCount(); i++) {
+            if (String.valueOf(df.getValueAt(i, 6)).equals("1") || String.valueOf(df.getValueAt(i, 6)).equals("2") || String.valueOf(df.getValueAt(i, 6)).equals("3")
+                    || String.valueOf(df.getValueAt(i, 6)).equals("4") || String.valueOf(df.getValueAt(i, 6)).equals("5")) {
+                if (String.valueOf(df.getValueAt(i, 6)).equals("5")) {
+                    JOptionPane.showMessageDialog(null, "Esta posicion ya esta ocupada\n"
+                            + "Si deseas seleccionar este campo como la nueva posicion 5 "
+                            + "\nentonces desmarca la anterior.", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            } else {
+                if (txtNombreEmpresa.getText().equals("") || txtCargoOcup.getText().equals("") || txtDescripcion.getText().equals("")
+                        || jDateChooserInicio.getDate() == null || jDateChooserFinal.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
+                    Muestrame();
+                } else {
+                    // BOTON ACTUALIZAR
+                    ConsultasExperiencia cex = new ConsultasExperiencia();
+                    Experiencia ex = new Experiencia();
+
+                    ex.setNombreEmpresa(txtNombreEmpresa.getText());
+                    ex.setCargoOcupado(txtCargoOcup.getText());
+                    ex.setDescripcion(txtDescripcion.getText());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(jDateChooserInicio.getDate());
+                    ex.setFechaInicio(date);
+
+                    SimpleDateFormat sdff = new SimpleDateFormat("yyyy-MM-dd");
+                    String datef = sdff.format(jDateChooserFinal.getDate());
+                    ex.setFechaFinal(date);
+
+                    ex.setOrden(5);
+                    ex.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+
+                    ex.setIdExperiencia(Integer.parseInt(txtIdExp.getText()));
+
+                    cex.actualizarExperiencia(ex);
+//        cex.insertarExperiencia(ex);
+
+                    Muestrame();
+                    Limpiame();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnPos5ActionPerformed
+
+    private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
+        btnCancelarOrd.setEnabled(true);
+        btnCancelarOrd.setVisible(true);
+        btnPos1.setVisible(true);
+        btnPos2.setVisible(true);
+        btnPos3.setVisible(true);
+        btnPos4.setVisible(true);
+        btnPos5.setVisible(true);
+        btnPos7.setVisible(true);
+        txtOrden.setText("");
+
+        jTableExperienciaTrabajador.clearSelection();
+        Limpiame();
+    }//GEN-LAST:event_btnOrdenarActionPerformed
 
     void Limpiame() {
         txtNombreEmpresa.setText("");
@@ -535,9 +1017,16 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnCancelarOrd;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnOrdenar;
+    private javax.swing.JButton btnPos1;
+    private javax.swing.JButton btnPos2;
+    private javax.swing.JButton btnPos3;
+    private javax.swing.JButton btnPos4;
+    private javax.swing.JButton btnPos5;
+    private javax.swing.JButton btnPos7;
     private com.toedter.calendar.JDateChooser jDateChooserFinal;
     private com.toedter.calendar.JDateChooser jDateChooserInicio;
     private javax.swing.JLabel jLabel1;
@@ -554,6 +1043,7 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableExperienciaTrabajador;
+    private javax.swing.JLabel lblMuestra;
     private javax.swing.JTextField txtCargoOcup;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtIdExp;

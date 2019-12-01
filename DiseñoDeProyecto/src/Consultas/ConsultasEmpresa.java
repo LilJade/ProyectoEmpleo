@@ -1,17 +1,9 @@
 package Consultas;
 
-import static Consultas.ConsultasAspirantes.idE;
-import Entidades.Aspirantes;
-import Entidades.Empleo;
 import Modelo.conexionbd;
 import Entidades.Empresa;
-import Entidades.GiroComercial;
-import Entidades.Trabajador;
 import Entidades.cargar_Aspirantes;
 import Formularios.FrmP_Empresa1;
-import Formularios.frmP_Trabajador;
-import Formularios.frmP_vista_empresas;
-import Formularios.frmR_Empresa;
 import Formularios.frmVisitante;
 import java.awt.HeadlessException;
 import java.awt.Image;
@@ -21,11 +13,9 @@ import java.io.InputStream;
 import java.sql.*;
 import java.util.*;
 import javax.imageio.ImageIO;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import sun.net.www.content.image.gif;
 
 public class ConsultasEmpresa {
     
@@ -35,8 +25,9 @@ public class ConsultasEmpresa {
     int Resultado = 1;
     public int idEmpresavisitante;
 
+    static int idEmp = 0;
 
-    public void ValidarEmpresa(Empresa E) {
+    public int ValidarEmpresa(Empresa E) {
         ImageIcon img = null;
         InputStream inp = null;
         try {
@@ -82,10 +73,13 @@ public class ConsultasEmpresa {
                     frme.idgiro.setText(String.valueOf(idG));
                     idE = rs.getInt("idEmpresa");
                     frme.lblidempresa.setText(String.valueOf(idE));
+                    frme.txtIdEmpresa.setText(String.valueOf(rs.getInt("idEmpresa")));
                    frme.txtgirocomercial.setText(rs.getString("CategoriaNombre"));
                     frme.setVisible(true);
                     frmv.setVisible(false);
-                   
+                    this.idEmp = rs.getInt("idEmpresa");
+                    System.out.println("idEmp");
+                    return idEmp;
                 }
                 
             } else {
@@ -95,7 +89,8 @@ public class ConsultasEmpresa {
         } catch (SQLException ex) {
             System.out.println("Error en el login de empresa: " + ex.getMessage());
         }
-        
+        System.out.println("empresa: " + idEmp);
+        return idEmp;
     }
     
     public void insertar(Empresa i) {
@@ -233,25 +228,26 @@ public class ConsultasEmpresa {
     }
 public ArrayList<cargar_Aspirantes> MostraAspirantes() {
         
-        ArrayList<cargar_Aspirantes> cargar_Aspirantes = new ArrayList<>();
+        ArrayList<cargar_Aspirantes> cargar_Asp = new ArrayList<>();
         try {
             CallableStatement cb = con.prepareCall("call SP_M_Aspirantes(?)");
             cb.setInt("idE", idE);
             ResultSet rs = cb.executeQuery();
             while (rs.next()) {
                 cargar_Aspirantes a = new cargar_Aspirantes();
-                
+                a.setIdTrabajador(rs.getInt("idTrabajador"));
                 a.setNombreT(rs.getString("nombres"));
                 a.setApellidoT(rs.getString("apellidos"));
                 a.setRequisitosE(rs.getString("requisitos"));
                 a.setNombreE(rs.getString("nombre"));
-                cargar_Aspirantes.add(a);
+                a.setEstilo(rs.getInt("estilo"));
+                cargar_Asp.add(a);
             }
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error en la consulta :" + e);
         }
-        return cargar_Aspirantes;
+        return cargar_Asp;
         
     }
 }

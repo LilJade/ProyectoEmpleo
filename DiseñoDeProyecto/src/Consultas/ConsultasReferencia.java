@@ -1,6 +1,7 @@
 package Consultas;
 import Entidades.Referencia;
 import Formularios.frmP_Trabajador;
+import Formularios.frmV_Trabajador;
 import Modelo.conexionbd;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -12,6 +13,7 @@ public class ConsultasReferencia {
 
     private Connection con = new conexionbd().getconexion();
     frmP_Trabajador frmP_Tr;
+    frmV_Trabajador frmV_Tr;
 
     public ArrayList<Referencia> mostrarReferenciasCrud(int id) {
         ArrayList<Referencia> CrudReferencias = new ArrayList<>();
@@ -108,7 +110,7 @@ public class ConsultasReferencia {
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
-                int orden = rs.getInt("idReferencia");
+                int orden = rs.getInt("orden");
                 int estilo = rs.getInt("estilo");
 
                 if (estilo == 1) {
@@ -189,6 +191,106 @@ public class ConsultasReferencia {
                             frmP_Tr.lblCargoRef3_p3.setText(rs.getString("cargoReferente"));
                             frmP_Tr.lblCorreoRef3_p3.setText(rs.getString("correoReferente"));
                             frmP_Tr.lblTelefonoRef3_p3.setText(rs.getString("telefonoReferente"));
+                            break;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al rescatar estudios: " + e.getMessage());
+        }
+    }
+
+    public void mostrarReferenciasV(int id) {
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_M_Referencia(?)");
+
+            st.setInt("idTrabajadorRef", id);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                int orden = rs.getInt("orden");
+                int estilo = rs.getInt("estilo");
+
+                if (estilo == 1) {
+                    switch (orden) {
+                        case 1: {
+                            frmV_Tr.lblNombreRef1_p1.setText(rs.getString("nombreReferente") + " " + rs.getString("apellidoReferente"));
+                            frmV_Tr.lblEmpresaRef1_p1.setText(rs.getString("empresaReferente"));
+                            frmV_Tr.lblCargoRef1_p1.setText(rs.getString("cargoReferente"));
+                            frmV_Tr.lblCorreoRef1_p1.setText(rs.getString("correoReferente"));
+                            frmV_Tr.lblTelefonoRef1_p1.setText(rs.getString("telefonoReferente"));
+                            break;
+                        }
+                        case 2: {
+                            frmV_Tr.lblNombreRef2_p1.setText(rs.getString("nombreReferente") + " " + rs.getString("apellidoReferente"));
+                            frmV_Tr.lblEmpresaRef2_p1.setText(rs.getString("empresaReferente"));
+                            frmV_Tr.lblCargoRef2_p1.setText(rs.getString("cargoReferente"));
+                            frmV_Tr.lblCorreoRef2_p1.setText(rs.getString("correoReferente"));
+                            frmV_Tr.lblTelefonoRef2_p1.setText(rs.getString("telefonoReferente"));
+                            break;
+                        }
+                        case 3: {
+                            frmV_Tr.lblNombreRef3_p1.setText(rs.getString("nombreReferente") + " " + rs.getString("apellidoReferente"));
+                            frmV_Tr.lblEmpresaRef3_p1.setText(rs.getString("empresaReferente"));
+                            frmV_Tr.lblCargoRef3_p1.setText(rs.getString("cargoReferente"));
+                            frmV_Tr.lblCorreoRef3_p1.setText(rs.getString("correoReferente"));
+                            frmV_Tr.lblTelefonoRef3_p1.setText(rs.getString("telefonoReferente"));
+                            break;
+                        }
+                    }
+                } else if (estilo == 2) {
+                    switch (orden) {
+                        case 1: {
+                            frmV_Tr.lblNombreRef1_p2.setText(rs.getString("nombreReferente") + " " + rs.getString("apellidoReferente"));
+                            frmV_Tr.lblEmpresaRef1_p2.setText(rs.getString("empresaReferente"));
+                            frmV_Tr.lblCargoRef1_p2.setText(rs.getString("cargoReferente"));
+                            frmV_Tr.lblCorreoRef1_p2.setText(rs.getString("correoReferente"));
+                            frmV_Tr.lblTelefonoRef1_p2.setText(rs.getString("telefonoReferente"));
+                            break;
+                        }
+                        case 2: {
+                            frmV_Tr.lblNombreRef2_p2.setText(rs.getString("nombreReferente") + " " + rs.getString("apellidoReferente"));
+                            frmV_Tr.lblEmpresaRef2_p2.setText(rs.getString("empresaReferente"));
+                            frmV_Tr.lblCargoRef2_p2.setText(rs.getString("cargoReferente"));
+                            frmV_Tr.lblCorreoRef2_p2.setText(rs.getString("correoReferente"));
+                            frmV_Tr.lblTelefonoRef2_p2.setText(rs.getString("telefonoReferente"));
+                            break;
+                        }
+                        case 3: {
+                            frmV_Tr.lblNombreRef3_p2.setText(rs.getString("nombreReferente") + " " + rs.getString("apellidoReferente"));
+                            frmV_Tr.lblEmpresaRef3_p2.setText(rs.getString("empresaReferente"));
+                            frmV_Tr.lblCargoRef3_p2.setText(rs.getString("cargoReferente"));
+                            frmV_Tr.lblCorreoRef3_p2.setText(rs.getString("correoReferente"));
+                            frmV_Tr.lblTelefonoRef3_p2.setText(rs.getString("telefonoReferente"));
+                            break;
+                        }
+                    }
+                } else if (estilo == 3) {
+                    switch (orden) {
+                        case 1: {
+                            frmV_Tr.lblNombreRef1_p3.setText(rs.getString("nombreReferente") + " " + rs.getString("apellidoReferente"));
+                            frmV_Tr.lblEmpresaRef1_p3.setText(rs.getString("empresaReferente"));
+                            frmV_Tr.lblCargoRef1_p3.setText(rs.getString("cargoReferente"));
+                            frmV_Tr.lblCorreoRef1_p3.setText(rs.getString("correoReferente"));
+                            frmV_Tr.lblTelefonoRef1_p3.setText(rs.getString("telefonoReferente"));
+                            break;
+                        }
+                        case 2: {
+                            frmV_Tr.lblNombreRef2_p3.setText(rs.getString("nombreReferente") + " " + rs.getString("apellidoReferente"));
+                            frmV_Tr.lblEmpresaRef2_p3.setText(rs.getString("empresaReferente"));
+                            frmV_Tr.lblCargoRef2_p3.setText(rs.getString("cargoReferente"));
+                            frmV_Tr.lblCorreoRef2_p3.setText(rs.getString("correoReferente"));
+                            frmV_Tr.lblTelefonoRef2_p3.setText(rs.getString("telefonoReferente"));
+                            break;
+                        }
+                        case 3: {
+                            frmV_Tr.lblNombreRef3_p3.setText(rs.getString("nombreReferente") + " " + rs.getString("apellidoReferente"));
+                            frmV_Tr.lblEmpresaRef3_p3.setText(rs.getString("empresaReferente"));
+                            frmV_Tr.lblCargoRef3_p3.setText(rs.getString("cargoReferente"));
+                            frmV_Tr.lblCorreoRef3_p3.setText(rs.getString("correoReferente"));
+                            frmV_Tr.lblTelefonoRef3_p3.setText(rs.getString("telefonoReferente"));
                             break;
                         }
                     }

@@ -532,6 +532,9 @@ public class frmR_Trabajador extends javax.swing.JFrame {
                 byte[] sq = Files.readAllBytes(file.toPath());//se hace la convercion de File a Bytes
                 eT.setImgPerfil(sq);
                 cT.insertar(eT);
+                frmVisitante frmV = new frmVisitante();
+                frmV.setVisible(true);
+                this.dispose();
             } catch (IOException ex) {
                 Logger.getLogger(frmR_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
             }

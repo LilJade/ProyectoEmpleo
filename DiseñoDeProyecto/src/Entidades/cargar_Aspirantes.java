@@ -14,8 +14,16 @@ public class cargar_Aspirantes {
     public static void add(cargar_Aspirantes a) {
         
     }
-   int idAspirantes, idTrabajador, idEmpleo;
+   int idAspirantes, idTrabajador, idEmpleo, estilo;
    String nombreE,nombreT,requisitosE,apellidoT;
+
+    public int getEstilo() {
+        return estilo;
+    }
+
+    public void setEstilo(int estilo) {
+        this.estilo = estilo;
+    }
 
     public int getIdAspirantes() {
         return idAspirantes;

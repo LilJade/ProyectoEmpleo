@@ -2,6 +2,7 @@ package Consultas;
 
 import Entidades.Experiencia;
 import Formularios.frmP_Trabajador;
+import Formularios.frmV_Trabajador;
 import Modelo.conexionbd;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -13,6 +14,7 @@ public class ConsultasExperiencia {
 
     private Connection con = new conexionbd().getconexion();
     frmP_Trabajador frmP_Tr;
+    frmV_Trabajador frmV_Tr;
 
     public ArrayList<Experiencia> mostrarExperienciasCrud(int id) {
         ArrayList<Experiencia> CrudExperiencias = new ArrayList<>();
@@ -103,7 +105,7 @@ public class ConsultasExperiencia {
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
-                int orden = rs.getInt("idExperiencia");
+                int orden = rs.getInt("orden");
                 int estilo = rs.getInt("estilo");
 
                 if (estilo == 1) {
@@ -227,4 +229,136 @@ public class ConsultasExperiencia {
         }
     }
 
+    public void mostrarExperienciasV(int id) {
+        try {
+            CallableStatement st = con.prepareCall("call SP_M_Experiencia(?)");
+
+            st.setInt("idTrabajadorExp", id);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                int orden = rs.getInt("orden");
+                int estilo = rs.getInt("estilo");
+
+                if (estilo == 1) {
+                    switch (orden) {
+                        case 1: {
+                            frmV_Tr.lblCargo1_p1.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp1_p1.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp1_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp1_p1.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 2: {
+                            frmV_Tr.lblCargo2_p1.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp2_p1.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp2_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp2_p1.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 3: {
+                            frmV_Tr.lblCargo3_p1.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp3_p1.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp3_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp3_p1.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 4: {
+                            frmV_Tr.lblCargo4_p1.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp4_p1.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp4_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp4_p1.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 5: {
+                            frmV_Tr.lblCargo5_p1.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp5_p1.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp5_p1.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp5_p1.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                    }
+                } else if (estilo == 2) {
+                    switch (orden) {
+                        case 1: {
+                            frmV_Tr.lblCargo1_p2.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp1_p2.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp1_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp1_p2.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 2: {
+                            frmV_Tr.lblCargo2_p2.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp2_p2.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp2_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp2_p2.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 3: {
+                            frmV_Tr.lblCargo3_p2.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp3_p2.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp3_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp3_p2.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 4: {
+                            frmV_Tr.lblCargo4_p2.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp4_p2.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp4_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp4_p2.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 5: {
+                            frmV_Tr.lblCargo5_p2.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp5_p2.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp5_p2.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp5_p2.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                    }
+                } else if (estilo == 3) {
+                    switch (orden) {
+                        case 1: {
+                            frmV_Tr.lblCargo1_p3.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp1_p3.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp1_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp1_p3.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 2: {
+                            frmV_Tr.lblCargo2_p3.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp2_p3.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp2_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp2_p3.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 3: {
+                            frmV_Tr.lblCargo3_p3.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp3_p3.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp3_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp3_p3.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 4: {
+                            frmV_Tr.lblCargo4_p3.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp4_p3.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp4_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp4_p3.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                        case 5: {
+                            frmV_Tr.lblCargo5_p3.setText(rs.getString("cargoOcupado"));
+                            frmV_Tr.lblInstitucionExp5_p3.setText(rs.getString("nombreEmpresa"));
+                            frmV_Tr.añoExp5_p3.setText(String.valueOf(rs.getDate("fechaInicio")) + " - " + String.valueOf(rs.getDate("fechaFinal")));
+                            frmV_Tr.descripcionExp5_p3.setText(rs.getString("descripcion"));
+                            break;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al extraer experiencias: " + e.getMessage());
+        }
+    }
 }

@@ -24,9 +24,9 @@ import javax.swing.table.DefaultTableModel;
 public class frmP_Trabajador extends javax.swing.JFrame {
 
     frmVisitante frmV;
-    int indice = 0;
-    private List<JLabel> lblHabilidades = new ArrayList<>();
-    int estilo = frmVisitante.estilo;
+    static int indice = 0;
+    public static List<JLabel> lblHabilidades = new ArrayList<>();
+    static int estilo = frmVisitante.estilo;
 
     public frmP_Trabajador() {
         initComponents();
@@ -4097,9 +4097,9 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addComponent(lblImgPerfilEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(lblIdEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(3167, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(lblIdEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -4161,7 +4161,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jp_BusquedaLayout.createSequentialGroup()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 3337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 461, Short.MAX_VALUE))
         );
 
         jps_Perfil.add(jp_Busqueda, "card3");
@@ -4397,7 +4397,6 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       ConsultasAspirantes cAsp = new ConsultasAspirantes();
       cAsp.mostrarvista(lblIdEmpresa.getText());
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
@@ -4444,27 +4443,27 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         }
     }
 
-    public void Datos(int id) {
+    public static void Datos(int id) {
         ConsultasTrabajador cTr = new ConsultasTrabajador();
         cTr.datosTrabajador(id);
     }
 
-    public void Estudio(int id) {
+    public static void Estudio(int id) {
         ConsultasEstudio cEst = new ConsultasEstudio();
         cEst.mostrarEstudios(id);
     }
 
-    public void Experiencia(int id) {
+    public static void Experiencia(int id) {
         ConsultasExperiencia cExp = new ConsultasExperiencia();
         cExp.mostrarExperiencias(id);
     }
 
-    public void Referencia(int id) {
+    public static void Referencia(int id) {
         ConsultasReferencia cRef = new ConsultasReferencia();
         cRef.mostrarReferencias(id);
     }
 
-    void Habilidades(int id) {
+    public static void Habilidades(int id) {
         ConsultasHabilidades cHab = new ConsultasHabilidades();
         ArrayList<Habilidad> hbld = cHab.mostrarHabilidades(id);
         Iterator i = hbld.iterator();

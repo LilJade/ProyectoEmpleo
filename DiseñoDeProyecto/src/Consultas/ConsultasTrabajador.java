@@ -4,6 +4,7 @@ import Modelo.conexionbd;
 import Entidades.Trabajador;
 import Formularios.JDialog_P_Trabajador_DatosPersonales;
 import Formularios.frmP_Trabajador;
+import Formularios.frmV_Trabajador;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -20,6 +21,7 @@ public class ConsultasTrabajador {
     public static int id = 0;
     public static int estilo = 0;
     frmP_Trabajador frmP_Tr;
+    frmV_Trabajador frmV_Tr;
     JDialog_P_Trabajador_DatosPersonales dp;
 
     public int ValidarTrabajador(Trabajador T) {
@@ -228,7 +230,7 @@ public class ConsultasTrabajador {
                 }
             }
         } catch (Exception e) {
-            System.out.println("Error a consultar datos del trabajador: " + e.getMessage());
+            System.out.println("Error al cargar estos datos del trabajador: " + e.getMessage());
         }
     }
 
@@ -258,4 +260,96 @@ public class ConsultasTrabajador {
             System.out.println("Error al actualizar datos: " + e.getMessage());
         }
     }
+    
+    public void datosTrabajadorV(int id) {
+        ImageIcon img = null;
+        InputStream inp = null;
+
+        try {
+            CallableStatement st = con.prepareCall("SELECT * FROM Trabajador WHERE idTrabajador = " + id);
+
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next()) {
+                int estilo = rs.getInt("estilo");
+                if (estilo == 1) {
+                    //Agregando foto de Perfil, si existe en la base.
+                    try {
+                        frmV_Tr.lblNombres_p1.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
+                        frmV_Tr.txtA_descripcion_p1.setText(rs.getString("descripcion"));
+                        frmV_Tr.lblEdad_ip_p1.setText("Edad: " + String.valueOf(rs.getInt("edad")));
+                        frmV_Tr.lblSexo_ip_p1.setText("Genero: " + rs.getString("sexo"));
+                        frmV_Tr.txtA_Direccion_ip_p1.setText(rs.getString("direccion"));
+                        frmV_Tr.txtCelular_ip_p1.setText(rs.getString("celular"));
+                        frmV_Tr.txtTelefono_ip_p1.setText(rs.getString("telefonoFijo"));
+                        frmV_Tr.txtCorreo_ip_p1.setText(rs.getString("correo"));
+                        if (rs.getBinaryStream("imgPerfil") != null) {
+                            inp = rs.getBinaryStream("imgPerfil");
+                            BufferedImage bi = ImageIO.read(inp);
+                            img = new ImageIcon(bi);
+                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmV_Tr.lblFotoperfil_p1.getWidth(), frmV_Tr.lblFotoperfil_p1.getHeight(), Image.SCALE_DEFAULT));
+                            frmV_Tr.lblFotoperfil_p1.setIcon(icn);
+                        } else {
+                            frmV_Tr.lblFotoperfil_p1.setIcon(null);
+                        }
+                    } catch (IOException ex) {
+                        frmV_Tr.lblFotoperfil_p1.setIcon(null);
+                    }
+                } else if (estilo == 2) {
+                    frmV_Tr.lblNombres2.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
+                    frmV_Tr.txtA_Descripcion_ip_p2.setText(rs.getString("descripcion"));
+                    frmV_Tr.txtEdad_ip_p2.setText(String.valueOf(rs.getInt("edad")));
+                    frmV_Tr.txtSexo_ip_p2.setText(rs.getString("sexo"));
+                    frmV_Tr.txtA_Direccion_ip_p2.setText(rs.getString("direccion"));
+                    frmV_Tr.lblCelular_ip_p2.setText("Celular: " + rs.getString("celular"));
+                    frmV_Tr.lblTelefono_ip2.setText("Telefono: " + rs.getString("telefonoFijo"));
+                    frmV_Tr.lblCorreo_ip_p2.setText("Correo: " + rs.getString("correo"));
+                    //Agregando foto de Perfil, si existe en la base.
+                    try {
+                        if (rs.getBinaryStream("imgPerfil") != null) {
+                            inp = rs.getBinaryStream("imgPerfil");
+                            BufferedImage bi = ImageIO.read(inp);
+                            img = new ImageIcon(bi);
+                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmV_Tr.lblFotoperfil_p2.getWidth(), frmV_Tr.lblFotoperfil_p2.getHeight(), Image.SCALE_DEFAULT));
+
+                            frmV_Tr.lblFotoperfil_p2.setIcon(icn);
+                        } else {
+                            frmV_Tr.lblFotoperfil_p2.setIcon(null);
+                        }
+                    } catch (IOException ex) {
+                        frmV_Tr.lblFotoperfil_p2.setIcon(null);
+                    }
+
+                } else if (estilo == 3) {
+                    frmV_Tr.lblNombres1.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
+                    frmV_Tr.txtA_Descripcion_ip_p3.setText(rs.getString("descripcion"));
+                    frmV_Tr.lblEdad_ip_p3.setText("Edad: " + String.valueOf(rs.getInt("edad")));
+                    frmV_Tr.lblSexo_ip_p3.setText("Genero: " + rs.getString("sexo"));
+                    frmV_Tr.lblDireccion_ip_p3.setText("Direccion: " + rs.getString("direccion"));
+                    frmV_Tr.lblCelular_ip_p3.setText("Celular: " + rs.getString("celular"));
+                    frmV_Tr.lblTelefono_ip3.setText("Telefono: " + rs.getString("telefonoFijo"));
+                    frmV_Tr.lblCorreo_ip_p3.setText("Correo: " + rs.getString("correo"));
+                    
+                    //Agregando foto de Perfil, si existe en la base.
+                    try {
+                        if (rs.getBinaryStream("imgPerfil") != null) {
+                            inp = rs.getBinaryStream("imgPerfil");
+                            BufferedImage bi = ImageIO.read(inp);
+                            img = new ImageIcon(bi);
+                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(frmV_Tr.lblFotoperfil_p3.getWidth(), frmV_Tr.lblFotoperfil_p3.getHeight(), Image.SCALE_DEFAULT));
+
+                            frmV_Tr.lblFotoperfil_p3.setIcon(icn);
+                        } else {
+                            frmV_Tr.lblFotoperfil_p3.setIcon(null);
+                        }
+                    } catch (IOException ex) {
+                        frmV_Tr.lblFotoperfil_p3.setIcon(null);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al cargar estos datos del trabajador: " + e.getMessage());
+        }
+    }
+
 }
