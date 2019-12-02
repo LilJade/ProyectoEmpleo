@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class frmR_Empresa extends javax.swing.JFrame {
-    
+
     public frmR_Empresa() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -36,7 +36,7 @@ public class frmR_Empresa extends javax.swing.JFrame {
         PromptSupport.setPrompt("Correo de la Empresa", txtCorreoE);
         PromptSupport.setPrompt("Contraseña", txtContraseñaE);
         PromptSupport.setPrompt("Telefono  de la Empresa", txtTelefono);
-        
+
         btnActivaA.setToolTipText("Activar");
         btnAyuda.setToolTipText("Ayuda");
         btnCancelar.setToolTipText("Cerrar");
@@ -44,7 +44,7 @@ public class frmR_Empresa extends javax.swing.JFrame {
 
         //fuente y diseño de la letra en cada txt
         Font fuente = new Font("Decker", 3, 15);
-        
+
         txtAcronimoE.setFont(fuente);
         txtAcronimoE.setForeground(new java.awt.Color(65, 138, 168));
         txtNombreE.setFont(fuente);
@@ -61,17 +61,17 @@ public class frmR_Empresa extends javax.swing.JFrame {
         txtTelefono.setForeground(new java.awt.Color(65, 138, 168));
         btnRegistrarE.setFont(fuente);
         btnRegistrarE.setForeground(new java.awt.Color(65, 138, 168));
-        
+
         cargarcombo();
     }
-    
+
     String filasCombo[] = new String[13];
-    
+
     String array[] = new String[23];
     int contadors = 0;
-    
+
     public void cargarcombo() {
-         ConsultasGiroComercial mo = new ConsultasGiroComercial();
+        ConsultasGiroComercial mo = new ConsultasGiroComercial();
         ArrayList<GiroComercial> PS = mo.mostrargiros();
         Iterator i = PS.iterator();
         DefaultComboBoxModel DefaultComboBoxModel = new DefaultComboBoxModel();
@@ -84,10 +84,10 @@ public class frmR_Empresa extends javax.swing.JFrame {
             DefaultComboBoxModel.addElement(p.getCategoriaNombre());
             contadors++;
         }
-        
+
         cmb_girocomercial.setModel(DefaultComboBoxModel);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -320,40 +320,39 @@ public class frmR_Empresa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     File file;
-    
+
 
     private void btnRegistrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEActionPerformed
         if (txtContraseñaE.getText().equals(txtConfirmarC.getText())) {
-            
+
             ConsultasEmpresa cEmp = new ConsultasEmpresa();
             Empresa eEmp = new Empresa();
             try {
-                
-                eEmp.setNombre(txtNombreE.getText());
-                eEmp.setAcronimo(txtAcronimoE.getText());
-                eEmp.setDescripcion(txtDescripcion.getText());
-                
-                eEmp.setDepartamento((String) cmbt_Departamento.getSelectedItem());
-                eEmp.setDireccion(txtUbicacion.getText());
-                eEmp.setTelefono(txtTelefono.getText());
-                eEmp.setCorreo(txtCorreoE.getText());
-                eEmp.setContraseña(txtContraseñaE.getText());
-                
                 byte[] sq = Files.readAllBytes(file.toPath());
                 eEmp.setImPerfil(sq);
-                
-                int indice, otro;
-                String valor;
-                indice = cmb_girocomercial.getSelectedIndex();
-                valor = array[indice];
-                otro = Integer.parseInt(valor);
-                eEmp.setIdGiroComercial(otro);
-                
-                cEmp.insertar(eEmp);
             } catch (Exception ex) {
-                Logger.getLogger(frmR_Empresa.class.getName()).log(Level.SEVERE, null, ex);
+                eEmp.setImPerfil(null);
             }
+            eEmp.setNombre(txtNombreE.getText());
+            eEmp.setAcronimo(txtAcronimoE.getText());
+            eEmp.setDescripcion(txtDescripcion.getText());
+
+            eEmp.setDepartamento((String) cmbt_Departamento.getSelectedItem());
+            eEmp.setDireccion(txtUbicacion.getText());
+            eEmp.setTelefono(txtTelefono.getText());
+            eEmp.setCorreo(txtCorreoE.getText());
+            eEmp.setContraseña(txtContraseñaE.getText());
+
+            int indice, otro;
+            String valor;
+            indice = cmb_girocomercial.getSelectedIndex();
+            valor = array[indice];
+            otro = Integer.parseInt(valor);
+            eEmp.setIdGiroComercial(otro);
+
+            cEmp.insertar(eEmp);
             
+            this.dispose();
         } else {
             lblConfirmarC.setText("La contraseña no coinciden");
         }
@@ -382,9 +381,9 @@ public class frmR_Empresa extends javax.swing.JFrame {
             txturl.setText(String.valueOf(file));
             Image foto = getToolkit().getImage(txturl.getText());
             foto = foto.getScaledInstance(btnCambiarPerfil.getWidth(), btnCambiarPerfil.getHeight(), Image.SCALE_DEFAULT);
-            
+
             btnCambiarPerfil.setIcon(new ImageIcon(foto));
-            
+
         }          // TODO add your handling code here:
     }//GEN-LAST:event_btnCambiarPerfilActionPerformed
 
@@ -434,7 +433,7 @@ public class frmR_Empresa extends javax.swing.JFrame {
             String nombre = txtTelefono.getText() + "-";
             txtTelefono.setText(nombre);
             Toolkit.getDefaultToolkit().beep();
-            
+
         } else if (txtTelefono.getText().length() >= 9) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -548,9 +547,10 @@ public class frmR_Empresa extends javax.swing.JFrame {
             btnRegistrarE.setEnabled(false);
         } else {
             btnRegistrarE.setEnabled(true);
-        }if(txtConfirmarC.getText().isEmpty()){
+        }
+        if (txtConfirmarC.getText().isEmpty()) {
             lblConfirmarC.setText("Campo requerido");
-        }else{
+        } else {
             lblConfirmarC.setText("");
         }
         if (txtNombreE.getText().isEmpty() || txtAcronimoE.getText().isEmpty()
@@ -566,7 +566,7 @@ public class frmR_Empresa extends javax.swing.JFrame {
             btnRegistrarE.setEnabled(true);
         }
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

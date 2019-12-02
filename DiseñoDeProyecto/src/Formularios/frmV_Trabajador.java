@@ -12,7 +12,6 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.JLabel;
 
-
 public class frmV_Trabajador extends javax.swing.JFrame {
 
     frmVisitante frmV;
@@ -35,6 +34,22 @@ public class frmV_Trabajador extends javax.swing.JFrame {
         this.setBounds(0, 0, 1350, 900);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+
+        txtTelefono_ip_p1.setEditable(false);
+        txtCelular_ip_p1.setEditable(false);
+        txtCorreo_ip_p1.setEditable(false);
+        txtA_Direccion_ip_p1.setEditable(false);
+        txtA_descripcion_p1.setEditable(false);
+
+        txtA_Direccion_ip_p2.setEditable(false);
+        txtA_Descripcion_ip_p2.setEditable(false);
+
+        txtA_Descripcion_ip_p3.setLineWrap(true);
+        txtA_Direccion_ip_p1.setLineWrap(true);
+        txtA_descripcion_p1.setLineWrap(true);
+        txtA_Direccion_ip_p2.setLineWrap(true);
+        txtA_Descripcion_ip_p2.setLineWrap(true);
+        txtA_Descripcion_ip_p3.setLineWrap(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -3676,23 +3691,23 @@ public class frmV_Trabajador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void Estilo(){
+    public void Estilo() {
         int estilo = FrmP_Empresa1.estiloVTrabajador;
-        if(estilo == 1){
+        if (estilo == 1) {
             jp_Perfil1.setVisible(true);
             jp_Perfil2.setVisible(false);
             jp_Perfil3.setVisible(false);
-        } else if(estilo == 2){
+        } else if (estilo == 2) {
             jp_Perfil1.setVisible(false);
             jp_Perfil2.setVisible(true);
             jp_Perfil3.setVisible(false);
-        }else if(estilo == 3){
+        } else if (estilo == 3) {
             jp_Perfil1.setVisible(false);
             jp_Perfil2.setVisible(false);
             jp_Perfil3.setVisible(true);
         }
     }
-    
+
     public void Datos(int id) {
         ConsultasTrabajador cTr = new ConsultasTrabajador();
         cTr.datosTrabajadorV(id);

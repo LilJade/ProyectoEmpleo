@@ -1,8 +1,16 @@
 package Entidades;
 
 public class Empleo {
-   int idEmpleo, idEmpresa;
+   int idEmpleo, idEmpresa, estado;
    String nombre,descripcion,requisitos;
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
    double salario;
 
     public int getIdEmpleo() {

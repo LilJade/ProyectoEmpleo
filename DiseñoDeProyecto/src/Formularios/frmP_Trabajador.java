@@ -9,8 +9,6 @@ import Consultas.ConsultasReferencia;
 import Consultas.ConsultasTrabajador;
 import Entidades.Empresa;
 import Entidades.Habilidad;
-import static Formularios.frmVisitante.lblImgEmpresa;
-import static Formularios.frmVisitante.lblNombreEmpresa;
 import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.awt.Image;
@@ -48,8 +46,16 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         this.setResizable(false);
 
         btnMiPerfil.setSelected(true);
+        txtA_Descripcion_ip_p3.setLineWrap(true);
+        txtA_Direccion_ip_p1.setLineWrap(true);
+        txtA_descripcion_p1.setLineWrap(true);
+        txtA_Direccion_ip_p2.setLineWrap(true);
+        txtA_Descripcion_ip_p2.setLineWrap(true);
+        txtA_Descripcion_ip_p3.setLineWrap(true);
 
         CargarTable();
+        
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -4223,7 +4229,13 @@ public class frmP_Trabajador extends javax.swing.JFrame {
 
     public void CargarTable() {
         String titulos[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
-        DefaultTableModel df = new DefaultTableModel(null, titulos);
+        DefaultTableModel df = new DefaultTableModel(null, titulos){
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         ConsultasEmpresa cEmp = new ConsultasEmpresa();
         ArrayList<Empresa> PS = cEmp.mostrarEmpresasVisitante();
         Iterator i = PS.iterator();
@@ -4239,6 +4251,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             df.addRow(filas);
         }
         jtbl_BusquedaEmp_pTrab.setModel(df);
+        jtbl_BusquedaEmp_pTrab.getTableHeader().setReorderingAllowed(false);
     }
 
     private void btnMiPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiPerfilActionPerformed
@@ -4255,6 +4268,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             btnMiPerfil.setSelected(false);
             btnBusqueda.setSelected(true);
             btnNotificaciones.setSelected(false);
+            scroll1.getVerticalScrollBar().setValue(scroll1.getVerticalScrollBar().getMinimum());
             jps_Perfil.nextPanel(10, jp_Busqueda, jps_Perfil.left);
         }
     }//GEN-LAST:event_btnBusquedaActionPerformed
@@ -4422,6 +4436,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         }
 
         jtbl_BusquedaEmp_pTrab.setModel(df);
+        jtbl_BusquedaEmp_pTrab.getTableHeader().setReorderingAllowed(false); 
     }
 
     public void Estilo() {

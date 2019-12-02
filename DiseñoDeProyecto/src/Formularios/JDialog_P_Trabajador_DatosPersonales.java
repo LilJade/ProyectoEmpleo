@@ -44,7 +44,9 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         btnEditar.setEnabled(true);
         btnCancelar.setEnabled(false);
         btnGuardar.setEnabled(false);
+        txtUrl.setVisible(false);
         cTr.editarDatosTrabajador(String.valueOf(frmVisitante.id));
+        lblCambio.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -60,10 +62,12 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         txtIdTrabajador = new javax.swing.JTextField();
         btnAtras = new javax.swing.JButton();
         txtEstilo = new javax.swing.JTextField();
+        lblCambio = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
+        btnGuardar1 = new javax.swing.JButton();
         txtNombresTrab = new javax.swing.JTextField();
         txtApellidosTrab = new javax.swing.JTextField();
         txtDescrTrab = new javax.swing.JTextField();
@@ -145,6 +149,9 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 0, 111, 60));
         jPanel1.add(txtEstilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 51, 30));
 
+        lblCambio.setText("jLabel4");
+        jPanel1.add(lblCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, -1, -1));
+
         jPanel2.setBackground(new java.awt.Color(48, 62, 71));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(247, 211, 3), 2));
 
@@ -190,6 +197,20 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
             }
         });
 
+        btnGuardar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnGuardar1.setForeground(new java.awt.Color(240, 240, 240));
+        btnGuardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar_24.png"))); // NOI18N
+        btnGuardar1.setText("CAMBIAR FOTO DE PERFIL");
+        btnGuardar1.setContentAreaFilled(false);
+        btnGuardar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuardar1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGuardar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -198,6 +219,8 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(btnEditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGuardar1)
+                .addGap(18, 18, 18)
                 .addComponent(btnCancelar)
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardar)
@@ -212,7 +235,8 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                            .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGuardar1, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -270,7 +294,7 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         jLabel8.setText("Mi Contraseña:");
         jLabel8.setToolTipText("");
 
-        btnCambiarImg.setText("Cambiar");
+        btnCambiarImg.setText("Elegir una imagen de perfil");
         btnCambiarImg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCambiarImgMouseClicked(evt);
@@ -347,7 +371,7 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
                                                 .addComponent(txtCorreoTrab, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtUrl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(btnCambiarImg, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(btnCambiarImg))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -400,8 +424,8 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txConfirContraseñaTrab))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(txConfirContraseñaTrab, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -431,6 +455,7 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         try {
             //btnAtras
+            frmP_Trabajador.Datos(Integer.parseInt(txtIdTrabajador.getText()));
             RSAnimation.setMoverIzquierda(500, -900, 0, 2, this);
             Thread.sleep(1000);
             this.dispose();
@@ -482,39 +507,47 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-//        Trabajador eT = new Trabajador();
-//        if (txConfirContraseñaTrab.getText().equals(txtContraseñaTrab.getText())) {
-//            try {
-//                eT.setNombres(txtNombresTrab.getText());
-//                eT.setApellidos(txtApellidosTrab.getText());
-//                eT.setDescripcion(txtDescrTrab.getText());
-//                eT.setEdad(Integer.parseInt(txtEdadTrab.getText()));
-//                eT.setSexo(txtSexoTrab.getText());
-//                eT.setDireccion(txtDireccionTrab.getText());
-//                eT.setCelular(txtCelTrab.getText());
-//                eT.setTelefonoFijo(txtTelefTrab.getText());
-//                eT.setCorreo(txtCorreoTrab.getText());
-//                eT.setPass(txtContraseñaTrab.getText());
-//                eT.setEstilo(Integer.parseInt(txtEstilo.getText()));
-//
-//                
+        Trabajador eT = new Trabajador();
+        if (lblCambio.getText().equals("1")) {
+            try {
+                eT.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+                byte[] sq = Files.readAllBytes(file.toPath());//se hace la convercion de File a Bytes
+                eT.setImgPerfil(sq);
+                cTr.actualizarDatosTrabajadorF(eT);
+                lblCambio.setText("");
+                btnCambiarImg.setVisible(false);
+            } catch (IOException ex) {
+                Logger.getLogger(JDialog_P_Trabajador_DatosPersonales.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            if (txConfirContraseñaTrab.getText().equals(txtContraseñaTrab.getText())) {
+
+                eT.setIdTrabajador(Integer.parseInt(txtIdTrabajador.getText()));
+                eT.setNombres(txtNombresTrab.getText());
+                eT.setApellidos(txtApellidosTrab.getText());
+                eT.setDescripcion(txtDescrTrab.getText());
+                eT.setEdad(Integer.parseInt(txtEdadTrab.getText()));
+                eT.setSexo(txtSexoTrab.getText());
+                eT.setDireccion(txtDireccionTrab.getText());
+                eT.setCelular(txtCelTrab.getText());
+                eT.setTelefonoFijo(txtTelefTrab.getText());
+                eT.setCorreo(txtCorreoTrab.getText());
+                eT.setPass(txtContraseñaTrab.getText());
+                eT.setEstilo(Integer.parseInt(txtEstilo.getText()));
+
 //                byte[] sq = Files.readAllBytes(file.toPath());//se hace la convercion de File a Bytes
 //                eT.setImgPerfil(sq);
-//                cTr.actualizarDatosTrabajador(eT);
-//                
-//                byte[] sq2 = Files.readAllBytes();
-//                
-//                System.out.println("Cambios Guardados!");
-//                btnEditar.setEnabled(true);
-//                btnCancelar.setEnabled(false);
-//                btnGuardar.setEnabled(false);
-//            } catch (IOException ex) {
-//                Logger.getLogger(frmR_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            
-//        } else {
-//            System.out.println("Asegurate de ingresar tu contraseña bien...");
-//        }
+                cTr.actualizarDatosTrabajadorSF(eT);
+
+                System.out.println("Cambios Guardados!");
+                btnEditar.setEnabled(true);
+                btnCancelar.setEnabled(false);
+                btnGuardar.setEnabled(false);
+
+            } else {
+                System.out.println("Asegurate de ingresar tu contraseña bien...");
+            }
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCambiarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarImgActionPerformed
@@ -534,8 +567,29 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
             foto = foto.getScaledInstance(lblImgPerfilTrab.getWidth(), lblImgPerfilTrab.getHeight(), Image.SCALE_DEFAULT);
 
             lblImgPerfilTrab.setIcon(new ImageIcon(foto));
+            lblCambio.setText("1");
+            btnGuardar.setEnabled(true);
         }
     }//GEN-LAST:event_btnCambiarImgMouseClicked
+
+    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+        btnCambiarImg.setVisible(true);
+        txtNombresTrab.setEnabled(false);
+        txtApellidosTrab.setEnabled(false);
+        txtDescrTrab.setEnabled(false);
+        txtDireccionTrab.setEnabled(false);
+        txtEdadTrab.setEnabled(false);
+        txtSexoTrab.setEnabled(false);
+        txtCorreoTrab.setEnabled(false);
+        txtContraseñaTrab.setEnabled(false);
+        txtTelefTrab.setEnabled(false);
+        txtCelTrab.setEnabled(false);
+        jLabel9.setVisible(false);
+        txConfirContraseñaTrab.setVisible(false);
+        btnEditar.setEnabled(false);
+        btnCancelar.setEnabled(true);
+        btnGuardar.setEnabled(false);
+    }//GEN-LAST:event_btnGuardar1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -582,6 +636,7 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnGuardar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -601,6 +656,7 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblCambio;
     public static javax.swing.JLabel lblImgPerfilTrab;
     private javax.swing.JPasswordField txConfirContraseñaTrab;
     public static javax.swing.JTextField txtApellidosTrab;

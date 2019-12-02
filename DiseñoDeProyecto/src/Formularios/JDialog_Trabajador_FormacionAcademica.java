@@ -59,7 +59,13 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
     //METODO PARA VER LOS DATOS EN UNA JTABLE
     void Muestrame() {
         String Titulos[] = {"idEst", "Institucion", "Titulo", "Año de finalizacion", "Ciudad", "orden", "idTrabajador"};
-        DefaultTableModel model = new DefaultTableModel(null, Titulos);
+        DefaultTableModel model = new DefaultTableModel(null, Titulos){
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         ConsultasEstudio estu = new ConsultasEstudio();
         Estudio es = new Estudio();
         ArrayList<Estudio> PS = estu.mostrarEstudiosCrud(frmVisitante.id);
@@ -82,6 +88,7 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
         jTableFormacionAcademina.getColumnModel().getColumn(0).setMaxWidth(0);
         //jTableFormacionAcademina.getColumnModel().getColumn(5).setMaxWidth(0);
         jTableFormacionAcademina.getColumnModel().getColumn(6).setMaxWidth(0);
+        jTableFormacionAcademina.getTableHeader().setReorderingAllowed(false);
     }
 
     @SuppressWarnings("unchecked")

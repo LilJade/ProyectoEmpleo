@@ -37,6 +37,7 @@ public class ConsultasAspirantes {
     private Connection con = new conexionbd().getconexion();
     public static int idE = 0;
     public static int idG = 0;
+    int resultado;
 
     public int idEmpresavisitante;
     frmP_vista_empresas frmve = new frmP_vista_empresas();
@@ -128,6 +129,22 @@ public class ConsultasAspirantes {
 
     }
 
+    public int verificarAspirante(Aspirantes asp){
+        try {
+            CallableStatement st = con.prepareCall("SELECT * FROM Aspirantes WHERE idTrabajador = " + String.valueOf(asp.getIdTrabajador())+ 
+                    " AND idEmpleo = " + String.valueOf(asp.getIdEmpleo()));
+            ResultSet rs = st.executeQuery();
+            
+            if(rs.next()){
+                resultado = 1;
+            }
+        } catch (Exception e) {
+            System.out.println("Error en consulta de comprobacion: " + e.getMessage());
+        }
+        
+        return resultado;
+    }
+    
     public void insertarAspirante(Aspirantes a) {
         try {
             CallableStatement st = con.prepareCall("CALL SP_I_Aspirantes(?,?)");

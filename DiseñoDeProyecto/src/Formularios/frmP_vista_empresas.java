@@ -10,6 +10,7 @@ import Entidades.Aspirantes;
 import Entidades.Empleo;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -37,6 +38,8 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         txtSalarioEmpl.setEditable(false);
         txtA_DescripEmpl.setEditable(false);
         txtA_RequisitosEmpl.setEditable(false);
+
+        btnAplicar.setEnabled(false);
     }
 
     /**
@@ -500,7 +503,13 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
 
     public void cargarTabla() {
         String titulos[] = {"Id", "Empleo", "Descripcion", "Requisitos", "Salario"};
-        DefaultTableModel df = new DefaultTableModel(null, titulos);
+        DefaultTableModel df = new DefaultTableModel(null, titulos){
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         ConsultasAspirantes mo = new ConsultasAspirantes();
         ArrayList<Empleo> PS = mo.Mostraempleosvisitante();
         Iterator i = PS.iterator();
@@ -521,6 +530,7 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
             df.addRow(filas);
         }
         empleos.setModel(df);
+
     }
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
 
@@ -559,20 +569,32 @@ public class frmP_vista_empresas extends javax.swing.JFrame {
         int selec = empleos.rowAtPoint(evt.getPoint());
         lblIdEmpleo.setText(String.valueOf(empleos.getValueAt(selec, 0)));
         txtNombreEmpl.setText(String.valueOf(empleos.getValueAt(selec, 1)));
-        txtSalarioEmpl.setText(String.valueOf(empleos.getValueAt(selec, 2)));
-        txtA_DescripEmpl.setText(String.valueOf(empleos.getValueAt(selec, 3)));
-        txtA_RequisitosEmpl.setText(String.valueOf(empleos.getValueAt(selec, 4)));
+        txtSalarioEmpl.setText(String.valueOf(empleos.getValueAt(selec, 4)));
+        txtA_DescripEmpl.setText(String.valueOf(empleos.getValueAt(selec, 2)));
+        txtA_RequisitosEmpl.setText(String.valueOf(empleos.getValueAt(selec, 3)));
+
+        btnAplicar.setEnabled(true);
     }//GEN-LAST:event_empleosMouseClicked
 
     private void btnAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarActionPerformed
 
         Aspirantes asp = new Aspirantes();
+        ConsultasAspirantes cAsp = new ConsultasAspirantes();
 
         asp.setIdEmpleo(Integer.parseInt(lblIdEmpleo.getText()));
         asp.setIdTrabajador(frmVisitante.id);
 
-        ConsultasAspirantes cAsp = new ConsultasAspirantes();
-        cAsp.insertarAspirante(asp);
+        int confir;
+        confir = cAsp.verificarAspirante(asp);
+//        System.out.println("estado: " + confir);
+        if (confir == 0) {
+            cAsp.insertarAspirante(asp);
+
+            btnAplicar.setEnabled(false);
+        } else {
+                        JOptionPane.showMessageDialog(null, "Ya has aplicado a esta oferta de trabajo");
+        }
+
     }//GEN-LAST:event_btnAplicarActionPerformed
 
     private void txtgirocomercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtgirocomercialActionPerformed

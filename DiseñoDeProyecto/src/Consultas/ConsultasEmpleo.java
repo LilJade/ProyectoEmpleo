@@ -28,16 +28,12 @@ public class ConsultasEmpleo {
             ResultSet rs = cb.executeQuery();
             while (rs.next()) {
                 Empleo p = new Empleo();
-
-                int idem = rs.getInt("idEmpleo");
-
-                p.setIdEmpleo(idem);
-
+                p.setIdEmpleo(rs.getInt("idEmpleo"));
                 p.setNombre(rs.getString("nombre"));
-
                 p.setDescripcion(rs.getString("descripcion"));
                 p.setRequisitos(rs.getString("requisitos"));
                 p.setSalario(rs.getDouble("salario"));
+                p.setEstado(rs.getInt("estado"));
                 empleo.add(p);
             }
         } catch (Exception e) {

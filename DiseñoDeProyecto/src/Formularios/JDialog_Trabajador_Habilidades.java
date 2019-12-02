@@ -35,10 +35,15 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
     }
 
     //METODO PARA VER LOS DATOS EN UNA JTABLE
-
     void Muestrame() {
         String Titulos[] = {"idHabil", "Habilidad", "idTrab"};
-        DefaultTableModel modelo = new DefaultTableModel(null, Titulos);
+        DefaultTableModel modelo = new DefaultTableModel(null, Titulos){
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         ConsultasHabilidades cHab = new ConsultasHabilidades();
         Habilidad h = new Habilidad();
         ArrayList<Habilidad> PS = cHab.mostrarHabilidadesCrud(frmVisitante.id);
@@ -58,6 +63,7 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
         //CODIGO PARA OCULTAR COLUMNAS EN UNA JTABLE
         jTableHabilidades.getColumnModel().getColumn(0).setMaxWidth(0);
         jTableHabilidades.getColumnModel().getColumn(2).setMaxWidth(0);
+        jTableHabilidades.getTableHeader().setReorderingAllowed(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -325,14 +331,19 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
 
     //MOSTRAR LOS DATOS DE LA JTABLE EN LOS TXT
     private void jTableHabilidadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableHabilidadesMouseClicked
-        btnInsertar.setEnabled(true);
-        btnActualizar.setEnabled(true);
-        btnEliminar.setEnabled(true);
+//
+//        int seleccion = jTableHabilidades.getRowCount();
+//
+//        if (seleccion != 0) {
+            btnInsertar.setEnabled(true);
+            btnActualizar.setEnabled(true);
+            btnEliminar.setEnabled(true);
 
-        int selec = jTableHabilidades.rowAtPoint(evt.getPoint());
-        txtIdHabil.setText(String.valueOf(jTableHabilidades.getValueAt(selec, 0)));
-        txtHabilidad.setText(String.valueOf(jTableHabilidades.getValueAt(selec, 1)));
-        txtIdTrabajador.setText(String.valueOf(jTableHabilidades.getValueAt(selec, 2)));
+            int selec = jTableHabilidades.rowAtPoint(evt.getPoint());
+            txtIdHabil.setText(String.valueOf(jTableHabilidades.getValueAt(selec, 0)));
+            txtHabilidad.setText(String.valueOf(jTableHabilidades.getValueAt(selec, 1)));
+            txtIdTrabajador.setText(String.valueOf(jTableHabilidades.getValueAt(selec, 2)));
+//        }
     }//GEN-LAST:event_jTableHabilidadesMouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

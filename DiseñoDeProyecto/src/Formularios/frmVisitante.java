@@ -587,7 +587,13 @@ public class frmVisitante extends javax.swing.JFrame {
 
     public void buscandoEmpresa(String nombre) {
         String title[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
-        DefaultTableModel df = new DefaultTableModel(null, title);
+        DefaultTableModel df = new DefaultTableModel(null, title){
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         ConsultasEmpresa cEmp = new ConsultasEmpresa();
         ArrayList<Empresa> ResultadoBusqueda = cEmp.BuscarEmpresaV(nombre);
         Iterator i = ResultadoBusqueda.iterator();
@@ -604,11 +610,18 @@ public class frmVisitante extends javax.swing.JFrame {
         }
 
         jtblMostrarEmpresas.setModel(df);
+        jtblMostrarEmpresas.getTableHeader().setReorderingAllowed(false);
     }
 
     public void CargarTable() {
         String titulos[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
-        DefaultTableModel df = new DefaultTableModel(null, titulos);
+        DefaultTableModel df = new DefaultTableModel(null, titulos){
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         ConsultasEmpresa cEmp = new ConsultasEmpresa();
         ArrayList<Empresa> PS = cEmp.mostrarEmpresasVisitante();
         Iterator i = PS.iterator();
@@ -624,6 +637,8 @@ public class frmVisitante extends javax.swing.JFrame {
             df.addRow(filas);
         }
         jtblMostrarEmpresas.setModel(df);
+        jtblMostrarEmpresas.getColumnModel().getColumn(0).setMaxWidth(0);
+        jtblMostrarEmpresas.getTableHeader().setReorderingAllowed(false);
     }
 
 

@@ -93,31 +93,31 @@ public class ConsultasTrabajador {
                 int style = rs.getInt("estilo");
 
 //                if (style == 1) {
-                    dp.txtNombresTrab.setText(rs.getString("nombres"));
-                    dp.txtApellidosTrab.setText(rs.getString("apellidos"));
-                    dp.txtDescrTrab.setText(rs.getString("descripcion"));
-                    dp.txtEdadTrab.setText(String.valueOf(rs.getInt("edad")));
-                    dp.txtSexoTrab.setText(rs.getString("sexo"));
-                    dp.txtDireccionTrab.setText(rs.getString("direccion"));
-                    dp.txtCelTrab.setText(rs.getString("celular"));
-                    dp.txtTelefTrab.setText(rs.getString("telefonoFijo"));
-                    dp.txtCorreoTrab.setText(rs.getString("correo"));
-                    dp.txtContraseñaTrab.setText(rs.getString("pass"));
-                    dp.txtEstilo.setText(String.valueOf(rs.getInt("estilo")));
-                    try {
-                        if (rs.getBinaryStream("imgPerfil") != null) {
-                            inp = rs.getBinaryStream("imgPerfil");
-                            BufferedImage bi = ImageIO.read(inp);
-                            img = new ImageIcon(bi);
-                            Icon icn = new ImageIcon(img.getImage().getScaledInstance(dp.lblImgPerfilTrab.getWidth(), dp.lblImgPerfilTrab.getHeight(), Image.SCALE_DEFAULT));
+                dp.txtNombresTrab.setText(rs.getString("nombres"));
+                dp.txtApellidosTrab.setText(rs.getString("apellidos"));
+                dp.txtDescrTrab.setText(rs.getString("descripcion"));
+                dp.txtEdadTrab.setText(String.valueOf(rs.getInt("edad")));
+                dp.txtSexoTrab.setText(rs.getString("sexo"));
+                dp.txtDireccionTrab.setText(rs.getString("direccion"));
+                dp.txtCelTrab.setText(rs.getString("celular"));
+                dp.txtTelefTrab.setText(rs.getString("telefonoFijo"));
+                dp.txtCorreoTrab.setText(rs.getString("correo"));
+                dp.txtContraseñaTrab.setText(rs.getString("pass"));
+                dp.txtEstilo.setText(String.valueOf(rs.getInt("estilo")));
+                try {
+                    if (rs.getBinaryStream("imgPerfil") != null) {
+                        inp = rs.getBinaryStream("imgPerfil");
+                        BufferedImage bi = ImageIO.read(inp);
+                        img = new ImageIcon(bi);
+                        Icon icn = new ImageIcon(img.getImage().getScaledInstance(dp.lblImgPerfilTrab.getWidth(), dp.lblImgPerfilTrab.getHeight(), Image.SCALE_DEFAULT));
 
-                            dp.lblImgPerfilTrab.setIcon(icn);
-                        } else {
-                            dp.lblImgPerfilTrab.setIcon(null);
-                        }
-                    } catch (IOException ex) {
+                        dp.lblImgPerfilTrab.setIcon(icn);
+                    } else {
                         dp.lblImgPerfilTrab.setIcon(null);
                     }
+                } catch (IOException ex) {
+                    dp.lblImgPerfilTrab.setIcon(null);
+                }
 //                }
             }
         } catch (Exception e) {
@@ -155,7 +155,6 @@ public class ConsultasTrabajador {
             if (rs.next()) {
                 int estilo = rs.getInt("estilo");
                 if (estilo == 1) {
-                    //Agregando foto de Perfil, si existe en la base.
                     try {
                         frmP_Tr.lblNombres_p1.setText(rs.getString("nombres") + " " + rs.getString("apellidos"));
                         frmP_Tr.txtA_descripcion_p1.setText(rs.getString("descripcion"));
@@ -211,7 +210,7 @@ public class ConsultasTrabajador {
                     frmP_Tr.lblCelular_ip_p3.setText("Celular: " + rs.getString("celular"));
                     frmP_Tr.lblTelefono_ip3.setText("Telefono: " + rs.getString("telefonoFijo"));
                     frmP_Tr.lblCorreo_ip_p3.setText("Correo: " + rs.getString("correo"));
-                    
+
                     //Agregando foto de Perfil, si existe en la base.
                     try {
                         if (rs.getBinaryStream("imgPerfil") != null) {
@@ -234,9 +233,9 @@ public class ConsultasTrabajador {
         }
     }
 
-    public void actualizarDatosTrabajador(Trabajador t) {
+    public void actualizarDatosTrabajadorSF(Trabajador t) {
         try {
-            CallableStatement st = con.prepareCall("CALL SP_U_Trabajador(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            CallableStatement st = con.prepareCall("CALL SP_U_TrabajadorSF(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             st.setInt("idTrabajador", t.getIdTrabajador());
             st.setString("nombresT", t.getNombres());
             st.setString("apellidosT", t.getApellidos());
@@ -250,7 +249,7 @@ public class ConsultasTrabajador {
             st.setString("nitT", t.getNit());
             st.setString("correoT", t.getCorreo());
             st.setString("passT", t.getPass());
-            st.setBytes("imgPerfilT", t.getImgPerfil());
+//            st.setBytes("imgPerfilT", t.getImgPerfil());
             st.setInt("estiloT", t.getEstilo());
 
             st.execute();
@@ -260,7 +259,21 @@ public class ConsultasTrabajador {
             System.out.println("Error al actualizar datos: " + e.getMessage());
         }
     }
-    
+
+    public void actualizarDatosTrabajadorF(Trabajador t) {
+        try {
+            CallableStatement st = con.prepareCall("CALL SP_U_TrabajadorF(?,?)");
+            st.setInt("idTrabajador", t.getIdTrabajador());
+            st.setBytes("imgPerfilT", t.getImgPerfil());
+
+            st.execute();
+
+            JOptionPane.showMessageDialog(null, "Actualizado con Exito");
+        } catch (Exception e) {
+            System.out.println("Error al actualizar datos: " + e.getMessage());
+        }
+    }
+
     public void datosTrabajadorV(int id) {
         ImageIcon img = null;
         InputStream inp = null;
@@ -329,7 +342,7 @@ public class ConsultasTrabajador {
                     frmV_Tr.lblCelular_ip_p3.setText("Celular: " + rs.getString("celular"));
                     frmV_Tr.lblTelefono_ip3.setText("Telefono: " + rs.getString("telefonoFijo"));
                     frmV_Tr.lblCorreo_ip_p3.setText("Correo: " + rs.getString("correo"));
-                    
+
                     //Agregando foto de Perfil, si existe en la base.
                     try {
                         if (rs.getBinaryStream("imgPerfil") != null) {

@@ -55,7 +55,13 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
     //METODO PARA VER LOS DATOS EN UNA JTABLE
     void Muestrame() {
         String Titulos[] = {"idRef", "Nombres del Referente", "Apellidos del referente", "Empresa del Referente", "Cargo del Referente", "Telefono del Referente", "Correo del Referente", "orden", "idTrabajador"};
-        DefaultTableModel modelo = new DefaultTableModel(null, Titulos);
+        DefaultTableModel modelo = new DefaultTableModel(null, Titulos){
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         ConsultasReferencia CoRe = new ConsultasReferencia();
         Referencia re = new Referencia();
         ArrayList<Referencia> PS = CoRe.mostrarReferenciasCrud(frmVisitante.id);
@@ -82,6 +88,7 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
         jTableReferencias.getColumnModel().getColumn(0).setMaxWidth(0);
         jTableReferencias.getColumnModel().getColumn(7).setMaxWidth(0);
         jTableReferencias.getColumnModel().getColumn(8).setMaxWidth(0);
+        jTableReferencias.getTableHeader().setReorderingAllowed(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -209,13 +216,13 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(btnPos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPos3)
+                .addComponent(btnPos7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPos3)
-                    .addComponent(btnPos7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnCancelarOrd))
