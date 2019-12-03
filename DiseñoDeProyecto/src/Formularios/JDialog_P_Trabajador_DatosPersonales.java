@@ -3,6 +3,7 @@ package Formularios;
 import Consultas.ConsultasTrabajador;
 import Entidades.Trabajador;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.io.File;
 import java.nio.file.Files;
@@ -10,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import rojerusan.RSAnimation;
 
@@ -126,7 +128,7 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("EXPERIENCIAS LABORALES");
+        jLabel1.setText("INFORMACION PERSONAL");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 400, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/experiencia_laboral64.png"))); // NOI18N
@@ -242,10 +244,25 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         );
 
         txtNombresTrab.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtNombresTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombresTrabKeyTyped(evt);
+            }
+        });
 
         txtApellidosTrab.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtApellidosTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidosTrabKeyTyped(evt);
+            }
+        });
 
         txtDescrTrab.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtDescrTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescrTrabKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Mis nombres: ");
@@ -257,8 +274,18 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         jLabel11.setText("Yo me describo:");
 
         txtSexoTrab.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtSexoTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSexoTrabKeyTyped(evt);
+            }
+        });
 
         txtEdadTrab.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtEdadTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEdadTrabKeyTyped(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setText("Mi genero: ");
@@ -267,16 +294,31 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         jLabel6.setText("Mi edad: ");
 
         txtDireccionTrab.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtDireccionTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDireccionTrabKeyTyped(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setText("Mi dirección:");
 
         txtTelefTrab.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtTelefTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefTrabKeyTyped(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setText("Mi numero de Telefono: ");
 
         txtCelTrab.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtCelTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCelTrabKeyTyped(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel17.setText("Mi numero de Celular: ");
@@ -285,6 +327,11 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         jLabel18.setText("Mi foto de perfil: ");
 
         txtCorreoTrab.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtCorreoTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoTrabKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Mi Correo Electronico:");
@@ -307,8 +354,18 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         });
 
         txtContraseñaTrab.setText("jPasswordField1");
+        txtContraseñaTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraseñaTrabKeyTyped(evt);
+            }
+        });
 
         txConfirContraseñaTrab.setText("jPasswordField1");
+        txConfirContraseñaTrab.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txConfirContraseñaTrabKeyTyped(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setText("Confirmar mi Contraseña:");
@@ -507,6 +564,12 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if (!txtCorreoTrab.getText().contains("@") || !txtCorreoTrab.getText().contains(".com")){
+            JOptionPane.showMessageDialog(null,"Formato de correo invalido. Asegurese de escribirlo bien.");
+        }else{
+           if (txtContraseñaTrab.getText().length() < 8) {
+            JOptionPane.showMessageDialog(null,"La contraseña no puede contener menos de 8 caracteres.");
+           }else{
         Trabajador eT = new Trabajador();
         if (lblCambio.getText().equals("1")) {
             try {
@@ -545,11 +608,12 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
                 btnGuardar.setEnabled(false);
 
             } else {
-                System.out.println("Asegurate de ingresar tu contraseña bien...");
+               JOptionPane.showMessageDialog(null, "La contraseña no coincide. Asegurate de escribir bien tu contraseña.");
             }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+    }
+    }
     private void btnCambiarImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarImgActionPerformed
 
     }//GEN-LAST:event_btnCambiarImgActionPerformed
@@ -591,6 +655,232 @@ public class JDialog_P_Trabajador_DatosPersonales extends javax.swing.JDialog {
         btnGuardar.setEnabled(false);
     }//GEN-LAST:event_btnGuardar1ActionPerformed
 
+    private void txtNombresTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombresTrabKeyTyped
+        if (txtNombresTrab.getText().length() >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == ' ' && txtNombresTrab.getText().contains(" "));
+        else{
+            if (txtNombresTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtNombresTrabKeyTyped
+    }
+    private void txtApellidosTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosTrabKeyTyped
+        if (txtApellidosTrab.getText().length() >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == ' ' && txtApellidosTrab.getText().contains(" "));
+        else{
+            if (txtApellidosTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtApellidosTrabKeyTyped
+    }
+    private void txtEdadTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadTrabKeyTyped
+        if (txtEdadTrab.getText().length() >= 2) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+
+        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == ' ' && txtEdadTrab.getText().contains(" "));
+        else{
+            if (txtEdadTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+
+    }//GEN-LAST:event_txtEdadTrabKeyTyped
+    }
+    private void txtSexoTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSexoTrabKeyTyped
+        if (txtSexoTrab.getText().length() >= 15) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == ' ' && txtSexoTrab.getText().contains(" "));
+        else{
+            if (txtSexoTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtSexoTrabKeyTyped
+    }
+    private void txtTelefTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefTrabKeyTyped
+        if (txtTelefTrab.getText().length() >= 8) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+        if (!Character.isDigit(evt.getKeyChar())
+                && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '-' && txtTelefTrab.getText().contains("-")) {
+            evt.consume();
+    }//GEN-LAST:event_txtTelefTrabKeyTyped
+    else{
+    if (txtTelefTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+        }
+    }
+    private void txtCelTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCelTrabKeyTyped
+        if (txtCelTrab.getText().length() >= 8) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+        if (!Character.isDigit(evt.getKeyChar())
+                && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '-' && txtCelTrab.getText().contains("-")) {
+            evt.consume();
+        } else{
+                    if (txtCelTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+        }
+    }//GEN-LAST:event_txtCelTrabKeyTyped
+
+    private void txtCorreoTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoTrabKeyTyped
+        
+        if (txtContraseñaTrab.getText().length() >= 150) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != '.' && !Character.isDigit(evt.getKeyChar())
+                && evt.getKeyChar() != '@') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '.' && txtCorreoTrab.getText().contains(".")) {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '@' && txtCorreoTrab.getText().contains("@")) {
+            evt.consume();
+        }else{
+            if (txtCorreoTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtCorreoTrabKeyTyped
+    }
+    private void txtContraseñaTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaTrabKeyTyped
+       if (txtContraseñaTrab.getText().length() >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+       }else{
+                    if (txtContraseñaTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }     
+    }//GEN-LAST:event_txtContraseñaTrabKeyTyped
+    }
+    private void txConfirContraseñaTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txConfirContraseñaTrabKeyTyped
+        if (txtContraseñaTrab.getText().length() >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }else{ 
+            if (txtContraseñaTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txConfirContraseñaTrabKeyTyped
+    }
+    private void txtDescrTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescrTrabKeyTyped
+         if (txtDescrTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtDescrTrabKeyTyped
+
+    private void txtDireccionTrabKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionTrabKeyTyped
+      if (txtDireccionTrab.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtDireccionTrabKeyTyped
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

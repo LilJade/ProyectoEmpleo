@@ -225,8 +225,6 @@ public class frmVisitante extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
-        lblImgEmpresa.setText("jLabel3");
-
         jButton1.setBackground(new java.awt.Color(0, 0, 51));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -364,6 +362,9 @@ public class frmVisitante extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscarKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyTyped(evt);
+            }
         });
         jpnlTitular.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 320, 30));
 
@@ -463,13 +464,11 @@ public class frmVisitante extends javax.swing.JFrame {
         rtnTrabajador.setText("Trabajador");
         pnlSesion.add(rtnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
-        lblUsuario2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblUsuario2.setForeground(new java.awt.Color(255, 0, 51));
-        pnlSesion.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 240, 20));
+        pnlSesion.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 230, 20));
 
-        lblContraseña.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblContraseña.setForeground(new java.awt.Color(255, 0, 0));
-        pnlSesion.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 260, 20));
+        pnlSesion.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 230, 20));
 
         lblContraseña2.setForeground(new java.awt.Color(255, 0, 51));
         pnlSesion.add(lblContraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 230, 20));
@@ -644,7 +643,12 @@ public class frmVisitante extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
-        //if (!txtUsuario.getText().equals("CORREO ELECTRONICO") || !txtUsuario.getText().isEmpty()) {
+         if (!txtUsuario.getText().contains("@") || !txtUsuario.getText().contains(".com")){
+            JOptionPane.showMessageDialog(null,"Formato de correo invalido. Asegurese de escribirlo bien.");
+         }else{
+             if (txtContraseña.getText().length() < 8) {
+            JOptionPane.showMessageDialog(null,"La contraseña no puede contener menos de 8 caracteres.");
+             }
         if (rtnEmpresa.isSelected()) {
             this.idE = 0;
             eEmpresa.setCorreo(txtUsuario.getText());
@@ -676,7 +680,8 @@ public class frmVisitante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor elige entre ingresar como Empresa o como Trabajador.");
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
-
+    }
+    
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         if (txtUsuario.getText().length() >= 150) {
             evt.consume();
@@ -684,6 +689,14 @@ public class frmVisitante extends javax.swing.JFrame {
             lblUsuario.setText("Limite permitido de caracteres 150");
         } else {
             lblUsuario.setText("");
+        } if (txtUsuario.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
         }
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
@@ -694,6 +707,14 @@ public class frmVisitante extends javax.swing.JFrame {
             lblContraseña.setText("Limite permitido de caracteres 50");
         } else {
             lblContraseña.setText("");
+        } if (txtContraseña.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
         }
     }//GEN-LAST:event_txtContraseñaKeyTyped
 
@@ -794,6 +815,18 @@ public class frmVisitante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Para poder acceder a los perfiles de las empresas debes estar registrado.", "¡Te invitamos a registrarte!", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
+         if (txtBuscar.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtBuscarKeyTyped
 
     /**
      * @param args the command line arguments

@@ -2,6 +2,7 @@ package Formularios;
 
 import Consultas.ConsultasReferencia;
 import Entidades.Referencia;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -351,19 +352,49 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
         );
 
         txtNombRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtNombRef.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombRefKeyTyped(evt);
+            }
+        });
 
         txtApelliRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtApelliRef.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApelliRefKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Nombres del Referente: ");
 
         txtEmpresaRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtEmpresaRef.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmpresaRefKeyTyped(evt);
+            }
+        });
 
         txtCarRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtCarRef.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCarRefKeyTyped(evt);
+            }
+        });
 
         txtTelRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtTelRef.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelRefKeyTyped(evt);
+            }
+        });
 
         txtCorreoRef.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtCorreoRef.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoRefKeyTyped(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setText("Apellidos del Referente: ");
@@ -483,6 +514,9 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton5MouseClicked
     // BOTON INSERTAR REFERENCIA
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
+        if (!txtCorreoRef.getText().contains("@") || !txtCorreoRef.getText().contains(".com")){
+            JOptionPane.showMessageDialog(null,"Formato de correo invalido. Asegurese de escribirlo bien.");
+        }else{
         if (txtNombRef.getText().equals("") || txtApelliRef.getText().equals("") || txtEmpresaRef.getText().equals("")
                 || txtCorreoRef.getText().equals("") || txtTelRef.getText().equals("") || txtCorreoRef.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Asegurate de rellenar todos los campos!", "You can do it!", JOptionPane.INFORMATION_MESSAGE);
@@ -509,7 +543,7 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
             Limpiame();
         }
     }//GEN-LAST:event_btnInsertarActionPerformed
-
+    }
     //BOTON ACTUALIZAR REFERENCIA
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         if (txtNombRef.getText().equals("") || txtApelliRef.getText().equals("") || txtEmpresaRef.getText().equals("")
@@ -777,6 +811,130 @@ public class JDialog_Trabajador_Referencias extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void txtNombRefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombRefKeyTyped
+ if (txtNombRef.getText().length() >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == ' ' && txtNombRef.getText().contains(" "));
+    else{
+    if (txtNombRef.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+    
+    }//GEN-LAST:event_txtNombRefKeyTyped
+        }
+    }
+    private void txtApelliRefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApelliRefKeyTyped
+     if (txtApelliRef.getText().length() >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == ' ' && txtApelliRef.getText().contains(" "));
+    else{
+            if (txtApelliRef.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+            }
+        }
+    }//GEN-LAST:event_txtApelliRefKeyTyped
+
+    private void txtCorreoRefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoRefKeyTyped
+      if (txtCorreoRef.getText().length() >= 150) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != '.' && !Character.isDigit(evt.getKeyChar())
+                && evt.getKeyChar() != '@') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '.' && txtCorreoRef.getText().contains(".")) {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '@' && txtCorreoRef.getText().contains("@")) {
+            evt.consume();
+        } if (txtCorreoRef.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtCorreoRefKeyTyped
+
+    private void txtTelRefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelRefKeyTyped
+         if (txtTelRef.getText().length() >= 8) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+        if (!Character.isDigit(evt.getKeyChar())
+                && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '-' && txtTelRef.getText().contains("-")) {
+            evt.consume();
+    }//GEN-LAST:event_txtTelRefKeyTyped
+ else{
+            if (txtTelRef.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+        }
+    }
+    private void txtEmpresaRefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmpresaRefKeyTyped
+       if (txtEmpresaRef.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+        
+    }//GEN-LAST:event_txtEmpresaRefKeyTyped
+
+    private void txtCarRefKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCarRefKeyTyped
+      if (txtCarRef.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+        
+    }//GEN-LAST:event_txtCarRefKeyTyped
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

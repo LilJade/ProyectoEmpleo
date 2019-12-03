@@ -392,6 +392,24 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
+        txtInstitucion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtInstitucionKeyTyped(evt);
+            }
+        });
+
+        txtTitulo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTituloKeyTyped(evt);
+            }
+        });
+
+        txtCiudad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCiudadKeyTyped(evt);
+            }
+        });
+
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel3.setText("INSTITUCIÓN");
 
@@ -960,6 +978,42 @@ public class JDialog_Trabajador_FormacionAcademica extends javax.swing.JDialog {
             Limpiame();
         }
     }//GEN-LAST:event_btnPos7ActionPerformed
+
+    private void txtInstitucionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInstitucionKeyTyped
+       if (txtInstitucion.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtInstitucionKeyTyped
+
+    private void txtTituloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTituloKeyTyped
+ if (txtTitulo.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtTituloKeyTyped
+
+    private void txtCiudadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCiudadKeyTyped
+ if (txtCiudad.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtCiudadKeyTyped
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

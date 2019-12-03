@@ -242,6 +242,9 @@ public class frmR_Trabajador extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jpsContraseña1KeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jpsContraseña1KeyTyped(evt);
+            }
         });
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -520,31 +523,37 @@ public class frmR_Trabajador extends javax.swing.JFrame {
     }
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+//        if (txturlF.getText().isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Por favor seleccione una foto.");
+//        } else {
+        if (lblEstilo.getText().contains("0")) {
+            JOptionPane.showMessageDialog(null, "Por favor seleccione un estilo para su Currículum.");
+        } else {
+            if (jpsContraseña.getText().equals(jpsContraseña1.getText())) {
+                try {
+                    byte[] sq = Files.readAllBytes(file.toPath());
+                    eT.setImgPerfil(sq);
+                } catch (Exception ex) {
+                    eT.setImgPerfil(null);
+                }
 
-        if (jpsContraseña.getText().equals(jpsContraseña1.getText())) {
-            try {
                 eT.setCorreo(txtCorreo.getText());
                 eT.setNombres(txtNombre.getText());
                 eT.setApellidos(txtApellidos.getText());
                 eT.setPass(jpsContraseña.getText());
                 eT.setEstilo(Integer.parseInt(lblEstilo.getText()));
-
-                byte[] sq = Files.readAllBytes(file.toPath());//se hace la convercion de File a Bytes
-                eT.setImgPerfil(sq);
                 cT.insertar(eT);
                 frmVisitante frmV = new frmVisitante();
                 frmV.setVisible(true);
                 this.dispose();
-            } catch (IOException ex) {
-                Logger.getLogger(frmR_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
+            } else {
+                lblConfirmarC.setText("La contraseña no coincide");
             }
-        } else {
-            lblConfirmarC.setText("La contraseña no coincide");
-        }
 
     }//GEN-LAST:event_btnRegistrarActionPerformed
+//        }
 
-
+    }
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
 
     }//GEN-LAST:event_btnCargarActionPerformed
@@ -597,27 +606,6 @@ public class frmR_Trabajador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
 
-    private void btnEstiloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstiloActionPerformed
-        if (lblEstilo.getText().equals("0")) {
-            if (lbEnunciado.getText().equals("Un estilo moderno.")) {
-                lblEstilo.setText("1");
-                btnEstilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SSuccess.png")));
-            } else if (lbEnunciado.getText().equals("Un estilo casual.")) {
-                lblEstilo.setText("2");
-                btnEstilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SSuccess.png")));
-            } else if (lbEnunciado.getText().equals("Un estilo clásico.")) {
-                lblEstilo.setText("3");
-                btnEstilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SSuccess.png")));
-            }
-        } else {
-            int r = JOptionPane.showConfirmDialog(null, "Ya elegiste un estilo para tu perfil.\n¿Deseas cambiar de estilo?", "Estilos", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (r == 0) {
-                lblEstilo.setText("0");
-                btnEstilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/NNSuccess.png")));
-            }
-        }
-    }//GEN-LAST:event_btnEstiloActionPerformed
-
     private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidosActionPerformed
@@ -656,9 +644,18 @@ public class frmR_Trabajador extends javax.swing.JFrame {
             evt.consume();
         }
         if (evt.getKeyChar() == ' ' && txtNombre.getText().contains(" "));
-
+        else{
+            if (txtNombre.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
     }//GEN-LAST:event_txtNombreKeyTyped
-
+    }
     private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
         if (txtApellidos.getText().length() >= 50) {
             evt.consume();
@@ -672,9 +669,18 @@ public class frmR_Trabajador extends javax.swing.JFrame {
             evt.consume();
         }
         if (evt.getKeyChar() == ' ' && txtApellidos.getText().contains(" "));
-
+        else{
+            if (txtApellidos.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
     }//GEN-LAST:event_txtApellidosKeyTyped
-
+    }
     private void jpsContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpsContraseñaKeyTyped
         if (jpsContraseña.getText().length() >= 50) {
             evt.consume();
@@ -682,6 +688,14 @@ public class frmR_Trabajador extends javax.swing.JFrame {
             lblContraseña.setText("Limite permitido de caracteres 50");
         } else {
             lblContraseña.setText("");
+        } if (jpsContraseña.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
         }
 
     }//GEN-LAST:event_jpsContraseñaKeyTyped
@@ -711,9 +725,43 @@ public class frmR_Trabajador extends javax.swing.JFrame {
     }//GEN-LAST:event_jpsContraseña1ActionPerformed
 
     private void txturlFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txturlFKeyReleased
-    //ValidacionRegistro();
+        //ValidacionRegistro();
     }//GEN-LAST:event_txturlFKeyReleased
 
+    private void jpsContraseña1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpsContraseña1KeyTyped
+        if (jpsContraseña1.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_jpsContraseña1KeyTyped
+
+    private void btnEstiloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstiloActionPerformed
+               if (lblEstilo.getText().equals("0")) {
+            if (lbEnunciado.getText().equals("Un estilo moderno.")) {
+                lblEstilo.setText("1");
+                btnEstilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SSuccess.png")));
+            } else if (lbEnunciado.getText().equals("Un estilo casual.")) {
+                lblEstilo.setText("2");
+                btnEstilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SSuccess.png")));
+            } else if (lbEnunciado.getText().equals("Un estilo clásico.")) {
+                lblEstilo.setText("3");
+                btnEstilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SSuccess.png")));
+            }
+        } else {
+            int r = JOptionPane.showConfirmDialog(null, "Ya elegiste un estilo para tu perfil.\n¿Deseas cambiar de estilo?", "Estilos", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (r == 0) {
+                lblEstilo.setText("0");
+                btnEstilo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/NNSuccess.png")));
+            }
+        }
+    }//GEN-LAST:event_btnEstiloActionPerformed
+
+    
     public void ValidacionRegistro() {
         if (txtCorreo.getText().isEmpty()) {
             lblCorreo.setText("Campo Requerido");
@@ -771,9 +819,8 @@ public class frmR_Trabajador extends javax.swing.JFrame {
                 || jpsContraseña.getText().isEmpty() || txtApellidos.getText().isEmpty()
                 || jpsContraseña1.getText().isEmpty() || !lblCorreo.getText().isEmpty()
                 || !lblNombre.getText().isEmpty() || !lblApellido.getText().isEmpty()
-                || !lblContraseña.getText().isEmpty() || !lblConfirmarC.getText().isEmpty()
-                /*|| txturlF.getText().isEmpty() || !lblFoto.getText().isEmpty()
-                || lblEstilo.getText().equals(0)|| !lblMensajeEs.getText().isEmpty() */) {
+                || !lblContraseña.getText().isEmpty() || !lblConfirmarC.getText().isEmpty() /*|| txturlF.getText().isEmpty() || !lblFoto.getText().isEmpty()
+                 || lblEstilo.getText().equals(0)|| !lblMensajeEs.getText().isEmpty() */) {
             btnRegistrar.setEnabled(false);
         } else {
             btnRegistrar.setEnabled(true);

@@ -9,6 +9,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -36,6 +37,7 @@ public class frmR_Empresa extends javax.swing.JFrame {
         PromptSupport.setPrompt("Correo de la Empresa", txtCorreoE);
         PromptSupport.setPrompt("Contraseña", txtContraseñaE);
         PromptSupport.setPrompt("Telefono  de la Empresa", txtTelefono);
+        PromptSupport.setPrompt("Confirmar Contraseña", txtConfirmarC);
 
         btnActivaA.setToolTipText("Activar");
         btnAyuda.setToolTipText("Ayuda");
@@ -61,6 +63,8 @@ public class frmR_Empresa extends javax.swing.JFrame {
         txtTelefono.setForeground(new java.awt.Color(65, 138, 168));
         btnRegistrarE.setFont(fuente);
         btnRegistrarE.setForeground(new java.awt.Color(65, 138, 168));
+        txtConfirmarC.setFont(fuente);
+        txtConfirmarC.setForeground(new java.awt.Color(65, 138, 168));
 
         cargarcombo();
     }
@@ -131,6 +135,9 @@ public class frmR_Empresa extends javax.swing.JFrame {
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 180, -1));
 
         txtNombreE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNombreEKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNombreEKeyReleased(evt);
             }
@@ -159,6 +166,7 @@ public class frmR_Empresa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtContraseñaE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 240, 35));
+        txtContraseñaE.getAccessibleContext().setAccessibleDescription("");
 
         txtCorreoE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,7 +210,7 @@ public class frmR_Empresa extends javax.swing.JFrame {
                 txtTelefonoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, 230, 35));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, 210, 35));
 
         btnActivaA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/feliz_24.png"))); // NOI18N
         btnActivaA.setBorder(null);
@@ -279,13 +287,16 @@ public class frmR_Empresa extends javax.swing.JFrame {
         getContentPane().add(lblContraseñaE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 670, 230, 20));
 
         lblTelefonoE.setForeground(new java.awt.Color(204, 0, 0));
-        getContentPane().add(lblTelefonoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 600, 230, 20));
+        getContentPane().add(lblTelefonoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 600, 210, 20));
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
         txtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtDescripcionKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescripcionKeyTyped(evt);
             }
         });
         jScrollPane1.setViewportView(txtDescripcion);
@@ -300,16 +311,19 @@ public class frmR_Empresa extends javax.swing.JFrame {
                 txtConfirmarCKeyTyped(evt);
             }
         });
-        getContentPane().add(txtConfirmarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 630, 230, 35));
+        getContentPane().add(txtConfirmarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 630, 210, 35));
 
         lblConfirmarC.setForeground(new java.awt.Color(204, 0, 0));
-        getContentPane().add(lblConfirmarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 670, 230, 20));
+        getContentPane().add(lblConfirmarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 670, 210, 20));
 
         txtUbicacion.setColumns(20);
         txtUbicacion.setRows(5);
         txtUbicacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtUbicacionKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUbicacionKeyTyped(evt);
             }
         });
         jScrollPane2.setViewportView(txtUbicacion);
@@ -323,42 +337,46 @@ public class frmR_Empresa extends javax.swing.JFrame {
 
 
     private void btnRegistrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEActionPerformed
-        if (txtContraseñaE.getText().equals(txtConfirmarC.getText())) {
+        if (txtTelefono.getText().length() < 8) {
+            JOptionPane.showMessageDialog(null, "El numero telefonico no puede contener menos de 8 caracteres.");
 
-            ConsultasEmpresa cEmp = new ConsultasEmpresa();
-            Empresa eEmp = new Empresa();
-            try {
-                byte[] sq = Files.readAllBytes(file.toPath());
-                eEmp.setImPerfil(sq);
-            } catch (Exception ex) {
-                eEmp.setImPerfil(null);
-            }
-            eEmp.setNombre(txtNombreE.getText());
-            eEmp.setAcronimo(txtAcronimoE.getText());
-            eEmp.setDescripcion(txtDescripcion.getText());
-
-            eEmp.setDepartamento((String) cmbt_Departamento.getSelectedItem());
-            eEmp.setDireccion(txtUbicacion.getText());
-            eEmp.setTelefono(txtTelefono.getText());
-            eEmp.setCorreo(txtCorreoE.getText());
-            eEmp.setContraseña(txtContraseñaE.getText());
-
-            int indice, otro;
-            String valor;
-            indice = cmb_girocomercial.getSelectedIndex();
-            valor = array[indice];
-            otro = Integer.parseInt(valor);
-            eEmp.setIdGiroComercial(otro);
-
-            cEmp.insertar(eEmp);
-            
-            this.dispose();
         } else {
-            lblConfirmarC.setText("La contraseña no coinciden");
-        }
+            if (txtContraseñaE.getText().equals(txtConfirmarC.getText())) {
+
+                ConsultasEmpresa cEmp = new ConsultasEmpresa();
+                Empresa eEmp = new Empresa();
+                try {
+                    byte[] sq = Files.readAllBytes(file.toPath());
+                    eEmp.setImPerfil(sq);
+                } catch (Exception ex) {
+                    eEmp.setImPerfil(null);
+                }
+                eEmp.setNombre(txtNombreE.getText());
+                eEmp.setAcronimo(txtAcronimoE.getText());
+                eEmp.setDescripcion(txtDescripcion.getText());
+
+                eEmp.setDepartamento((String) cmbt_Departamento.getSelectedItem());
+                eEmp.setDireccion(txtUbicacion.getText());
+                eEmp.setTelefono(txtTelefono.getText());
+                eEmp.setCorreo(txtCorreoE.getText());
+                eEmp.setContraseña(txtContraseñaE.getText());
+
+                int indice, otro;
+                String valor;
+                indice = cmb_girocomercial.getSelectedIndex();
+                valor = array[indice];
+                otro = Integer.parseInt(valor);
+                eEmp.setIdGiroComercial(otro);
+
+                cEmp.insertar(eEmp);
+
+                this.dispose();
+            } else {
+                lblConfirmarC.setText("La contraseña no coinciden");
+            }
 
     }//GEN-LAST:event_btnRegistrarEActionPerformed
-
+    }
     private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAyudaActionPerformed
@@ -395,6 +413,16 @@ public class frmR_Empresa extends javax.swing.JFrame {
         } else {
             lblNombreE.setText("");
         }
+
+        if (txtNombreE.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
     }//GEN-LAST:event_txtNombreEKeyTyped
 
     private void txtAcronimoEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAcronimoEKeyTyped
@@ -404,6 +432,15 @@ public class frmR_Empresa extends javax.swing.JFrame {
             lblAcronimoE.setText("Limite permitido de caraceteres 25");
         } else {
             lblAcronimoE.setText("");
+        }
+        if (txtAcronimoE.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
         }
     }//GEN-LAST:event_txtAcronimoEKeyTyped
 
@@ -424,17 +461,12 @@ public class frmR_Empresa extends javax.swing.JFrame {
         }
         if (evt.getKeyChar() == '@' && txtCorreoE.getText().contains("@")) {
             evt.consume();
-        }
+
     }//GEN-LAST:event_txtCorreoEKeyTyped
-
+    }
     private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
-        if (txtTelefono.getText().length() == 4) {
-            evt.consume();
-            String nombre = txtTelefono.getText() + "-";
-            txtTelefono.setText(nombre);
-            Toolkit.getDefaultToolkit().beep();
 
-        } else if (txtTelefono.getText().length() >= 9) {
+        if (txtTelefono.getText().length() >= 8) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
             lblTelefonoE.setText("Maximo de numeros alcanzados");
@@ -443,9 +475,18 @@ public class frmR_Empresa extends javax.swing.JFrame {
                 && evt.getKeyChar() != ' ') {
             evt.consume();
         }
-        if (evt.getKeyChar() == ' ' && txtTelefono.getText().contains(" ")) {
+        if (evt.getKeyChar() == '-' && txtTelefono.getText().contains("-")) {
             evt.consume();
     }//GEN-LAST:event_txtTelefonoKeyTyped
+        if (txtTelefono.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
     }
     private void txtNombreEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEKeyReleased
         ValidacionRegistroE();
@@ -475,8 +516,17 @@ public class frmR_Empresa extends javax.swing.JFrame {
         } else {
             lblContraseñaE.setText("");
         }
-    }//GEN-LAST:event_txtContraseñaEKeyTyped
+        if (txtConfirmarC.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
 
+    }//GEN-LAST:event_txtContraseñaEKeyTyped
+    }
     private void txtContraseñaEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaEKeyReleased
         ValidacionRegistroE();
     }//GEN-LAST:event_txtContraseñaEKeyReleased
@@ -487,8 +537,17 @@ public class frmR_Empresa extends javax.swing.JFrame {
 
     private void txtConfirmarCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConfirmarCKeyTyped
         ValidacionRegistroE();
-    }//GEN-LAST:event_txtConfirmarCKeyTyped
+        if (txtNombreE.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
 
+    }//GEN-LAST:event_txtConfirmarCKeyTyped
+    }
     private void cmb_girocomercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_girocomercialActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmb_girocomercialActionPerformed
@@ -504,6 +563,34 @@ public class frmR_Empresa extends javax.swing.JFrame {
     private void txtUbicacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUbicacionKeyReleased
         ValidacionRegistroE();
     }//GEN-LAST:event_txtUbicacionKeyReleased
+
+    private void txtNombreEKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEKeyPressed
+
+    }//GEN-LAST:event_txtNombreEKeyPressed
+
+    private void txtDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescripcionKeyTyped
+        if (txtDescripcion.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtDescripcionKeyTyped
+
+    private void txtUbicacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUbicacionKeyTyped
+        if (txtUbicacion.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtUbicacionKeyTyped
     public void ValidacionRegistroE() {
         if (txtNombreE.getText().isEmpty()) {
             lblNombreE.setText("Campo requerido");

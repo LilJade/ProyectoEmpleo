@@ -33,7 +33,8 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         this.jp_Perfil1.setVisible(false);
         this.jp_Perfil2.setVisible(false);
         this.jp_Perfil3.setVisible(false);
-
+        lblId_P2.setVisible(false);
+        lblStyle_P2.setVisible(false);
         Estilo();
         Datos(frmVisitante.id);
         Estudio(frmVisitante.id);

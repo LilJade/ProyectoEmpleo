@@ -482,6 +482,9 @@
           <Font name="Arial Black" size="12" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombRefKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtApelliRef">
       <Properties>
@@ -489,6 +492,9 @@
           <Font name="Arial Black" size="12" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtApelliRefKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -504,6 +510,9 @@
           <Font name="Arial Black" size="12" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEmpresaRefKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCarRef">
       <Properties>
@@ -511,6 +520,9 @@
           <Font name="Arial Black" size="12" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCarRefKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTelRef">
       <Properties>
@@ -518,6 +530,9 @@
           <Font name="Arial Black" size="12" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTelRefKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCorreoRef">
       <Properties>
@@ -525,6 +540,9 @@
           <Font name="Arial Black" size="12" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCorreoRefKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>

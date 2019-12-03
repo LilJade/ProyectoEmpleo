@@ -8,6 +8,7 @@ package Formularios;
 import Consultas.ConsultasAspirantes;
 import Entidades.Aspirantes;
 import Entidades.Empleo;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;

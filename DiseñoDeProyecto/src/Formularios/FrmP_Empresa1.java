@@ -8,6 +8,7 @@ import Entidades.Empresa;
 import Entidades.GiroComercial;
 import Entidades.cargar_Aspirantes;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.Iterator;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -248,8 +250,6 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jScrollPaneEmpresa.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
         jPanel4.setBackground(new java.awt.Color(102, 0, 102));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -310,6 +310,11 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         txtDireccion.setEditable(false);
         txtDireccion.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtDireccion.setForeground(new java.awt.Color(39, 86, 179));
+        txtDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDireccionKeyTyped(evt);
+            }
+        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GMail_icon-icons.com_76886.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -325,6 +330,11 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         txtCorreo.setEditable(false);
         txtCorreo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtCorreo.setForeground(new java.awt.Color(39, 86, 179));
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(26, 99, 66));
@@ -336,6 +346,11 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoActionPerformed(evt);
+            }
+        });
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
             }
         });
 
@@ -356,6 +371,11 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
                 txtDepartamentoActionPerformed(evt);
             }
         });
+        txtDepartamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDepartamentoKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(26, 99, 66));
@@ -368,11 +388,21 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         txtAcronimo.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         txtAcronimo.setForeground(new java.awt.Color(39, 86, 179));
         txtAcronimo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAcronimo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAcronimoKeyTyped(evt);
+            }
+        });
 
         txtNombre.setEditable(false);
         txtNombre.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(39, 86, 179));
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(26, 99, 66));
@@ -389,6 +419,16 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         txtContraseña.setEditable(false);
         txtContraseña.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtContraseña.setForeground(new java.awt.Color(39, 86, 179));
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraseñaActionPerformed(evt);
+            }
+        });
+        txtContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraseñaKeyTyped(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(26, 99, 66));
@@ -400,6 +440,11 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         txtDescripcion.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtDescripcion.setForeground(new java.awt.Color(39, 86, 179));
         txtDescripcion.setRows(5);
+        txtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescripcionKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtDescripcion);
 
         javax.swing.GroupLayout jp_generalidadesEmpresaLayout = new javax.swing.GroupLayout(jp_generalidadesEmpresa);
@@ -669,6 +714,18 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tabla_empleos);
 
         jPanel3.setBackground(new java.awt.Color(202, 219, 236));
+
+        txtEmpleo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmpleoKeyTyped(evt);
+            }
+        });
+
+        txtSalario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSalarioKeyTyped(evt);
+            }
+        });
 
         txtDescripciones.setColumns(20);
         txtDescripciones.setRows(5);
@@ -1077,7 +1134,7 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         empresaLayout.setVerticalGroup(
             empresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(empresaLayout.createSequentialGroup()
-                .addComponent(titulos, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPaneEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE))
         );
@@ -1126,7 +1183,7 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
 
     void cargarTabla() {
         String titulos[] = {"Id", "Empleo", "Descripcion", "Requisitos", "Salario", "Estado"};
-        DefaultTableModel df = new DefaultTableModel(null, titulos){
+        DefaultTableModel df = new DefaultTableModel(null, titulos) {
 
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -1158,7 +1215,7 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
 
     void cargarTablaaspirantes() {
         String titulos[] = {"id", "Nombre", "Apellidos", "Empleo", "Requisitos de Empleo", "estilo"};
-        DefaultTableModel df = new DefaultTableModel(null, titulos){
+        DefaultTableModel df = new DefaultTableModel(null, titulos) {
 
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -1242,6 +1299,7 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
     }//GEN-LAST:event_tabla_empleosMouseClicked
 
     private void guardarEmpleoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleoActionPerformed
+        validacion();
         Empleo e = new Empleo();
         e.setNombre(txtEmpleo.getText());
         e.setRequisitos(txtRequisitos.getText());
@@ -1267,7 +1325,9 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
 
         btnCancelar.setVisible(false);
     }//GEN-LAST:event_guardarEmpleoActionPerformed
+
     File file;
+
     private void btnCambiarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarFotoActionPerformed
         Empresa es = new Empresa();
         try {
@@ -1349,69 +1409,88 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGestionarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        txtNombre.setEditable(false);
-        txtAcronimo.setEditable(false);
-        txtDireccion.setEditable(false);
-        txtCorreo.setEditable(false);
-        txtTelefono.setEditable(false);
-        txtgirocomercial.setEditable(false);
-        txtDepartamento.setEditable(false);
-        txtContraseña.setEditable(false);
-        txtDescripcion.setEditable(false);
-        lblCompara.setText("");
+        if (!txtCorreo.getText().contains("@") || !txtCorreo.getText().contains(".com")) {
+            JOptionPane.showMessageDialog(null, "Formato de correo invalido. Asegurese de escribirlo bien.");
+        } else {
+            if (txtContraseña.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No puede dejar el campo CONTRASEÑA sin rellenar.");
+            } else {
+                if (txtContraseña.getText().length() < 8) {
+                    JOptionPane.showMessageDialog(null, "La contraseña no puede contener menos de 8 caracteres.");
+                }else{
+                    if (txtDepartamento.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No puede dejar el campo DEPARTAMENTO sin rellenar.");
+            
+                } else {
 
-        try {
+                    txtNombre.setEditable(false);
+                    txtAcronimo.setEditable(false);
+                    txtDireccion.setEditable(false);
+                    txtCorreo.setEditable(false);
+                    txtTelefono.setEditable(false);
+                    txtgirocomercial.setEditable(false);
+                    txtDepartamento.setEditable(false);
+                    txtContraseña.setEditable(false);
+                    txtDescripcion.setEditable(false);
+                    lblCompara.setText("");
+                    btnGestionar.setEnabled(true);
 
-            Empresa et = new Empresa();
-            et.setIdEmpresa(Integer.parseInt(lblidempresa.getText()));
-            et.setNombre(txtNombre.getText());
-            et.setAcronimo(txtAcronimo.getText());
-            et.setDescripcion(txtDescripcion.getText());
-            et.setDepartamento(txtDepartamento.getText());
-            et.setDireccion(txtDireccion.getText());
-            et.setTelefono(txtTelefono.getText());
-            et.setCorreo(txtCorreo.getText());
-            et.setContraseña(txtContraseña.getText());
-            int indice, otro;
-            String valor;
-            indice = jc_girocomercial.getSelectedIndex();
-            valor = array[indice];
-            otro = Integer.parseInt(valor);
-            et.setIdGiroComercial(otro);
+                    try {
 
-            AE.Actualizar_empresa(et);
+                        Empresa et = new Empresa();
+                        et.setIdEmpresa(Integer.parseInt(lblidempresa.getText()));
+                        et.setNombre(txtNombre.getText());
+                        et.setAcronimo(txtAcronimo.getText());
+                        et.setDescripcion(txtDescripcion.getText());
+                        et.setDepartamento(txtDepartamento.getText());
+                        et.setDireccion(txtDireccion.getText());
+                        et.setTelefono(txtTelefono.getText());
+                        et.setCorreo(txtCorreo.getText());
+                        et.setContraseña(txtContraseña.getText());
+                        int indice, otro;
+                        String valor;
+                        indice = jc_girocomercial.getSelectedIndex();
+                        valor = array[indice];
+                        otro = Integer.parseInt(valor);
+                        et.setIdGiroComercial(otro);
 
-            btnActualizar.setVisible(false);
-            txtgirocomercial.setVisible(true);
-            jc_girocomercial.setVisible(false);
-            btnCanc.setVisible(false);
+                        AE.Actualizar_empresa(et);
 
-        } catch (Exception e) {
+                        btnActualizar.setVisible(false);
+                        txtgirocomercial.setVisible(true);
+                        jc_girocomercial.setVisible(false);
+                        btnCanc.setVisible(false);
 
-        }
+                    } catch (Exception e) {
+
+                    }
 
     }//GEN-LAST:event_btnActualizarActionPerformed
-
+            }
+        }
+    }
+    }
     private void nuevoempleoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoempleoActionPerformed
         txtEmpleo.setEnabled(true);
         txtSalario.setEnabled(true);
         txtDescripciones.setEnabled(true);
         txtRequisitos.setEnabled(true);
-        txtEmpleo.setText(" ");
-        txtSalario.setText(" ");
-        txtDescripciones.setText(" ");
-        txtRequisitos.setText(" ");
+        txtEmpleo.setText("");
+        txtSalario.setText("");
+        txtDescripciones.setText("");
+        txtRequisitos.setText("");
         guardarEmpleo.setEnabled(true);
         btnCancelar.setVisible(true);
         cargarTabla();// TODO add your handling code here:
     }//GEN-LAST:event_nuevoempleoActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
+        validacion();
         Empleo e = new Empleo();
 //        e.setIdEmpresa(Integer.parseInt(txtIdEmpresa.getText()));
         e.setNombre(txtEmpleo.getText());
         e.setRequisitos(txtRequisitos.getText());
-        e.setDescripcion(txtDescripcion.getText());
+        e.setDescripcion(txtDescripciones.getText());
         e.setSalario(Double.parseDouble(txtSalario.getText()));
         e.setIdEmpleo(Integer.parseInt(this.idEmpleosgTable));
         AC.Actualizarempleo(e);
@@ -1434,6 +1513,7 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
         btnDesact.setVisible(false);
         btnCancelar.setVisible(false);
     }//GEN-LAST:event_btnactualizarActionPerformed
+
 
     private void lb_fotoEmpresas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_fotoEmpresas1MouseClicked
 
@@ -1546,6 +1626,178 @@ public class FrmP_Empresa1 extends javax.swing.JFrame {
 
         btnGestionar.setEnabled(true);
     }//GEN-LAST:event_btnCancActionPerformed
+
+    private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
+        if (txtCorreo.getText().length() >= 150) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != '.' && !Character.isDigit(evt.getKeyChar())
+                && evt.getKeyChar() != '@') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '.' && txtCorreo.getText().contains(".")) {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '@' && txtCorreo.getText().contains("@")) {
+            evt.consume();
+        }
+        if (txtCorreo.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtCorreoKeyTyped
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+        if (txtTelefono.getText().length() >= 8) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+        if (!Character.isDigit(evt.getKeyChar())
+                && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '-' && txtTelefono.getText().contains("-")) {
+            evt.consume();
+        }
+        if (txtTelefono.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtTelefonoKeyTyped
+
+    private void txtContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyTyped
+        if (txtContraseña.getText().length() >= 50) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }else{
+            if (txtContraseña.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtContraseñaKeyTyped
+    }
+    private void txtEmpleoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmpleoKeyTyped
+
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == ' ' && txtEmpleo.getText().contains(" "));
+
+ if (txtEmpleo.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtEmpleoKeyTyped
+    
+    private void txtSalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalarioKeyTyped
+        if (txtSalario.getText().length() >= 7) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+
+        }
+
+        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '.') {
+            evt.consume();
+        }
+        if (evt.getKeyChar() == '.' && txtSalario.getText().contains("."));
+
+
+    }//GEN-LAST:event_txtSalarioKeyTyped
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        if (txtNombre.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtAcronimoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAcronimoKeyTyped
+        if (txtAcronimo.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtAcronimoKeyTyped
+
+    private void txtDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyTyped
+        if (txtDireccion.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtDireccionKeyTyped
+
+    private void txtDepartamentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDepartamentoKeyTyped
+        if (txtDepartamento.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtDepartamentoKeyTyped
+
+    private void txtDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescripcionKeyTyped
+        if (txtDescripcion.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtDescripcionKeyTyped
+
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaActionPerformed
+    public void validacion() {
+        if (txtEmpleo.getText().equals("") || txtSalario.getText().equals("") || txtDescripciones.getText().equals("")
+                || txtRequisitos.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Asegurese de llenar todos los campos.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Actualizado con exito.");
+        }
+    }
 
     /**
      * @param args the command line arguments

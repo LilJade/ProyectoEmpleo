@@ -236,6 +236,11 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
         );
 
         txtHabilidad.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        txtHabilidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtHabilidadKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Escribe tu habilidad: ");
@@ -349,6 +354,18 @@ public class JDialog_Trabajador_Habilidades extends javax.swing.JDialog {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         frmP_Trabajador.Habilidades(Integer.parseInt(txtIdTrabajador.getText()));
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void txtHabilidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHabilidadKeyTyped
+        if (txtHabilidad.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtHabilidadKeyTyped
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

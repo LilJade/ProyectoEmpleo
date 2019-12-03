@@ -535,10 +535,19 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="txtInstitucion">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtInstitucionKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTitulo">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTituloKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCiudad">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCiudadKeyTyped"/>
+      </Events>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jDate_Chooser">
     </Component>

@@ -353,10 +353,25 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         );
 
         txtNombreEmpresa.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtNombreEmpresa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreEmpresaKeyTyped(evt);
+            }
+        });
 
         txtCargoOcup.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtCargoOcup.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCargoOcupKeyTyped(evt);
+            }
+        });
 
         txtDescripcion.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtDescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDescripcionKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Nombre de la empresa: ");
@@ -964,6 +979,42 @@ public class JDialog_P_Trabajador_Experiencia extends javax.swing.JDialog {
         jTableExperienciaTrabajador.clearSelection();
         Limpiame();
     }//GEN-LAST:event_btnOrdenarActionPerformed
+
+    private void txtNombreEmpresaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEmpresaKeyTyped
+         if (txtNombreEmpresa.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtNombreEmpresaKeyTyped
+
+    private void txtCargoOcupKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCargoOcupKeyTyped
+        if (txtCargoOcup.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtCargoOcupKeyTyped
+
+    private void txtDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescripcionKeyTyped
+        if (txtDescripcion.getText().length() <= 0) {
+            if (evt.getKeyChar() == ' ') {
+                evt.consume();
+            } else {
+                if (evt.getKeyChar() == ' ') {
+                    evt.consume();
+                }
+            }
+        }
+    }//GEN-LAST:event_txtDescripcionKeyTyped
 
     void Limpiame() {
         txtNombreEmpresa.setText("");
