@@ -11,7 +11,7 @@ public class conexionbd {
         try {
             String url = "jdbc:mysql://localhost:3306/proyectoempleo";
             String user = "root";
-            String contraseña = "liljade09";
+            String contraseña = "";
 
             con = DriverManager.getConnection(url, user, contraseña);
         } catch (Exception e) {
