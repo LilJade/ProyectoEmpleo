@@ -26,8 +26,11 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     public static List<JLabel> lblHabilidades = new ArrayList<>();
     static int estilo = frmVisitante.estilo;
 
+    int stile2 = frmVisitante.estilo;
+    
     public frmP_Trabajador() {
         initComponents();
+        int ITrab = frmVisitante.id;
         lblIdEmpresa.setVisible(false);
         this.lblId_P1.setText(String.valueOf(frmVisitante.id));
         this.jp_Perfil1.setVisible(false);
@@ -35,12 +38,16 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         this.jp_Perfil3.setVisible(false);
         lblId_P2.setVisible(false);
         lblStyle_P2.setVisible(false);
+        lblId_P3.setVisible(false);
+        lblStyle_P3.setVisible(false);
+        lblId_P1.setVisible(false);
+        lblStyle_P1.setVisible(false);
         Estilo();
-        Datos(frmVisitante.id);
-        Estudio(frmVisitante.id);
-        Experiencia(frmVisitante.id);
-        Referencia(frmVisitante.id);
-        Habilidades(frmVisitante.id);
+        Datos(ITrab);
+        Estudio(ITrab);
+        Experiencia(ITrab);
+        Referencia(ITrab);
+        Habilidades(ITrab);
 
         this.setBounds(0, 0, 1350, 900);
         this.setLocationRelativeTo(null);
@@ -55,8 +62,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         txtA_Descripcion_ip_p3.setLineWrap(true);
 
         CargarTable();
-        
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -514,30 +520,28 @@ public class frmP_Trabajador extends javax.swing.JFrame {
             .addGroup(jp_TitulosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
                 .addComponent(btnMiPerfil)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBusqueda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnNotificaciones)
-                .addGap(84, 84, 84)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
         jp_TitulosLayout.setVerticalGroup(
             jp_TitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_TitulosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jp_TitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                    .addComponent(btnMiPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNotificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_TitulosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addContainerGap()
+                .addGroup(jp_TitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jp_TitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                        .addComponent(btnMiPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNotificaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         jp_Perfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -4230,7 +4234,7 @@ public class frmP_Trabajador extends javax.swing.JFrame {
 
     public void CargarTable() {
         String titulos[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
-        DefaultTableModel df = new DefaultTableModel(null, titulos){
+        DefaultTableModel df = new DefaultTableModel(null, titulos) {
 
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -4391,6 +4395,8 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         int result = JOptionPane.showConfirmDialog(null, "Desea Cerrar Sesión? ", "Cerrando Sesión...", dialog);
         if (result == 0) {
             frmVisitante V = new frmVisitante();
+            V.id = 0;
+            V.idE = 0;
             V.setVisible(true);
             this.dispose();
         }
@@ -4410,8 +4416,8 @@ public class frmP_Trabajador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      ConsultasAspirantes cAsp = new ConsultasAspirantes();
-      cAsp.mostrarvista(lblIdEmpresa.getText());
+        ConsultasAspirantes cAsp = new ConsultasAspirantes();
+        cAsp.mostrarvista(lblIdEmpresa.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
@@ -4437,21 +4443,21 @@ public class frmP_Trabajador extends javax.swing.JFrame {
         }
 
         jtbl_BusquedaEmp_pTrab.setModel(df);
-        jtbl_BusquedaEmp_pTrab.getTableHeader().setReorderingAllowed(false); 
+        jtbl_BusquedaEmp_pTrab.getTableHeader().setReorderingAllowed(false);
     }
 
     public void Estilo() {
-        if (estilo == 1) {
+        if (stile2 == 1) {
             lblStyle_P1.setText("1");
             jp_Perfil1.setVisible(true);
             jp_Perfil2.setVisible(false);
             jp_Perfil3.setVisible(false);
-        } else if (estilo == 2) {
+        } else if (stile2 == 2) {
             lblStyle_P1.setText("2");
             jp_Perfil1.setVisible(false);
             jp_Perfil2.setVisible(true);
             jp_Perfil3.setVisible(false);
-        } else if (estilo == 3) {
+        } else if (stile2 == 3) {
             lblStyle_P1.setText("3");
             jp_Perfil1.setVisible(false);
             jp_Perfil2.setVisible(false);

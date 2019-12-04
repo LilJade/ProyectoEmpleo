@@ -78,6 +78,7 @@ public class ConsultasTrabajador {
 
         } catch (Exception ex) {
             System.out.println("Error de insercion: " + ex.getMessage());
+                        JOptionPane.showMessageDialog(null, "Este direccion de Correo Eletronico ya esta ocupada.");
         }
     }
 

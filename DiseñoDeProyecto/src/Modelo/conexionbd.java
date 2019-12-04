@@ -2,7 +2,6 @@ package Modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import javax.swing.JOptionPane;
 
 public class conexionbd {
 
@@ -12,10 +11,9 @@ public class conexionbd {
         try {
             String url = "jdbc:mysql://localhost:3306/proyectoempleo";
             String user = "root";
-            String contraseña = "";
+            String contraseña = "liljade09";
 
             con = DriverManager.getConnection(url, user, contraseña);
-           //System.out.println("conectado");
         } catch (Exception e) {
             System.out.println("Error en clase Conexion: " + e.getMessage()); 
         }

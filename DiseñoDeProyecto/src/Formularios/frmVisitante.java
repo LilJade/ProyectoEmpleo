@@ -586,7 +586,7 @@ public class frmVisitante extends javax.swing.JFrame {
 
     public void buscandoEmpresa(String nombre) {
         String title[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
-        DefaultTableModel df = new DefaultTableModel(null, title){
+        DefaultTableModel df = new DefaultTableModel(null, title) {
 
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -614,7 +614,7 @@ public class frmVisitante extends javax.swing.JFrame {
 
     public void CargarTable() {
         String titulos[] = {"Id", "Nombre De Empresa", "Acronimo", "Departamento"};
-        DefaultTableModel df = new DefaultTableModel(null, titulos){
+        DefaultTableModel df = new DefaultTableModel(null, titulos) {
 
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -642,46 +642,56 @@ public class frmVisitante extends javax.swing.JFrame {
 
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-
-         if (!txtUsuario.getText().contains("@") || !txtUsuario.getText().contains(".com")){
-            JOptionPane.showMessageDialog(null,"Formato de correo invalido. Asegurese de escribirlo bien.");
-         }else{
-             if (txtContraseña.getText().length() < 8) {
-            JOptionPane.showMessageDialog(null,"La contraseña no puede contener menos de 8 caracteres.");
-             }
-        if (rtnEmpresa.isSelected()) {
-            this.idE = 0;
-            eEmpresa.setCorreo(txtUsuario.getText());
-            eEmpresa.setContraseña(txtContraseña.getText());
-            this.idE = cEmpresa.ValidarEmpresa(eEmpresa);
-
-            if (idE != 0) {
-                holder = new PlaceHolder(txtUsuario, "CORREO ELECTRONICO");
-                holder = new PlaceHolder(txtContraseña, "CONTRASEÑA");
-                this.dispose();
-            }
-
-        } else if (rtnTrabajador.isSelected()) {
-            this.id = 0;
-            eTrabajador.setCorreo(txtUsuario.getText());
-            eTrabajador.setPass(txtContraseña.getText());
-            this.id = cTrabajador.ValidarTrabajador(eTrabajador);
-
-            if (id != 0) {
-                holder = new PlaceHolder(txtUsuario, "CORREO ELECTRONICO");
-                holder = new PlaceHolder(txtContraseña, "CONTRASEÑA");
-                this.estilo = cTrabajador.consultarEstiloTrabajador(this.id);
-                frmP_Trabajador frmP_Tr = new frmP_Trabajador();
-                frmP_Tr.setVisible(true);
-                this.dispose();
-            }
-
+        this.id = 0;
+        this.idE = 0;
+        if (!txtUsuario.getText().contains("@") || !txtUsuario.getText().contains(".com")) {
+            JOptionPane.showMessageDialog(null, "Formato de correo invalido. Asegurese de escribirlo bien.");
         } else {
-            JOptionPane.showMessageDialog(null, "Por favor elige entre ingresar como Empresa o como Trabajador.");
-        }
+
+            if (rtnEmpresa.isSelected()) {
+                if (txtContraseña.getText().length() < 8) {
+                    JOptionPane.showMessageDialog(null, "La contraseña no puede contener menos de 8 caracteres.");
+                } else {
+                    this.idE = 0;
+                    eEmpresa.setCorreo(txtUsuario.getText());
+                    eEmpresa.setContraseña(txtContraseña.getText());
+                    this.idE = cEmpresa.ValidarEmpresa(eEmpresa);
+
+                    if (idE != 0) {
+                        holder = new PlaceHolder(txtUsuario, "CORREO ELECTRONICO");
+                        holder = new PlaceHolder(txtContraseña, "CONTRASEÑA");
+                        this.dispose();
+                    }
+                }
+
+            } else if (rtnTrabajador.isSelected()) {
+                if (txtContraseña.getText().length() < 8) {
+                    JOptionPane.showMessageDialog(null, "La contraseña no puede contener menos de 8 caracteres.");
+                } else {
+                    this.id = 0;
+                    eTrabajador.setCorreo(txtUsuario.getText());
+                    eTrabajador.setPass(txtContraseña.getText());
+                    this.id = cTrabajador.ValidarTrabajador(eTrabajador);
+
+                    if (id != 0) {
+                        this.estilo = 0;
+                        holder = new PlaceHolder(txtUsuario, "CORREO ELECTRONICO");
+                        holder = new PlaceHolder(txtContraseña, "CONTRASEÑA");
+                        this.estilo = cTrabajador.consultarEstiloTrabajador(this.id);
+                        if(this.estilo != 0){
+                        frmP_Trabajador frmP_Tr = new frmP_Trabajador();
+                        frmP_Tr.setVisible(true);
+                        this.dispose();
+                        }
+                    }
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor elige entre ingresar como Empresa o como Trabajador.");
+            }
     }//GEN-LAST:event_btnEntrarActionPerformed
     }
-    
+
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         if (txtUsuario.getText().length() >= 150) {
             evt.consume();
@@ -689,7 +699,8 @@ public class frmVisitante extends javax.swing.JFrame {
             lblUsuario.setText("Limite permitido de caracteres 150");
         } else {
             lblUsuario.setText("");
-        } if (txtUsuario.getText().length() <= 0) {
+        }
+        if (txtUsuario.getText().length() <= 0) {
             if (evt.getKeyChar() == ' ') {
                 evt.consume();
             } else {
@@ -707,7 +718,8 @@ public class frmVisitante extends javax.swing.JFrame {
             lblContraseña.setText("Limite permitido de caracteres 50");
         } else {
             lblContraseña.setText("");
-        } if (txtContraseña.getText().length() <= 0) {
+        }
+        if (txtContraseña.getText().length() <= 0) {
             if (evt.getKeyChar() == ' ') {
                 evt.consume();
             } else {
@@ -786,7 +798,6 @@ public class frmVisitante extends javax.swing.JFrame {
             Empresa emp;
             emp = (Empresa) i.next();
             byte[] img = emp.getImPerfil();
-            System.err.println(img);
             if (img != null) {
                 ImageIcon image = new ImageIcon(img);
                 Image im = image.getImage();
@@ -817,7 +828,7 @@ public class frmVisitante extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
-         if (txtBuscar.getText().length() <= 0) {
+        if (txtBuscar.getText().length() <= 0) {
             if (evt.getKeyChar() == ' ') {
                 evt.consume();
             } else {
